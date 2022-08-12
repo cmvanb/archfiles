@@ -33,6 +33,9 @@ set -x VISUAL /usr/bin/nvim
 # Provide ssh-agent socket
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.sock
 
+# Save bash history
+set -x HISTFILE $XDG_DATA_HOME/bash/.bash_history
+
 # Save less history
 set -x LESSHISTFILE $XDG_DATA_HOME/less/.histfile
 
