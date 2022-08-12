@@ -1,0 +1,33 @@
+# mako notification daemon configuration
+
+sort=+time
+
+default-timeout=10000
+
+background-color=#0d0d0dff
+
+text-color=#ebebebff
+
+font=MesloLGS NF 11
+
+width=500
+height=250
+
+margin=16,14
+
+# NOTE: mako's padding/text positioning is not working properly.
+# https://github.com/emersion/mako/issues/329
+
+# top,right,bottom,left
+padding=0,0,24,16
+
+border-size=2
+border-color=#57afffff
+border-radius=4
+
+anchor=top-left
+
+text-alignment=left
+
+icon-location=left
+
