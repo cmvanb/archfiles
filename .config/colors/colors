@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# Indexed colors. Maximum 256
+i0='#0d0d0d'
+i1='#b30f1f'
+i2='#0aa060'
+i3='#ffbf00'
+i4='#0d55ea'
+i5='#c43b80'
+i6='#01b7e4'
+i7='#dedee3'
+i8='#5d5d6f'
+i9='#fd4342'
+i10='#54de87'
+i11='#ffea4d'
+i12='#3e8ffe'
+i13='#e676b6'
+i14='#24e0ff'
+i15='#fcfcfd'
+
+# ANSI named shortcuts
+ansi_black=$i0
+ansi_red=$i1
+ansi_green=$i2
+ansi_yellow=$i3
+ansi_blue=$i4
+ansi_magenta=$i5
+ansi_cyan=$i6
+ansi_white=$i7
+ansi_brblack=$i8
+ansi_brred=$i9
+ansi_brgreen=$i10
+ansi_bryellow=$i11
+ansi_brblue=$i12
+ansi_brmagenta=$i13
+ansi_brcyan=$i14
+ansi_brwhite=$i15
+
+# Black
+black=$ansi_black
+
+# White
+white=$ansi_white
+l1_white=$ansi_brwhite
+
+# Red
+d2_red='#37040a'
+d1_red='#770914'
+red=$ansi_red
+l1_red=$ansi_brred
+
+# Green
+d2_green='#03301e'
+d1_green='#066039'
+green=$ansi_green
+l1_green=$ansi_brgreen
+
+# Orange
+# TODO: Add orange
+
+# Yellow
+d2_yellow='#534300'
+d1_yellow='#b38600'
+yellow=$ansi_yellow
+l1_yellow=$ansi_bryellow
+
+# Blue
+d2_blue='#021231'
+d1_blue='#073592'
+blue=$ansi_blue
+l1_blue=$ansi_brblue
+
+# Purple
+# TODO: Add purple
+
+# Magenta
+d2_magenta='#331127'
+d1_magenta='#76234d'
+magenta=$ansi_magenta
+l1_magenta=$ansi_brmagenta
+
+# Cyan
+d2_cyan='#004760'
+d1_cyan='#018cb0'
+cyan=$ansi_cyan
+l1_cyan=$ansi_brcyan
+
+# Grayscale
+d4_gray=$ansi_black
+d3_gray='#1a1a1f'
+d2_gray='#2e2e38'
+d1_gray='#464653'
+gray=$ansi_brblack
+l1_gray='#74748b'
+l2_gray='#9e9eae'
+l3_gray='#babac5'
+l4_gray=$ansi_white
+
+# Special
+background=$d2_blue
+debug='#ff00ff'
+
