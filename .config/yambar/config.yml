@@ -1,0 +1,65 @@
+bar:
+  height: 26
+  location: top
+
+  margin: 0
+
+  foreground: dadadeff
+  background: 0d0d0dff
+
+  font: MesloLGS NF:pixelsize=12:style=bold
+
+  left:
+    - river:
+        anchors:
+          - base: &river_base
+              left-margin: 10
+              right-margin: 10
+              tag: id
+              default: {string: {text: "{id}"}}
+              values:
+                0: {string: {text: "0"}}
+
+        content:
+          map:
+            on-click:
+              left: sh -c "riverctl set-focused-tags $((1 << ({id} - 1)))"
+            tag: state
+            values:
+              urgent:
+                map:
+                  <<: *river_base
+                  deco: {background: {color: b30f1fff}}
+              focused:
+                map:
+                  <<: *river_base
+                  deco: {background: {color: 0d55eaff}}
+              unfocused:
+                map:
+                  <<: *river_base
+                  deco: {background: {color: 5d5d6fff}}
+              invisible:
+                map:
+                  tag: occupied
+                  values:
+                    # the tag is not visible and not occupied, so hide it
+                    false:
+                      empty: {}
+                    # the tag is not visible but it is occupied
+                    true:
+                      map:
+                        <<: *river_base
+
+  center:
+    - river:
+        title: {string: {text: "{title}"}}
+        content:
+          empty: {}
+
+  right:
+    - clock:
+        date-format: "%Y-%m-%d"
+        time-format: "%H:%M:%S"
+        content:
+          - string: {text: "{date}", right-margin: 10}
+          - string: {text: "{time}"}
