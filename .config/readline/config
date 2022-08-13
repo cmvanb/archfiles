@@ -1,0 +1,9 @@
+#-------------------------------------------------------------------------------
+# .inputrc
+#
+# GNU readline user configuration
+#-------------------------------------------------------------------------------
+
+set show-all-if-ambiguous on
+set completion-ignore-case on
+
