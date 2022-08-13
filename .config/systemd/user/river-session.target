@@ -1,0 +1,6 @@
+[Unit]
+Description=River compositor session
+Documentation=man:systemd.special(7)
+Wants=default.target
+After=default.target
+BindsTo=graphical-session.target
