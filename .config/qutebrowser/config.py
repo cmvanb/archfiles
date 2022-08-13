@@ -61,13 +61,13 @@ c.fonts.default_size = '11pt'
 # c.fonts.keyhint = 'default_size default_family'
 
 # Font used for error messages.
-# c.fonts.messages.error = 'default_size default_family'
+c.fonts.messages.error = 'bold 9pt default_family'
 
 # Font used for info messages.
-# c.fonts.messages.info = 'default_size default_family'
+c.fonts.messages.info = '9pt default_family'
 
 # Font used for warning messages.
-# c.fonts.messages.warning = 'default_size default_family'
+c.fonts.messages.warning = 'bold 9pt default_family'
 
 # Font used for prompts.
 # c.fonts.prompts = 'default_size sans-serif'
@@ -244,6 +244,8 @@ c.colors.contextmenu.selected.fg = colors.named('white')
 ### Hints
 # ---
 
+# TODO: Configure hint colors
+
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
@@ -273,39 +275,39 @@ c.colors.contextmenu.selected.fg = colors.named('white')
 
 # Background color of an error message.
 # Type: QssColor
-# c.colors.messages.error.bg = 'red'
+c.colors.messages.error.bg = colors.named('red')
 
 # Border color of an error message.
 # Type: QssColor
-# c.colors.messages.error.border = '#bb0000'
+c.colors.messages.error.border = colors.named('red')
 
 # Foreground color of an error message.
 # Type: QssColor
-# c.colors.messages.error.fg = 'white'
+c.colors.messages.error.fg = colors.named('l1_yellow')
 
 # Background color of an info message.
 # Type: QssColor
-# c.colors.messages.info.bg = 'black'
+c.colors.messages.info.bg = colors.named('d2_blue')
 
 # Border color of an info message.
 # Type: QssColor
-# c.colors.messages.info.border = '#333333'
+c.colors.messages.info.border = colors.named('d2_blue')
 
 # Foreground color of an info message.
 # Type: QssColor
-# c.colors.messages.info.fg = 'white'
+c.colors.messages.info.fg = colors.named('white')
 
 # Background color of a warning message.
 # Type: QssColor
-# c.colors.messages.warning.bg = 'darkorange'
+c.colors.messages.warning.bg = colors.named('yellow')
 
 # Border color of a warning message.
 # Type: QssColor
-# c.colors.messages.warning.border = '#d47300'
+c.colors.messages.warning.border = colors.named('yellow')
 
 # Foreground color of a warning message.
 # Type: QssColor
-# c.colors.messages.warning.fg = 'black'
+c.colors.messages.warning.fg = colors.named('black')
 
 ### Prompts
 # ---
@@ -384,22 +386,21 @@ c.colors.statusbar.passthrough.bg = colors.named('black')
 # Type: QssColor
 c.colors.statusbar.passthrough.fg = colors.named('yellow')
 
-# TODO: Colorize private browsing mode
 # Background color of the statusbar in private browsing mode.
 # Type: QssColor
-# c.colors.statusbar.private.bg = '#666666'
+c.colors.statusbar.private.bg = colors.named('magenta')
 
 # Foreground color of the statusbar in private browsing mode.
 # Type: QssColor
-# c.colors.statusbar.private.fg = 'white'
+c.colors.statusbar.private.fg = colors.named('white')
 
 # Background color of the statusbar in private browsing + command mode.
 # Type: QssColor
-# c.colors.statusbar.command.private.bg = 'darkslategray'
+c.colors.statusbar.command.private.bg = colors.named('black')
 
 # Foreground color of the statusbar in private browsing + command mode.
 # Type: QssColor
-# c.colors.statusbar.command.private.fg = 'white'
+c.colors.statusbar.command.private.fg = colors.named('l1_blue')
 
 # Background color of the progress bar.
 # Type: QssColor
@@ -438,11 +439,29 @@ c.colors.statusbar.url.warn.fg = colors.named('l1_yellow')
 # Type: QssColor
 c.colors.tabs.bar.bg = colors.named('black')
 
+# Background color of unselected odd tabs.
+c.colors.tabs.odd.bg = colors.named('black')
+
+# Foreground color of unselected odd tabs.
+c.colors.tabs.odd.fg = colors.named('white')
+
 # Background color of unselected even tabs.
 c.colors.tabs.even.bg = colors.named('black')
 
 # Foreground color of unselected even tabs.
 c.colors.tabs.even.fg = colors.named('white')
+
+# Background color of selected odd tabs.
+c.colors.tabs.selected.odd.bg = colors.named('blue')
+
+# Foreground color of selected odd tabs.
+c.colors.tabs.selected.odd.fg = colors.named('l1_white')
+
+# Background color of selected even tabs.
+c.colors.tabs.selected.even.bg = colors.named('blue')
+
+# Foreground color of selected even tabs.
+c.colors.tabs.selected.even.fg = colors.named('l1_white')
 
 # Color for the tab indicator on errors.
 c.colors.tabs.indicator.error = colors.named('red')
@@ -461,12 +480,6 @@ c.colors.tabs.indicator.stop = colors.named('black')
 #   - hsl: Interpolate in the HSL color system.
 #   - none: Don't show a gradient.
 c.colors.tabs.indicator.system = 'rgb'
-
-# Background color of unselected odd tabs.
-c.colors.tabs.odd.bg = colors.named('black')
-
-# Foreground color of unselected odd tabs.
-c.colors.tabs.odd.fg = colors.named('white')
 
 # TODO: Colorize pinned tabs
 # Background color of pinned unselected even tabs.
@@ -493,18 +506,6 @@ c.colors.tabs.odd.fg = colors.named('white')
 # Foreground color of pinned selected odd tabs.
 # c.colors.tabs.pinned.selected.odd.fg = 'white'
 
-# Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = colors.named('blue')
-
-# Foreground color of selected even tabs.
-c.colors.tabs.selected.even.fg = colors.named('l1_white')
-
-# Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = colors.named('blue')
-
-# Foreground color of selected odd tabs.
-c.colors.tabs.selected.odd.fg = colors.named('l1_white')
-
 ### Websites
 # ---
 
@@ -522,7 +523,7 @@ c.colors.tabs.selected.odd.fg = colors.named('l1_white')
 #   - auto: Use the system-wide color scheme setting.
 #   - light: Force a light theme.
 #   - dark: Force a dark theme.
-# c.colors.webpage.preferred_color_scheme = 'auto'
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 ### Dark mode
 # ---
@@ -602,80 +603,8 @@ c.colors.webpage.darkmode.enabled = True
 # Type: Int
 # c.colors.webpage.darkmode.threshold.text = 256
 
-
-
-# EOF
-# ------------------------------------------------------------------------------
-
-
-
-# Reference
+## Completion view settings
 # ---
-
-## Aliases for commands. The keys of the given dictionary are the
-## aliases, while the values are the commands they map to.
-## Type: Dict
-# c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
-
-## Time interval (in milliseconds) between auto-saves of
-## config/cookies/etc.
-## Type: Int
-# c.auto_save.interval = 15000
-
-## Always restore open sites when qutebrowser is reopened. Without this
-## option set, `:wq` (`:quit --save`) needs to be used to save open tabs
-## (and restore them), while quitting qutebrowser in any other way will
-## not save/restore the session. By default, this will save to the
-## session which was last loaded. This behavior can be customized via the
-## `session.default_name` setting.
-## Type: Bool
-# c.auto_save.session = False
-
-## Backend to use to display websites. qutebrowser supports two different
-## web rendering engines / backends, QtWebEngine and QtWebKit (not
-## recommended). QtWebEngine is Qt's official successor to QtWebKit, and
-## both the default/recommended backend. It's based on a stripped-down
-## Chromium and regularly updated with security fixes and new features by
-## the Qt project: https://wiki.qt.io/QtWebEngine QtWebKit was
-## qutebrowser's original backend when the project was started. However,
-## support for QtWebKit was discontinued by the Qt project with Qt 5.6 in
-## 2016. The development of QtWebKit was picked up in an official fork:
-## https://github.com/qtwebkit/qtwebkit - however, the project seems to
-## have stalled again. The latest release (5.212.0 Alpha 4) from March
-## 2020 is based on a WebKit version from 2016, with many known security
-## vulnerabilities. Additionally, there is no process isolation and
-## sandboxing. Due to all those issues, while support for QtWebKit is
-## still available in qutebrowser for now, using it is strongly
-## discouraged.
-## Type: String
-## Valid values:
-##   - webengine: Use QtWebEngine (based on Chromium - recommended).
-##   - webkit: Use QtWebKit (based on WebKit, similar to Safari - many known security issues!).
-# c.backend = 'webengine'
-
-## Map keys to other keys, so that they are equivalent in all modes. When
-## the key used as dictionary-key is pressed, the binding for the key
-## used as dictionary-value is invoked instead. This is useful for global
-## remappings of keys, for example to map <Ctrl-[> to <Escape>. NOTE:
-## This should only be used if two keys should always be equivalent, i.e.
-## for things like <Enter> (keypad) and <Return> (non-keypad). For normal
-## command bindings, qutebrowser works differently to vim: You always
-## bind keys to commands, usually via `:bind` or `config.bind()`. Instead
-## of using this setting, consider finding the command a key is bound to
-## (e.g. via `:bind gg`) and then binding the same command to the desired
-## key. Note that when a key is bound (via `bindings.default` or
-## `bindings.commands`), the mapping is ignored.
-## Type: Dict
-# c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>', '<Ctrl-I>': '<Tab>', '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
-
-## When to show a changelog after qutebrowser was upgraded.
-## Type: String
-## Valid values:
-##   - major: Show changelog for major upgrades (e.g. v2.0.0 -> v3.0.0).
-##   - minor: Show changelog for major and minor upgrades (e.g. v2.0.0 -> v2.1.0).
-##   - patch: Show changelog for major, minor and patch upgrades (e.g. v2.0.0 -> v2.0.1).
-##   - never: Never show changelog after upgrades.
-# c.changelog_after_upgrade = 'minor'
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -762,18 +691,12 @@ c.completion.scrollbar.width = 10
 ## Type: Int
 # c.completion.web_history.max_items = -1
 
-## Require a confirmation before quitting the application.
-## Type: ConfirmQuit
-## Valid values:
-##   - always: Always show a confirmation.
-##   - multiple-tabs: Show a confirmation if multiple tabs are opened.
-##   - downloads: Show a confirmation if downloads are running
-##   - never: Never show a confirmation.
-# c.confirm_quit = ['never']
+## Content settings
+# ---
 
 ## Automatically start playing `<video>` elements.
 ## Type: Bool
-# c.content.autoplay = True
+c.content.autoplay = False
 
 ## List of URLs to ABP-style adblocking rulesets.  Only used when Brave's
 ## ABP-style adblocker is used (see `content.blocking.method`).  You can
@@ -788,7 +711,7 @@ c.completion.scrollbar.width = 10
 
 ## Enable the ad/host blocker
 ## Type: Bool
-# c.content.blocking.enabled = True
+c.content.blocking.enabled = True
 
 ## Block subdomains of blocked hosts. Note: If only a single subdomain is
 ## blocked but should be allowed, consider using
@@ -819,6 +742,7 @@ c.completion.scrollbar.width = 10
 ##   - adblock: Use Brave's ABP-style adblocker
 ##   - hosts: Use hosts blocking
 ##   - both: Use both hosts blocking and Brave's ABP-style adblocker
+# TODO: Setup ad blocking
 # c.content.blocking.method = 'auto'
 
 ## A list of patterns that should always be loaded, despite being blocked
@@ -925,7 +849,7 @@ c.completion.scrollbar.width = 10
 ##   - true
 ##   - false
 ##   - ask
-# c.content.geolocation = 'ask'
+# c.content.geolocation = 'false'
 
 ## Value to send in the `Accept-Language` header. Note that the value
 ## read from JavaScript is always the global value.
@@ -940,7 +864,7 @@ c.completion.scrollbar.width = 10
 ## qutebrowser asks websites to not track your identity. If set to null,
 ## the DNT header is not sent at all.
 ## Type: Bool
-# c.content.headers.do_not_track = True
+c.content.headers.do_not_track = True
 
 ## When to send the Referer header. The Referer header tells websites
 ## from which website you were coming from when visiting them. Note that
@@ -1078,7 +1002,7 @@ c.completion.scrollbar.width = 10
 ##   - true
 ##   - false
 ##   - ask
-# c.content.notifications.enabled = 'ask'
+c.content.notifications.enabled = False
 
 ## What notification presenter to use for web notifications. Note that
 ## not all implementations support all features of notifications: - With
@@ -1235,6 +1159,9 @@ c.completion.scrollbar.width = 10
 ## Type: Bool
 # c.content.xss_auditing = False
 
+## Downloads settings
+# ---
+
 ## Directory to save downloads to. If unset, a sensible OS-specific
 ## default is used.
 ## Type: Directory
@@ -1282,58 +1209,8 @@ c.completion.scrollbar.width = 10
 ## Type: Int
 # c.downloads.remove_finished = -1
 
-## Editor (and arguments) to use for the `edit-*` commands. The following
-## placeholders are defined:  * `{file}`: Filename of the file to be
-## edited. * `{line}`: Line in which the caret is found in the text. *
-## `{column}`: Column in which the caret is found in the text. *
-## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
-## Same as `{column}`, but starting from index 0.
-## Type: ShellCommand
-# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
-
-## Encoding to use for the editor.
-## Type: Encoding
-# c.editor.encoding = 'utf-8'
-
-## Delete the temporary file upon closing the editor.
-## Type: Bool
-# c.editor.remove_file = True
-
-## Command (and arguments) to use for selecting a single folder in forms.
-## The command should write the selected folder path to the specified
-## file or stdout. The following placeholders are defined: * `{}`:
-## Filename of the file to be written to. If not contained in any
-## argument, the   standard output of the command is read instead.
-## Type: ShellCommand
-# c.fileselect.folder.command = ['xterm', '-e', 'ranger', '--choosedir={}']
-
-## Handler for selecting file(s) in forms. If `external`, then the
-## commands specified by `fileselect.single_file.command` and
-## `fileselect.multiple_files.command` are used to select one or multiple
-## files respectively.
-## Type: String
-## Valid values:
-##   - default: Use the default file selector.
-##   - external: Use an external command.
-# c.fileselect.handler = 'default'
-
-## Command (and arguments) to use for selecting multiple files in forms.
-## The command should write the selected file paths to the specified file
-## or to stdout, separated by newlines. The following placeholders are
-## defined: * `{}`: Filename of the file to be written to. If not
-## contained in any argument, the   standard output of the command is
-## read instead.
-## Type: ShellCommand
-# c.fileselect.multiple_files.command = ['xterm', '-e', 'ranger', '--choosefiles={}']
-
-## Command (and arguments) to use for selecting a single file in forms.
-## The command should write the selected file path to the specified file
-## or stdout. The following placeholders are defined: * `{}`: Filename of
-## the file to be written to. If not contained in any argument, the
-## standard output of the command is read instead.
-## Type: ShellCommand
-# c.fileselect.single_file.command = ['xterm', '-e', 'ranger', '--choosefile={}']
-
+## Hints settings
+# ---
 
 ## When a hint can be automatically followed without pressing Enter.
 ## Type: String
@@ -1418,12 +1295,8 @@ c.completion.scrollbar.width = 10
 ## Type: Bool
 # c.hints.uppercase = False
 
-## Maximum time (in minutes) between two history items for them to be
-## considered being from the same browsing session. Items with less time
-## between them are grouped when being displayed in `:history`. Use -1 to
-## disable separation.
-## Type: Int
-# c.history_gap_interval = 30
+## Input settings
+# ---
 
 ## Allow Escape to quit the crash reporter.
 ## Type: Bool
@@ -1508,6 +1381,396 @@ c.completion.scrollbar.width = 10
 ## towards the right and which element they probably want.
 ## Type: Bool
 # c.input.spatial_navigation = False
+
+## Statusbar settings
+# ---
+
+## Padding (in pixels) for the statusbar.
+## Type: Padding
+c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
+
+## Position of the status bar.
+## Type: VerticalPosition
+## Valid values:
+##   - top
+##   - bottom
+c.statusbar.position = 'bottom'
+
+## When to show the statusbar.
+## Type: String
+## Valid values:
+##   - always: Always show the statusbar.
+##   - never: Always hide the statusbar.
+##   - in-mode: Show the statusbar when in modes other than normal mode.
+c.statusbar.show = 'always'
+
+## List of widgets displayed in the statusbar.
+## Type: List of StatusbarWidget
+## Valid values:
+##   - url: Current page URL.
+##   - scroll: Percentage of the current page position like `10%`.
+##   - scroll_raw: Raw percentage of the current page position like `10`.
+##   - history: Display an arrow when possible to go back/forward in history.
+##   - tabs: Current active tab, e.g. `2`.
+##   - keypress: Display pressed keys when composing a vi command.
+##   - progress: Progress bar for the current page loading.
+##   - text:foo: Display the static text after the colon, `foo` in the example.
+# c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
+
+## Tabs settings
+# ---
+
+## Open new tabs (middleclick/ctrl+click) in the background.
+## Type: Bool
+# c.tabs.background = True
+
+## Mouse button with which to close tabs.
+## Type: String
+## Valid values:
+##   - right: Close tabs on right-click.
+##   - middle: Close tabs on middle-click.
+##   - none: Don't close tabs using the mouse.
+# c.tabs.close_mouse_button = 'middle'
+
+## How to behave when the close mouse button is pressed on the tab bar.
+## Type: String
+## Valid values:
+##   - new-tab: Open a new tab.
+##   - close-current: Close the current tab.
+##   - close-last: Close the last tab.
+##   - ignore: Don't do anything.
+# c.tabs.close_mouse_button_on_bar = 'new-tab'
+
+## Scaling factor for favicons in the tab bar. The tab size is unchanged,
+## so big favicons also require extra `tabs.padding`.
+## Type: Float
+# c.tabs.favicons.scale = 1.0
+
+## When to show favicons in the tab bar. When switching this from never
+## to always/pinned, note that favicons might not be loaded yet, thus
+## tabs might require a reload to display them.
+## Type: String
+## Valid values:
+##   - always: Always show favicons.
+##   - never: Always hide favicons.
+##   - pinned: Show favicons only on pinned tabs.
+c.tabs.favicons.show = 'never'
+
+## Maximum stack size to remember for tab switches (-1 for no maximum).
+## Type: Int
+# c.tabs.focus_stack_size = 10
+
+## Padding (in pixels) for tab indicators.
+## Type: Padding
+# c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 6}
+
+## Width (in pixels) of the progress indicator (0 to disable).
+## Type: Int
+c.tabs.indicator.width = 0
+
+## How to behave when the last tab is closed. If the
+## `tabs.tabs_are_windows` setting is set, this is ignored and the
+## behavior is always identical to the `close` value.
+## Type: String
+## Valid values:
+##   - ignore: Don't do anything.
+##   - blank: Load a blank page.
+##   - startpage: Load the start page.
+##   - default-page: Load the default page.
+##   - close: Close the window.
+# c.tabs.last_close = 'ignore'
+
+## Maximum width (in pixels) of tabs (-1 for no maximum). This setting
+## only applies when tabs are horizontal. This setting does not apply to
+## pinned tabs, unless `tabs.pinned.shrink` is False. This setting may
+## not apply properly if max_width is smaller than the minimum size of
+## tab contents, or smaller than tabs.min_width.
+## Type: Int
+c.tabs.max_width = 320
+
+## Minimum width (in pixels) of tabs (-1 for the default minimum size
+## behavior). This setting only applies when tabs are horizontal. This
+## setting does not apply to pinned tabs, unless `tabs.pinned.shrink` is
+## False.
+## Type: Int
+# c.tabs.min_width = -1
+
+## When switching tabs, what input mode is applied.
+## Type: String
+## Valid values:
+##   - persist: Retain the current mode.
+##   - restore: Restore previously saved mode.
+##   - normal: Always revert to normal mode.
+# c.tabs.mode_on_change = 'normal'
+
+## Switch between tabs using the mouse wheel.
+## Type: Bool
+# c.tabs.mousewheel_switching = True
+
+## Position of new tabs opened from another tab. See
+## `tabs.new_position.stacking` for controlling stacking behavior.
+## Type: NewTabPosition
+## Valid values:
+##   - prev: Before the current tab.
+##   - next: After the current tab.
+##   - first: At the beginning.
+##   - last: At the end.
+# c.tabs.new_position.related = 'next'
+
+## Stack related tabs on top of each other when opened consecutively.
+## Only applies for `next` and `prev` values of
+## `tabs.new_position.related` and `tabs.new_position.unrelated`.
+## Type: Bool
+# c.tabs.new_position.stacking = True
+
+## Position of new tabs which are not opened from another tab. See
+## `tabs.new_position.stacking` for controlling stacking behavior.
+## Type: NewTabPosition
+## Valid values:
+##   - prev: Before the current tab.
+##   - next: After the current tab.
+##   - first: At the beginning.
+##   - last: At the end.
+# c.tabs.new_position.unrelated = 'last'
+
+## Padding (in pixels) around text for tabs.
+## Type: Padding
+c.tabs.padding = {'top': 5, 'bottom': 3, 'left': 4, 'right': 0}
+
+## Force pinned tabs to stay at fixed URL.
+## Type: Bool
+# c.tabs.pinned.frozen = True
+
+## Shrink pinned tabs down to their contents.
+## Type: Bool
+# c.tabs.pinned.shrink = True
+
+## Position of the tab bar.
+## Type: Position
+## Valid values:
+##   - top
+##   - bottom
+##   - left
+##   - right
+c.tabs.position = 'top'
+
+## Which tab to select when the focused tab is removed.
+## Type: SelectOnRemove
+## Valid values:
+##   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
+##   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
+##   - last-used: Select the previously selected tab.
+# c.tabs.select_on_remove = 'next'
+
+## When to show the tab bar.
+## Type: String
+## Valid values:
+##   - always: Always show the tab bar.
+##   - never: Always hide the tab bar.
+##   - multiple: Hide the tab bar if only one tab is open.
+##   - switching: Show the tab bar when switching tabs.
+# c.tabs.show = 'always'
+
+## Duration (in milliseconds) to show the tab bar before hiding it when
+## tabs.show is set to 'switching'.
+## Type: Int
+# c.tabs.show_switching_delay = 800
+
+## Open a new window for every tab.
+## Type: Bool
+# c.tabs.tabs_are_windows = False
+
+## Alignment of the text inside of tabs.
+## Type: TextAlignment
+## Valid values:
+##   - left
+##   - right
+##   - center
+c.tabs.title.alignment = 'left'
+
+## Format to use for the tab title. The following placeholders are
+## defined:  * `{perc}`: Percentage as a string like `[10%]`. *
+## `{perc_raw}`: Raw percentage, e.g. `10`. * `{current_title}`: Title of
+## the current web page. * `{title_sep}`: The string `" - "` if a title
+## is set, empty otherwise. * `{index}`: Index of this tab. *
+## `{aligned_index}`: Index of this tab padded with spaces to have the
+## same   width. * `{relative_index}`: Index of this tab relative to the
+## current tab. * `{id}`: Internal tab ID of this tab. * `{scroll_pos}`:
+## Page scroll position. * `{host}`: Host of the current web page. *
+## `{backend}`: Either `webkit` or `webengine` * `{private}`: Indicates
+## when private mode is enabled. * `{current_url}`: URL of the current
+## web page. * `{protocol}`: Protocol (http/https/...) of the current web
+## page. * `{audio}`: Indicator for audio/mute status.
+## Type: FormatString
+c.tabs.title.format = '{audio}[{index}] {current_title}'
+
+## Format to use for the tab title for pinned tabs. The same placeholders
+## like for `tabs.title.format` are defined.
+## Type: FormatString
+# c.tabs.title.format_pinned = '{index}'
+
+## Show tooltips on tabs. Note this setting only affects windows opened
+## after it has been set.
+## Type: Bool
+c.tabs.tooltips = False
+
+## Number of closed tabs (per window) and closed windows to remember for
+## :undo (-1 for no maximum).
+## Type: Int
+# c.tabs.undo_stack_size = 100
+
+## Width (in pixels or as percentage of the window) of the tab bar if
+## it's vertical.
+## Type: PercOrInt
+# c.tabs.width = '15%'
+
+## Wrap when changing tabs.
+## Type: Bool
+# c.tabs.wrap = True
+
+
+
+# EOF
+# ------------------------------------------------------------------------------
+
+
+
+# Reference
+# ---
+
+## Aliases for commands. The keys of the given dictionary are the
+## aliases, while the values are the commands they map to.
+## Type: Dict
+# c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
+
+## Time interval (in milliseconds) between auto-saves of
+## config/cookies/etc.
+## Type: Int
+# c.auto_save.interval = 15000
+
+## Always restore open sites when qutebrowser is reopened. Without this
+## option set, `:wq` (`:quit --save`) needs to be used to save open tabs
+## (and restore them), while quitting qutebrowser in any other way will
+## not save/restore the session. By default, this will save to the
+## session which was last loaded. This behavior can be customized via the
+## `session.default_name` setting.
+## Type: Bool
+# c.auto_save.session = False
+
+## Backend to use to display websites. qutebrowser supports two different
+## web rendering engines / backends, QtWebEngine and QtWebKit (not
+## recommended). QtWebEngine is Qt's official successor to QtWebKit, and
+## both the default/recommended backend. It's based on a stripped-down
+## Chromium and regularly updated with security fixes and new features by
+## the Qt project: https://wiki.qt.io/QtWebEngine QtWebKit was
+## qutebrowser's original backend when the project was started. However,
+## support for QtWebKit was discontinued by the Qt project with Qt 5.6 in
+## 2016. The development of QtWebKit was picked up in an official fork:
+## https://github.com/qtwebkit/qtwebkit - however, the project seems to
+## have stalled again. The latest release (5.212.0 Alpha 4) from March
+## 2020 is based on a WebKit version from 2016, with many known security
+## vulnerabilities. Additionally, there is no process isolation and
+## sandboxing. Due to all those issues, while support for QtWebKit is
+## still available in qutebrowser for now, using it is strongly
+## discouraged.
+## Type: String
+## Valid values:
+##   - webengine: Use QtWebEngine (based on Chromium - recommended).
+##   - webkit: Use QtWebKit (based on WebKit, similar to Safari - many known security issues!).
+# c.backend = 'webengine'
+
+## Map keys to other keys, so that they are equivalent in all modes. When
+## the key used as dictionary-key is pressed, the binding for the key
+## used as dictionary-value is invoked instead. This is useful for global
+## remappings of keys, for example to map <Ctrl-[> to <Escape>. NOTE:
+## This should only be used if two keys should always be equivalent, i.e.
+## for things like <Enter> (keypad) and <Return> (non-keypad). For normal
+## command bindings, qutebrowser works differently to vim: You always
+## bind keys to commands, usually via `:bind` or `config.bind()`. Instead
+## of using this setting, consider finding the command a key is bound to
+## (e.g. via `:bind gg`) and then binding the same command to the desired
+## key. Note that when a key is bound (via `bindings.default` or
+## `bindings.commands`), the mapping is ignored.
+## Type: Dict
+# c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>', '<Ctrl-I>': '<Tab>', '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
+
+## When to show a changelog after qutebrowser was upgraded.
+## Type: String
+## Valid values:
+##   - major: Show changelog for major upgrades (e.g. v2.0.0 -> v3.0.0).
+##   - minor: Show changelog for major and minor upgrades (e.g. v2.0.0 -> v2.1.0).
+##   - patch: Show changelog for major, minor and patch upgrades (e.g. v2.0.0 -> v2.0.1).
+##   - never: Never show changelog after upgrades.
+# c.changelog_after_upgrade = 'minor'
+
+## Require a confirmation before quitting the application.
+## Type: ConfirmQuit
+## Valid values:
+##   - always: Always show a confirmation.
+##   - multiple-tabs: Show a confirmation if multiple tabs are opened.
+##   - downloads: Show a confirmation if downloads are running
+##   - never: Never show a confirmation.
+# c.confirm_quit = ['never']
+
+## Editor (and arguments) to use for the `edit-*` commands. The following
+## placeholders are defined:  * `{file}`: Filename of the file to be
+## edited. * `{line}`: Line in which the caret is found in the text. *
+## `{column}`: Column in which the caret is found in the text. *
+## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
+## Same as `{column}`, but starting from index 0.
+## Type: ShellCommand
+# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+
+## Encoding to use for the editor.
+## Type: Encoding
+# c.editor.encoding = 'utf-8'
+
+## Delete the temporary file upon closing the editor.
+## Type: Bool
+# c.editor.remove_file = True
+
+## Command (and arguments) to use for selecting a single folder in forms.
+## The command should write the selected folder path to the specified
+## file or stdout. The following placeholders are defined: * `{}`:
+## Filename of the file to be written to. If not contained in any
+## argument, the   standard output of the command is read instead.
+## Type: ShellCommand
+# c.fileselect.folder.command = ['xterm', '-e', 'ranger', '--choosedir={}']
+
+## Handler for selecting file(s) in forms. If `external`, then the
+## commands specified by `fileselect.single_file.command` and
+## `fileselect.multiple_files.command` are used to select one or multiple
+## files respectively.
+## Type: String
+## Valid values:
+##   - default: Use the default file selector.
+##   - external: Use an external command.
+# c.fileselect.handler = 'default'
+
+## Command (and arguments) to use for selecting multiple files in forms.
+## The command should write the selected file paths to the specified file
+## or to stdout, separated by newlines. The following placeholders are
+## defined: * `{}`: Filename of the file to be written to. If not
+## contained in any argument, the   standard output of the command is
+## read instead.
+## Type: ShellCommand
+# c.fileselect.multiple_files.command = ['xterm', '-e', 'ranger', '--choosefiles={}']
+
+## Command (and arguments) to use for selecting a single file in forms.
+## The command should write the selected file path to the specified file
+## or stdout. The following placeholders are defined: * `{}`: Filename of
+## the file to be written to. If not contained in any argument, the
+## standard output of the command is read instead.
+## Type: ShellCommand
+# c.fileselect.single_file.command = ['xterm', '-e', 'ranger', '--choosefile={}']
+
+
+## Maximum time (in minutes) between two history items for them to be
+## considered being from the same browsing session. Items with less time
+## between them are grouped when being displayed in `:history`. Use -1 to
+## disable separation.
+## Type: Int
+# c.history_gap_interval = 30
 
 ## Keychains that shouldn't be shown in the keyhint dialog. Globs are
 ## supported, so `;*` will blacklist all keychains starting with `;`. Use
@@ -1779,245 +2042,6 @@ c.scrolling.smooth = True
 ##   - vi-VN: Vietnamese (Viet Nam)
 # c.spellcheck.languages = []
 
-## Padding (in pixels) for the statusbar.
-## Type: Padding
-c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
-
-## Position of the status bar.
-## Type: VerticalPosition
-## Valid values:
-##   - top
-##   - bottom
-c.statusbar.position = 'bottom'
-
-## When to show the statusbar.
-## Type: String
-## Valid values:
-##   - always: Always show the statusbar.
-##   - never: Always hide the statusbar.
-##   - in-mode: Show the statusbar when in modes other than normal mode.
-c.statusbar.show = 'always'
-
-## List of widgets displayed in the statusbar.
-## Type: List of StatusbarWidget
-## Valid values:
-##   - url: Current page URL.
-##   - scroll: Percentage of the current page position like `10%`.
-##   - scroll_raw: Raw percentage of the current page position like `10`.
-##   - history: Display an arrow when possible to go back/forward in history.
-##   - tabs: Current active tab, e.g. `2`.
-##   - keypress: Display pressed keys when composing a vi command.
-##   - progress: Progress bar for the current page loading.
-##   - text:foo: Display the static text after the colon, `foo` in the example.
-# c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
-
-## Open new tabs (middleclick/ctrl+click) in the background.
-## Type: Bool
-# c.tabs.background = True
-
-## Mouse button with which to close tabs.
-## Type: String
-## Valid values:
-##   - right: Close tabs on right-click.
-##   - middle: Close tabs on middle-click.
-##   - none: Don't close tabs using the mouse.
-# c.tabs.close_mouse_button = 'middle'
-
-## How to behave when the close mouse button is pressed on the tab bar.
-## Type: String
-## Valid values:
-##   - new-tab: Open a new tab.
-##   - close-current: Close the current tab.
-##   - close-last: Close the last tab.
-##   - ignore: Don't do anything.
-# c.tabs.close_mouse_button_on_bar = 'new-tab'
-
-## Scaling factor for favicons in the tab bar. The tab size is unchanged,
-## so big favicons also require extra `tabs.padding`.
-## Type: Float
-# c.tabs.favicons.scale = 1.0
-
-## When to show favicons in the tab bar. When switching this from never
-## to always/pinned, note that favicons might not be loaded yet, thus
-## tabs might require a reload to display them.
-## Type: String
-## Valid values:
-##   - always: Always show favicons.
-##   - never: Always hide favicons.
-##   - pinned: Show favicons only on pinned tabs.
-c.tabs.favicons.show = 'never'
-
-## Maximum stack size to remember for tab switches (-1 for no maximum).
-## Type: Int
-# c.tabs.focus_stack_size = 10
-
-## Padding (in pixels) for tab indicators.
-## Type: Padding
-# c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 6}
-
-## Width (in pixels) of the progress indicator (0 to disable).
-## Type: Int
-c.tabs.indicator.width = 0
-
-## How to behave when the last tab is closed. If the
-## `tabs.tabs_are_windows` setting is set, this is ignored and the
-## behavior is always identical to the `close` value.
-## Type: String
-## Valid values:
-##   - ignore: Don't do anything.
-##   - blank: Load a blank page.
-##   - startpage: Load the start page.
-##   - default-page: Load the default page.
-##   - close: Close the window.
-# c.tabs.last_close = 'ignore'
-
-## Maximum width (in pixels) of tabs (-1 for no maximum). This setting
-## only applies when tabs are horizontal. This setting does not apply to
-## pinned tabs, unless `tabs.pinned.shrink` is False. This setting may
-## not apply properly if max_width is smaller than the minimum size of
-## tab contents, or smaller than tabs.min_width.
-## Type: Int
-c.tabs.max_width = 320
-
-## Minimum width (in pixels) of tabs (-1 for the default minimum size
-## behavior). This setting only applies when tabs are horizontal. This
-## setting does not apply to pinned tabs, unless `tabs.pinned.shrink` is
-## False.
-## Type: Int
-# c.tabs.min_width = -1
-
-## When switching tabs, what input mode is applied.
-## Type: String
-## Valid values:
-##   - persist: Retain the current mode.
-##   - restore: Restore previously saved mode.
-##   - normal: Always revert to normal mode.
-# c.tabs.mode_on_change = 'normal'
-
-## Switch between tabs using the mouse wheel.
-## Type: Bool
-# c.tabs.mousewheel_switching = True
-
-## Position of new tabs opened from another tab. See
-## `tabs.new_position.stacking` for controlling stacking behavior.
-## Type: NewTabPosition
-## Valid values:
-##   - prev: Before the current tab.
-##   - next: After the current tab.
-##   - first: At the beginning.
-##   - last: At the end.
-# c.tabs.new_position.related = 'next'
-
-## Stack related tabs on top of each other when opened consecutively.
-## Only applies for `next` and `prev` values of
-## `tabs.new_position.related` and `tabs.new_position.unrelated`.
-## Type: Bool
-# c.tabs.new_position.stacking = True
-
-## Position of new tabs which are not opened from another tab. See
-## `tabs.new_position.stacking` for controlling stacking behavior.
-## Type: NewTabPosition
-## Valid values:
-##   - prev: Before the current tab.
-##   - next: After the current tab.
-##   - first: At the beginning.
-##   - last: At the end.
-# c.tabs.new_position.unrelated = 'last'
-
-## Padding (in pixels) around text for tabs.
-## Type: Padding
-c.tabs.padding = {'top': 5, 'bottom': 3, 'left': 4, 'right': 0}
-
-## Force pinned tabs to stay at fixed URL.
-## Type: Bool
-# c.tabs.pinned.frozen = True
-
-## Shrink pinned tabs down to their contents.
-## Type: Bool
-# c.tabs.pinned.shrink = True
-
-## Position of the tab bar.
-## Type: Position
-## Valid values:
-##   - top
-##   - bottom
-##   - left
-##   - right
-c.tabs.position = 'top'
-
-## Which tab to select when the focused tab is removed.
-## Type: SelectOnRemove
-## Valid values:
-##   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
-##   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
-##   - last-used: Select the previously selected tab.
-# c.tabs.select_on_remove = 'next'
-
-## When to show the tab bar.
-## Type: String
-## Valid values:
-##   - always: Always show the tab bar.
-##   - never: Always hide the tab bar.
-##   - multiple: Hide the tab bar if only one tab is open.
-##   - switching: Show the tab bar when switching tabs.
-# c.tabs.show = 'always'
-
-## Duration (in milliseconds) to show the tab bar before hiding it when
-## tabs.show is set to 'switching'.
-## Type: Int
-# c.tabs.show_switching_delay = 800
-
-## Open a new window for every tab.
-## Type: Bool
-# c.tabs.tabs_are_windows = False
-
-## Alignment of the text inside of tabs.
-## Type: TextAlignment
-## Valid values:
-##   - left
-##   - right
-##   - center
-c.tabs.title.alignment = 'left'
-
-## Format to use for the tab title. The following placeholders are
-## defined:  * `{perc}`: Percentage as a string like `[10%]`. *
-## `{perc_raw}`: Raw percentage, e.g. `10`. * `{current_title}`: Title of
-## the current web page. * `{title_sep}`: The string `" - "` if a title
-## is set, empty otherwise. * `{index}`: Index of this tab. *
-## `{aligned_index}`: Index of this tab padded with spaces to have the
-## same   width. * `{relative_index}`: Index of this tab relative to the
-## current tab. * `{id}`: Internal tab ID of this tab. * `{scroll_pos}`:
-## Page scroll position. * `{host}`: Host of the current web page. *
-## `{backend}`: Either `webkit` or `webengine` * `{private}`: Indicates
-## when private mode is enabled. * `{current_url}`: URL of the current
-## web page. * `{protocol}`: Protocol (http/https/...) of the current web
-## page. * `{audio}`: Indicator for audio/mute status.
-## Type: FormatString
-c.tabs.title.format = '{audio}[{index}] {current_title}'
-
-## Format to use for the tab title for pinned tabs. The same placeholders
-## like for `tabs.title.format` are defined.
-## Type: FormatString
-# c.tabs.title.format_pinned = '{index}'
-
-## Show tooltips on tabs. Note this setting only affects windows opened
-## after it has been set.
-## Type: Bool
-c.tabs.tooltips = False
-
-## Number of closed tabs (per window) and closed windows to remember for
-## :undo (-1 for no maximum).
-## Type: Int
-# c.tabs.undo_stack_size = 100
-
-## Width (in pixels or as percentage of the window) of the tab bar if
-## it's vertical.
-## Type: PercOrInt
-# c.tabs.width = '15%'
-
-## Wrap when changing tabs.
-## Type: Bool
-# c.tabs.wrap = True
 
 ## What search to start when something else than a URL is entered.
 ## Type: String
