@@ -11,7 +11,10 @@ return {
     warn_about_missing_glyphs = false,
 
     -- Font
-    font = wezterm.font(theme.font),
+    font = wezterm.font({
+        family = 'MesloLGS NF',
+        weight = 'Regular',
+    }),
     font_size = 11.0,
 
     -- Key bindings
@@ -58,6 +61,7 @@ return {
         fade_out_duration_ms = 150,
     },
 
+    -- TODO: Use system colors from lua_colors.lua
     -- Colors
     window_background_gradient = {
         colors = { theme.colors.extra_dark.blue, theme.colors.greyscale.g0 },

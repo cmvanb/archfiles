@@ -1,6 +1,4 @@
 local mercury = {
-    font       = { family = 'MesloLGS NF', weight = 'Regular' },
-
     colors = {
         normal = {
             red =     '#b30f1f',
