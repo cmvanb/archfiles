@@ -59,7 +59,7 @@ riverctl focus-follows-cursor normal
 riverctl map normal Alt N spawn wezterm
 
 # Command menu
-riverctl map normal Alt A spawn "wofi --show run"
+riverctl map normal Alt O spawn "wofi --show run"
 
 # Close view
 riverctl map normal Alt Q close
