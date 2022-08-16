@@ -19,9 +19,7 @@ colors.parse_colors()
 ## General settings
 # ---
 
-# Don't propagate config changes made during operation, they should be added to
-# this configuration file explicitly.
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 ## Font settings
 # ---
@@ -742,8 +740,7 @@ c.content.blocking.enabled = True
 ##   - adblock: Use Brave's ABP-style adblocker
 ##   - hosts: Use hosts blocking
 ##   - both: Use both hosts blocking and Brave's ABP-style adblocker
-# TODO: Setup ad blocking
-# c.content.blocking.method = 'auto'
+c.content.blocking.method = 'auto'
 
 ## A list of patterns that should always be loaded, despite being blocked
 ## by the ad-/host-blocker. Local domains are always exempt from
@@ -922,7 +919,7 @@ c.content.headers.do_not_track = True
 
 ## Enable JavaScript.
 ## Type: Bool
-# c.content.javascript.enabled = True
+c.content.javascript.enabled = False
 
 ## Log levels to use for JavaScript console logging messages. When a
 ## JavaScript message with the level given in the dictionary key is
