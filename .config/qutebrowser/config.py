@@ -88,7 +88,7 @@ c.fonts.tabs.unselected = '9pt default_family'
 # c.fonts.web.family.fantasy = ''
 
 # Font family for fixed fonts.
-c.fonts.web.family.fixed = 'MesloLGS NF'
+c.fonts.web.family.fixed = 'default_family'
 
 # Font family for sans-serif fonts.
 c.fonts.web.family.sans_serif = 'Noto Sans'
@@ -441,22 +441,22 @@ c.colors.tabs.bar.bg = colors.named('black')
 c.colors.tabs.odd.bg = colors.named('black')
 
 # Foreground color of unselected odd tabs.
-c.colors.tabs.odd.fg = colors.named('white')
+c.colors.tabs.odd.fg = colors.named('l3_gray')
 
 # Background color of unselected even tabs.
 c.colors.tabs.even.bg = colors.named('black')
 
 # Foreground color of unselected even tabs.
-c.colors.tabs.even.fg = colors.named('white')
+c.colors.tabs.even.fg = colors.named('l3_gray')
 
 # Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = colors.named('blue')
+c.colors.tabs.selected.odd.bg = colors.named('black')
 
 # Foreground color of selected odd tabs.
 c.colors.tabs.selected.odd.fg = colors.named('l1_white')
 
 # Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = colors.named('blue')
+c.colors.tabs.selected.even.bg = colors.named('black')
 
 # Foreground color of selected even tabs.
 c.colors.tabs.selected.even.fg = colors.named('l1_white')
@@ -1532,7 +1532,7 @@ c.tabs.max_width = 320
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
-c.tabs.padding = {'top': 5, 'bottom': 3, 'left': 4, 'right': 0}
+c.tabs.padding = {'top': 5, 'bottom': 3, 'left': 12, 'right': 8}
 
 ## Force pinned tabs to stay at fixed URL.
 ## Type: Bool
