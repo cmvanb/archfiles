@@ -54,6 +54,7 @@ return require('packer').startup(function()
 
     require('telescope').setup({
         defaults = {
+            -- Arguments for Telescope.live_grep picker
             vimgrep_arguments = {
                 'rg',
                 '--color=never',
@@ -62,6 +63,7 @@ return require('packer').startup(function()
                 '--line-number',
                 '--column',
                 '--smart-case',
+                '--no-ignore',
                 '--hidden',
             },
             mappings = {

@@ -75,7 +75,7 @@ vnoremap <leader>c "+y
 nnoremap <leader>v "+p
 
 " Fuzzy finder
-noremap <leader>f <cmd>Telescope find_files hidden=true<cr>
+noremap <leader>f <cmd>Telescope find_files hidden=true no_ignore=true<cr>
 noremap <leader>g <cmd>Telescope live_grep<cr>
 noremap <leader>b <cmd>Telescope buffers<cr>
 
