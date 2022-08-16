@@ -52,17 +52,26 @@ if [[ $? -ne 0 ]] ; then
 fi
 
 # retrieve target password with session key
-RESULT=$(bw get password $TARGET --session $SESSION_KEY)
+# RESULT=$(bw get password $TARGET --session $SESSION_KEY)
+RESULT=$(bw get item $TARGET --session $SESSION_KEY)
 
 if [[ $? -ne 0 ]] ; then
     bw_abort 6
 fi
 
+NAME=$(echo $RESULT | jq -r '.name')
+PASSWORD=$(echo $RESULT | jq -r '.login.password')
+
+printf '\n'
+echo 'Found item: '$NAME
+printf '\n'
+
 # always lock and logout
 bw_finalize
 
 # copy final result to clipboard
-wl-copy $RESULT
+wl-copy $PASSWORD
 
-echo 'Password for '\'''$TARGET''\'' is in Wayland clipboard'
+printf '\n'
+echo 'Password is in Wayland clipboard'
 
