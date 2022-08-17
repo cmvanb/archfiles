@@ -1810,7 +1810,7 @@ c.tabs.tooltips = False
 ## Duration (in milliseconds) to show messages in the statusbar for. Set
 ## to 0 to never clear messages.
 ## Type: Int
-# c.messages.timeout = 3000
+c.messages.timeout = 5000
 
 ## How to open links in an existing instance if a new one is launched.
 ## This happens when e.g. opening a link from a terminal. See
@@ -2203,8 +2203,8 @@ c.window.transparent = False
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
 # config.bind('H', 'back')
-# config.bind('J', 'tab-next')
-# config.bind('K', 'tab-prev')
+config.bind('K', 'tab-next')
+config.bind('J', 'tab-prev')
 # config.bind('L', 'forward')
 # config.bind('M', 'bookmark-add')
 # config.bind('N', 'search-prev')
@@ -2252,8 +2252,8 @@ c.window.transparent = False
 # config.bind('gu', 'navigate up')
 # config.bind('h', 'scroll left')
 # config.bind('i', 'mode-enter insert')
-# config.bind('j', 'scroll down')
-# config.bind('k', 'scroll up')
+config.bind('j', 'scroll down')
+config.bind('k', 'scroll up')
 # config.bind('l', 'scroll right')
 # config.bind('m', 'quickmark-save')
 # config.bind('n', 'search-next')
