@@ -7,12 +7,12 @@ systemd-cat --identifier=river echo "Initializing Yambar"
 #-------------------------------------------------------------------------------
 
 riverctl spawn yambar
-sleep 0.05
+sleep 0.10
 
 riverctl focus-output next
 
 riverctl spawn yambar
-sleep 0.05
+sleep 0.10
 
 riverctl focus-output previous
 
