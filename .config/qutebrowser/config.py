@@ -1309,16 +1309,16 @@ c.content.notifications.enabled = False
 
 ## Enter insert mode if an editable element is clicked.
 ## Type: Bool
-# c.input.insert_mode.auto_enter = True
+c.input.insert_mode.auto_enter = True
 
 ## Leave insert mode if a non-editable element is clicked.
 ## Type: Bool
-# c.input.insert_mode.auto_leave = True
+c.input.insert_mode.auto_leave = True
 
 ## Automatically enter insert mode if an editable element is focused
 ## after loading the page.
 ## Type: Bool
-# c.input.insert_mode.auto_load = False
+c.input.insert_mode.auto_load = True
 
 ## Leave insert mode when starting a new page load. Patterns may be
 ## unreliable on this setting, and they may match the url you are
@@ -2154,15 +2154,16 @@ c.window.transparent = False
 # config.bind(';r', 'hint --rapid links tab-bg')
 # config.bind(';t', 'hint inputs')
 # config.bind(';y', 'hint links yank')
-# config.bind('<Alt-1>', 'tab-focus 1')
-# config.bind('<Alt-2>', 'tab-focus 2')
-# config.bind('<Alt-3>', 'tab-focus 3')
-# config.bind('<Alt-4>', 'tab-focus 4')
-# config.bind('<Alt-5>', 'tab-focus 5')
-# config.bind('<Alt-6>', 'tab-focus 6')
-# config.bind('<Alt-7>', 'tab-focus 7')
-# config.bind('<Alt-8>', 'tab-focus 8')
-# config.bind('<Alt-9>', 'tab-focus -1')
+config.bind('<Ctrl-1>', 'tab-focus 1')
+config.bind('<Ctrl-2>', 'tab-focus 2')
+config.bind('<Ctrl-3>', 'tab-focus 3')
+config.bind('<Ctrl-4>', 'tab-focus 4')
+config.bind('<Ctrl-5>', 'tab-focus 5')
+config.bind('<Ctrl-6>', 'tab-focus 6')
+config.bind('<Ctrl-7>', 'tab-focus 7')
+config.bind('<Ctrl-8>', 'tab-focus 8')
+config.bind('<Ctrl-9>', 'tab-focus 9')
+config.bind('<Ctrl-0>', 'tab-focus 10')
 # config.bind('<Alt-m>', 'tab-mute')
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
@@ -2189,7 +2190,7 @@ c.window.transparent = False
 # config.bind('<Ctrl-h>', 'home')
 # config.bind('<Ctrl-p>', 'tab-pin')
 # config.bind('<Ctrl-s>', 'stop')
-# config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
+config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
 # config.bind('<F11>', 'fullscreen')
 # config.bind('<F5>', 'reload')
 # config.bind('<Return>', 'selection-follow')
@@ -2399,7 +2400,7 @@ config.bind('k', 'scroll up')
 
 ## Bindings for insert mode
 # config.bind('<Ctrl-E>', 'edit-text', mode='insert')
-# config.bind('<Escape>', 'mode-leave', mode='insert')
+config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 # config.bind('<Shift-Escape>', 'fake-key <Escape>', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
 
