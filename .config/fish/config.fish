@@ -64,11 +64,47 @@ abbr -a ex exa
 # Bindings
 #-------------------------------------------------------------------------------
 
-# Don't use vi key bindings
-fish_default_key_bindings
+# Unbind unwanted defaults
+bind \cx true
 
-# Ctrl-Q clears the command line
-bind \cq 'commandline -r ""'
+# Basic bindings (many are already default)
+bind \e cancel # Escape
+
+bind \e\[A up-or-search # Up
+bind \e\[B down-or-search # Down
+
+bind \e\[D backward-char # Left
+bind \e\[C forward-char # Right
+
+bind \e\[1\;5C forward-word # Ctrl + Right
+bind \e\[1\;5D backward-word # Ctrl + Left
+
+bind \e\[H beginning-of-line # Home
+bind \e\[F end-of-line # End
+
+bind -k dc delete-char # Delete
+bind -k backspace backward-delete-char
+
+bind \t complete # Tab
+bind \r execute # Enter
+
+bind \cc fish_clipboard_copy
+bind \cv fish_clipboard_paste
+
+bind '' self-insert
+bind ' ' self-insert expand-abbr
+bind ';' self-insert expand-abbr
+bind '|' self-insert expand-abbr
+bind '&' self-insert expand-abbr
+bind ^ self-insert expand-abbr
+bind '>' self-insert expand-abbr
+bind '<' self-insert expand-abbr
+bind ')' self-insert expand-abbr
+
+# TODO: Decide on the following bindings:
+# CTRL + ? -> Clear screen
+# CTRL + ? -> Clear command line
+# bind \cl 'commandline -r ""'
 
 # Expand ... to ../..
 bind . 'expand-dot-to-double-dot'
