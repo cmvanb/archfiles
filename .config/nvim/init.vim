@@ -2,7 +2,9 @@
 " Vim configuration
 "-------------------------------------------------------------------------------
 
-" Apparently vim requires a more POSIX compatible shell than fish
+" TODO: Convert init.vim to lua
+
+" Vim requires a more POSIX compatible shell than fish
 if &shell =~# 'fish$'
     set shell=sh
 endif
@@ -10,7 +12,7 @@ endif
 " Use terminal title
 set title
 
-" Enable mouse in normal and visual modes
+" Enable mouse in all modes
 set mouse=a
 
 " Syntax highlighting
@@ -68,23 +70,24 @@ autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 let mapleader=" "
 
 " Visual block select
-noremap <A-v> <C-v>
+noremap <leader>v <C-v>
 
 " System clipboard
-vnoremap <leader>c "+y
-nnoremap <leader>v "+p
+" NOTE: This is only working because Wezterm is configured for it.
+vnoremap <C-c> "+y
+noremap <C-v> "+p
 
 " Fuzzy finder
-noremap <leader>f <cmd>Telescope find_files hidden=true no_ignore=true<cr>
-noremap <leader>g <cmd>Telescope live_grep<cr>
-noremap <leader>b <cmd>Telescope buffers<cr>
+noremap <leader>o <cmd>Telescope find_files hidden=true no_ignore=true<cr>
+noremap <leader>p <cmd>Telescope buffers<cr>
+noremap <leader>f <cmd>Telescope live_grep<cr>
 
 " Switch buffers
-noremap <C-h> :bprev<cr>
-noremap <C-l> :bnext<cr>
+noremap <leader>h :bprev<cr>
+noremap <leader>l :bnext<cr>
 
 " Hop (motion shortcuts)
-noremap <leader>a <cmd>HopWord<cr>
+noremap <leader>g <cmd>HopWord<cr>
 
 " Comment out selection (VISUAL) or current line (NORMAL)
 map <leader>/ gcc<esc>
@@ -93,14 +96,17 @@ map <leader>/ gcc<esc>
 noremap <leader>r <cmd>source $MYVIMRC<bar>echo 'Configuration reloaded. NOTE: Plugins may require restart.'<cr>
 
 " Clear search buffer, clear command line and go to start of line
+" TODO: Change this binding- Q implies QUIT. L perhaps?
 noremap <silent> <leader>q <cmd>let @/=""<bar>:echo ''<cr>0<esc>
 
-" TODO: Add binding for auto formatting (gg=G).
+" Format file
+noremap <leader>; gg=G
 
 "-------------------------------------------------------------------------------
 " Colors
 "-------------------------------------------------------------------------------
 
+" TODO: Use system colors
 " Use base 16 colors
 set notermguicolors
 
