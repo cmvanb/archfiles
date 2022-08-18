@@ -21,7 +21,19 @@ return {
     disable_default_key_bindings = true,
 
     keys = {
-        { key = 'c', mods = 'CTRL', action = wezterm.action{ CopyTo = 'ClipboardAndPrimarySelection' } },
+        -- TODO: Decide on interrupt bindings. Attempt with stty first?
+        -- { key = 'q', mods = 'CTRL', action = wezterm.action.SendKey { key = 'c', mods = 'CTRL' } },
+        {
+            key = 'c',
+            mods = 'CTRL',
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action.SendKey{ key='c', mods='CTRL' }, pane)
+                else
+                    window:perform_action(wezterm.action{ CopyTo = 'ClipboardAndPrimarySelection' }, pane)
+                end
+            end),
+        },
         { key = 'v', mods = 'CTRL', action = wezterm.action{ PasteFrom = 'Clipboard' } },
     },
 
