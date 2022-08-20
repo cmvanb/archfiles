@@ -125,6 +125,9 @@ set -U tide_context_color_default white
 set -U tide_context_color_root brred
 set -U tide_context_color_ssh bryellow
 
+set -U tide_jobs_bg_color white
+set -U tide_jobs_color black
+
 set -U tide_time_bg_color black
 set -U tide_time_color blue
 
