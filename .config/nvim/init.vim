@@ -86,6 +86,9 @@ noremap <leader>f <cmd>Telescope live_grep<cr>
 noremap <leader>h :bprev<cr>
 noremap <leader>l :bnext<cr>
 
+" Close buffer
+noremap <leader>q :bd<cr>
+
 " Hop (motion shortcuts)
 noremap <leader>g <cmd>HopWord<cr>
 
@@ -96,8 +99,7 @@ map <leader>/ gcc<esc>
 noremap <leader>r <cmd>source $MYVIMRC<bar>echo 'Configuration reloaded. NOTE: Plugins may require restart.'<cr>
 
 " Clear search buffer, clear command line and go to start of line
-" TODO: Change this binding- Q implies QUIT. L perhaps?
-noremap <silent> <leader>q <cmd>let @/=""<bar>:echo ''<cr>0<esc>
+noremap <silent> <leader>m <cmd>let @/=""<bar>:echo ''<cr>0<esc>
 
 " Format file
 noremap <leader>; gg=G
