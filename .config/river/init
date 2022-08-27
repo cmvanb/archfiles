@@ -203,5 +203,5 @@ riverctl spawn ".config/river/statusbar"
 # Assign and launch the default layout generator, rivercarro.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
-riverctl spawn "rivercarro -inner-gaps 4 -outer-gaps 0"
+riverctl spawn "rivercarro -inner-gaps 4 -outer-gaps 0 -main-ratio 0.65"
 
