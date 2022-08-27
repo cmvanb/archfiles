@@ -1,0 +1,23 @@
+echo 'Hello world from `.config/shell/generic/env` !'
+
+# We need to set $ENV so that if you use shell X as your login shell, and then
+# start "sh" as a non-login interactive shell the startup scripts will
+# correctly run.
+export ENV=~/.config/shell/sh/interactive
+
+# We also need to set BASH_ENV, which is run for *non-interactive* shells.
+# (unlike $ENV, which is for interactive shells)
+export BASH_ENV=~/.config/shell/bash/env
+
+# Useful functions.
+. ~/.config/shell/generic/env_functions
+
+# No write permissions for group or others.
+umask 0022
+
+# Don't save pager history.
+export LESSHISTFILE=-
+
+# GNU readline configuration
+export INPUTRC=~/.config/readline/config
+

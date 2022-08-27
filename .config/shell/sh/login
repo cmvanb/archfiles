@@ -1,0 +1,4 @@
+echo 'Hello world from `.config/shell/sh/login` !'
+
+. ~/.config/shell/generic/login
+

@@ -1,0 +1,20 @@
+echo 'Hello world from `.config/shell/generic/login` !'
+
+# Put your shell-independent, login environment variables here.
+
+# Add user binaries to path
+pathprepend $HOME/bin PATH
+
+# Use neovim as text editor
+export EDITOR=/usr/bin/nvim
+export VISUAL=$EDITOR
+
+# XDG user directories
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
+# Provide ssh-agent socket
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.sock
+

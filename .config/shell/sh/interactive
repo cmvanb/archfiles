@@ -1,0 +1,4 @@
+echo 'Hello world from `.config/shell/sh/interactive` !'
+
+. ~/.config/shell/generic/interactive
+

@@ -1,0 +1,13 @@
+echo 'Hello world from `.config/shell/bash/interactive` !'
+#
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+. ~/.config/shell/generic/interactive
+
+# Save history in an XDG compliant directory.
+export HISTFILE=$XDG_DATA_HOME/bash/.bash_history
+
+# Configure prompt.
+PS1='[\u@\h \W]\$ '
+
