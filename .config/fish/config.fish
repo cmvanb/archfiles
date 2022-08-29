@@ -2,21 +2,22 @@
 # Fish configuration
 #-------------------------------------------------------------------------------
 
-echo 'Hello world from `.config/fish/fish.config` !'
+set -g fish_greeting ""
 
-source .config/shell/fish/env.fish
-
-if status is-interactive
-    source .config/shell/fish/interactive.fish
-end
+source $HOME/.config/shell/fish/env.fish
 
 if status is-login
-    source .config/shell/fish/login.fish
+    source $HOME/.config/shell/fish/login.fish
 
     function on_exit --on-event fish_exit
-        source .config/shell/fish/logout.fish
+        source $HOME/.config/shell/fish/logout.fish
     end
 end
+
+if status is-interactive
+    source $HOME/.config/shell/fish/interactive.fish
+end
+
 
 # Remove the default greeting
 # set -U fish_greeting
