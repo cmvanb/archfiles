@@ -1,4 +1,3 @@
-echo 'Hello world from `.config/shell/fish/login.fish` !'
-
-bass . ~/.config/shell/generic/login
+# NOTE: Bass runs bash scripts from fish. It's a little wonky.
+bass 'source $HOME/.config/shell/generic/login'
 

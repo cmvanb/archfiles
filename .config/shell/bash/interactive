@@ -1,13 +1,39 @@
-echo 'Hello world from `.config/shell/bash/interactive` !'
-#
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 . ~/.config/shell/generic/interactive
 
+#-------------------------------------------------------------------------------
+# General configuration
+#-------------------------------------------------------------------------------
+
 # Save history in an XDG compliant directory.
 export HISTFILE=$XDG_DATA_HOME/bash/.bash_history
 
-# Configure prompt.
+#-------------------------------------------------------------------------------
+# Aliases
+#-------------------------------------------------------------------------------
+
+alias gs="git status"
+alias gl="git log --pretty=\'%C(yellow)[%h]%C(reset) %<(16,trunc)%ad %C(cyan)%an%C(reset) %C(green)%s%C(reset)\' --date=format:\'%Y-%m-%d %H:%M\'"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias ga="git add"
+alias gaa="git add -A"
+alias gc="git commit -m"
+alias gca="git commit --amend"
+alias gp="git push"
+alias gpf="git push --force"
+alias grc="git rm --cached"
+alias n="nvim"
+alias nv="nvim"
+alias nvi="nvim"
+alias e="exa"
+alias ex="exa"
+
+#-------------------------------------------------------------------------------
+# Prompt
+#-------------------------------------------------------------------------------
+
 PS1='[\u@\h \W]\$ '
 

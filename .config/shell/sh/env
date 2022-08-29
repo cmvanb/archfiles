@@ -1,5 +1,4 @@
 # WARNING: this will not run for non-login, non-interactive shells.
-echo 'Hello world from `.config/shell/sh/env` !'
 
 # Also, you must run ~/.config/shell/generic/env, to get $ENV.
 . ~/.config/shell/generic/env

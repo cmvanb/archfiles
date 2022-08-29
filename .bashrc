@@ -7,8 +7,6 @@
 # however, we assume that #2 is a recovery mode, so we don't want to do much.
 # (also, my google-fu didn't find a way to distinguish them)
 
-echo 'Hello world from `.bashrc` !'
-
 . ~/.config/shell/bash/env
 . ~/.config/shell/bash/interactive
 

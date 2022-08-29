@@ -1,6 +1,8 @@
-echo 'Hello world from `.config/shell/fish/interactive.fish` !'
+#-------------------------------------------------------------------------------
+# Generic
+#-------------------------------------------------------------------------------
 
-bass . ~/.config/shell/generic/interactive
+bass 'source $HOME/.config/shell/generic/interactive'
 
 #-------------------------------------------------------------------------------
 # Abbreviations

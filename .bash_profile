@@ -1,5 +1,3 @@
-echo 'Hello world from `.bash_profile` !'
-
 # Ensure ~/.config/shell/bash/env gets run first
 . ~/.config/shell/bash/env
 
