@@ -1,8 +1,8 @@
 [Unit]
-Description=River session
+Description=pre-Wayland session services
 Documentation=man:systemd.special(7)
 Requires=basic.target
+Before=wayland-session.target
 RefuseManualStart=yes
 StopWhenUnneeded=yes
-BindsTo=wayland-session.target
-After=wayland-session.target
+BindsTo=graphical-session-pre.target
