@@ -1,8 +1,6 @@
 [Unit]
 Description=River session
 Documentation=man:systemd.special(7)
-Requires=basic.target
-RefuseManualStart=yes
-StopWhenUnneeded=yes
+Requires=default.target
 BindsTo=wayland-session.target
 After=wayland-session.target

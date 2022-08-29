@@ -1,26 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-#-------------------------------------------------------------------------------
-# Session initialization script
-#-------------------------------------------------------------------------------
+# Tells libseat what login daemon we're using so it doesn't have to cry about it.
+export LIBSEAT_BACKEND=logind
 
+# XDG integration, this may be unnecessary.
 export XDG_CURRENT_DESKTOP=river
-
-# Variables to import to systemd
-VARIABLES="XDG_CURRENT_DESKTOP WAYLAND_DISPLAY"
-SESSION_TARGET="river-session.target"
-
-if systemctl --user -q is-active "$SESSION_TARGET"; then
-    systemd-cat --identifier=river echo "Another session is already running; will not override the environment variables."
-    exit 1
-fi
-
-systemd-cat --identifier=river echo "Importing environment variables to systemd"
-
-dbus-update-activation-environment --systemd $VARIABLES
-
-systemctl --user reset-failed
-
-systemctl --user import-environment $VARIABLES
-
-systemctl --user start "$SESSION_TARGET"
+export XDG_SESSION_DESKTOP=river

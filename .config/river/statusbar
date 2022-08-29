@@ -1,6 +1,4 @@
-#!/bin/sh
-
-systemd-cat --identifier=river echo "Initializing Yambar"
+#!/bin/bash
 
 #-------------------------------------------------------------------------------
 # Status bar configuration

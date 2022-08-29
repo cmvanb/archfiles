@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #-------------------------------------------------------------------------------
 # River configuration script
@@ -11,27 +11,23 @@
 # Systemd integration
 #-------------------------------------------------------------------------------
 
-.config/river/environment
+systemd-cat --identifier=river echo "Initializing River."
 
-systemd-cat --identifier=river echo "Initializing River"
+# TODO: Prevent duplicate import/overriding.
+# Share part of river environment with systemd.
+VARIABLES="XDG_SESSION_TYPE WAYLAND_DISPLAY"
+
+dbus-update-activation-environment --systemd $VARIABLES
+
+systemctl --user import-environment $VARIABLES
+
+systemctl --user start river-session.target
 
 #-------------------------------------------------------------------------------
 # Output configuration
 #-------------------------------------------------------------------------------
 
 wlr-randr --output DP-2 --transform 90
-
-#-------------------------------------------------------------------------------
-# Style configuration
-#-------------------------------------------------------------------------------
-
-# TODO: Get these colors programmatically
-# Set background and border color
-riverctl background-color 0x0d0d0d
-riverctl border-color-focused 0x0d55ea
-riverctl border-color-unfocused 0x5d5d6f
-riverctl border-color-urgent 0xb30f1f
-riverctl border-width 2
 
 #-------------------------------------------------------------------------------
 # Input configuration
@@ -46,6 +42,21 @@ riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard pointer-accel
 
 # Focus should follow the cursor
 riverctl focus-follows-cursor normal
+
+#-------------------------------------------------------------------------------
+# Styling
+#-------------------------------------------------------------------------------
+
+# TODO: Get these colors programmatically
+# Set background and border color
+riverctl background-color 0x0d0d0d
+riverctl border-color-focused 0x0d55ea
+riverctl border-color-unfocused 0x5d5d6f
+riverctl border-color-urgent 0xb30f1f
+riverctl border-width 2
+
+# XCursor Theme
+riverctl xcursor-theme Simp1e 24
 
 #-------------------------------------------------------------------------------
 # Key bindings
@@ -114,10 +125,51 @@ do
 
     # Toggle focus of tag
     riverctl map normal Alt+Control $i toggle-focused-tags $tags
-
-    # Toggle tag of focused view
-    # riverctl map normal Alt+Shift+Control $i toggle-view-tags $tags
 done
+
+#-------------------------------------------------------------------------------
+# Status bar
+#-------------------------------------------------------------------------------
+
+. ".config/river/statusbar"
+
+#-------------------------------------------------------------------------------
+# Layout generator
+#-------------------------------------------------------------------------------
+
+# Assign and launch rivercarro (layout generator).
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivercarro
+riverctl spawn "rivercarro -inner-gaps 4 -outer-gaps 0 -main-ratio 0.65"
+
+#-------------------------------------------------------------------------------
+# Systemd integration
+#-------------------------------------------------------------------------------
+
+# Clean up the shared environment when river is interrupted or terminated.
+session_cleanup () {
+    systemd-cat --identifier=river echo "Cleaning River."
+
+    VARIABLES="XDG_SESSION_TYPE WAYLAND_DISPLAY"
+
+    systemctl --user unset-environment $VARIABLES
+
+    exit
+}
+
+trap session_cleanup INT TERM
+
+# As long as WAYLAND_DISPLAY is in use, river is running.
+while [ -n "$WAYLAND_DISPLAY" ]
+do
+    sleep 0.10
+done
+
+
+
+#-------------------------------------------------------------------------------
+# Configuration graveyard
+#-------------------------------------------------------------------------------
 
 # Toggle float
 # riverctl map normal Alt Space toggle-float
@@ -189,19 +241,4 @@ done
 #     riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
 #     riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
 # done
-
-#-------------------------------------------------------------------------------
-# Status bar configuration
-#-------------------------------------------------------------------------------
-
-riverctl spawn ".config/river/statusbar"
-
-#-------------------------------------------------------------------------------
-# Layout generator configuration
-#-------------------------------------------------------------------------------
-
-# Assign and launch the default layout generator, rivercarro.
-# River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivercarro
-riverctl spawn "rivercarro -inner-gaps 4 -outer-gaps 0 -main-ratio 0.65"
 
