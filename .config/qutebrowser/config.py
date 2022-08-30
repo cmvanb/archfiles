@@ -40,7 +40,7 @@ c.fonts.contextmenu = 'default_size default_family'
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
-c.fonts.default_family = [ 'MesloLGS NF' ]
+c.fonts.default_family = [ 'Fira Code' ]
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are

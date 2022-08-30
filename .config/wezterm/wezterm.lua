@@ -12,7 +12,7 @@ return {
 
     -- Font
     font = wezterm.font({
-        family = 'MesloLGS NF',
+        family = 'Fira Code',
         weight = 'Regular',
     }),
     font_size = 11.0,

@@ -109,7 +109,7 @@ window:
 # Font configuration
 font:
     normal:
-        family: "MesloLGS NF"
+        family: "Fira Code"
 
     size: 11.0
 

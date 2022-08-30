@@ -8,7 +8,7 @@ bar:
   foreground: dadadeff
   background: 0d0d0dff
 
-  font: MesloLGS NF:pixelsize=11:style=bold
+  font: Fira Code:pixelsize=11:style=bold
 
   left:
     - river:
