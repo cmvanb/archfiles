@@ -2134,6 +2134,12 @@ c.window.transparent = False
 ## Type: Bool
 # c.zoom.text_only = False
 
+## Unwanted default bindings
+# TODO: Most of the default bindings should be unbound
+config.unbind('<Ctrl-Q>')
+config.unbind('<Ctrl-PgDown>')
+config.unbind('<Ctrl-PgUp>')
+
 ## Bindings for normal mode
 # config.bind("'", 'mode-enter jump_mark')
 # config.bind('+', 'zoom-in')
@@ -2172,9 +2178,6 @@ config.bind('<Ctrl-0>', 'tab-focus 10')
 # config.bind('<Ctrl-F5>', 'reload -f')
 # config.bind('<Ctrl-F>', 'scroll-page 0 1')
 # config.bind('<Ctrl-N>', 'open -w')
-# config.bind('<Ctrl-PgDown>', 'tab-next')
-# config.bind('<Ctrl-PgUp>', 'tab-prev')
-# config.bind('<Ctrl-Q>', 'quit')
 # config.bind('<Ctrl-Return>', 'selection-follow -t')
 # config.bind('<Ctrl-Shift-N>', 'open -p')
 # config.bind('<Ctrl-Shift-T>', 'undo')
