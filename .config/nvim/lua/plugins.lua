@@ -12,17 +12,11 @@ return require('packer').startup(function()
     -- mini plugins collection
     use 'echasnovski/mini.nvim'
 
-    -- surround functions
-    --
-    -- Add, delete, replace
-    -- sa, sd, sr
-    --
-    -- Inner select, outer select (VISUAL mode)
-    -- ib, ab
-    use 'machakann/vim-sandwich'
-
     -- shortcut movement functions
     use 'phaazon/hop.nvim'
+
+    -- edgemotion
+    use 'haya14busa/vim-edgemotion'
 
     -- easier digraphs
     use ({
@@ -37,6 +31,15 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = {{ 'nvim-lua/plenary.nvim' }}
     })
+
+    -- surround functions
+    --
+    -- Add, delete, replace
+    -- sa, sd, sr
+    --
+    -- Inner select, outer select (VISUAL mode)
+    -- ib, ab
+    use 'machakann/vim-sandwich'
 
     -- terminal background fix
     -- NOTE: Not needed when running in wezterm.
@@ -110,7 +113,7 @@ return require('packer').startup(function()
             -- |MiniIndentscope.gen_animation()| for builtin options. To not use
             -- animation, supply `require('mini.indentscope').gen_animation('none')`.
             animation = require('mini.indentscope')
-                .gen_animation('cubicInOut', { duration = 15 }),
+            .gen_animation('cubicInOut', { duration = 15 }),
         },
 
         -- Module mappings. Use `''` (empty string) to disable one.

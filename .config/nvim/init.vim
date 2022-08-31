@@ -12,9 +12,6 @@ endif
 " Use terminal title
 set title
 
-" Enable mouse in all modes
-set mouse=a
-
 " Syntax highlighting
 filetype plugin on
 syntax on
@@ -26,8 +23,8 @@ set ruler
 set number
 
 " Whitespace visualization
-set nolist
 set listchars=tab:→-,eol:↓,trail:⌂
+set nolist
 
 " Tabs should be 4 spaces
 set tabstop=4
@@ -63,7 +60,14 @@ set clipboard=unnamedplus
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 
 "-------------------------------------------------------------------------------
-" Key mappings
+" Mouse configuration
+"-------------------------------------------------------------------------------
+
+" Enable mouse in all modes
+set mouse=a
+
+"-------------------------------------------------------------------------------
+" Key bindings
 "-------------------------------------------------------------------------------
 
 " Space
@@ -73,7 +77,7 @@ let mapleader=" "
 noremap <leader>v <C-v>
 
 " System clipboard
-" NOTE: This is only working because Wezterm is configured for it.
+" NOTE: This is only working (in TUI) because Wezterm is configured for it.
 vnoremap <C-c> "+y
 noremap <C-v> "+p
 
@@ -104,11 +108,28 @@ noremap <silent> <leader>m <cmd>let @/=""<bar>:echo ''<cr>0<esc>
 " Format file
 noremap <leader>; gg=G
 
+" Edgemotion
+map <C-j> <Plug>(edgemotion-j)
+map <C-k> <Plug>(edgemotion-k)
+
+"-------------------------------------------------------------------------------
+" Neovide (GUI) configuration
+"-------------------------------------------------------------------------------
+
+if exists("g:neovide")
+    set guifont=Fira\ Code:h11
+
+    let g:neovide_cursor_vfx_mode = "sonicboom"
+endif
+
 "-------------------------------------------------------------------------------
 " Colors
 "-------------------------------------------------------------------------------
 
-" TODO: Use system colors
+" TODO: Use 24bit colors: `set termguicolors`
+" TODO: Use system color scheme
+" TODO: Apply colors to GUI
+
 " Use base 16 colors
 set notermguicolors
 
