@@ -47,10 +47,10 @@ pathprepend $HOME/bin PATH
 
 #-------------------------------------------------------------------------------
 # Environment
+#
+# Put your shell-independent, login environment variables here.
 #-------------------------------------------------------------------------------
 
-# Put your shell-independent, login environment variables here.
-#
 # Use neovim as text editor
 export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR

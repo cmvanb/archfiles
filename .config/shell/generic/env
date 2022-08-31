@@ -10,9 +10,3 @@ export BASH_ENV=~/.config/shell/bash/env
 # No write permissions for group or others.
 umask 0022
 
-# Don't save pager history.
-export LESSHISTFILE=-
-
-# GNU readline configuration
-export INPUTRC=~/.config/readline/config
-
