@@ -7,18 +7,42 @@ local wezterm = require('wezterm')
 local theme = require('mercury')
 
 return {
+--------------------------------------------------------------------------------
+-- General settings
+--------------------------------------------------------------------------------
+
     -- Disable warnings
     warn_about_missing_glyphs = false,
 
-    -- Font
-    font = wezterm.font({
-        family = 'Fira Code',
-        weight = 'Regular',
-    }),
-    font_size = 11.0,
+    -- NOTE: Enabling this causes issues with vim-sandwich in NVIM.
+    -- Keyboard input settings
+    enable_kitty_keyboard = false,
 
-    -- Key bindings
+    -- Disable tab bar
+    enable_tab_bar = false,
+    use_fancy_tab_bar = false,
+
+    -- Window
+    adjust_window_size_when_changing_font_size = false,
+
+    -- Terminal bell
+    audible_bell = 'Disabled',
+    visual_bell = {
+        fade_in_function = 'Linear',
+        fade_in_duration_ms = 0,
+        fade_out_function = 'EaseOut',
+        fade_out_duration_ms = 400,
+    },
+
+--------------------------------------------------------------------------------
+-- Keyboard input
+--------------------------------------------------------------------------------
+
+    -- NOTE: We don't need any of the defaults.
+    -- see: https://wezfurlong.org/wezterm/config/default-keys.html
     disable_default_key_bindings = true,
+
+    -- TODO: Add page scroll binds (CTRL+D/CTRL+U). Depends on stty interrupt rebindings.
 
     keys = {
         -- TODO: Decide on interrupt bindings. Attempt with stty first?
@@ -37,25 +61,25 @@ return {
         { key = 'v', mods = 'CTRL', action = wezterm.action{ PasteFrom = 'Clipboard' } },
     },
 
+--------------------------------------------------------------------------------
+-- Mouse input
+--------------------------------------------------------------------------------
+
     -- Mouse bindings
     bypass_mouse_reporting_modifiers = 'SHIFT',
 
-    mouse_bindings = {
-        -- Ctrl-click will open the link under the mouse cursor
-        {
-            event = { Up = { streak = 1, button = 'Left' } },
-            mods = 'CTRL',
-            action = wezterm.action.OpenLinkAtMouseCursor,
-        },
-    },
+--------------------------------------------------------------------------------
+-- Rendering
+--------------------------------------------------------------------------------
 
-    -- Disable tab bar
-    enable_tab_bar = false,
-    use_fancy_tab_bar = false,
+    -- Font
+    font = wezterm.font({
+        family = 'Fira Code',
+        weight = 'Regular',
+    }),
+    font_size = 11.0,
 
-    -- Window
-    adjust_window_size_when_changing_font_size = false,
-
+    -- Window padding
     window_padding = {
         left   = 0,
         right  = 0,
@@ -63,23 +87,18 @@ return {
         bottom = 0,
     },
 
-    -- Terminal bell
-    audible_bell = 'Disabled',
+--------------------------------------------------------------------------------
+-- Colors
+--------------------------------------------------------------------------------
 
-    visual_bell = {
-        fade_in_function = 'Linear',
-        fade_in_duration_ms = 0,
-        fade_out_function = 'EaseOut',
-        fade_out_duration_ms = 400,
-    },
-
-    -- TODO: Use system colors from lua_colors.lua
-    -- Colors
+    -- Window gradient
     window_background_gradient = {
         colors = { theme.colors.extra_dark.blue, theme.colors.greyscale.g0 },
         orientation = { Linear = { angle = -60.0 } },
     },
 
+    -- TODO: Use system colors from lua_colors.lua
+    -- Color scheme mapping
     colors = {
         visual_bell = theme.colors.normal.blue,
 
