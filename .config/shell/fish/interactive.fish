@@ -1,8 +1,15 @@
 #-------------------------------------------------------------------------------
-# Generic
+# Generic interactive configuration
+#
+# This should work exactly the same as ~/.config/shell/generic/interactive
+# Unfortunately, it's not trivial to source a POSIX shell script from fish, so
+# the functionality is duplicated here.
+#
+# NOTE: Although `bass` works, it degrades performance to an unacceptable level.
+#   `bass 'source /home/casper/.config/shell/generic/interactive'`
 #-------------------------------------------------------------------------------
 
-bass 'source $HOME/.config/shell/generic/interactive'
+# Nothing here right now.
 
 #-------------------------------------------------------------------------------
 # Abbreviations
