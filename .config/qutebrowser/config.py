@@ -2143,6 +2143,7 @@ config.unbind('gD') # tab-give
 config.unbind('<Ctrl-h>') # home
 config.unbind('<Ctrl-w>') # tab-close
 config.unbind('q') # macro-record
+config.unbind('d') # tab-close
 
 ## Bindings for normal mode
 ### Tab management
@@ -2246,7 +2247,6 @@ config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseva
 # config.bind('b', 'set-cmd-text -s :quickmark-load')
 # config.bind('cd', 'download-clear')
 # config.bind('co', 'tab-only')
-# config.bind('d', 'tab-close')
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
 # config.bind('g0', 'tab-focus 1')
