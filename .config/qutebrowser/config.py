@@ -149,7 +149,7 @@ c.tabs.position = 'top'
 c.tabs.title.alignment = 'left'
 c.tabs.title.format = '{audio}[{index}] {current_title}'
 c.tabs.tooltips = False
-c.tabs.last_close = 'close'
+c.tabs.last_close = 'blank'
 c.tabs.show = 'multiple'
 c.tabs.mode_on_change = 'normal'
 
