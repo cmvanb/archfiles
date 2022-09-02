@@ -52,13 +52,13 @@ return {
             mods = 'CTRL',
             action = wezterm.action_callback(function(window, pane)
                 if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action.SendKey{ key='c', mods='CTRL' }, pane)
+                    window:perform_action(wezterm.action.SendKey { key = 'c', mods = 'CTRL' }, pane)
                 else
-                    window:perform_action(wezterm.action{ CopyTo = 'ClipboardAndPrimarySelection' }, pane)
+                    window:perform_action(wezterm.action { CopyTo = 'ClipboardAndPrimarySelection' }, pane)
                 end
             end),
         },
-        { key = 'v', mods = 'CTRL', action = wezterm.action{ PasteFrom = 'Clipboard' } },
+        { key = 'v', mods = 'CTRL', action = wezterm.action { PasteFrom = 'Clipboard' } },
     },
 
 --------------------------------------------------------------------------------
