@@ -9,7 +9,19 @@
 #   `bass 'source /home/casper/.config/shell/generic/interactive'`
 #-------------------------------------------------------------------------------
 
-# Nothing here right now.
+# Setup terminal escape bindings.
+stty intr ^X
+stty quit ^Q
+stty erase undef
+stty kill ^K
+stty eof ^E
+stty start undef
+stty stop undef
+stty susp undef
+stty rprnt undef
+stty werase undef
+stty lnext undef
+stty discard undef
 
 #-------------------------------------------------------------------------------
 # Abbreviations
