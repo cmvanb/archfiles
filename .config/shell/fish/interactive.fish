@@ -38,11 +38,8 @@ abbr -a gca git commit --amend
 abbr -a gp git push
 abbr -a gpf git push --force
 abbr -a grc git rm --cached
-abbr -a n nvim
-abbr -a nv nvim
-abbr -a nvi nvim
-abbr -a e exa
-abbr -a ex exa
+abbr -a e edit
+abbr -a ed edit
 
 #-------------------------------------------------------------------------------
 # Bindings
