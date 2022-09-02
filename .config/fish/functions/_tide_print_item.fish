@@ -1,4 +1,9 @@
 function _tide_print_item -a item
+
+    # NOTE: This is a hack so we don't have to export prompt vars that clutter the environment.
+    set -g _tide_color_separator_same_color \e\[37m
+    set -g _tide_pad ' '
+
     v=tide_"$item"_bg_color set -f item_bg_color $$v
 
     if set -e add_prefix

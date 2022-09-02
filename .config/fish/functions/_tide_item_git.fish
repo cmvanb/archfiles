@@ -1,4 +1,8 @@
 function _tide_item_git
+
+    # NOTE: This is a hack so we don't have to export prompt vars that clutter the environment.
+    set -g _tide_location_color \e\[30m
+
     if git branch --show-current 2>/dev/null | string replace -r "(.{$tide_git_truncation_length}).+" '$1…' | read -l location
         git rev-parse --git-dir --is-inside-git-dir | read -fL gdir in_gdir
         set location $_tide_location_color$location
