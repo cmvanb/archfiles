@@ -22,6 +22,9 @@ set ruler
 " Show line numbers
 set number
 
+" Highlight current line
+set cursorline
+
 " Whitespace visualization
 set listchars=tab:→-,eol:↓,trail:⌂
 set nolist
