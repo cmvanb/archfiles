@@ -4,6 +4,7 @@
 
 local wezterm = require('wezterm')
 
+-- TODO: Use system colors from lua_colors.lua.
 local theme = require('mercury')
 
 return {
@@ -22,18 +23,6 @@ return {
     enable_tab_bar = false,
     use_fancy_tab_bar = false,
 
-    -- Window
-    adjust_window_size_when_changing_font_size = false,
-
-    -- Terminal bell
-    audible_bell = 'Disabled',
-    visual_bell = {
-        fade_in_function = 'Linear',
-        fade_in_duration_ms = 0,
-        fade_out_function = 'EaseOut',
-        fade_out_duration_ms = 400,
-    },
-
 --------------------------------------------------------------------------------
 -- Keyboard input
 --------------------------------------------------------------------------------
@@ -42,11 +31,7 @@ return {
     -- see: https://wezfurlong.org/wezterm/config/default-keys.html
     disable_default_key_bindings = true,
 
-    -- TODO: Add page scroll binds (CTRL+D/CTRL+U). Depends on stty interrupt rebindings.
-
     keys = {
-        -- TODO: Decide on interrupt bindings. Attempt with stty first?
-        -- { key = 'q', mods = 'CTRL', action = wezterm.action.SendKey { key = 'c', mods = 'CTRL' } },
         {
             key = 'c',
             mods = 'CTRL',
@@ -94,6 +79,9 @@ return {
 -- Appearance
 --------------------------------------------------------------------------------
 
+    -- Don't render bold as bright.
+    bold_brightens_ansi_colors = false,
+
     -- Font
     font = wezterm.font({
         family = 'Fira Code',
@@ -101,12 +89,22 @@ return {
     }),
     font_size = 11.0,
 
-    -- Window padding
+    -- Window
+    adjust_window_size_when_changing_font_size = false,
     window_padding = {
         left   = 0,
         right  = 0,
         top    = 0,
         bottom = 0,
+    },
+
+    -- Terminal bell
+    audible_bell = 'Disabled',
+    visual_bell = {
+        fade_in_function = 'Linear',
+        fade_in_duration_ms = 0,
+        fade_out_function = 'EaseOut',
+        fade_out_duration_ms = 400,
     },
 
 --------------------------------------------------------------------------------
