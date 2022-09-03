@@ -26,9 +26,8 @@ c.auto_save.session = True
 c.confirm_quit = ['downloads']
 c.messages.timeout = 3000
 c.scrolling.smooth = True
-
-# TODO: Find out if we can skin the QT rendered scrollbar.
 c.scrolling.bar = 'always'
+c.session.default_name = 'default'
 
 ## Completion view settings
 # ---
@@ -42,7 +41,7 @@ c.completion.scrollbar.width = 10
 
 c.content.autoplay = False
 c.content.blocking.enabled = True
-c.content.blocking.method = 'auto'
+c.content.blocking.method = 'both'
 c.content.headers.do_not_track = True
 c.content.javascript.enabled = False
 c.content.notifications.enabled = False
@@ -1454,7 +1453,7 @@ c.colors.webpage.darkmode.enabled = True
 ##   - keypress: Display pressed keys when composing a vi command.
 ##   - progress: Progress bar for the current page loading.
 ##   - text:foo: Display the static text after the colon, `foo` in the example.
-# c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
+c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
 
 ## Tabs settings
 # ---
@@ -1879,11 +1878,6 @@ c.colors.webpage.darkmode.enabled = True
 ## text matches using `:search-next` and `:search-prev`.
 ## Type: Bool
 # c.search.wrap = True
-
-## Name of the session to save by default. If this is set to null, the
-## session which was last loaded is saved.
-## Type: SessionName
-# c.session.default_name = None
 
 ## Load a restored tab as soon as it takes focus.
 ## Type: Bool
