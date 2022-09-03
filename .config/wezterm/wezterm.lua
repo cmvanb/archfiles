@@ -59,6 +59,28 @@ return {
             end),
         },
         { key = 'v', mods = 'CTRL', action = wezterm.action { PasteFrom = 'Clipboard' } },
+        {
+            key = 'd',
+            mods = 'CTRL',
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action.SendKey { key = 'd', mods = 'CTRL' }, pane)
+                else
+                    window:perform_action(wezterm.action.ScrollByPage(0.5), pane)
+                end
+            end),
+        },
+        {
+            key = 'u',
+            mods = 'CTRL',
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action.SendKey { key = 'u', mods = 'CTRL' }, pane)
+                else
+                    window:perform_action(wezterm.action.ScrollByPage(-0.5), pane)
+                end
+            end),
+        },
     },
 
 --------------------------------------------------------------------------------
@@ -69,7 +91,7 @@ return {
     bypass_mouse_reporting_modifiers = 'SHIFT',
 
 --------------------------------------------------------------------------------
--- Rendering
+-- Appearance
 --------------------------------------------------------------------------------
 
     -- Font
