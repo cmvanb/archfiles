@@ -130,8 +130,7 @@ endif
 "-------------------------------------------------------------------------------
 
 " TODO: Use 24bit colors: `set termguicolors`
-" TODO: Use system color scheme
-" TODO: Apply colors to GUI
+" TODO: Apply system color scheme
 
 " Use base 16 colors
 set notermguicolors
@@ -143,22 +142,22 @@ set background=dark
 syntax reset
 
 " Vim
-hi Normal                   ctermfg=6       ctermbg=NONE
-hi NonText                  ctermfg=6       ctermbg=NONE
-hi Cursor                   ctermfg=0       ctermbg=7
-hi CursorLine               ctermfg=NONE    ctermbg=0       cterm=NONE
-hi MatchParen               ctermfg=14      ctermbg=NONE    cterm=bold,underline
-hi NonText                  ctermfg=4       ctermbg=NONE
-hi LineNr                   ctermfg=8       ctermbg=NONE
-hi CursorLineNr             ctermfg=7       ctermbg=0       cterm=NONE
-hi Visual                   ctermfg=0       ctermbg=13
-hi IncSearch                ctermfg=0       ctermbg=13      cterm=NONE
-hi Search                   ctermfg=11      ctermbg=2       cterm=bold
-hi StatusLine               ctermfg=7       ctermbg=0       cterm=bold
-hi StatusLineNC             ctermfg=8       ctermbg=0       cterm=bold
-hi Folded                   ctermfg=6       ctermbg=0       cterm=bold
-hi ErrorMsg                 ctermfg=11      ctermbg=1       cterm=bold
-hi Title                    ctermfg=3       ctermbg=NONE    cterm=bold
+hi Normal                   ctermfg=6       ctermbg=NONE    cterm=NONE              guifg=6     guibg=NONE  gui=NONE
+hi NonText                  ctermfg=6       ctermbg=NONE    cterm=NONE              guifg=6     guibg=NONE  gui=NONE
+hi Cursor                   ctermfg=0       ctermbg=7       cterm=NONE              guifg=0     guibg=7     gui=NONE
+hi CursorLine               ctermfg=NONE    ctermbg=0       cterm=NONE              guifg=NONE  guibg=0     gui=NONE
+hi MatchParen               ctermfg=14      ctermbg=NONE    cterm=bold,underline    guifg=14    guibg=NONE  gui=bold,underline
+hi NonText                  ctermfg=4       ctermbg=NONE    cterm=NONE              guifg=4     guibg=NONE  gui=NONE
+hi LineNr                   ctermfg=8       ctermbg=NONE    cterm=NONE              guifg=8     guibg=NONE  gui=NONE
+hi CursorLineNr             ctermfg=7       ctermbg=0       cterm=NONE              guifg=7     guibg=0     gui=NONE
+hi Visual                   ctermfg=0       ctermbg=13      cterm=NONE              guifg=0     guibg=13    gui=NONE
+hi IncSearch                ctermfg=0       ctermbg=13      cterm=NONE              guifg=0     guibg=13    gui=NONE
+hi Search                   ctermfg=11      ctermbg=2       cterm=bold              guifg=11    guibg=2     gui=bold
+hi StatusLine               ctermfg=7       ctermbg=0       cterm=bold              guifg=7     guibg=0     gui=bold
+hi StatusLineNC             ctermfg=8       ctermbg=0       cterm=bold              guifg=8     guibg=0     gui=bold
+hi Folded                   ctermfg=6       ctermbg=0       cterm=bold              guifg=6     guibg=0     gui=bold
+hi ErrorMsg                 ctermfg=11      ctermbg=1       cterm=bold              guifg=11    guibg=1     gui=bold
+hi Title                    ctermfg=3       ctermbg=NONE    cterm=bold              guifg=3     guibg=NONE  gui=bold
 hi! link vimCommentTitle    Comment
 hi! link vimOption          Identifier
 hi! link CursorColumn       CursorLine
@@ -168,24 +167,29 @@ hi! link Question           MoreMsg
 hi! link ModeMsg            MoreMsg
 
 " Generic code
-hi Identifier         ctermfg=7     ctermbg=NONE    cterm=NONE
-hi Statement          ctermfg=10    ctermbg=NONE    cterm=bold
-hi Comment            ctermfg=8     ctermbg=NONE
-hi Type               ctermfg=3     ctermbg=NONE
-hi PreProc            ctermfg=11    ctermbg=NONE    cterm=NONE
-hi Constant           ctermfg=13    ctermbg=NONE
-hi Special            ctermfg=15    ctermbg=NONE
-hi Underlined         ctermfg=4     ctermbg=NONE    cterm=underline
-hi Delimiter          ctermfg=4     ctermbg=NONE
-hi String             ctermfg=2     ctermbg=NONE
-hi Keyword            ctermfg=10    ctermbg=NONE    cterm=bold
-hi Todo               ctermfg=16    ctermbg=3       cterm=bold
-hi Function           ctermfg=13    ctermbg=NONE
-hi Number             ctermfg=9     ctermbg=NONE
-hi Boolean            ctermfg=9     ctermbg=NONE
-hi Ignore             ctermfg=0     ctermbg=NONE
-hi! link Error        ErrorMsg
-hi! link Operator     Delimiter
+hi Identifier               ctermfg=7       ctermbg=NONE    cterm=NONE              guifg=7     guibg=NONE  gui=NONE
+hi Statement                ctermfg=10      ctermbg=NONE    cterm=bold              guifg=10    guibg=NONE  gui=bold
+hi Comment                  ctermfg=8       ctermbg=NONE    cterm=NONE              guifg=8     guibg=NONE  gui=NONE
+hi Type                     ctermfg=3       ctermbg=NONE    cterm=NONE              guifg=3     guibg=NONE  gui=NONE
+hi PreProc                  ctermfg=11      ctermbg=NONE    cterm=NONE              guifg=11    guibg=NONE  gui=NONE
+hi Constant                 ctermfg=13      ctermbg=NONE    cterm=NONE              guifg=13    guibg=NONE  gui=NONE
+hi Special                  ctermfg=15      ctermbg=NONE    cterm=NONE              guifg=15    guibg=NONE  gui=NONE
+hi Underlined               ctermfg=4       ctermbg=NONE    cterm=underline         guifg=4     guibg=NONE  gui=underline
+hi Delimiter                ctermfg=4       ctermbg=NONE    cterm=NONE              guifg=4     guibg=NONE  gui=NONE
+hi String                   ctermfg=2       ctermbg=NONE    cterm=NONE              guifg=2     guibg=NONE  gui=NONE
+hi Keyword                  ctermfg=10      ctermbg=NONE    cterm=bold              guifg=10    guibg=NONE  gui=bold
+hi Todo                     ctermfg=7       ctermbg=NONE    cterm=bold,underline    guifg=4     guibg=NONE  gui=bold,underline
+hi Function                 ctermfg=13      ctermbg=NONE    cterm=NONE              guifg=13    guibg=NONE  gui=NONE
+hi Number                   ctermfg=9       ctermbg=NONE    cterm=NONE              guifg=9     guibg=NONE  gui=NONE
+hi Boolean                  ctermfg=9       ctermbg=NONE    cterm=NONE              guifg=9     guibg=NONE  gui=NONE
+hi Ignore                   ctermfg=0       ctermbg=NONE    cterm=NONE              guifg=0     guibg=NONE  gui=NONE
+hi! link Error              ErrorMsg
+hi! link Operator           Delimiter
+
+augroup AlwaysHighlightTodoNote
+    autocmd!
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO\|NOTE', -1)
+augroup END
 
 "-------------------------------------------------------------------------------
 " Plugins
