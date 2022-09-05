@@ -33,29 +33,28 @@ wlr-randr --output DP-2 --transform 90
 # Input configuration
 #-------------------------------------------------------------------------------
 
-# Set keyboard repeat rate
+riverctl focus-follows-cursor normal
+
+# Keyboard repeat rate
 riverctl set-repeat 50 300
 
-# Configure mouse
+# Mouse configuration
 riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard accel-profile adaptive
 riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard pointer-accel 1.0
-
-# Focus should follow the cursor
-riverctl focus-follows-cursor normal
 
 #-------------------------------------------------------------------------------
 # Styling
 #-------------------------------------------------------------------------------
 
-# TODO: Get these colors programmatically
-# Set background and border color
-riverctl background-color 0x0d0d0d
-riverctl border-color-focused 0x0d55ea
-riverctl border-color-unfocused 0x5d5d6f
-riverctl border-color-urgent 0xb30f1f
+. "$XDG_CONFIG_HOME/colors/sh-colors.sh"
+
+riverctl background-color "$(colors_zerox $black)"
+riverctl border-color-focused "$(colors_zerox $blue)"
+riverctl border-color-unfocused "$(colors_zerox $gray)"
+riverctl border-color-urgent "$(colors_zerox $red)"
+
 riverctl border-width 2
 
-# XCursor Theme
 riverctl xcursor-theme Simp1e 24
 
 #-------------------------------------------------------------------------------
@@ -87,15 +86,21 @@ riverctl map normal Alt+Shift J swap next
 riverctl map normal Alt+Shift K swap previous
 
 # Focus the next/previous output
-riverctl map normal Alt H focus-output next
-riverctl map normal Alt L focus-output previous
+riverctl map normal Alt L focus-output next
+riverctl map normal Alt H focus-output previous
 
 # Send the focused view to the next/previous output
-riverctl map normal Alt+Shift H send-to-output next
-riverctl map normal Alt+Shift L send-to-output previous
+# TODO: Save active tag on source output, restore it on destination output.
+riverctl map normal Alt+Shift L spawn "$XDG_CONFIG_HOME/river/send-and-focus-output next"
+riverctl map normal Alt+Shift H spawn "$XDG_CONFIG_HOME/river/send-and-focus-output previous"
+
+# Cycle focused tags
+# see: https://gitlab.com/SillyPill/river-shifttags/-/tree/master/
+riverctl map normal Alt Tab spawn "river-shifttags"
+riverctl map normal Alt Backspace spawn "river-shifttags --shift -1"
 
 # Bump the focused view to the top of the layout stack
-riverctl map normal Alt Tab zoom
+riverctl map normal Alt Z zoom
 
 # Toggle fullscreen
 riverctl map normal Alt F toggle-fullscreen
@@ -105,13 +110,13 @@ riverctl map normal Alt Down send-layout-cmd rivercarro "main-ratio +0.05"
 riverctl map normal Alt Up send-layout-cmd rivercarro "main-ratio -0.05"
 
 # Change layout orientation
-# riverctl map normal Alt Up    send-layout-cmd rivercarro "main-location top"
-# riverctl map normal Alt Down  send-layout-cmd rivercarro "main-location bottom"
-riverctl map normal Alt Left  send-layout-cmd rivercarro "main-location left"
-riverctl map normal Alt Right send-layout-cmd rivercarro "main-location top"
+riverctl map normal Alt Right send-layout-cmd rivercarro "main-location right"
+riverctl map normal Alt Down send-layout-cmd rivercarro "main-location bottom"
+riverctl map normal Alt Left send-layout-cmd rivercarro "main-location left"
+riverctl map normal Alt Up send-layout-cmd rivercarro "main-location top"
 
 # Take a screenshot of a selected rectangle
-riverctl map normal Alt P spawn "bin/screenshot-rectangle.sh"
+riverctl map normal Alt P spawn "$HOME/bin/screenshot-rectangle.sh"
 
 for i in $(seq 1 9)
 do
@@ -131,7 +136,7 @@ done
 # Status bar
 #-------------------------------------------------------------------------------
 
-. ".config/river/statusbar"
+. "$XDG_CONFIG_HOME/river/statusbar"
 
 #-------------------------------------------------------------------------------
 # Layout generator
@@ -159,7 +164,7 @@ session_cleanup () {
 
 trap session_cleanup INT TERM
 
-# As long as WAYLAND_DISPLAY is in use, river is running.
+# NOTE: The assumption is: if WAYLAND_DISPLAY is in use, river is running.
 while [ -n "$WAYLAND_DISPLAY" ]
 do
     sleep 0.10
