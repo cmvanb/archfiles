@@ -2,8 +2,6 @@
 # Setup
 #-------------------------------------------------------------------------------
 
-# TODO: Make this nicer.
-
 import os
 import sys
 
@@ -378,7 +376,7 @@ c.colors.tabs.indicator.system = 'rgb'
 ### Websites
 # ---
 
-c.colors.webpage.bg = colors.named('white')
+c.colors.webpage.bg = colors.named('black')
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 ### Dark mode
