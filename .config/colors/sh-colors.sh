@@ -2,5 +2,13 @@
 
 . ~/.config/colors/colors
 
-echo background is $background
+# Does nothing
+colors () {
+    echo $1
+}
+
+# Usage: `"$(colors_zerox $colorname)"`
+colors_zerox () {
+    echo 0x${1:1}
+}
 
