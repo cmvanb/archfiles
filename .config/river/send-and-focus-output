@@ -1,0 +1,4 @@
+#!/bin/bash
+
+riverctl send-to-output $1
+riverctl focus-output $1
