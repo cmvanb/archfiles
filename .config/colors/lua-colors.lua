@@ -1,0 +1,125 @@
+--------------------------------------------------------------------------------
+-- Lookup
+--------------------------------------------------------------------------------
+
+local colors = {}
+
+local _named = {}
+
+function colors.named(name)
+    return _named[name]
+end
+
+--------------------------------------------------------------------------------
+-- Entry point
+--------------------------------------------------------------------------------
+
+-- function main()
+--     parse_colors()
+--
+--     print("--- Named System Colors ---")
+--
+--     -- TODO: Use terminal escape codes to colorize output
+--     for k, v in pairs(_named) do
+--         print(k .. ": " .. v)
+--     end
+-- end
+
+--------------------------------------------------------------------------------
+-- Parser
+--------------------------------------------------------------------------------
+
+function colors.parse_colors()
+    colorsFile = os.getenv('XDG_CONFIG_HOME') .. '/colors/colors'
+
+    local f = io.open(colorsFile, 'r')
+
+    if f == nil then
+        error('Could not open file: ' .. colorsFile)
+    end
+
+    local lines = io.lines(colorsFile) 
+
+    for line in lines do
+        local key = nil
+        local value = nil
+        local assignment_op = false
+        local lookup = false
+
+        for i = 1, #line do
+            local c = line:byte(i)
+
+            -- Space, keep reading
+            if c == string.byte(' ') then
+                goto continue
+
+            -- Hash before assignment, line is now a comment, skip
+            elseif c == string.byte('#') and assignment_op == false then
+                key = nil
+                value = nil
+                break
+
+            -- Quote, only allowed after assignment
+            elseif c == string.byte('\'') then
+                if assignment_op == false then
+                    key = nil
+                    value = nil
+                    break
+                end
+
+            -- Dollar, only allowed after assignment
+            elseif c == string.byte('$') then
+                if assignment_op == false then
+                    key = nil
+                    value = nil
+                    break
+                else
+                    lookup = true
+                    goto continue
+                end
+
+            -- Alphanumeric or underscore or hash, append to either key or value
+            elseif string.match(string.char(c), '[%w_#]') ~= nil then
+                if assignment_op == false then
+                    if key == nil then
+                        key = ''
+                    end
+                    key = key .. string.char(c)
+                else
+                    if value == nil then
+                        value = ''
+                    end
+                    value = value .. string.char(c)
+                end
+
+            -- Assignment operator reached, keep reading for value
+            elseif c == string.byte('=') then
+                if assignment_op == false then
+                    assignment_op = true
+                end
+
+            else
+                error('Invalid character in config file: [' .. c .. ']')
+
+            end
+
+            -- Lua doesn't have the typical continue operator, so we use `goto`.
+            ::continue::
+        end
+
+        -- Assign value
+        if key ~= nil and value ~= nil then
+            if lookup == true then
+                _named[key] = _named[value]
+            else
+                _named[key] = value
+            end
+        end
+
+    end
+end
+
+-- main()
+
+return colors
+

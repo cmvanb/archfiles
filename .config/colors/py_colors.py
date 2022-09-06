@@ -20,7 +20,7 @@ def main():
 
     # TODO: Use terminal escape codes to colorize output
     for k, v in _named.items():
-        print('{} = {}'.format(k, v))
+        print('{}: {}'.format(k, v))
 
 #-------------------------------------------------------------------------------
 # Parser
@@ -46,7 +46,6 @@ def parse_colors():
         for i, c in enumerate(l):
             # Space, keep reading
             if c == ' ':
-                print('space')
                 continue
             # Hash before assignment, line is now a comment, skip
             elif c == '#' and assignment_op == False:
@@ -70,7 +69,7 @@ def parse_colors():
                 else:
                     lookup = True
                     continue
-            # Alphanumeric or underscore, append to either key or value
+            # Alphanumeric or underscore or hash, append to either key or value
             elif re.search('[0-9a-zA-Z_#]', c) is not None:
                 if assignment_op == False:
                     if key == None:
