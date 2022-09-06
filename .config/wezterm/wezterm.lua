@@ -4,8 +4,11 @@
 
 local wezterm = require('wezterm')
 
--- TODO: Use system colors from lua_colors.lua.
-local theme = require('mercury')
+-- Import system colors
+package.path = os.getenv('XDG_CONFIG_HOME') .. '/colors' .. [[/?.lua]]
+
+local colors = require('lua-colors')
+colors.parse_colors()
 
 return {
 --------------------------------------------------------------------------------
@@ -113,97 +116,97 @@ return {
 
     -- Window gradient
     window_background_gradient = {
-        colors = { theme.colors.extra_dark.blue, theme.colors.greyscale.g0 },
+        colors = { colors.named('d2_blue'), colors.named('black') },
         orientation = { Linear = { angle = -60.0 } },
     },
 
     -- TODO: Use system colors from lua_colors.lua
     -- Color scheme mapping
     colors = {
-        visual_bell = theme.colors.normal.blue,
+        visual_bell = colors.named('blue'),
 
         tab_bar = {
-            background = theme.colors.greyscale.g0,
+            background = colors.named('black'),
 
             active_tab = {
-                bg_color = theme.colors.greyscale.g0,
-                fg_color = theme.colors.greyscale.g6,
+                bg_color = colors.named('black'),
+                fg_color = colors.named('white'),
 
                 intensity = 'Bold',
             },
 
             inactive_tab = {
-                bg_color = theme.colors.greyscale.g0,
-                fg_color = theme.colors.greyscale.g3,
+                bg_color = colors.named('black'),
+                fg_color = colors.named('gray'),
 
                 intensity = 'Normal',
             },
 
             inactive_tab_hover = {
-                bg_color = theme.colors.greyscale.g1,
-                fg_color = theme.colors.greyscale.g4,
+                bg_color = colors.named('d3_gray'),
+                fg_color = colors.named('l1_gray'),
             },
 
             new_tab = {
-                bg_color = theme.colors.greyscale.g0,
-                fg_color = theme.colors.greyscale.g3,
+                bg_color = colors.named('black'),
+                fg_color = colors.named('gray'),
             },
 
             new_tab_hover = {
-                bg_color = theme.colors.greyscale.g1,
-                fg_color = theme.colors.greyscale.g4,
+                bg_color = colors.named('d3_gray'),
+                fg_color = colors.named('l1_gray'),
             },
         },
 
-        background = theme.colors.extra_dark.blue,
-        foreground = theme.colors.greyscale.g6,
+        background = colors.named('d2_blue'),
+        foreground = colors.named('white'),
 
-        cursor_bg = theme.colors.greyscale.g7,
-        cursor_fg = theme.colors.greyscale.g0,
+        cursor_bg = colors.named('l1_white'),
+        cursor_fg = colors.named('black'),
 
-        selection_bg = theme.colors.bright.magenta,
-        selection_fg = theme.colors.greyscale.g0,
+        selection_bg = colors.named('l1_magenta'),
+        selection_fg = colors.named('black'),
 
         ansi = {
-            theme.colors.greyscale.g0,
-            theme.colors.normal.red,
-            theme.colors.normal.green,
-            theme.colors.normal.yellow,
-            theme.colors.normal.blue,
-            theme.colors.normal.magenta,
-            theme.colors.normal.cyan,
-            theme.colors.greyscale.g6,
+            colors.named('black'),
+            colors.named('red'),
+            colors.named('green'),
+            colors.named('yellow'),
+            colors.named('blue'),
+            colors.named('magenta'),
+            colors.named('cyan'),
+            colors.named('white'),
         },
 
         brights = {
-            theme.colors.greyscale.g3,
-            theme.colors.bright.red,
-            theme.colors.bright.green,
-            theme.colors.bright.yellow,
-            theme.colors.bright.blue,
-            theme.colors.bright.magenta,
-            theme.colors.bright.cyan,
-            theme.colors.greyscale.g7,
+            colors.named('gray'),
+            colors.named('l1_red'),
+            colors.named('l1_green'),
+            colors.named('l1_yellow'),
+            colors.named('l1_blue'),
+            colors.named('l1_magenta'),
+            colors.named('l1_cyan'),
+            colors.named('l1_white'),
         },
 
         indexed = {
-            [16] = theme.colors.greyscale.g2,
-            [17] = theme.colors.dark.red,
-            [18] = theme.colors.dark.green,
-            [19] = theme.colors.dark.yellow,
-            [20] = theme.colors.dark.blue,
-            [21] = theme.colors.dark.magenta,
-            [22] = theme.colors.dark.cyan,
-            [23] = theme.colors.greyscale.g5,
+            [16] = colors.named('d2_gray'),
+            [17] = colors.named('d1_red'),
+            [18] = colors.named('d1_green'),
+            [19] = colors.named('d1_yellow'),
+            [20] = colors.named('d1_blue'),
+            [21] = colors.named('d1_magenta'),
+            [22] = colors.named('d1_cyan'),
+            [23] = colors.named('l2_gray'),
 
-            [24] = theme.colors.greyscale.g1,
-            [25] = theme.colors.extra_dark.red,
-            [26] = theme.colors.extra_dark.green,
-            [27] = theme.colors.extra_dark.yellow,
-            [28] = theme.colors.extra_dark.blue,
-            [29] = theme.colors.extra_dark.magenta,
-            [30] = theme.colors.extra_dark.cyan,
-            [31] = theme.colors.greyscale.g4,
+            [24] = colors.named('d3_gray'),
+            [25] = colors.named('d2_red'),
+            [26] = colors.named('d2_green'),
+            [27] = colors.named('d2_yellow'),
+            [28] = colors.named('d2_blue'),
+            [29] = colors.named('d2_magenta'),
+            [30] = colors.named('d2_cyan'),
+            [31] = colors.named('l1_gray'),
         },
     },
 }
