@@ -41,6 +41,9 @@ return require('packer').startup(function()
     -- ib, ab
     use 'machakann/vim-sandwich'
 
+    -- View colors in editor.
+    use 'norcalli/nvim-colorizer.lua'
+
     -- terminal background fix
     -- NOTE: Not needed when running in wezterm.
     -- use '~/projects/termbg.nvim'
@@ -54,6 +57,8 @@ return require('packer').startup(function()
     ----------------------------------------------------------------------------
     -- Setup --
     ----------------------------------------------------------------------------
+
+    require('colorizer').setup()
 
     require('telescope').setup({
         defaults = {
