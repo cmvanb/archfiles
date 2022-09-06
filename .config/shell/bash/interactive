@@ -28,11 +28,8 @@ alias gca="git commit --amend"
 alias gp="git push"
 alias gpf="git push --force"
 alias grc="git rm --cached"
-alias n="nvim"
-alias nv="nvim"
-alias nvi="nvim"
-alias e="exa"
-alias ex="exa"
+alias e="edit"
+alias ed="edit"
 
 #-------------------------------------------------------------------------------
 # Prompt
