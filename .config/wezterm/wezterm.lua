@@ -35,6 +35,7 @@ return {
     disable_default_key_bindings = true,
 
     keys = {
+        -- Copy
         {
             key = 'c',
             mods = 'CTRL',
@@ -46,7 +47,13 @@ return {
                 end
             end),
         },
-        { key = 'v', mods = 'CTRL', action = wezterm.action { PasteFrom = 'Clipboard' } },
+        -- Paste
+        {
+            key = 'v',
+            mods = 'CTRL',
+            action = wezterm.action { PasteFrom = 'Clipboard' },
+        },
+        -- Scroll down
         {
             key = 'd',
             mods = 'CTRL',
@@ -58,6 +65,7 @@ return {
                 end
             end),
         },
+        -- Scroll up
         {
             key = 'u',
             mods = 'CTRL',
@@ -68,6 +76,13 @@ return {
                     window:perform_action(wezterm.action.ScrollByPage(-0.5), pane)
                 end
             end),
+        },
+        -- TODO: Improve this key bind.
+        -- Close pane
+        {
+            key = 'q',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.CloseCurrentPane { confirm = true },
         },
     },
 
