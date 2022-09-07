@@ -13,8 +13,8 @@
 
 systemd-cat --identifier=river echo "Initializing River."
 
-# TODO: Prevent duplicate import/overriding.
 # Share part of river environment with systemd.
+# TODO: Prevent duplicate import/overriding.
 VARIABLES="XDG_SESSION_TYPE WAYLAND_DISPLAY"
 
 dbus-update-activation-environment --systemd $VARIABLES
@@ -60,6 +60,7 @@ riverctl xcursor-theme Simp1e 24
 #-------------------------------------------------------------------------------
 # Key bindings
 #-------------------------------------------------------------------------------
+# See all valid keybindings here: `/usr/include/xkbcommon/xkbcommon-keysyms.h`
 
 # New terminal
 # NOTE: The following enables swallowing for terminals:
@@ -105,15 +106,15 @@ riverctl map normal Alt Z zoom
 # Toggle fullscreen
 riverctl map normal Alt F toggle-fullscreen
 
-# Adjust the main ratio of rivercarro
-riverctl map normal Alt Down send-layout-cmd rivercarro "main-ratio +0.05"
-riverctl map normal Alt Up send-layout-cmd rivercarro "main-ratio -0.05"
-
 # Change layout orientation
 riverctl map normal Alt Right send-layout-cmd rivercarro "main-location right"
 riverctl map normal Alt Down send-layout-cmd rivercarro "main-location bottom"
 riverctl map normal Alt Left send-layout-cmd rivercarro "main-location left"
 riverctl map normal Alt Up send-layout-cmd rivercarro "main-location top"
+
+# Adjust layout main ratio
+riverctl map normal Alt Page_Down send-layout-cmd rivercarro "main-ratio +0.05"
+riverctl map normal Alt Page_Up send-layout-cmd rivercarro "main-ratio -0.05"
 
 # Take a screenshot of a selected rectangle
 riverctl map normal Alt P spawn "$HOME/bin/screenshot-rectangle.sh"
@@ -223,27 +224,4 @@ done
 # riverctl map normal Super+Alt+Shift J resize vertical 100
 # riverctl map normal Super+Alt+Shift K resize vertical -100
 # riverctl map normal Super+Alt+Shift L resize horizontal 100
-
-# Various media key mapping examples for both normal and locked mode which do
-# not have a modifier
-# for mode in normal locked
-# do
-#     # Eject the optical drive (well if you still have one that is)
-#     riverctl map $mode None XF86Eject spawn 'eject -T'
-#
-#     # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-#     riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-#     riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
-#     riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
-#
-#     # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
-#     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
-#     riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
-#     riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
-#     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
-#
-#     # Control screen backlight brighness with light (https://github.com/haikarainen/light)
-#     riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
-#     riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
-# done
 
