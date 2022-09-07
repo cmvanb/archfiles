@@ -12,15 +12,35 @@ def named(name):
 #-------------------------------------------------------------------------------
 
 def main():
+    import argparse
+    import sys
+
+    try:
+        parser = argparse.ArgumentParser(description='Python parser for system color scheme. If no argument is passed, it will default to --list.')
+        parser.add_argument('--list', action='store_true', default=True, help='List the parsed color variables.')
+
+        args = parser.parse_args()
+
+        if args.list:
+            print_list()
+            sys.exit(0)
+
+    except Exception as ex:
+        print('Error: {0}'.format(ex))
+        sys.exit(1)
+
+#-------------------------------------------------------------------------------
+# Functions
+#-------------------------------------------------------------------------------
+
+def print_list():
     global _named
 
     parse_colors()
 
-    print('--- Named System Colors ---')
-
     # TODO: Use terminal escape codes to colorize output
     for k, v in _named.items():
-        print('{}: {}'.format(k, v))
+        print('{} -> {}'.format(k, v))
 
 #-------------------------------------------------------------------------------
 # Parser
