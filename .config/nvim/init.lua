@@ -156,15 +156,12 @@ end
 --------------------------------------------------------------------------------
 
 -- Import system colors
-package.path = os.getenv('XDG_CONFIG_HOME') .. '/colors' .. [[/?.lua]]
+package.path = os.getenv('XDG_CONFIG_HOME') .. '/colors' .. [[/?.lua;]] .. package.path
 
 local colors = require('lua-colors')
 colors.parse_colors()
 
--- TODO: Use 24bit colors: `set termguicolors`
--- TODO: Apply system color scheme
-
--- Use base 16 colors
+-- Use 24bit colors
 opt.termguicolors = true
 
 -- NOTE: Is this doing anything?
