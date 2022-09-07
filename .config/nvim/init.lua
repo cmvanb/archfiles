@@ -181,24 +181,25 @@ function hi_link(group, target)
 end
 
 -- Vim highlighting
--- GROUP          . TERMFG . TERMBG . TERMPROPS        . GUIFG                     . GUIBG                      . GUIPROPS ---------
-hi('Normal       ', '6    ', '0    ', 'NONE           ', colors.named('cyan')      , colors.named('black')      , 'NONE           ')
-hi('NonText      ', '6    ', 'NONE ', 'NONE           ', colors.named('cyan')      , 'NONE '                    , 'NONE           ')
-hi('Cursor       ', '0    ', '7    ', 'NONE           ', colors.named('black')     , colors.named('white')      , 'NONE           ')
-hi('CursorLine   ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.named('d2_blue')    , 'NONE           ')
-hi('MatchParen   ', '7    ', 'NONE ', 'bold,underline ', colors.named('white')     , 'NONE '                    , 'bold,underline ')
-hi('NonText      ', '4    ', 'NONE ', 'NONE           ', colors.named('blue')      , 'NONE '                    , 'NONE           ')
-hi('LineNr       ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
-hi('CursorLineNr ', '7    ', '0    ', 'NONE           ', colors.named('white')     , colors.named('black')      , 'NONE           ')
-hi('Visual       ', '0    ', '13   ', 'NONE           ', colors.named('white')     , colors.named('d2_magenta') , 'bold           ')
-hi('IncSearch    ', '0    ', '13   ', 'NONE           ', colors.named('magenta')   , colors.named('white')      , 'bold           ')
-hi('Search       ', '11   ', '2    ', 'bold           ', colors.named('white')     , colors.named('magenta')    , 'bold           ')
-hi('StatusLine   ', '7    ', '0    ', 'bold           ', colors.named('white')     , colors.named('black')      , 'bold           ')
-hi('StatusLineNC ', '8    ', '0    ', 'bold           ', colors.named('gray')      , colors.named('black')      , 'bold           ')
-hi('Folded       ', '6    ', '0    ', 'bold           ', colors.named('cyan')      , colors.named('black')      , 'bold           ')
-hi('ErrorMsg     ', '11   ', '1    ', 'bold           ', colors.named('yellow')    , colors.named('red')        , 'bold           ')
-hi('Title        ', '3    ', 'NONE ', 'bold           ', colors.named('yellow')    , 'NONE '                    , 'bold           ')
-hi('VertSplit    ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
+-- GROUP            . TERMFG . TERMBG . TERMPROPS        . GUIFG                     . GUIBG                      . GUIPROPS ---------
+hi('Normal         ', '6    ', '0    ', 'NONE           ', colors.named('cyan')      , colors.named('black')      , 'NONE           ')
+hi('NonText        ', '6    ', 'NONE ', 'NONE           ', colors.named('cyan')      , 'NONE '                    , 'NONE           ')
+hi('Cursor         ', '0    ', '7    ', 'NONE           ', colors.named('black')     , colors.named('white')      , 'NONE           ')
+hi('CursorLine     ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.named('d2_blue')    , 'NONE           ')
+hi('MatchParen     ', '7    ', 'NONE ', 'bold,underline ', colors.named('white')     , 'NONE '                    , 'bold,underline ')
+hi('NonText        ', '4    ', 'NONE ', 'NONE           ', colors.named('blue')      , 'NONE '                    , 'NONE           ')
+hi('LineNr         ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
+hi('CursorLineNr   ', '7    ', '0    ', 'NONE           ', colors.named('white')     , colors.named('black')      , 'NONE           ')
+hi('Visual         ', '0    ', '13   ', 'NONE           ', colors.named('white')     , colors.named('d2_magenta') , 'bold           ')
+hi('IncSearch      ', '0    ', '13   ', 'NONE           ', colors.named('magenta')   , colors.named('white')      , 'bold           ')
+hi('Search         ', '11   ', '2    ', 'bold           ', colors.named('white')     , colors.named('magenta')    , 'bold           ')
+hi('StatusLine     ', '7    ', '0    ', 'bold           ', colors.named('white')     , colors.named('black')      , 'bold           ')
+hi('StatusLineNC   ', '8    ', '0    ', 'bold           ', colors.named('gray')      , colors.named('black')      , 'bold           ')
+hi('Folded         ', '6    ', '0    ', 'bold           ', colors.named('cyan')      , colors.named('black')      , 'bold           ')
+hi('ErrorMsg       ', '11   ', '1    ', 'bold           ', colors.named('yellow')    , colors.named('red')        , 'bold           ')
+hi('Title          ', '3    ', 'NONE ', 'bold           ', colors.named('yellow')    , 'NONE '                    , 'bold           ')
+hi('VertSplit      ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
+hi('MiniCursorword ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                   , 'NONE '                    , 'bold,underline ')
 
 -- Links
 ------- GROUP             . TARGET -------
