@@ -1,10 +1,13 @@
--- This file is called from init.vim with `lua.require('plugins')`
+--------------------------------------------------------------------------------
+-- NVIM plugins configuration --
+--
+-- This file is called from init.lua with `lua.require('plugins')`
+--------------------------------------------------------------------------------
 
 return require('packer').startup(function()
 
-    ----------------------------------------------------------------------------
-    -- Plugins --
-    ----------------------------------------------------------------------------
+-- General
+--------------------------------------------------------------------------------
 
     -- nvim plugin management
     use 'wbthomason/packer.nvim'
@@ -12,13 +15,31 @@ return require('packer').startup(function()
     -- mini plugins collection
     use 'echasnovski/mini.nvim'
 
-    -- shortcut movement functions
-    use 'phaazon/hop.nvim'
+-- Appearance
+--------------------------------------------------------------------------------
 
-    -- edgemotion
-    use 'haya14busa/vim-edgemotion'
+    -- view colors in editor
+    use 'norcalli/nvim-colorizer.lua'
+
+    require('colorizer').setup()
+
+    -- terminal background fix
+    -- NOTE: Not needed when running in wezterm.
+    -- use '~/projects/termbg.nvim'
+
+-- Editing
+--------------------------------------------------------------------------------
+
+    -- surround
+    -- sa: add, sd: delete, sr: replace
+    -- ib: inner select, ab: outer select (VISUAL mode)
+    use 'machakann/vim-sandwich'
 
     -- easier digraphs
+    -- :UnicodeName
+    -- :UnicodeSearch
+    -- :UnicodeTable
+    -- :Digraphs
     use ({
         'chrisbra/unicode.vim',
         config = function()
@@ -26,70 +47,7 @@ return require('packer').startup(function()
         end,
     })
 
-    -- fuzzy finder
-    use ({
-        'nvim-telescope/telescope.nvim',
-        requires = {{ 'nvim-lua/plenary.nvim' }}
-    })
-
-    -- surround functions
-    --
-    -- Add, delete, replace
-    -- sa, sd, sr
-    --
-    -- Inner select, outer select (VISUAL mode)
-    -- ib, ab
-    use 'machakann/vim-sandwich'
-
-    -- View colors in editor.
-    use 'norcalli/nvim-colorizer.lua'
-
-    -- terminal background fix
-    -- NOTE: Not needed when running in wezterm.
-    -- use '~/projects/termbg.nvim'
-
-    -- fish syntax highlighting
-    use 'khaveesh/vim-fish-syntax'
-
-    -- zig syntax highlighting
-    use 'ziglang/zig.vim'
-
-    ----------------------------------------------------------------------------
-    -- Setup --
-    ----------------------------------------------------------------------------
-
-    require('colorizer').setup()
-
-    require('telescope').setup({
-        defaults = {
-            -- Arguments for Telescope.live_grep picker
-            vimgrep_arguments = {
-                'rg',
-                '--color=never',
-                '--no-heading',
-                '--with-filename',
-                '--line-number',
-                '--column',
-                '--smart-case',
-                '--no-ignore',
-                '--hidden',
-            },
-            mappings = {
-                i = {
-                    ['<C-n>'] = false,
-                    ['<C-p>'] = false,
-                    ['<C-j>'] = require('telescope.actions').move_selection_next,
-                    ['<C-k>'] = require('telescope.actions').move_selection_previous,
-                    ['<Esc>'] = require('telescope.actions').close,
-                },
-            },
-        },
-    })
-
-    require('hop').setup({
-        quit_key = '<esc>',
-    })
-
+    -- commenting
     require('mini.comment').setup({
         -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
@@ -103,14 +61,72 @@ return require('packer').startup(function()
         },
     })
 
+    -- pairs
+    require('mini.pairs').setup({
+        -- In which modes mappings from this `config` should be created
+        modes = { insert = true, command = false, terminal = false },
+
+        -- Global mappings. Each right hand side should be a pair information, a
+        -- table with at least these fields (see more in |MiniPairs.map|):
+        -- - <action> - one of 'open', 'close', 'closeopen'.
+        -- - <pair> - two character string for pair to be used.
+        -- By default pair is not inserted after `\`, quotes are not recognized by
+        -- `<CR>`, `'` does not insert pair after a letter.
+        -- Only parts of tables can be tweaked (others will use these defaults).
+        mappings = {
+            ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
+            ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+            ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+            ['<'] = { action = 'open', pair = '<>', neigh_pattern = '[^\\].' },
+
+            [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+            [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+            ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+            ['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^\\].' },
+
+            ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+            ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
+            ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+        },
+    })
+
+-- Navigation
+--------------------------------------------------------------------------------
+
+    -- edgemotion
+    use 'haya14busa/vim-edgemotion'
+
+    -- show hints for f/F
+    use 'jinh0/eyeliner.nvim'
+
+    -- highlight all occurrences of word under cursor
     require('mini.cursorword').setup({
         -- Delay (in ms) between when cursor moved and when highlighting appeared
         delay = 0,
     })
 
+    -- jump movement
+    -- TODO: Decide between hop and mini.jump2d.
+    -- use 'phaazon/hop.nvim'
+
+    -- require('hop').setup({
+    --     quit_key = '<esc>',
+    -- })
+
+    require('mini.jump2d').setup({
+        -- Label optimization based on home row keys.
+        labels = 'fjdksla;ghvmc-bnrueiwoqpty',
+
+        -- Module mappings. Use `''` (empty string) to disable one.
+        mappings = {
+            start_jumping = '<leader>f',
+        }
+    })
+
+    -- show scope of current indent
     require('mini.indentscope').setup({
         draw = {
-            -- Delay (in ms) between event and start of drawing scope indicator
+            -- Delay (in ms) between event and start of drawing scope indicator.
             delay = 0,
 
             -- Animation rule for scope's first drawing. A function which, given next
@@ -149,37 +165,56 @@ return require('packer').startup(function()
             try_as_border = false,
         },
 
-        -- Which character to use for drawing scope indicator
+        -- NOTE: By default, the highlight links to Delimter.
+        -- Which character to use for drawing scope indicator.
         symbol = '╎',
     })
 
-    require('mini.pairs').setup({
-        -- In which modes mappings from this `config` should be created
-        modes = { insert = true, command = false, terminal = false },
+-- Search
+--------------------------------------------------------------------------------
 
-        -- Global mappings. Each right hand side should be a pair information, a
-        -- table with at least these fields (see more in |MiniPairs.map|):
-        -- - <action> - one of 'open', 'close', 'closeopen'.
-        -- - <pair> - two character string for pair to be used.
-        -- By default pair is not inserted after `\`, quotes are not recognized by
-        -- `<CR>`, `'` does not insert pair after a letter.
-        -- Only parts of tables can be tweaked (others will use these defaults).
-        mappings = {
-            ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
-            ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
-            ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
-            ['<'] = { action = 'open', pair = '<>', neigh_pattern = '[^\\].' },
+    -- fuzzy finder
+    use ({
+        'nvim-telescope/telescope.nvim',
+        requires = {{ 'nvim-lua/plenary.nvim' }}
+    })
 
-            [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-            [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-            ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
-            ['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^\\].' },
-
-            ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
-            ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
-            ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+    require('telescope').setup({
+        defaults = {
+            -- Arguments for Telescope.live_grep picker.
+            vimgrep_arguments = {
+                'rg',
+                '--color=never',
+                '--no-heading',
+                '--with-filename',
+                '--line-number',
+                '--column',
+                '--smart-case',
+                '--no-ignore',
+                '--hidden',
+            },
+            mappings = {
+                i = {
+                    ['<C-n>'] = false,
+                    ['<C-p>'] = false,
+                    ['<C-j>'] = require('telescope.actions').move_selection_next,
+                    ['<C-k>'] = require('telescope.actions').move_selection_previous,
+                    ['<Esc>'] = require('telescope.actions').close,
+                },
+            },
         },
     })
+
+-- Syntax
+--------------------------------------------------------------------------------
+
+    -- fish syntax highlighting
+    use 'khaveesh/vim-fish-syntax'
+
+    -- zig syntax highlighting
+    use 'ziglang/zig.vim'
+
+--------------------------------------------------------------------------------
 
 end)
 
