@@ -98,13 +98,13 @@ c.fonts.messages.error = 'bold 9pt default_family'
 c.fonts.messages.info = '9pt default_family'
 c.fonts.messages.warning = 'bold 9pt default_family'
 
-c.colors.messages.info.bg = colors.named('d2_magenta')
+c.colors.messages.info.bg = colors.named('d2_blue')
 c.colors.messages.info.border = colors.named('black')
 c.colors.messages.info.fg = colors.named('white')
-c.colors.messages.warning.bg = colors.named('d2_magenta')
+c.colors.messages.warning.bg = colors.named('d2_blue')
 c.colors.messages.warning.border = colors.named('black')
 c.colors.messages.warning.fg = colors.named('l1_yellow')
-c.colors.messages.error.bg = colors.named('d2_magenta')
+c.colors.messages.error.bg = colors.named('d2_blue')
 c.colors.messages.error.border = colors.named('black')
 c.colors.messages.error.fg = colors.named('l1_red')
 
