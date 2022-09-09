@@ -30,15 +30,15 @@ bar:
               urgent:
                 map:
                   <<: *river_base
-                  deco: {background: {color: b30f1fff}}
+                  deco: {background: {color: 770914ff}}
               focused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: 0d55eaff}}
+                  deco: {background: {color: 073592ff}}
               unfocused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: 5d5d6fff}}
+                  deco: {background: {color: 464653ff}}
               invisible:
                 map:
                   tag: occupied
