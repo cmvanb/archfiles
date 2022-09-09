@@ -200,16 +200,18 @@ hi('ErrorMsg              ', '11   ', '1    ', 'bold           ', colors.named('
 hi('Title                 ', '3    ', 'NONE ', 'bold           ', colors.named('yellow')    , 'NONE '                    , 'bold           ')
 hi('VertSplit             ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
 hi('MiniCursorword        ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                   , 'NONE '                    , 'bold,underline ')
+hi('EyelinerPrimary       ', 'NONE ', 'NONE ', 'bold,underline' , 'NONE '                   , 'NONE '                    , 'bold,underline ')
+hi('EyelinerSecondary     ', 'NONE ', 'NONE ', 'NONE'           , 'NONE '                   , 'NONE '                    , 'NONE           ')
 
 -- Links
-------- GROUP             . TARGET -------
-hi_link('vimCommentTitle ', 'Comment    ')
-hi_link('vimOption       ', 'Identifier ')
-hi_link('CursorColumn    ', 'CursorLine ')
-hi_link('WarningMsg      ', 'ErrorMsg   ')
-hi_link('MoreMsg         ', 'Title      ')
-hi_link('Question        ', 'MoreMsg    ')
-hi_link('ModeMsg         ', 'MoreMsg    ')
+------- GROUP               . TARGET -------
+hi_link('vimCommentTitle   ', 'Comment    ')
+hi_link('vimOption         ', 'Identifier ')
+hi_link('CursorColumn      ', 'CursorLine ')
+hi_link('WarningMsg        ', 'ErrorMsg   ')
+hi_link('MoreMsg           ', 'Title      ')
+hi_link('Question          ', 'MoreMsg    ')
+hi_link('ModeMsg           ', 'MoreMsg    ')
 
 -- Generic code highlighting
 -- GROUP        . TERMFG . TERMBG . TERMPROPS        . GUIFG                      . GUIBG  . GUIPROPS ---------
