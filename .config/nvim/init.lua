@@ -118,8 +118,12 @@ noremap('<leader>l', ':bnext<cr>')
 -- Close buffer
 noremap('<leader>q', ':bd<cr>')
 
+-- Close window
+map('<C-w>c', 'Nop')
+noremap('<C-w>q', ':close<cr>')
+
 -- Jump
--- noremap('<leader>f', '<cmd>HopWord<cr>')
+noremap('<leader>f', '<cmd>HopWord<cr>')
 
 -- Comment out selection (VISUAL) or current line (NORMAL)
 -- NOTE: Does this need to be `map`?
@@ -176,66 +180,76 @@ function hi(group, termfg, termbg, termprops, guifg, guibg, guiprops)
     cmd('hi ' .. group .. ' ctermfg=' .. termfg .. ' ctermbg=' .. termbg .. ' cterm=' .. termprops .. ' guifg=' .. guifg .. ' guibg=' .. guibg .. ' gui=' .. guiprops)
 end
 
-function hi_link(group, target)
+function ln(group, target)
     cmd('hi! link ' .. group .. ' ' .. target)
 end
 
--- Vim highlighting
--- GROUP                   . TERMFG . TERMBG . TERMPROPS        . GUIFG                     . GUIBG                      . GUIPROPS ---------
-hi('Normal                ', '6    ', '0    ', 'NONE           ', colors.named('cyan')      , colors.named('black')      , 'NONE           ')
-hi('NonText               ', '6    ', 'NONE ', 'NONE           ', colors.named('cyan')      , 'NONE '                    , 'NONE           ')
-hi('Cursor                ', '0    ', '7    ', 'NONE           ', colors.named('black')     , colors.named('white')      , 'NONE           ')
-hi('CursorLine            ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.named('d2_blue')    , 'NONE           ')
-hi('MatchParen            ', '7    ', 'NONE ', 'bold,underline ', colors.named('white')     , 'NONE '                    , 'bold,underline ')
-hi('NonText               ', '4    ', 'NONE ', 'NONE           ', colors.named('blue')      , 'NONE '                    , 'NONE           ')
-hi('LineNr                ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
-hi('CursorLineNr          ', '7    ', '0    ', 'NONE           ', colors.named('white')     , colors.named('black')      , 'NONE           ')
-hi('Visual                ', '0    ', '13   ', 'NONE           ', colors.named('white')     , colors.named('d2_magenta') , 'bold           ')
-hi('IncSearch             ', '0    ', '13   ', 'NONE           ', colors.named('magenta')   , colors.named('white')      , 'bold           ')
-hi('Search                ', '11   ', '2    ', 'bold           ', colors.named('white')     , colors.named('magenta')    , 'bold           ')
-hi('StatusLine            ', '7    ', '0    ', 'bold           ', colors.named('white')     , colors.named('black')      , 'bold           ')
-hi('StatusLineNC          ', '8    ', '0    ', 'bold           ', colors.named('gray')      , colors.named('black')      , 'bold           ')
-hi('Folded                ', '6    ', '0    ', 'bold           ', colors.named('cyan')      , colors.named('black')      , 'bold           ')
-hi('ErrorMsg              ', '11   ', '1    ', 'bold           ', colors.named('yellow')    , colors.named('red')        , 'bold           ')
-hi('Title                 ', '3    ', 'NONE ', 'bold           ', colors.named('yellow')    , 'NONE '                    , 'bold           ')
-hi('VertSplit             ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
-hi('MiniCursorword        ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                   , 'NONE '                    , 'bold,underline ')
-hi('EyelinerPrimary       ', 'NONE ', 'NONE ', 'bold,underline' , 'NONE '                   , 'NONE '                    , 'bold,underline ')
-hi('EyelinerSecondary     ', 'NONE ', 'NONE ', 'NONE'           , 'NONE '                   , 'NONE '                    , 'NONE           ')
+-- User interface
+-- group          . termfg . termbg . termprops        . guifg                     . guibg                      . guiprops
+hi('Normal       ', '6    ', '0    ', 'NONE           ', colors.named('cyan')      , colors.named('black')      , 'NONE           ')
+hi('NonText      ', '6    ', 'NONE ', 'NONE           ', colors.named('cyan')      , 'NONE '                    , 'NONE           ')
+hi('Cursor       ', '0    ', '7    ', 'NONE           ', colors.named('black')     , colors.named('white')      , 'NONE           ')
+hi('CursorLine   ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.named('d2_blue')    , 'NONE           ')
+hi('MatchParen   ', '7    ', 'NONE ', 'bold,underline ', colors.named('white')     , 'NONE '                    , 'bold,underline ')
+hi('NonText      ', '4    ', 'NONE ', 'NONE           ', colors.named('blue')      , 'NONE '                    , 'NONE           ')
+hi('LineNr       ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
+hi('CursorLineNr ', '7    ', '0    ', 'NONE           ', colors.named('white')     , colors.named('black')      , 'NONE           ')
+hi('Visual       ', '0    ', '13   ', 'NONE           ', colors.named('white')     , colors.named('d2_magenta') , 'bold           ')
+hi('IncSearch    ', '0    ', '13   ', 'NONE           ', colors.named('magenta')   , colors.named('white')      , 'bold           ')
+hi('Search       ', '11   ', '2    ', 'bold           ', colors.named('white')     , colors.named('magenta')    , 'bold           ')
+hi('StatusLine   ', '7    ', '0    ', 'bold           ', colors.named('white')     , colors.named('black')      , 'bold           ')
+hi('StatusLineNC ', '8    ', '0    ', 'bold           ', colors.named('gray')      , colors.named('black')      , 'bold           ')
+hi('Folded       ', '6    ', '0    ', 'bold           ', colors.named('cyan')      , colors.named('black')      , 'bold           ')
+hi('ErrorMsg     ', '9    ', '4    ', 'bold           ', colors.named('l1_red')    , colors.named('d2_blue')    , 'bold           ')
+hi('WarningMsg   ', '11   ', '4    ', 'bold           ', colors.named('l1_yellow') , colors.named('d2_blue')    , 'bold           ')
+hi('MoreMsg      ', '7    ', '4    ', 'bold           ', colors.named('white')     , colors.named('d2_blue')    , 'bold           ')
+hi('Title        ', '3    ', 'NONE ', 'bold           ', colors.named('yellow')    , 'NONE '                    , 'bold           ')
+hi('VertSplit    ', '8    ', 'NONE ', 'NONE           ', colors.named('gray')      , 'NONE '                    , 'NONE           ')
+hi('PMenu        ', '7    ', '8    ', 'NONE           ', colors.named('white')     , colors.named('d2_blue')    , 'NONE           ')
+hi('PMenuSel     ', '7    ', '8    ', 'bold           ', colors.named('l1_yellow') , colors.named('d2_blue')    , 'bold           ')
 
 -- Links
-------- GROUP               . TARGET -------
-hi_link('vimCommentTitle   ', 'Comment    ')
-hi_link('vimOption         ', 'Identifier ')
-hi_link('CursorColumn      ', 'CursorLine ')
-hi_link('WarningMsg        ', 'ErrorMsg   ')
-hi_link('MoreMsg           ', 'Title      ')
-hi_link('Question          ', 'MoreMsg    ')
-hi_link('ModeMsg           ', 'MoreMsg    ')
+ln('CursorColumn ', 'CursorLine ')
+ln('Question     ', 'MoreMsg    ')
+ln('ModeMsg      ', 'MoreMsg    ')
+ln('Error        ', 'ErrorMsg  ')
 
--- Generic code highlighting
--- GROUP        . TERMFG . TERMBG . TERMPROPS        . GUIFG                      . GUIBG  . GUIPROPS ---------
-hi('Identifier ', '7    ', 'NONE ', 'NONE           ', colors.named('white')      , 'NONE ', 'NONE           ')
-hi('Statement  ', '10   ', 'NONE ', 'bold           ', colors.named('l1_green')   , 'NONE ', 'bold           ')
-hi('Comment    ', '8    ', 'NONE ', 'NONE           ', colors.named('l1_gray')    , 'NONE ', 'NONE           ')
-hi('Type       ', '3    ', 'NONE ', 'NONE           ', colors.named('yellow')     , 'NONE ', 'NONE           ')
-hi('PreProc    ', '11   ', 'NONE ', 'NONE           ', colors.named('l1_yellow')  , 'NONE ', 'NONE           ')
-hi('Constant   ', '13   ', 'NONE ', 'NONE           ', colors.named('l1_magenta') , 'NONE ', 'NONE           ')
-hi('Special    ', '15   ', 'NONE ', 'NONE           ', colors.named('l1_white')   , 'NONE ', 'NONE           ')
-hi('Underlined ', '4    ', 'NONE ', 'underline      ', colors.named('blue')       , 'NONE ', 'underline      ')
-hi('Delimiter  ', '4    ', 'NONE ', 'NONE           ', colors.named('d1_blue')    , 'NONE ', 'NONE           ')
-hi('String     ', '2    ', 'NONE ', 'NONE           ', colors.named('green')      , 'NONE ', 'NONE           ')
-hi('Keyword    ', '10   ', 'NONE ', 'bold           ', colors.named('l1_green')   , 'NONE ', 'bold           ')
-hi('Todo       ', '7    ', 'NONE ', 'bold,underline ', colors.named('white')      , 'NONE ', 'bold,underline ')
-hi('Function   ', '13   ', 'NONE ', 'NONE           ', colors.named('l1_magenta') , 'NONE ', 'NONE           ')
-hi('Number     ', '9    ', 'NONE ', 'NONE           ', colors.named('l1_red')     , 'NONE ', 'NONE           ')
-hi('Boolean    ', '9    ', 'NONE ', 'NONE           ', colors.named('l1_red')     , 'NONE ', 'NONE           ')
-hi('Ignore     ', '0    ', 'NONE ', 'NONE           ', colors.named('gray')       , 'NONE ', 'NONE           ')
+-- Plugins
+-- group                    . termfg . termbg . termprops        . guifg                     . guibg                      . guiprops
+hi('MiniCursorword         ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                   , 'NONE '                    , 'bold,underline ')
+hi('HopNextKey             ', '3    ', 'NONE ', 'bold           ', colors.named('yellow')    , 'NONE '                    , 'bold           ')
+hi('HopNextKey1            ', '3    ', 'NONE ', 'bold           ', colors.named('yellow')    , 'NONE '                    , 'bold           ')
+hi('HopNextKey2            ', '11   ', 'NONE ', 'bold           ', colors.named('l1_yellow') , 'NONE '                    , 'bold           ')
+hi('TelescopeTitle         ', '12   ', 'NONE ', 'bold           ', colors.named('l1_blue')   , 'NONE '                    , 'bold           ')
+hi('TelescopeBorder        ', '4    ', 'NONE ', 'bold           ', colors.named('d1_blue')   , 'NONE '                    , 'bold           ')
+hi('TelescopeMatching      ', '11   ', 'NONE ', 'bold           ', colors.named('l1_yellow') , 'NONE '                    , 'bold           ')
 
 -- Links
-------- GROUP      . TARGET ------
-hi_link('Error    ', 'ErrorMsg  ')
-hi_link('Operator ', 'Keyword   ')
+ln('TelescopePromptCounter ', 'TelescopeTitle ')
+
+-- Syntax highlighting
+-- group             . termfg . termbg . termprops        . guifg                      . guibg  . guiprops
+hi('Identifier      ', '7    ', 'NONE ', 'NONE           ', colors.named('white')      , 'NONE ', 'NONE           ')
+hi('Statement       ', '10   ', 'NONE ', 'bold           ', colors.named('l1_green')   , 'NONE ', 'bold           ')
+hi('Comment         ', '8    ', 'NONE ', 'NONE           ', colors.named('l1_gray')    , 'NONE ', 'NONE           ')
+hi('Type            ', '3    ', 'NONE ', 'NONE           ', colors.named('yellow')     , 'NONE ', 'NONE           ')
+hi('PreProc         ', '11   ', 'NONE ', 'NONE           ', colors.named('l1_yellow')  , 'NONE ', 'NONE           ')
+hi('Constant        ', '13   ', 'NONE ', 'NONE           ', colors.named('l1_magenta') , 'NONE ', 'NONE           ')
+hi('Special         ', '14   ', 'NONE ', 'NONE           ', colors.named('l1_cyan')    , 'NONE ', 'NONE           ')
+hi('Underlined      ', '4    ', 'NONE ', 'underline      ', colors.named('blue')       , 'NONE ', 'underline      ')
+hi('Delimiter       ', '4    ', 'NONE ', 'NONE           ', colors.named('d1_blue')    , 'NONE ', 'NONE           ')
+hi('String          ', '2    ', 'NONE ', 'NONE           ', colors.named('green')      , 'NONE ', 'NONE           ')
+hi('Keyword         ', '10   ', 'NONE ', 'bold           ', colors.named('l1_green')   , 'NONE ', 'bold           ')
+hi('Todo            ', '7    ', 'NONE ', 'bold,underline ', colors.named('white')      , 'NONE ', 'bold,underline ')
+hi('Function        ', '13   ', 'NONE ', 'bold           ', colors.named('l1_cyan')    , 'NONE ', 'bold           ')
+hi('Number          ', '9    ', 'NONE ', 'NONE           ', colors.named('l1_red')     , 'NONE ', 'NONE           ')
+hi('Boolean         ', '9    ', 'NONE ', 'NONE           ', colors.named('l1_red')     , 'NONE ', 'NONE           ')
+hi('Ignore          ', '0    ', 'NONE ', 'NONE           ', colors.named('gray')       , 'NONE ', 'NONE           ')
+
+-- Links
+ln('vimCommentTitle ', 'Comment    ')
+ln('vimOption       ', 'Identifier ')
+ln('Operator        ', 'Keyword    ')
 
 --------------------------------------------------------------------------------
 -- Auto commands
