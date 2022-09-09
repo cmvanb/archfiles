@@ -23,7 +23,6 @@ config.load_autoconfig(True)
 
 c.auto_save.session = True
 c.confirm_quit = [ 'downloads' ]
-c.messages.timeout = 3000
 c.scrolling.smooth = True
 c.scrolling.bar = 'always'
 c.session.default_name = 'default'
@@ -72,11 +71,7 @@ c.fonts.debug_console = 'default_size default_family'
 c.fonts.downloads = 'default_size default_family'
 c.fonts.hints = 'bold default_size default_family'
 c.fonts.keyhint = 'default_size default_family'
-c.fonts.messages.error = 'bold 9pt default_family'
-c.fonts.messages.info = '9pt default_family'
-c.fonts.messages.warning = 'bold 9pt default_family'
 c.fonts.prompts = 'default_size sans-serif'
-c.fonts.statusbar = 'default_size default_family'
 c.fonts.tabs.selected = 'bold 9pt default_family'
 c.fonts.tabs.unselected = '9pt default_family'
 
@@ -88,13 +83,71 @@ c.input.insert_mode.auto_enter = True
 c.input.insert_mode.auto_leave = True
 c.input.insert_mode.auto_load = True
 
-## Statusbar settings
+## Messages
 #-------------------------------------------------------------------------------
+
+# Info Test: ?
+# Warning Test: Enter a search term that doesn't appear on the page.
+# Error Test: `session-load` a non-existent session.
+
+### Behavior
+c.messages.timeout = 5000
+
+### Appearance
+c.fonts.messages.error = 'bold 9pt default_family'
+c.fonts.messages.info = '9pt default_family'
+c.fonts.messages.warning = 'bold 9pt default_family'
+
+c.colors.messages.info.bg = colors.named('d2_magenta')
+c.colors.messages.info.border = colors.named('black')
+c.colors.messages.info.fg = colors.named('white')
+c.colors.messages.warning.bg = colors.named('d2_magenta')
+c.colors.messages.warning.border = colors.named('black')
+c.colors.messages.warning.fg = colors.named('l1_yellow')
+c.colors.messages.error.bg = colors.named('d2_magenta')
+c.colors.messages.error.border = colors.named('black')
+c.colors.messages.error.fg = colors.named('l1_red')
+
+## Statusbar
+#-------------------------------------------------------------------------------
+
+### Behavior
+# ---
+
+c.statusbar.show = 'always'
+c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'history', 'tabs', 'progress' ]
+
+### Appearance
+# ---
+
+c.fonts.statusbar = 'default_size default_family'
 
 c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
 c.statusbar.position = 'bottom'
-c.statusbar.show = 'always'
-c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'history', 'tabs', 'progress' ]
+
+c.colors.statusbar.normal.bg = colors.named('black')
+c.colors.statusbar.normal.fg = colors.named('white')
+c.colors.statusbar.caret.bg = colors.named('black')
+c.colors.statusbar.caret.fg = colors.named('magenta')
+c.colors.statusbar.caret.selection.bg = colors.named('black')
+c.colors.statusbar.caret.selection.fg = colors.named('cyan')
+c.colors.statusbar.command.bg = colors.named('black')
+c.colors.statusbar.command.fg = colors.named('l1_blue')
+c.colors.statusbar.insert.bg = colors.named('black')
+c.colors.statusbar.insert.fg = colors.named('green')
+c.colors.statusbar.passthrough.bg = colors.named('black')
+c.colors.statusbar.passthrough.fg = colors.named('yellow')
+c.colors.statusbar.private.bg = colors.named('magenta')
+c.colors.statusbar.private.fg = colors.named('white')
+c.colors.statusbar.command.private.bg = colors.named('black')
+c.colors.statusbar.command.private.fg = colors.named('l1_blue')
+c.colors.statusbar.progress.bg = colors.named('white')
+c.colors.statusbar.url.error.fg = colors.named('red')
+c.colors.statusbar.url.fg = colors.named('white')
+c.colors.statusbar.url.hover.fg = colors.named('cyan')
+c.colors.statusbar.url.success.http.fg = colors.named('l1_yellow')
+c.colors.statusbar.url.success.https.fg = colors.named('l1_green')
+c.colors.statusbar.url.warn.fg = colors.named('l1_yellow')
 
 ## Tabs settings
 #-------------------------------------------------------------------------------
@@ -259,16 +312,6 @@ c.colors.downloads.system.fg = 'rgb'
 ### Messages
 # ---
 
-c.colors.messages.error.bg = colors.named('red')
-c.colors.messages.error.border = colors.named('red')
-c.colors.messages.error.fg = colors.named('l1_yellow')
-c.colors.messages.info.bg = colors.named('d2_blue')
-c.colors.messages.info.border = colors.named('d2_blue')
-c.colors.messages.info.fg = colors.named('white')
-c.colors.messages.warning.bg = colors.named('yellow')
-c.colors.messages.warning.border = colors.named('yellow')
-c.colors.messages.warning.fg = colors.named('black')
-
 ### Prompts
 # ---
 
@@ -301,30 +344,6 @@ c.colors.messages.warning.fg = colors.named('black')
 
 ### Statusbar
 # ---
-
-c.colors.statusbar.normal.bg = colors.named('black')
-c.colors.statusbar.normal.fg = colors.named('white')
-c.colors.statusbar.caret.bg = colors.named('black')
-c.colors.statusbar.caret.fg = colors.named('magenta')
-c.colors.statusbar.caret.selection.bg = colors.named('black')
-c.colors.statusbar.caret.selection.fg = colors.named('cyan')
-c.colors.statusbar.command.bg = colors.named('black')
-c.colors.statusbar.command.fg = colors.named('l1_blue')
-c.colors.statusbar.insert.bg = colors.named('black')
-c.colors.statusbar.insert.fg = colors.named('green')
-c.colors.statusbar.passthrough.bg = colors.named('black')
-c.colors.statusbar.passthrough.fg = colors.named('yellow')
-c.colors.statusbar.private.bg = colors.named('magenta')
-c.colors.statusbar.private.fg = colors.named('white')
-c.colors.statusbar.command.private.bg = colors.named('black')
-c.colors.statusbar.command.private.fg = colors.named('l1_blue')
-c.colors.statusbar.progress.bg = colors.named('white')
-c.colors.statusbar.url.error.fg = colors.named('red')
-c.colors.statusbar.url.fg = colors.named('white')
-c.colors.statusbar.url.hover.fg = colors.named('cyan')
-c.colors.statusbar.url.success.http.fg = colors.named('l1_yellow')
-c.colors.statusbar.url.success.https.fg = colors.named('l1_green')
-c.colors.statusbar.url.warn.fg = colors.named('l1_yellow')
 
 ### Tabs
 # ---
