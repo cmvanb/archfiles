@@ -1,33 +1,41 @@
-# mako notification daemon configuration
+#-------------------------------------------------------------------------------
+# Mako notification daemon configuration
+#-------------------------------------------------------------------------------
+
+# Behavior
+#-------------------------------------------------------------------------------
+
+# NOTE: Mako crashes if max-visible is too large and too many notifications are
+# spawned.
+max-visible=15
 
 sort=+time
 
-default-timeout=10000
+default-timeout=15000
 
-background-color=#0d0d0dff
+# Appearance
+#-------------------------------------------------------------------------------
 
-text-color=#ebebebff
+anchor=bottom-right
 
-font=Fira Code 11
+text-alignment=left
+icon-location=left
 
 width=500
 height=250
-
 margin=16,14
-
 # NOTE: mako's padding/text positioning is not working properly.
 # https://github.com/emersion/mako/issues/329
-
 # top,right,bottom,left
 padding=0,0,24,16
+
+font=Fira Code 11
+
+# TODO: Get these system colors programatically.
+background-color=#0d0d0dff
+text-color=#ebebebff
 
 border-size=2
 border-color=#57afffff
 border-radius=4
-
-anchor=top-left
-
-text-alignment=left
-
-icon-location=left
 
