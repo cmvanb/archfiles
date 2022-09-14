@@ -2,7 +2,7 @@
 # Lookup
 # ------------------------------------------------------------------------------
 
-function set_color --argument-names key value
+function set_dict_color --argument-names key value
     set -g '__color_'$key $value
 end
 
@@ -11,11 +11,11 @@ function color_named --argument-names key
 end
 
 function color_hash --argument-names key
-    echo '#'$(eval echo \$'__color_'$key)
+    echo '#'(eval echo \$'__color_'$key)
 end
 
 function color_zerox --argument-names key
-    echo '0x'eval echo \$'__color_'$key)
+    echo '0x'(eval echo \$'__color_'$key)
 end
 
 # ------------------------------------------------------------------------------
@@ -95,9 +95,9 @@ function parse_colors --argument-names colors_file
         # Assign value
         if test -n $key && test -n $value
             if test $lookup = 'true'
-                set_color $key $(color_named $value)
+                set_dict_color $key $(color_named $value)
             else
-                set_color $key $value
+                set_dict_color $key $value
             end
         end
 
