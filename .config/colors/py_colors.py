@@ -7,6 +7,12 @@ _named = {}
 def named(name):
     return _named[name]
 
+def hash(name):
+    return '#{0}'.format(_named[name])
+
+def zerox(name):
+    return '0x{0}'.format(_named[name])
+
 #-------------------------------------------------------------------------------
 # Entry point
 #-------------------------------------------------------------------------------
@@ -70,11 +76,15 @@ def parse_colors():
             if c == ' ':
                 continue
 
-            # Hash before assignment, line is now a comment, skip
-            elif c == '#' and assignment_op == False:
-                key = None
-                value = None
-                break
+            # Hash after assignment, char is ignored, but continue parsing value.
+            # Hash before assignment, line is skipped.
+            elif c == '#':
+                if assignment_op == True:
+                    continue
+                else:
+                    key = None
+                    value = None
+                    break
 
             # Quote, only allowed after assignment
             elif c == '\'':

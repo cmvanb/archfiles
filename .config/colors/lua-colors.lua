@@ -10,6 +10,14 @@ function colors.named(name)
     return _named[name]
 end
 
+function colors.hash(name)
+    return '#' .. _named[name]
+end
+
+function colors.zerox(name)
+    return '0x' .. _named[name]
+end
+
 --------------------------------------------------------------------------------
 -- Entry point
 --------------------------------------------------------------------------------
@@ -51,11 +59,16 @@ function colors.parse_colors()
             if c == string.byte(' ') then
                 goto continue
 
-            -- Hash before assignment, line is now a comment, skip
-            elseif c == string.byte('#') and assignment_op == false then
-                key = nil
-                value = nil
-                break
+            -- Hash after assignment, char is ignored, but continue parsing value.
+            -- Hash before assignment, line is skipped.
+            elseif c == string.byte('#') then
+                if assignment_op == true then
+                    goto continue
+                else
+                    key = nil
+                    value = nil
+                    break
+                end
 
             -- Quote, only allowed after assignment
             elseif c == string.byte('\'') then

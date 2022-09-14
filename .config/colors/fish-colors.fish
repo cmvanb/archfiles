@@ -10,6 +10,14 @@ function color_named --argument-names key
     eval echo \$'__color_'$key
 end
 
+function color_hash --argument-names key
+    echo '#'$(eval echo \$'__color_'$key)
+end
+
+function color_zerox --argument-names key
+    echo '0x'eval echo \$'__color_'$key)
+end
+
 # ------------------------------------------------------------------------------
 # Parser
 # ------------------------------------------------------------------------------
@@ -33,11 +41,16 @@ function parse_colors --argument-names colors_file
             if test $char = ' '
                 continue
 
-            # Hash before assignment, line is now a comment, skip
-            else if test $char = '#' && test $assignment_op = 'false'
-                set key ''
-                set value ''
-                break
+            # Hash after assignment, char is ignored, but continue parsing value.
+            # Hash before assignment, line is skipped.
+            else if test $char = '#'
+                if test $assignment_op = 'true'
+                    continue
+                else
+                    set key ''
+                    set value ''
+                    break
+                end
 
             # Quote, only allowed after assignment
             else if test $char = '\''
