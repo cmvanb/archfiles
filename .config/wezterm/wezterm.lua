@@ -18,7 +18,7 @@ return {
     -- Disable warnings
     warn_about_missing_glyphs = false,
 
-    -- NOTE: Enabling this causes issues with vim-sandwich in NVIM.
+    -- NOTE: Enabling this causes problems with vim-sandwich in NVIM.
     -- Keyboard input settings
     enable_kitty_keyboard = false,
 
@@ -131,97 +131,96 @@ return {
 
     -- Window gradient
     window_background_gradient = {
-        colors = { colors.named('d2_blue'), colors.named('black') },
+        colors = { colors.hash('d2_blue'), colors.hash('black') },
         orientation = { Linear = { angle = -60.0 } },
     },
 
-    -- TODO: Use system colors from lua_colors.lua
     -- Color scheme mapping
     colors = {
-        visual_bell = colors.named('blue'),
+        visual_bell = colors.hash('blue'),
 
         tab_bar = {
-            background = colors.named('black'),
+            background = colors.hash('black'),
 
             active_tab = {
-                bg_color = colors.named('black'),
-                fg_color = colors.named('white'),
+                bg_color = colors.hash('black'),
+                fg_color = colors.hash('white'),
 
                 intensity = 'Bold',
             },
 
             inactive_tab = {
-                bg_color = colors.named('black'),
-                fg_color = colors.named('gray'),
+                bg_color = colors.hash('black'),
+                fg_color = colors.hash('gray'),
 
                 intensity = 'Normal',
             },
 
             inactive_tab_hover = {
-                bg_color = colors.named('d3_gray'),
-                fg_color = colors.named('l1_gray'),
+                bg_color = colors.hash('d3_gray'),
+                fg_color = colors.hash('l1_gray'),
             },
 
             new_tab = {
-                bg_color = colors.named('black'),
-                fg_color = colors.named('gray'),
+                bg_color = colors.hash('black'),
+                fg_color = colors.hash('gray'),
             },
 
             new_tab_hover = {
-                bg_color = colors.named('d3_gray'),
-                fg_color = colors.named('l1_gray'),
+                bg_color = colors.hash('d3_gray'),
+                fg_color = colors.hash('l1_gray'),
             },
         },
 
-        background = colors.named('d2_blue'),
-        foreground = colors.named('white'),
+        background = colors.hash('d2_blue'),
+        foreground = colors.hash('white'),
 
-        cursor_bg = colors.named('l1_white'),
-        cursor_fg = colors.named('black'),
+        cursor_bg = colors.hash('l1_white'),
+        cursor_fg = colors.hash('black'),
 
-        selection_bg = colors.named('l1_magenta'),
-        selection_fg = colors.named('black'),
+        selection_bg = colors.hash('l1_magenta'),
+        selection_fg = colors.hash('black'),
 
         ansi = {
-            colors.named('black'),
-            colors.named('red'),
-            colors.named('green'),
-            colors.named('yellow'),
-            colors.named('blue'),
-            colors.named('magenta'),
-            colors.named('cyan'),
-            colors.named('white'),
+            colors.hash('black'),
+            colors.hash('red'),
+            colors.hash('green'),
+            colors.hash('yellow'),
+            colors.hash('blue'),
+            colors.hash('magenta'),
+            colors.hash('cyan'),
+            colors.hash('white'),
         },
 
         brights = {
-            colors.named('gray'),
-            colors.named('l1_red'),
-            colors.named('l1_green'),
-            colors.named('l1_yellow'),
-            colors.named('l1_blue'),
-            colors.named('l1_magenta'),
-            colors.named('l1_cyan'),
-            colors.named('l1_white'),
+            colors.hash('gray'),
+            colors.hash('l1_red'),
+            colors.hash('l1_green'),
+            colors.hash('l1_yellow'),
+            colors.hash('l1_blue'),
+            colors.hash('l1_magenta'),
+            colors.hash('l1_cyan'),
+            colors.hash('l1_white'),
         },
 
         indexed = {
-            [16] = colors.named('d2_gray'),
-            [17] = colors.named('d1_red'),
-            [18] = colors.named('d1_green'),
-            [19] = colors.named('d1_yellow'),
-            [20] = colors.named('d1_blue'),
-            [21] = colors.named('d1_magenta'),
-            [22] = colors.named('d1_cyan'),
-            [23] = colors.named('l2_gray'),
+            [16] = colors.hash('d2_gray'),
+            [17] = colors.hash('d1_red'),
+            [18] = colors.hash('d1_green'),
+            [19] = colors.hash('d1_yellow'),
+            [20] = colors.hash('d1_blue'),
+            [21] = colors.hash('d1_magenta'),
+            [22] = colors.hash('d1_cyan'),
+            [23] = colors.hash('l2_gray'),
 
-            [24] = colors.named('d3_gray'),
-            [25] = colors.named('d2_red'),
-            [26] = colors.named('d2_green'),
-            [27] = colors.named('d2_yellow'),
-            [28] = colors.named('d2_blue'),
-            [29] = colors.named('d2_magenta'),
-            [30] = colors.named('d2_cyan'),
-            [31] = colors.named('l1_gray'),
+            [24] = colors.hash('d3_gray'),
+            [25] = colors.hash('d2_red'),
+            [26] = colors.hash('d2_green'),
+            [27] = colors.hash('d2_yellow'),
+            [28] = colors.hash('d2_blue'),
+            [29] = colors.hash('d2_magenta'),
+            [30] = colors.hash('d2_cyan'),
+            [31] = colors.hash('l1_gray'),
         },
     },
 }
