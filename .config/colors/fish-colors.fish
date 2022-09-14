@@ -71,8 +71,8 @@ function parse_colors --argument-names colors_file
                     return 3
                 end
 
-            # Alphanumeric or underscore or hash, append to either key or value
-            else if string match -qr -- '[0-9a-zA-Z_#]' $char
+            # Alphanumeric or underscore, append to either key or value
+            else if string match -qr -- '[0-9a-zA-Z_]' $char
                 if test $assignment_op = 'false'
                     set key "$key$char"
                 else

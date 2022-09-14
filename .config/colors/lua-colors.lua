@@ -87,8 +87,8 @@ function colors.parse_colors()
                     error('Unable to continue parsing, expected character [' .. c .. '] only after assignment.')
                 end
 
-            -- Alphanumeric or underscore or hash, append to either key or value
-            elseif string.match(string.char(c), '[%w_#]') ~= nil then
+            -- Alphanumeric or underscore, append to either key or value
+            elseif string.match(string.char(c), '[%w_]') ~= nil then
                 if assignment_op == false then
                     if key == nil then
                         key = ''

@@ -101,8 +101,8 @@ def parse_colors():
                 else:
                     raise Exception('Unable to continue parsing, expected character [{}] only after assignment.'.format(c))
 
-            # Alphanumeric or underscore or hash, append to either key or value
-            elif re.search('[0-9a-zA-Z_#]', c) is not None:
+            # Alphanumeric or underscore, append to either key or value
+            elif re.search('[0-9a-zA-Z_]', c) is not None:
                 if assignment_op == False:
                     if key == None:
                         key = ''
