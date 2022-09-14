@@ -98,15 +98,15 @@ c.fonts.messages.error = 'bold 9pt default_family'
 c.fonts.messages.info = '9pt default_family'
 c.fonts.messages.warning = 'bold 9pt default_family'
 
-c.colors.messages.info.bg = colors.named('d2_blue')
-c.colors.messages.info.border = colors.named('black')
-c.colors.messages.info.fg = colors.named('white')
-c.colors.messages.warning.bg = colors.named('d2_blue')
-c.colors.messages.warning.border = colors.named('black')
-c.colors.messages.warning.fg = colors.named('l1_yellow')
-c.colors.messages.error.bg = colors.named('d2_blue')
-c.colors.messages.error.border = colors.named('black')
-c.colors.messages.error.fg = colors.named('l1_red')
+c.colors.messages.info.bg = colors.hash('d2_blue')
+c.colors.messages.info.border = colors.hash('black')
+c.colors.messages.info.fg = colors.hash('white')
+c.colors.messages.warning.bg = colors.hash('d2_blue')
+c.colors.messages.warning.border = colors.hash('black')
+c.colors.messages.warning.fg = colors.hash('l1_yellow')
+c.colors.messages.error.bg = colors.hash('d2_blue')
+c.colors.messages.error.border = colors.hash('black')
+c.colors.messages.error.fg = colors.hash('l1_red')
 
 ## Statusbar
 #-------------------------------------------------------------------------------
@@ -125,29 +125,29 @@ c.fonts.statusbar = 'default_size default_family'
 c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
 c.statusbar.position = 'bottom'
 
-c.colors.statusbar.normal.bg = colors.named('black')
-c.colors.statusbar.normal.fg = colors.named('white')
-c.colors.statusbar.caret.bg = colors.named('black')
-c.colors.statusbar.caret.fg = colors.named('magenta')
-c.colors.statusbar.caret.selection.bg = colors.named('black')
-c.colors.statusbar.caret.selection.fg = colors.named('cyan')
-c.colors.statusbar.command.bg = colors.named('black')
-c.colors.statusbar.command.fg = colors.named('l1_blue')
-c.colors.statusbar.insert.bg = colors.named('black')
-c.colors.statusbar.insert.fg = colors.named('green')
-c.colors.statusbar.passthrough.bg = colors.named('black')
-c.colors.statusbar.passthrough.fg = colors.named('yellow')
-c.colors.statusbar.private.bg = colors.named('magenta')
-c.colors.statusbar.private.fg = colors.named('white')
-c.colors.statusbar.command.private.bg = colors.named('black')
-c.colors.statusbar.command.private.fg = colors.named('l1_blue')
-c.colors.statusbar.progress.bg = colors.named('white')
-c.colors.statusbar.url.error.fg = colors.named('red')
-c.colors.statusbar.url.fg = colors.named('white')
-c.colors.statusbar.url.hover.fg = colors.named('cyan')
-c.colors.statusbar.url.success.http.fg = colors.named('l1_yellow')
-c.colors.statusbar.url.success.https.fg = colors.named('l1_green')
-c.colors.statusbar.url.warn.fg = colors.named('l1_yellow')
+c.colors.statusbar.normal.bg = colors.hash('black')
+c.colors.statusbar.normal.fg = colors.hash('white')
+c.colors.statusbar.caret.bg = colors.hash('black')
+c.colors.statusbar.caret.fg = colors.hash('magenta')
+c.colors.statusbar.caret.selection.bg = colors.hash('black')
+c.colors.statusbar.caret.selection.fg = colors.hash('cyan')
+c.colors.statusbar.command.bg = colors.hash('black')
+c.colors.statusbar.command.fg = colors.hash('l1_blue')
+c.colors.statusbar.insert.bg = colors.hash('black')
+c.colors.statusbar.insert.fg = colors.hash('green')
+c.colors.statusbar.passthrough.bg = colors.hash('black')
+c.colors.statusbar.passthrough.fg = colors.hash('yellow')
+c.colors.statusbar.private.bg = colors.hash('magenta')
+c.colors.statusbar.private.fg = colors.hash('white')
+c.colors.statusbar.command.private.bg = colors.hash('black')
+c.colors.statusbar.command.private.fg = colors.hash('l1_blue')
+c.colors.statusbar.progress.bg = colors.hash('white')
+c.colors.statusbar.url.error.fg = colors.hash('red')
+c.colors.statusbar.url.fg = colors.hash('white')
+c.colors.statusbar.url.hover.fg = colors.hash('cyan')
+c.colors.statusbar.url.success.http.fg = colors.hash('l1_yellow')
+c.colors.statusbar.url.success.https.fg = colors.hash('l1_green')
+c.colors.statusbar.url.warn.fg = colors.hash('l1_yellow')
 
 ## Tabs settings
 #-------------------------------------------------------------------------------
@@ -237,46 +237,46 @@ config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()',
 ### Completion widget
 # ---
 
-c.colors.completion.category.border.top = colors.named('black')
-c.colors.completion.category.border.bottom = colors.named('black')
-c.colors.completion.category.bg = colors.named('black')
-c.colors.completion.category.fg = colors.named('white')
-c.colors.completion.even.bg = colors.named('black')
-c.colors.completion.odd.bg = colors.named('d2_blue')
-c.colors.completion.fg = [ colors.named('white'), colors.named('white'), colors.named('white') ]
+c.colors.completion.category.border.top = colors.hash('black')
+c.colors.completion.category.border.bottom = colors.hash('black')
+c.colors.completion.category.bg = colors.hash('black')
+c.colors.completion.category.fg = colors.hash('white')
+c.colors.completion.even.bg = colors.hash('black')
+c.colors.completion.odd.bg = colors.hash('d2_blue')
+c.colors.completion.fg = [ colors.hash('white'), colors.hash('white'), colors.hash('white') ]
 
 ### Completion view
 # ---
 
-c.colors.completion.item.selected.border.bottom = colors.named('blue')
-c.colors.completion.item.selected.border.top = colors.named('blue')
-c.colors.completion.item.selected.bg = colors.named('blue')
-c.colors.completion.item.selected.fg = colors.named('l1_white')
-c.colors.completion.item.selected.match.fg = colors.named('l1_white')
-c.colors.completion.match.fg = colors.named('l1_yellow')
-c.colors.completion.scrollbar.fg = colors.named('blue')
-c.colors.completion.scrollbar.bg = colors.named('black')
+c.colors.completion.item.selected.border.bottom = colors.hash('blue')
+c.colors.completion.item.selected.border.top = colors.hash('blue')
+c.colors.completion.item.selected.bg = colors.hash('blue')
+c.colors.completion.item.selected.fg = colors.hash('l1_white')
+c.colors.completion.item.selected.match.fg = colors.hash('l1_white')
+c.colors.completion.match.fg = colors.hash('l1_yellow')
+c.colors.completion.scrollbar.fg = colors.hash('blue')
+c.colors.completion.scrollbar.bg = colors.hash('black')
 
 ### Context menu
 # ---
 
-c.colors.contextmenu.disabled.bg = colors.named('d3_gray')
-c.colors.contextmenu.disabled.fg = colors.named('gray')
-c.colors.contextmenu.menu.bg = colors.named('black')
-c.colors.contextmenu.menu.fg = colors.named('white')
-c.colors.contextmenu.selected.bg = colors.named('blue')
-c.colors.contextmenu.selected.fg = colors.named('white')
+c.colors.contextmenu.disabled.bg = colors.hash('d3_gray')
+c.colors.contextmenu.disabled.fg = colors.hash('gray')
+c.colors.contextmenu.menu.bg = colors.hash('black')
+c.colors.contextmenu.menu.fg = colors.hash('white')
+c.colors.contextmenu.selected.bg = colors.hash('blue')
+c.colors.contextmenu.selected.fg = colors.hash('white')
 
 ### Downloads
 # ---
 
-c.colors.downloads.bar.bg = colors.named('black')
-c.colors.downloads.error.bg = colors.named('red')
-c.colors.downloads.error.fg = colors.named('white')
-c.colors.downloads.start.bg = colors.named('l1_blue')
-c.colors.downloads.stop.bg = colors.named('green')
-c.colors.downloads.start.fg = colors.named('white')
-c.colors.downloads.stop.fg = colors.named('white')
+c.colors.downloads.bar.bg = colors.hash('black')
+c.colors.downloads.error.bg = colors.hash('red')
+c.colors.downloads.error.fg = colors.hash('white')
+c.colors.downloads.start.bg = colors.hash('l1_blue')
+c.colors.downloads.stop.bg = colors.hash('green')
+c.colors.downloads.start.fg = colors.hash('white')
+c.colors.downloads.stop.fg = colors.hash('white')
 c.colors.downloads.system.bg = 'rgb'
 c.colors.downloads.system.fg = 'rgb'
 
@@ -348,18 +348,18 @@ c.colors.downloads.system.fg = 'rgb'
 ### Tabs
 # ---
 
-c.colors.tabs.bar.bg = colors.named('black')
-c.colors.tabs.odd.bg = colors.named('black')
-c.colors.tabs.odd.fg = colors.named('l3_gray')
-c.colors.tabs.even.bg = colors.named('black')
-c.colors.tabs.even.fg = colors.named('l3_gray')
-c.colors.tabs.selected.odd.bg = colors.named('black')
-c.colors.tabs.selected.odd.fg = colors.named('l1_white')
-c.colors.tabs.selected.even.bg = colors.named('black')
-c.colors.tabs.selected.even.fg = colors.named('l1_white')
-c.colors.tabs.indicator.error = colors.named('red')
-c.colors.tabs.indicator.start = colors.named('white')
-c.colors.tabs.indicator.stop = colors.named('black')
+c.colors.tabs.bar.bg = colors.hash('black')
+c.colors.tabs.odd.bg = colors.hash('black')
+c.colors.tabs.odd.fg = colors.hash('l3_gray')
+c.colors.tabs.even.bg = colors.hash('black')
+c.colors.tabs.even.fg = colors.hash('l3_gray')
+c.colors.tabs.selected.odd.bg = colors.hash('black')
+c.colors.tabs.selected.odd.fg = colors.hash('l1_white')
+c.colors.tabs.selected.even.bg = colors.hash('black')
+c.colors.tabs.selected.even.fg = colors.hash('l1_white')
+c.colors.tabs.indicator.error = colors.hash('red')
+c.colors.tabs.indicator.start = colors.hash('white')
+c.colors.tabs.indicator.stop = colors.hash('black')
 c.colors.tabs.indicator.system = 'rgb'
 
 # TODO: Configure pinned tab colors
@@ -391,7 +391,7 @@ c.colors.tabs.indicator.system = 'rgb'
 ### Websites
 # ---
 
-c.colors.webpage.bg = colors.named('black')
+c.colors.webpage.bg = colors.hash('black')
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 ### Dark mode
