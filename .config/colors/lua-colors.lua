@@ -14,16 +14,14 @@ end
 -- Entry point
 --------------------------------------------------------------------------------
 
--- function main()
---     parse_colors()
---
---     print("--- Named System Colors ---")
---
---     -- TODO: Use terminal escape codes to colorize output
---     for k, v in pairs(_named) do
---         print(k .. ": " .. v)
---     end
--- end
+function colors.print_colors()
+    parse_colors()
+
+    -- TODO: Use terminal escape codes to colorize output
+    for k, v in pairs(_named) do
+        print(k .. ": " .. v)
+    end
+end
 
 --------------------------------------------------------------------------------
 -- Parser
@@ -61,21 +59,19 @@ function colors.parse_colors()
 
             -- Quote, only allowed after assignment
             elseif c == string.byte('\'') then
-                if assignment_op == false then
-                    key = nil
-                    value = nil
-                    break
+                if assignment_op == true then
+                    goto continue
+                else
+                    error('Unable to continue parsing, expected character [' .. c .. '] only after assignment.')
                 end
 
             -- Dollar, only allowed after assignment
             elseif c == string.byte('$') then
-                if assignment_op == false then
-                    key = nil
-                    value = nil
-                    break
-                else
+                if assignment_op == true then
                     lookup = true
                     goto continue
+                else
+                    error('Unable to continue parsing, expected character [' .. c .. '] only after assignment.')
                 end
 
             -- Alphanumeric or underscore or hash, append to either key or value
@@ -96,10 +92,11 @@ function colors.parse_colors()
             elseif c == string.byte('=') then
                 if assignment_op == false then
                     assignment_op = true
+                    goto continue
                 end
 
             else
-                error('Invalid character in config file: [' .. c .. ']')
+                error('Unable to continue parsing, unexpected character [' .. c .. '].')
 
             end
 
@@ -118,8 +115,6 @@ function colors.parse_colors()
 
     end
 end
-
--- main()
 
 return colors
 

@@ -63,32 +63,34 @@ def parse_colors():
         value = None
         assignment_op = False
         lookup = False
+
         for i, c in enumerate(l):
+
             # Space, keep reading
             if c == ' ':
                 continue
+
             # Hash before assignment, line is now a comment, skip
             elif c == '#' and assignment_op == False:
                 key = None
                 value = None
                 break
+
             # Quote, only allowed after assignment
             elif c == '\'':
-                if assignment_op == False:
-                    key = None
-                    value = None
-                    break
-                else:
+                if assignment_op == True:
                     continue
+                else:
+                    raise Exception('Unable to continue parsing, expected character [{}] only after assignment.'.format(c))
+
             # Dollar, only allowed after assignment
             elif c == '$':
-                if assignment_op == False:
-                    key = None
-                    value = None
-                    break
-                else:
+                if assignment_op == True:
                     lookup = True
                     continue
+                else:
+                    raise Exception('Unable to continue parsing, expected character [{}] only after assignment.'.format(c))
+
             # Alphanumeric or underscore or hash, append to either key or value
             elif re.search('[0-9a-zA-Z_#]', c) is not None:
                 if assignment_op == False:
@@ -99,10 +101,13 @@ def parse_colors():
                     if value == None:
                         value = ''
                     value = value + c
+
             # Assignment operator reached, keep reading for value
             elif c == '=':
                 if assignment_op == False:
                     assignment_op = True
+                    continue
+
             # New line char, assign value
             elif c == '\n':
                 if key != None and value != None:
@@ -111,8 +116,9 @@ def parse_colors():
                     else:
                         _named[key] = value
                 break
+
             else:
-                raise Exception('Invalid character in config file: [{}]'.format(c))
+                raise Exception('Unable to continue parsing, unexpected character [{}].'.format(c))
 
     f.close()
 
