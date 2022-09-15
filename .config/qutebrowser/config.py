@@ -27,13 +27,6 @@ c.scrolling.smooth = True
 c.scrolling.bar = 'always'
 c.session.default_name = 'default'
 
-## Completion view settings
-#-------------------------------------------------------------------------------
-
-c.completion.height = '40%'
-c.completion.scrollbar.padding = 3
-c.completion.scrollbar.width = 10
-
 ## Content settings
 #-------------------------------------------------------------------------------
 
@@ -43,11 +36,6 @@ c.content.blocking.method = 'both'
 c.content.headers.do_not_track = True
 c.content.javascript.enabled = False
 c.content.notifications.enabled = False
-
-## Downloads settings
-#-------------------------------------------------------------------------------
-
-c.downloads.position = 'bottom'
 
 ## Font settings
 #-------------------------------------------------------------------------------
@@ -64,12 +52,9 @@ c.fonts.web.family.standard = 'default_family'
 c.fonts.web.size.minimum = 6
 
 ### Interface
-c.fonts.completion.category = 'bold default_size default_family'
-c.fonts.completion.entry = 'default_size default_family'
 c.fonts.contextmenu = 'default_size default_family'
 c.fonts.debug_console = 'default_size default_family'
 c.fonts.downloads = 'default_size default_family'
-c.fonts.hints = 'bold default_size default_family'
 c.fonts.keyhint = 'default_size default_family'
 c.fonts.prompts = 'default_size sans-serif'
 c.fonts.tabs.selected = 'bold 9pt default_family'
@@ -83,7 +68,105 @@ c.input.insert_mode.auto_enter = True
 c.input.insert_mode.auto_leave = True
 c.input.insert_mode.auto_load = True
 
-## Messages
+## URL settings
+#-------------------------------------------------------------------------------
+
+c.url.start_pages = [ 'about:blank' ]
+c.url.auto_search = 'schemeless'
+c.url.default_page = 'about:blank'
+c.url.searchengines = {
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'd': 'https://duckduckgo.com/?q={}',
+    'g': 'https://google.com/search?q={}',
+    'w': 'https://en.wikipedia.org/wiki/?search={}',
+}
+c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content' ]
+
+## Completion view component
+#-------------------------------------------------------------------------------
+
+### Appearance
+c.fonts.completion.category = 'bold default_size default_family'
+c.fonts.completion.entry = 'default_size default_family'
+
+c.completion.height = '40%'
+c.completion.scrollbar.padding = 3
+c.completion.scrollbar.width = 10
+
+c.colors.completion.category.border.top = colors.hash('black')
+c.colors.completion.category.border.bottom = colors.hash('black')
+c.colors.completion.category.bg = colors.hash('black')
+c.colors.completion.category.fg = colors.hash('white')
+c.colors.completion.even.bg = colors.hash('black')
+c.colors.completion.odd.bg = colors.hash('d2_blue')
+c.colors.completion.fg = [ colors.hash('white'), colors.hash('white'), colors.hash('white') ]
+
+c.colors.completion.item.selected.border.bottom = colors.hash('blue')
+c.colors.completion.item.selected.border.top = colors.hash('blue')
+c.colors.completion.item.selected.bg = colors.hash('blue')
+c.colors.completion.item.selected.fg = colors.hash('l1_white')
+c.colors.completion.item.selected.match.fg = colors.hash('l1_white')
+c.colors.completion.match.fg = colors.hash('l1_yellow')
+c.colors.completion.scrollbar.fg = colors.hash('blue')
+c.colors.completion.scrollbar.bg = colors.hash('black')
+
+## Downloads component
+#-------------------------------------------------------------------------------
+
+### Appearance
+c.downloads.position = 'bottom'
+
+c.colors.downloads.bar.bg = colors.hash('black')
+c.colors.downloads.error.bg = colors.hash('red')
+c.colors.downloads.error.fg = colors.hash('white')
+c.colors.downloads.start.bg = colors.hash('l1_blue')
+c.colors.downloads.stop.bg = colors.hash('green')
+c.colors.downloads.start.fg = colors.hash('white')
+c.colors.downloads.stop.fg = colors.hash('white')
+c.colors.downloads.system.bg = 'rgb'
+c.colors.downloads.system.fg = 'rgb'
+
+## Hints component
+#-------------------------------------------------------------------------------
+
+### Behavior
+c.hints.auto_follow = 'unique-match'
+c.hints.auto_follow_timeout = 0
+c.hints.leave_on_load = False
+c.hints.mode = 'letter'
+c.hints.chars = 'asdfghjkl'
+c.hints.min_chars = 1
+c.hints.uppercase = False
+
+### Appearance
+c.hints.border = '1px solid {0}'.format(colors.hash('d1_blue'))
+c.hints.padding = { 'top': 3, 'bottom': 0, 'left': 3, 'right': 3 }
+c.hints.radius = 5
+
+c.fonts.hints = 'bold 9pt default_family'
+
+# TODO: Provide a color formatter for RGBA.
+# TODO: Configure a color gradient.
+# c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
+c.colors.hints.bg = colors.hash('blue')
+c.colors.hints.fg = colors.hash('white')
+c.colors.hints.match.fg = colors.hash('l1_yellow')
+
+## Keyhint component
+#-------------------------------------------------------------------------------
+
+### Behavior
+c.keyhint.blacklist = []
+c.keyhint.delay = 500
+
+### Appearance
+c.keyhint.radius = 5
+
+c.colors.keyhint.bg = 'rgba(0, 0, 0, 80%)'
+c.colors.keyhint.fg = colors.hash('white')
+c.colors.keyhint.suffix.fg = colors.hash('l1_yellow')
+
+## Messages component
 #-------------------------------------------------------------------------------
 
 # Info Test: ?
@@ -108,18 +191,14 @@ c.colors.messages.error.bg = colors.hash('d2_blue')
 c.colors.messages.error.border = colors.hash('black')
 c.colors.messages.error.fg = colors.hash('l1_red')
 
-## Statusbar
+## Statusbar component
 #-------------------------------------------------------------------------------
 
 ### Behavior
-# ---
-
 c.statusbar.show = 'always'
 c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'history', 'tabs', 'progress' ]
 
 ### Appearance
-# ---
-
 c.fonts.statusbar = 'default_size default_family'
 
 c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
@@ -149,9 +228,16 @@ c.colors.statusbar.url.success.http.fg = colors.hash('l1_yellow')
 c.colors.statusbar.url.success.https.fg = colors.hash('l1_green')
 c.colors.statusbar.url.warn.fg = colors.hash('l1_yellow')
 
-## Tabs settings
+## Tabs component
 #-------------------------------------------------------------------------------
 
+### Behavior
+c.tabs.tooltips = False
+c.tabs.last_close = 'close'
+c.tabs.show = 'multiple'
+c.tabs.mode_on_change = 'normal'
+
+### Appearance
 c.tabs.favicons.show = 'never'
 c.tabs.indicator.width = 0
 c.tabs.max_width = 240
@@ -159,31 +245,25 @@ c.tabs.padding = { 'top': 5, 'bottom': 3, 'left': 12, 'right': 8 }
 c.tabs.position = 'top'
 c.tabs.title.alignment = 'left'
 c.tabs.title.format = '{audio}[{index}] {current_title}'
-c.tabs.tooltips = False
-c.tabs.last_close = 'close'
-c.tabs.show = 'multiple'
-c.tabs.mode_on_change = 'normal'
 
-## URL settings
-#-------------------------------------------------------------------------------
-
-c.url.start_pages = [ 'about:blank' ]
-c.url.auto_search = 'schemeless'
-c.url.default_page = 'about:blank'
-c.url.searchengines = {
-    'DEFAULT': 'https://duckduckgo.com/?q={}',
-    'd': 'https://duckduckgo.com/?q={}',
-    'g': 'https://google.com/search?q={}',
-    'w': 'https://en.wikipedia.org/wiki/?search={}',
-}
-c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content' ]
+c.colors.tabs.bar.bg = colors.hash('black')
+c.colors.tabs.odd.bg = colors.hash('black')
+c.colors.tabs.odd.fg = colors.hash('l3_gray')
+c.colors.tabs.even.bg = colors.hash('black')
+c.colors.tabs.even.fg = colors.hash('l3_gray')
+c.colors.tabs.selected.odd.bg = colors.hash('black')
+c.colors.tabs.selected.odd.fg = colors.hash('l1_white')
+c.colors.tabs.selected.even.bg = colors.hash('black')
+c.colors.tabs.selected.even.fg = colors.hash('l1_white')
+c.colors.tabs.indicator.error = colors.hash('red')
+c.colors.tabs.indicator.start = colors.hash('white')
+c.colors.tabs.indicator.stop = colors.hash('black')
+c.colors.tabs.indicator.system = 'rgb'
 
 ## Key bindings
 #-------------------------------------------------------------------------------
 
 ### Unwanted default bindings
-# ---
-
 config.unbind('<Ctrl-q>')
 config.unbind('<Ctrl-PgDown>')
 config.unbind('<Ctrl-PgUp>')
@@ -196,8 +276,6 @@ config.unbind('d')
 # TODO: Most of the default bindings should be unbound
 
 ### Normal mode
-# ---
-
 #### Tab management
 config.bind('<Ctrl-1>', 'tab-focus 1')
 config.bind('<Ctrl-2>', 'tab-focus 2')
@@ -225,41 +303,14 @@ config.bind('k', 'scroll up')
 # TODO: Remember what the reason for this is.
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
 
-#### Insert mode
-# ---
-
+### Insert mode
 # TODO: Remember what the reason for this is.
 config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 
 ## Color settings
 #-------------------------------------------------------------------------------
 
-### Completion widget
-# ---
-
-c.colors.completion.category.border.top = colors.hash('black')
-c.colors.completion.category.border.bottom = colors.hash('black')
-c.colors.completion.category.bg = colors.hash('black')
-c.colors.completion.category.fg = colors.hash('white')
-c.colors.completion.even.bg = colors.hash('black')
-c.colors.completion.odd.bg = colors.hash('d2_blue')
-c.colors.completion.fg = [ colors.hash('white'), colors.hash('white'), colors.hash('white') ]
-
-### Completion view
-# ---
-
-c.colors.completion.item.selected.border.bottom = colors.hash('blue')
-c.colors.completion.item.selected.border.top = colors.hash('blue')
-c.colors.completion.item.selected.bg = colors.hash('blue')
-c.colors.completion.item.selected.fg = colors.hash('l1_white')
-c.colors.completion.item.selected.match.fg = colors.hash('l1_white')
-c.colors.completion.match.fg = colors.hash('l1_yellow')
-c.colors.completion.scrollbar.fg = colors.hash('blue')
-c.colors.completion.scrollbar.bg = colors.hash('black')
-
 ### Context menu
-# ---
-
 c.colors.contextmenu.disabled.bg = colors.hash('d3_gray')
 c.colors.contextmenu.disabled.fg = colors.hash('gray')
 c.colors.contextmenu.menu.bg = colors.hash('black')
@@ -267,54 +318,14 @@ c.colors.contextmenu.menu.fg = colors.hash('white')
 c.colors.contextmenu.selected.bg = colors.hash('blue')
 c.colors.contextmenu.selected.fg = colors.hash('white')
 
-### Downloads
-# ---
+### Websites
+c.colors.webpage.bg = colors.hash('black')
+c.colors.webpage.preferred_color_scheme = 'dark'
 
-c.colors.downloads.bar.bg = colors.hash('black')
-c.colors.downloads.error.bg = colors.hash('red')
-c.colors.downloads.error.fg = colors.hash('white')
-c.colors.downloads.start.bg = colors.hash('l1_blue')
-c.colors.downloads.stop.bg = colors.hash('green')
-c.colors.downloads.start.fg = colors.hash('white')
-c.colors.downloads.stop.fg = colors.hash('white')
-c.colors.downloads.system.bg = 'rgb'
-c.colors.downloads.system.fg = 'rgb'
-
-### Hints
-# ---
-
-# TODO: Configure hint colors
-
-# Background color for hints. Note that you can use a `rgba(...)` value
-# for transparency.
-# Type: QssColor
-# c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
-
-# Font color for hints.
-# Type: QssColor
-# c.colors.hints.fg = 'black'
-
-# Font color for the matched part of hints.
-# c.colors.hints.match.fg = 'green'
-
-# Background color of the keyhint widget.
-# Type: QssColor
-# c.colors.keyhint.bg = 'rgba(0, 0, 0, 80%)'
-
-# Text color for the keyhint widget.
-# Type: QssColor
-# c.colors.keyhint.fg = '#FFFFFF'
-
-# Highlight color for keys to complete the current keychain.
-# Type: QssColor
-# c.colors.keyhint.suffix.fg = '#FFFF00'
-
-### Messages
-# ---
+### Dark mode
+c.colors.webpage.darkmode.enabled = True
 
 ### Prompts
-# ---
-
 # TODO: Configure prompts colors
 
 # Background color for prompts.
@@ -330,8 +341,6 @@ c.colors.downloads.system.fg = 'rgb'
 # c.colors.prompts.fg = 'white'
 
 ### Filename prompts
-# ---
-
 # TODO: Configure filename prompt colors
 
 # Background color for the selected item in filename prompts.
@@ -341,63 +350,6 @@ c.colors.downloads.system.fg = 'rgb'
 # Foreground color for the selected item in filename prompts.
 # Type: QssColor
 # c.colors.prompts.selected.fg = 'white'
-
-### Statusbar
-# ---
-
-### Tabs
-# ---
-
-c.colors.tabs.bar.bg = colors.hash('black')
-c.colors.tabs.odd.bg = colors.hash('black')
-c.colors.tabs.odd.fg = colors.hash('l3_gray')
-c.colors.tabs.even.bg = colors.hash('black')
-c.colors.tabs.even.fg = colors.hash('l3_gray')
-c.colors.tabs.selected.odd.bg = colors.hash('black')
-c.colors.tabs.selected.odd.fg = colors.hash('l1_white')
-c.colors.tabs.selected.even.bg = colors.hash('black')
-c.colors.tabs.selected.even.fg = colors.hash('l1_white')
-c.colors.tabs.indicator.error = colors.hash('red')
-c.colors.tabs.indicator.start = colors.hash('white')
-c.colors.tabs.indicator.stop = colors.hash('black')
-c.colors.tabs.indicator.system = 'rgb'
-
-# TODO: Configure pinned tab colors
-
-# Background color of pinned unselected even tabs.
-# c.colors.tabs.pinned.even.bg = 'darkseagreen'
-
-# Foreground color of pinned unselected even tabs.
-# c.colors.tabs.pinned.even.fg = 'white'
-
-# Background color of pinned unselected odd tabs.
-# c.colors.tabs.pinned.odd.bg = 'seagreen'
-
-# Foreground color of pinned unselected odd tabs.
-# c.colors.tabs.pinned.odd.fg = 'white'
-
-# Background color of pinned selected even tabs.
-# c.colors.tabs.pinned.selected.even.bg = 'black'
-
-# Foreground color of pinned selected even tabs.
-# c.colors.tabs.pinned.selected.even.fg = 'white'
-
-# Background color of pinned selected odd tabs.
-# c.colors.tabs.pinned.selected.odd.bg = 'black'
-
-# Foreground color of pinned selected odd tabs.
-# c.colors.tabs.pinned.selected.odd.fg = 'white'
-
-### Websites
-# ---
-
-c.colors.webpage.bg = colors.hash('black')
-c.colors.webpage.preferred_color_scheme = 'dark'
-
-### Dark mode
-# ---
-
-c.colors.webpage.darkmode.enabled = True
 
 
 
@@ -982,28 +934,6 @@ c.colors.webpage.darkmode.enabled = True
 ## Hints settings
 # ---
 
-## When a hint can be automatically followed without pressing Enter.
-## Type: String
-## Valid values:
-##   - always: Auto-follow whenever there is only a single hint on a page.
-##   - unique-match: Auto-follow whenever there is a unique non-empty match in either the hint string (word mode) or filter (number mode).
-##   - full-match: Follow the hint when the user typed the whole hint (letter, word or number mode) or the element's text (only in number mode).
-##   - never: The user will always need to press Enter to follow a hint.
-# c.hints.auto_follow = 'unique-match'
-
-## Duration (in milliseconds) to ignore normal-mode key bindings after a
-## successful auto-follow.
-## Type: Int
-# c.hints.auto_follow_timeout = 0
-
-## CSS border value for hints.
-## Type: String
-# c.hints.border = '1px solid #E3BE23'
-
-## Characters used for hint strings.
-## Type: UniqueCharString
-# c.hints.chars = 'asdfghjkl'
-
 ## Dictionary file to be used by the word hints.
 ## Type: File
 # c.hints.dictionary = '/usr/share/dict/words'
@@ -1019,37 +949,13 @@ c.colors.webpage.darkmode.enabled = True
 ## Type: Bool
 # c.hints.hide_unmatched_rapid_hints = True
 
-## Leave hint mode when starting a new page load.
-## Type: Bool
-# c.hints.leave_on_load = False
-
-## Minimum number of characters used for hint strings.
-## Type: Int
-# c.hints.min_chars = 1
-
-## Mode to use for hints.
-## Type: String
-## Valid values:
-##   - number: Use numeric hints. (In this mode you can also type letters from the hinted element to filter and reduce the number of elements that are hinted.)
-##   - letter: Use the characters in the `hints.chars` setting.
-##   - word: Use hints words based on the html elements and the extra words.
-# c.hints.mode = 'letter'
-
 ## Comma-separated list of regular expressions to use for 'next' links.
 ## Type: List of Regex
 # c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
 
-## Padding (in pixels) for hints.
-## Type: Padding
-# c.hints.padding = {'top': 0, 'bottom': 0, 'left': 3, 'right': 3}
-
 ## Comma-separated list of regular expressions to use for 'prev' links.
 ## Type: List of Regex
 # c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
-
-## Rounding radius (in pixels) for the edges of hints.
-## Type: Int
-# c.hints.radius = 3
 
 ## Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 ## number hints.
@@ -1060,10 +966,6 @@ c.colors.webpage.darkmode.enabled = True
 ## hints.
 ## Type: Dict
 # c.hints.selectors = {'all': ['a', 'area', 'textarea', 'select', 'input:not([type="hidden"])', 'button', 'frame', 'iframe', 'img', 'link', 'summary', '[contenteditable]:not([contenteditable="false"])', '[onclick]', '[onmousedown]', '[role="link"]', '[role="option"]', '[role="button"]', '[role="tab"]', '[role="checkbox"]', '[role="menuitem"]', '[role="menuitemcheckbox"]', '[role="menuitemradio"]', '[ng-click]', '[ngClick]', '[data-ng-click]', '[x-ng-click]', '[tabindex]:not([tabindex="-1"])'], 'links': ['a[href]', 'area[href]', 'link[href]', '[role="link"][href]'], 'images': ['img'], 'media': ['audio', 'img', 'video'], 'url': ['[src]', '[href]'], 'inputs': ['input[type="text"]', 'input[type="date"]', 'input[type="datetime-local"]', 'input[type="email"]', 'input[type="month"]', 'input[type="number"]', 'input[type="password"]', 'input[type="search"]', 'input[type="tel"]', 'input[type="time"]', 'input[type="url"]', 'input[type="week"]', 'input:not([type])', '[contenteditable]:not([contenteditable="false"])', 'textarea']}
-
-## Make characters in hint strings uppercase.
-## Type: Bool
-# c.hints.uppercase = False
 
 ## Input settings
 # ---
@@ -1373,21 +1275,6 @@ c.colors.webpage.darkmode.enabled = True
 ## disable separation.
 ## Type: Int
 # c.history_gap_interval = 30
-
-## Keychains that shouldn't be shown in the keyhint dialog. Globs are
-## supported, so `;*` will blacklist all keychains starting with `;`. Use
-## `*` to disable keyhints.
-## Type: List of String
-# c.keyhint.blacklist = []
-
-## Time (in milliseconds) from pressing a key to seeing the keyhint
-## dialog.
-## Type: Int
-# c.keyhint.delay = 500
-
-## Rounding radius (in pixels) for the edges of the keyhint dialog.
-## Type: Int
-# c.keyhint.radius = 6
 
 ## Level for console (stdout/stderr) logs. Ignored if the `--loglevel` or
 ## `--debug` CLI flags are used.
