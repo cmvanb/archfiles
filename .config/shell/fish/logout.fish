@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Generic logout configuration
+# Fish logout configuration
 #
 # This should work exactly the same as ~/.config/shell/generic/logout
 # Unfortunately, it's not trivial to source a POSIX shell script from fish, so

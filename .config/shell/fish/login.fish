@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Generic login configuration
+# Fish login configuration
 #
 # This should work exactly the same as ~/.config/shell/generic/login
 # Unfortunately, it's not trivial to source a POSIX shell script from fish, so

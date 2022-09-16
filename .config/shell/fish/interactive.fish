@@ -1,27 +1,23 @@
 #-------------------------------------------------------------------------------
-# Generic interactive configuration
+# Fish interactive configuration
 #
-# This should work exactly the same as ~/.config/shell/generic/interactive
 # Unfortunately, it's not trivial to source a POSIX shell script from fish, so
-# the functionality is duplicated here.
+# some parts of the generic script may need to be duplicated here.
 #
 # NOTE: Although `bass` works, it degrades performance to an unacceptable level.
 #   `bass 'source /home/casper/.config/shell/generic/interactive'`
 #-------------------------------------------------------------------------------
 
-# Setup terminal escape bindings.
-stty intr ^X
-stty quit ^Q
-stty erase undef
-stty kill ^K
-stty eof ^E
-stty start undef
-stty stop undef
-stty susp undef
-stty rprnt undef
-stty werase undef
-stty lnext undef
-stty discard undef
+# NOTE: Currently, the generic interactive script *can* be sourced.
+source $XDG_CONFIG_HOME/shell/generic/interactive
+
+#-------------------------------------------------------------------------------
+# Import system colors
+#-------------------------------------------------------------------------------
+
+source $XDG_CONFIG_HOME/colors/fish-colors.fish
+
+parse_colors
 
 #-------------------------------------------------------------------------------
 # Abbreviations
@@ -94,26 +90,36 @@ bind . 'expand-dot-to-double-dot'
 # Prompt (https://github.com/IlanCosman/tide)
 #-------------------------------------------------------------------------------
 
-set -g tide_prompt_color_separator_same_color white
-set -g tide_left_prompt_items context time jobs git virtual_env pwd
-set -g tide_right_prompt_items
+set -U tide_prompt_color_separator_same_color (color_named 'white')
+set -U tide_left_prompt_items context time jobs git virtual_env pwd
+set -U tide_right_prompt_items
 
-set -g tide_context_always_display false
-# TODO: Improve color coordination of context
-# NOTE: Can only pass ANSI16 or 24bit colors, fish (via tide) does not accept 256 encoding
-set -g tide_context_bg_color black
-set -g tide_context_color_default white
-set -g tide_context_color_root brred
-set -g tide_context_color_ssh bryellow
+set -U tide_context_always_display false
+set -U tide_context_bg_color (color_named 'd2_gray')
+set -U tide_context_color_default (color_named 'white')
+set -U tide_context_color_root (color_named 'l1_red')
+set -U tide_context_color_ssh (color_named 'l1_yellow')
 
-set -g tide_jobs_bg_color white
-set -g tide_jobs_color black
+set -U tide_time_format '%H:%M:%S'
+set -U tide_time_bg_color (color_named 'black')
+set -U tide_time_color (color_named 'l1_blue')
 
-set -g tide_time_bg_color black
-set -g tide_time_color blue
+set -U tide_jobs_icon ' '
+set -U tide_jobs_bg_color (color_named 'l1_red')
+set -U tide_jobs_color (color_named 'black')
 
-set -g tide_git_icon ''
+set -U tide_git_icon ' '
+set -U tide_git_bg_color (color_named 'green')
+set -U tide_git_bg_color_unstable (color_named 'yellow')
+set -U tide_git_bg_color_urgent (color_named 'red')
 
-set -g tide_pwd_icon ''
-set -g tide_pwd_icon_home ''
+# TODO: Configure virtualenv module.
+
+set -U tide_pwd_icon ' '
+set -U tide_pwd_icon_home ' '
+set -U tide_pwd_icon_unwritable ' '
+set -U tide_pwd_bg_color (color_named 'blue')
+set -U tide_pwd_color_anchors (color_named 'l1_white')
+set -U tide_pwd_color_dirs (color_named 'l1_white')
+set -U tide_pwd_color_truncated_dirs (color_named 'white')
 

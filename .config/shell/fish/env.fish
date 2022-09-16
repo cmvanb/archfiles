@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Generic environment configuration
+# Fish environment configuration
 #
 # This should work exactly the same as ~/.config/shell/generic/env.
 # Unfortunately, it's not trivial to source a POSIX shell script from fish, so
