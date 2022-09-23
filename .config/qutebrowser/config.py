@@ -233,7 +233,7 @@ c.colors.statusbar.url.warn.fg = colors.hash('l1_yellow')
 
 ### Behavior
 c.tabs.tooltips = False
-c.tabs.last_close = 'close'
+c.tabs.last_close = 'default-page'
 c.tabs.show = 'multiple'
 c.tabs.mode_on_change = 'normal'
 
@@ -276,6 +276,10 @@ config.unbind('d')
 # TODO: Most of the default bindings should be unbound
 
 ### Normal mode
+#### Session management
+config.bind('<Ctrl-o>', 'spawn --userscript session-load-wofi.sh')
+config.bind('<Ctrl-s>', 'spawn --userscript session-save-wofi.sh')
+
 #### Tab management
 config.bind('<Ctrl-1>', 'tab-focus 1')
 config.bind('<Ctrl-2>', 'tab-focus 2')
