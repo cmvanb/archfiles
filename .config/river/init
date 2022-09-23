@@ -72,6 +72,9 @@ riverctl map normal Alt N spawn wezterm
 # Command menu
 riverctl map normal Alt O spawn "wofi --show run"
 
+# Browser
+riverctl map normal Alt B spawn "qutebrowser"
+
 # Dismiss notifications
 riverctl map normal Alt D spawn "makoctl dismiss -a"
 
