@@ -52,7 +52,7 @@ c.fonts.web.family.standard = 'default_family'
 c.fonts.web.size.minimum = 6
 
 ### Interface
-c.fonts.contextmenu = 'default_size default_family'
+c.fonts.contextmenu = 'default_size sans-serif'
 c.fonts.debug_console = 'default_size default_family'
 c.fonts.downloads = 'default_size default_family'
 c.fonts.keyhint = 'default_size default_family'
@@ -139,7 +139,7 @@ c.hints.min_chars = 1
 c.hints.uppercase = False
 
 ### Appearance
-c.hints.border = '1px solid {0}'.format(colors.hash('d1_blue'))
+c.hints.border = '1px solid {0}'.format(colors.hash('d1_yellow'))
 c.hints.padding = { 'top': 3, 'bottom': 0, 'left': 3, 'right': 3 }
 c.hints.radius = 5
 
@@ -148,9 +148,9 @@ c.fonts.hints = 'bold 9pt default_family'
 # TODO: Provide a color formatter for RGBA.
 # TODO: Configure a color gradient.
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
-c.colors.hints.bg = colors.hash('blue')
-c.colors.hints.fg = colors.hash('white')
-c.colors.hints.match.fg = colors.hash('l1_yellow')
+c.colors.hints.bg = colors.hash('yellow')
+c.colors.hints.fg = colors.hash('black')
+c.colors.hints.match.fg = colors.hash('d1_magenta')
 
 ## Keyhint component
 #-------------------------------------------------------------------------------
