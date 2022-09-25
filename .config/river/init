@@ -67,7 +67,7 @@ riverctl xcursor-theme Simp1e 24
 #   `riverctl map normal Alt N spawn "cage -d alacritty"`
 # Unfortunately cage degrades performance of alacritty and doesn't appear to
 # work with wezterm.
-riverctl map normal Alt N spawn wezterm
+riverctl map normal Alt N spawn "wezterm"
 
 # Command menu
 riverctl map normal Alt O spawn "wofi --show run"
