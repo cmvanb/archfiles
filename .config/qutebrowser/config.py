@@ -232,10 +232,11 @@ c.colors.statusbar.url.warn.fg = colors.hash('l1_yellow')
 #-------------------------------------------------------------------------------
 
 ### Behavior
-c.tabs.tooltips = False
 c.tabs.last_close = 'default-page'
-c.tabs.show = 'multiple'
 c.tabs.mode_on_change = 'normal'
+c.tabs.select_on_remove = 'last-used'
+c.tabs.show = 'multiple'
+c.tabs.tooltips = False
 
 ### Appearance
 c.tabs.favicons.show = 'never'
@@ -1129,14 +1130,6 @@ c.colors.webpage.darkmode.enabled = True
 ## Shrink pinned tabs down to their contents.
 ## Type: Bool
 # c.tabs.pinned.shrink = True
-
-## Which tab to select when the focused tab is removed.
-## Type: SelectOnRemove
-## Valid values:
-##   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
-##   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
-##   - last-used: Select the previously selected tab.
-# c.tabs.select_on_remove = 'next'
 
 ## Duration (in milliseconds) to show the tab bar before hiding it when
 ## tabs.show is set to 'switching'.
