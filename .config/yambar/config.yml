@@ -8,7 +8,7 @@ bar:
   foreground: dadadeff
   background: 0d0d0dff
 
-  font: Fira Code:pixelsize=11:style=bold
+  font: Iosevka Nerd Font Mono:pixelsize=12:style=bold
 
   left:
     - river:

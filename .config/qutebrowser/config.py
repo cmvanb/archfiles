@@ -41,8 +41,8 @@ c.content.notifications.enabled = False
 #-------------------------------------------------------------------------------
 
 ### Defaults
-c.fonts.default_family = [ 'Fira Code' ]
-c.fonts.default_size = '11pt'
+c.fonts.default_family = [ 'Iosevka Nerd Font Mono' ]
+c.fonts.default_size = '12pt'
 
 ### Webpages
 c.fonts.web.family.fixed = 'default_family'

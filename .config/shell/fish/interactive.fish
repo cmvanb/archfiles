@@ -105,20 +105,20 @@ set -U tide_time_format '%H:%M:%S'
 set -U tide_time_bg_color (color_named 'black')
 set -U tide_time_color (color_named 'l1_blue')
 
-set -U tide_jobs_icon ' '
+set -U tide_jobs_icon ''
 set -U tide_jobs_bg_color (color_named 'l1_red')
 set -U tide_jobs_color (color_named 'black')
 
-set -U tide_git_icon ' '
+set -U tide_git_icon ''
 set -U tide_git_bg_color (color_named 'green')
 set -U tide_git_bg_color_unstable (color_named 'yellow')
 set -U tide_git_bg_color_urgent (color_named 'red')
 
 # TODO: Configure virtualenv module.
 
-set -U tide_pwd_icon ' '
-set -U tide_pwd_icon_home ' '
-set -U tide_pwd_icon_unwritable ' '
+set -U tide_pwd_icon ''
+set -U tide_pwd_icon_home ''
+set -U tide_pwd_icon_unwritable ''
 set -U tide_pwd_bg_color (color_named 'blue')
 set -U tide_pwd_color_anchors (color_named 'l1_white')
 set -U tide_pwd_color_dirs (color_named 'l1_white')

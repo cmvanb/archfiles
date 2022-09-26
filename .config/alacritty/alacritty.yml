@@ -109,9 +109,9 @@ window:
 # Font configuration
 font:
     normal:
-        family: "Fira Code"
+        family: "Iosevka Nerd Font Mono"
 
-    size: 11.0
+    size: 12.0
 
     # Offset is the extra space around each character. `offset.y` can be thought
     # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -679,7 +679,7 @@ schemes:
     custom: &custom
         # Default colors
         primary:
-            background: '0x021231'
+            background: '0x0d0d0d'
             foreground: '0xdedee3'
 
         # Cursor colors
@@ -734,7 +734,7 @@ schemes:
             - { index: 25, color: '0x37040a' }
             - { index: 26, color: '0x03301e' }
             - { index: 27, color: '0x534300' }
-            - { index: 28, color: '0x021231' }
+            - { index: 28, color: '0x021231' } # Alternative background color
             - { index: 29, color: '0x331127' }
             - { index: 30, color: '0x004760' }
 

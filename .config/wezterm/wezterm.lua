@@ -102,10 +102,10 @@ return {
 
     -- Font
     font = wezterm.font({
-        family = 'Fira Code',
+        family = 'Iosevka Nerd Font Mono',
         weight = 'Regular',
     }),
-    font_size = 11.0,
+    font_size = 12.0,
 
     -- Window
     adjust_window_size_when_changing_font_size = false,

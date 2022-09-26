@@ -147,7 +147,7 @@ noremap('<C-k>', '<Plug>(edgemotion-k)')
 --------------------------------------------------------------------------------
 
 if vim.g.neovide ~= nil then
-    opt.guifont = 'Fira Code:h11'
+    opt.guifont = 'Iosevka Nerd Font Mono:h12'
 
     -- TODO: Get Cursor highlighting working in Neovide.
     cmd('set guicursor=n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20') 

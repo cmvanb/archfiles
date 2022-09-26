@@ -8,7 +8,7 @@
 gsettings set org.gnome.desktop.interface gtk-theme 'Skeuos-Blue-Dark'
 gsettings set org.gnome.desktop.interface font-name 'Noto Sans 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans 11'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Code 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka Nerd Font Mono 12'
 gsettings set org.gnome.desktop.interface cursor-theme 'Simp1e'
 gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
 
