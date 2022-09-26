@@ -21,7 +21,7 @@ colors.parse_colors()
 # NOTE: Loads session configuration changes from autoconfig.yml.
 config.load_autoconfig(True)
 
-c.auto_save.session = True
+c.auto_save.session = False
 c.confirm_quit = [ 'downloads' ]
 c.scrolling.smooth = True
 c.scrolling.bar = 'always'
@@ -57,8 +57,8 @@ c.fonts.debug_console = 'default_size default_family'
 c.fonts.downloads = 'default_size default_family'
 c.fonts.keyhint = 'default_size default_family'
 c.fonts.prompts = 'default_size sans-serif'
-c.fonts.tabs.selected = 'bold 9pt default_family'
-c.fonts.tabs.unselected = '9pt default_family'
+c.fonts.tabs.selected = 'bold 10pt default_family'
+c.fonts.tabs.unselected = '10pt default_family'
 
 ## Input settings
 #-------------------------------------------------------------------------------
@@ -86,8 +86,8 @@ c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campai
 #-------------------------------------------------------------------------------
 
 ### Appearance
-c.fonts.completion.category = 'bold default_size default_family'
-c.fonts.completion.entry = 'default_size default_family'
+c.fonts.completion.category = 'bold 10pt default_family'
+c.fonts.completion.entry = '10pt default_family'
 
 c.completion.height = '40%'
 c.completion.scrollbar.padding = 3
@@ -143,14 +143,14 @@ c.hints.border = '1px solid {0}'.format(colors.hash('d1_yellow'))
 c.hints.padding = { 'top': 3, 'bottom': 0, 'left': 3, 'right': 3 }
 c.hints.radius = 5
 
-c.fonts.hints = 'bold 9pt default_family'
+c.fonts.hints = 'bold 10pt default_family'
 
 # TODO: Provide a color formatter for RGBA.
 # TODO: Configure a color gradient.
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
 c.colors.hints.bg = colors.hash('yellow')
 c.colors.hints.fg = colors.hash('black')
-c.colors.hints.match.fg = colors.hash('d1_magenta')
+c.colors.hints.match.fg = colors.hash('magenta')
 
 ## Keyhint component
 #-------------------------------------------------------------------------------
