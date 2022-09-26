@@ -36,6 +36,7 @@ abbr -a gpf git push --force
 abbr -a grc git rm --cached
 abbr -a e edit
 abbr -a ed edit
+abbr -a exa exa -al
 
 #-------------------------------------------------------------------------------
 # Bindings

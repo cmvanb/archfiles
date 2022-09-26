@@ -30,6 +30,7 @@ alias gpf="git push --force"
 alias grc="git rm --cached"
 alias e="edit"
 alias ed="edit"
+alias exa="exa -al"
 
 #-------------------------------------------------------------------------------
 # Prompt
