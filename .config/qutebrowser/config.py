@@ -57,8 +57,6 @@ c.fonts.debug_console = 'default_size default_family'
 c.fonts.downloads = 'default_size default_family'
 c.fonts.keyhint = 'default_size default_family'
 c.fonts.prompts = 'default_size sans-serif'
-c.fonts.tabs.selected = 'bold 10pt default_family'
-c.fonts.tabs.unselected = '10pt default_family'
 
 ## Input settings
 #-------------------------------------------------------------------------------
@@ -86,29 +84,29 @@ c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campai
 #-------------------------------------------------------------------------------
 
 ### Appearance
-c.fonts.completion.category = 'bold 10pt default_family'
-c.fonts.completion.entry = '10pt default_family'
+c.fonts.completion.category = 'bold default_size default_family'
+c.fonts.completion.entry = 'default_size default_family'
 
-c.completion.height = '20%'
+c.completion.height = '40%'
 c.completion.scrollbar.padding = 3
 c.completion.scrollbar.width = 10
 
-c.colors.completion.category.border.top = colors.hash('black')
-c.colors.completion.category.border.bottom = colors.hash('black')
+c.colors.completion.category.border.top = colors.hash('browser_bg')
+c.colors.completion.category.border.bottom = colors.hash('browser_bg')
 c.colors.completion.category.bg = colors.hash('d4_blue')
 c.colors.completion.category.fg = colors.hash('l1_white')
-c.colors.completion.even.bg = colors.hash('black')
-c.colors.completion.odd.bg = colors.hash('black')
+c.colors.completion.even.bg = colors.hash('browser_bg')
+c.colors.completion.odd.bg = colors.hash('browser_bg')
 c.colors.completion.fg = [ colors.hash('white'), colors.hash('white'), colors.hash('white') ]
 
-c.colors.completion.item.selected.border.bottom = colors.hash('blue')
-c.colors.completion.item.selected.border.top = colors.hash('blue')
-c.colors.completion.item.selected.bg = colors.hash('blue')
-c.colors.completion.item.selected.fg = colors.hash('l1_white')
-c.colors.completion.item.selected.match.fg = colors.hash('l1_white')
+c.colors.completion.item.selected.border.bottom = colors.hash('l1_magenta')
+c.colors.completion.item.selected.border.top = colors.hash('l1_magenta')
+c.colors.completion.item.selected.bg = colors.hash('l1_magenta')
+c.colors.completion.item.selected.fg = colors.hash('black')
+c.colors.completion.item.selected.match.fg = colors.hash('yellow')
 c.colors.completion.match.fg = colors.hash('l1_yellow')
-c.colors.completion.scrollbar.fg = colors.hash('blue')
-c.colors.completion.scrollbar.bg = colors.hash('black')
+c.colors.completion.scrollbar.fg = colors.hash('d3_gray')
+c.colors.completion.scrollbar.bg = colors.hash('browser_bg')
 
 ## Downloads component
 #-------------------------------------------------------------------------------
@@ -116,7 +114,7 @@ c.colors.completion.scrollbar.bg = colors.hash('black')
 ### Appearance
 c.downloads.position = 'bottom'
 
-c.colors.downloads.bar.bg = colors.hash('black')
+c.colors.downloads.bar.bg = colors.hash('browser_bg')
 c.colors.downloads.error.bg = colors.hash('d4_red')
 c.colors.downloads.error.fg = colors.hash('red')
 c.colors.downloads.stop.bg = colors.hash('d4_green')
@@ -162,7 +160,7 @@ c.keyhint.delay = 500
 ### Appearance
 c.keyhint.radius = 5
 
-c.colors.keyhint.bg = colors.hash('black')
+c.colors.keyhint.bg = colors.hash('browser_bg')
 c.colors.keyhint.fg = colors.hash('white')
 c.colors.keyhint.suffix.fg = colors.hash('l1_yellow')
 
@@ -181,14 +179,14 @@ c.fonts.messages.error = 'bold 10pt default_family'
 c.fonts.messages.info = '10pt default_family'
 c.fonts.messages.warning = 'bold 10pt default_family'
 
-c.colors.messages.info.border = colors.hash('black')
-c.colors.messages.info.bg = colors.hash('black')
+c.colors.messages.info.border = colors.hash('browser_bg')
+c.colors.messages.info.bg = colors.hash('browser_bg')
 c.colors.messages.info.fg = colors.hash('white')
-c.colors.messages.warning.border = colors.hash('black')
-c.colors.messages.warning.bg = colors.hash('black')
+c.colors.messages.warning.border = colors.hash('browser_bg')
+c.colors.messages.warning.bg = colors.hash('browser_bg')
 c.colors.messages.warning.fg = colors.hash('l1_yellow')
-c.colors.messages.error.border = colors.hash('black')
-c.colors.messages.error.bg = colors.hash('black')
+c.colors.messages.error.border = colors.hash('browser_bg')
+c.colors.messages.error.bg = colors.hash('browser_bg')
 c.colors.messages.error.fg = colors.hash('l1_red')
 
 ## Statusbar component
@@ -204,22 +202,22 @@ c.fonts.statusbar = 'default_size default_family'
 c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
 c.statusbar.position = 'bottom'
 
-c.colors.statusbar.normal.bg = colors.hash('black')
+c.colors.statusbar.normal.bg = colors.hash('browser_bg')
 c.colors.statusbar.normal.fg = colors.hash('white')
-c.colors.statusbar.caret.bg = colors.hash('black')
+c.colors.statusbar.caret.bg = colors.hash('browser_bg')
 c.colors.statusbar.caret.fg = colors.hash('magenta')
-c.colors.statusbar.caret.selection.bg = colors.hash('black')
+c.colors.statusbar.caret.selection.bg = colors.hash('browser_bg')
 c.colors.statusbar.caret.selection.fg = colors.hash('cyan')
-c.colors.statusbar.command.bg = colors.hash('black')
+c.colors.statusbar.command.bg = colors.hash('browser_bg')
 c.colors.statusbar.command.fg = colors.hash('cyan')
-c.colors.statusbar.insert.bg = colors.hash('black')
+c.colors.statusbar.insert.bg = colors.hash('browser_bg')
 c.colors.statusbar.insert.fg = colors.hash('green')
-c.colors.statusbar.passthrough.bg = colors.hash('black')
+c.colors.statusbar.passthrough.bg = colors.hash('browser_bg')
 c.colors.statusbar.passthrough.fg = colors.hash('yellow')
-c.colors.statusbar.private.bg = colors.hash('magenta')
+c.colors.statusbar.private.bg = colors.hash('d4_purple')
 c.colors.statusbar.private.fg = colors.hash('white')
-c.colors.statusbar.command.private.bg = colors.hash('black')
-c.colors.statusbar.command.private.fg = colors.hash('l1_blue')
+c.colors.statusbar.command.private.bg = colors.hash('browser_bg')
+c.colors.statusbar.command.private.fg = colors.hash('cyan')
 c.colors.statusbar.progress.bg = colors.hash('white')
 c.colors.statusbar.url.error.fg = colors.hash('red')
 c.colors.statusbar.url.fg = colors.hash('white')
@@ -239,6 +237,9 @@ c.tabs.show = 'multiple'
 c.tabs.tooltips = False
 
 ### Appearance
+c.fonts.tabs.selected = 'bold 10pt default_family'
+c.fonts.tabs.unselected = '10pt default_family'
+
 c.tabs.favicons.show = 'never'
 c.tabs.indicator.width = 0
 c.tabs.max_width = 240
@@ -247,19 +248,15 @@ c.tabs.position = 'top'
 c.tabs.title.alignment = 'left'
 c.tabs.title.format = '{audio}[{index}] {current_title}'
 
-c.colors.tabs.bar.bg = colors.hash('black')
-c.colors.tabs.odd.bg = colors.hash('black')
-c.colors.tabs.odd.fg = colors.hash('l3_gray')
-c.colors.tabs.even.bg = colors.hash('black')
-c.colors.tabs.even.fg = colors.hash('l3_gray')
-c.colors.tabs.selected.odd.bg = colors.hash('black')
-c.colors.tabs.selected.odd.fg = colors.hash('l1_white')
-c.colors.tabs.selected.even.bg = colors.hash('black')
-c.colors.tabs.selected.even.fg = colors.hash('l1_white')
-c.colors.tabs.indicator.error = colors.hash('red')
-c.colors.tabs.indicator.start = colors.hash('white')
-c.colors.tabs.indicator.stop = colors.hash('black')
-c.colors.tabs.indicator.system = 'rgb'
+c.colors.tabs.bar.bg = colors.hash('browser_bg')
+c.colors.tabs.odd.bg = colors.hash('browser_bg')
+c.colors.tabs.odd.fg = colors.hash('l1_gray')
+c.colors.tabs.even.bg = colors.hash('browser_bg')
+c.colors.tabs.even.fg = colors.hash('l1_gray')
+c.colors.tabs.selected.odd.bg = colors.hash('browser_bg')
+c.colors.tabs.selected.odd.fg = colors.hash('white')
+c.colors.tabs.selected.even.bg = colors.hash('browser_bg')
+c.colors.tabs.selected.even.fg = colors.hash('white')
 
 ## Key bindings
 #-------------------------------------------------------------------------------
@@ -318,13 +315,13 @@ config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()',
 ### Context menu
 c.colors.contextmenu.disabled.bg = colors.hash('d3_gray')
 c.colors.contextmenu.disabled.fg = colors.hash('gray')
-c.colors.contextmenu.menu.bg = colors.hash('black')
+c.colors.contextmenu.menu.bg = colors.hash('browser_bg')
 c.colors.contextmenu.menu.fg = colors.hash('white')
 c.colors.contextmenu.selected.bg = colors.hash('d3_blue')
 c.colors.contextmenu.selected.fg = colors.hash('l1_white')
 
 ### Websites
-c.colors.webpage.bg = colors.hash('black')
+c.colors.webpage.bg = colors.hash('d5_purple')
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 ### Dark mode
