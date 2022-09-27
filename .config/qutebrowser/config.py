@@ -117,12 +117,12 @@ c.colors.completion.scrollbar.bg = colors.hash('black')
 c.downloads.position = 'bottom'
 
 c.colors.downloads.bar.bg = colors.hash('black')
-c.colors.downloads.error.bg = colors.hash('red')
-c.colors.downloads.error.fg = colors.hash('white')
-c.colors.downloads.start.bg = colors.hash('l1_blue')
-c.colors.downloads.stop.bg = colors.hash('green')
-c.colors.downloads.start.fg = colors.hash('white')
-c.colors.downloads.stop.fg = colors.hash('white')
+c.colors.downloads.error.bg = colors.hash('d4_red')
+c.colors.downloads.error.fg = colors.hash('red')
+c.colors.downloads.stop.bg = colors.hash('d4_green')
+c.colors.downloads.stop.fg = colors.hash('green')
+c.colors.downloads.start.bg = colors.hash('d4_blue')
+c.colors.downloads.start.fg = colors.hash('blue')
 c.colors.downloads.system.bg = 'rgb'
 c.colors.downloads.system.fg = 'rgb'
 
@@ -181,14 +181,14 @@ c.fonts.messages.error = 'bold 10pt default_family'
 c.fonts.messages.info = '10pt default_family'
 c.fonts.messages.warning = 'bold 10pt default_family'
 
-c.colors.messages.info.bg = colors.hash('black')
 c.colors.messages.info.border = colors.hash('black')
+c.colors.messages.info.bg = colors.hash('black')
 c.colors.messages.info.fg = colors.hash('white')
-c.colors.messages.warning.bg = colors.hash('black')
 c.colors.messages.warning.border = colors.hash('black')
+c.colors.messages.warning.bg = colors.hash('black')
 c.colors.messages.warning.fg = colors.hash('l1_yellow')
-c.colors.messages.error.bg = colors.hash('black')
 c.colors.messages.error.border = colors.hash('black')
+c.colors.messages.error.bg = colors.hash('black')
 c.colors.messages.error.fg = colors.hash('l1_red')
 
 ## Statusbar component
@@ -211,7 +211,7 @@ c.colors.statusbar.caret.fg = colors.hash('magenta')
 c.colors.statusbar.caret.selection.bg = colors.hash('black')
 c.colors.statusbar.caret.selection.fg = colors.hash('cyan')
 c.colors.statusbar.command.bg = colors.hash('black')
-c.colors.statusbar.command.fg = colors.hash('d1_cyan')
+c.colors.statusbar.command.fg = colors.hash('cyan')
 c.colors.statusbar.insert.bg = colors.hash('black')
 c.colors.statusbar.insert.fg = colors.hash('green')
 c.colors.statusbar.passthrough.bg = colors.hash('black')
