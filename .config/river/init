@@ -49,9 +49,9 @@ riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard pointer-accel
 . "$XDG_CONFIG_HOME/colors/sh-colors.sh"
 
 riverctl background-color "$(colors_zerox $black)"
-riverctl border-color-focused "$(colors_zerox $d1_blue)"
-riverctl border-color-unfocused "$(colors_zerox $d1_gray)"
-riverctl border-color-urgent "$(colors_zerox $d1_red)"
+riverctl border-color-focused "$(colors_zerox $d2_blue)"
+riverctl border-color-unfocused "$(colors_zerox $d2_gray)"
+riverctl border-color-urgent "$(colors_zerox $d2_red)"
 
 riverctl border-width 2
 
@@ -152,7 +152,7 @@ done
 # Assign and launch rivercarro (layout generator).
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
-riverctl spawn "rivercarro -inner-gaps 4 -outer-gaps 0 -main-ratio 0.65"
+riverctl spawn "rivercarro -inner-gaps 4 -outer-gaps 0 -main-ratio 0.60"
 
 #-------------------------------------------------------------------------------
 # Systemd integration

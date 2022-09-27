@@ -689,30 +689,27 @@ schemes:
 
         # Normal colors
         normal:
-            # g0
             black:   '0x0d0d0d'
-            red:     '0xb30f1f'
-            green:   '0x0aa060'
-            yellow:  '0xffbf00'
-            blue:    '0x0d55ea'
-            magenta: '0xc43b80'
-            cyan:    '0x01b7e4'
-            # g6
+            red:     '0xec1329'
+            green:   '0x00ff66'
+            yellow:  '0xffd900'
+            blue:    '0x0e5af1'
+            magenta: '0xff0080'
+            cyan:    '0x00bbff'
             white:   '0xdedee3'
 
         # Bright colors
         bright:
-            # g3
-            black:   '0x5d5d6f'
+            black:   '0x71758e'
             red:     '0xfd4342'
-            green:   '0x54de87'
-            yellow:  '0xffea4d'
-            blue:    '0x3e8ffe'
-            magenta: '0xe676b6'
-            cyan:    '0x24e0ff'
-            # g7
+            green:   '0x66ffa3'
+            yellow:  '0xffe866'
+            blue:    '0x6e9cf7'
+            magenta: '0xff66b3'
+            cyan:    '0x66d6ff'
             white:   '0xfcfcfd'
 
+        # TODO: Update indexed colors.
         indexed_colors:
             # g2
             - { index: 16, color: '0x2e2e38' }

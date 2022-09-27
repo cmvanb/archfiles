@@ -129,12 +129,6 @@ return {
 -- Colors
 --------------------------------------------------------------------------------
 
-    -- Window gradient
-    window_background_gradient = {
-        colors = { colors.hash('d2_blue'), colors.hash('black') },
-        orientation = { Linear = { angle = -60.0 } },
-    },
-
     -- Color scheme mapping
     colors = {
         visual_bell = colors.hash('blue'),
@@ -172,7 +166,7 @@ return {
             },
         },
 
-        background = colors.hash('d2_blue'),
+        background = colors.hash('terminal_bg'),
         foreground = colors.hash('white'),
 
         cursor_bg = colors.hash('l1_white'),
@@ -182,27 +176,28 @@ return {
         selection_fg = colors.hash('black'),
 
         ansi = {
-            colors.hash('black'),
-            colors.hash('red'),
-            colors.hash('green'),
-            colors.hash('yellow'),
-            colors.hash('blue'),
-            colors.hash('magenta'),
-            colors.hash('cyan'),
-            colors.hash('white'),
+            colors.hash('ansi_black'),
+            colors.hash('ansi_red'),
+            colors.hash('ansi_green'),
+            colors.hash('ansi_yellow'),
+            colors.hash('ansi_blue'),
+            colors.hash('ansi_magenta'),
+            colors.hash('ansi_cyan'),
+            colors.hash('ansi_white'),
         },
 
         brights = {
-            colors.hash('gray'),
-            colors.hash('l1_red'),
-            colors.hash('l1_green'),
-            colors.hash('l1_yellow'),
-            colors.hash('l1_blue'),
-            colors.hash('l1_magenta'),
-            colors.hash('l1_cyan'),
-            colors.hash('l1_white'),
+            colors.hash('ansi_brblack'),
+            colors.hash('ansi_brred'),
+            colors.hash('ansi_brgreen'),
+            colors.hash('ansi_bryellow'),
+            colors.hash('ansi_brblue'),
+            colors.hash('ansi_brmagenta'),
+            colors.hash('ansi_brcyan'),
+            colors.hash('ansi_brwhite'),
         },
 
+        -- TODO: Update indexed colors.
         indexed = {
             [16] = colors.hash('d2_gray'),
             [17] = colors.hash('d1_red'),

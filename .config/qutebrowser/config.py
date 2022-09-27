@@ -89,16 +89,16 @@ c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campai
 c.fonts.completion.category = 'bold 10pt default_family'
 c.fonts.completion.entry = '10pt default_family'
 
-c.completion.height = '40%'
+c.completion.height = '20%'
 c.completion.scrollbar.padding = 3
 c.completion.scrollbar.width = 10
 
 c.colors.completion.category.border.top = colors.hash('black')
 c.colors.completion.category.border.bottom = colors.hash('black')
-c.colors.completion.category.bg = colors.hash('black')
-c.colors.completion.category.fg = colors.hash('white')
+c.colors.completion.category.bg = colors.hash('d4_blue')
+c.colors.completion.category.fg = colors.hash('l1_white')
 c.colors.completion.even.bg = colors.hash('black')
-c.colors.completion.odd.bg = colors.hash('d2_blue')
+c.colors.completion.odd.bg = colors.hash('black')
 c.colors.completion.fg = [ colors.hash('white'), colors.hash('white'), colors.hash('white') ]
 
 c.colors.completion.item.selected.border.bottom = colors.hash('blue')
@@ -139,18 +139,18 @@ c.hints.min_chars = 1
 c.hints.uppercase = False
 
 ### Appearance
-c.hints.border = '1px solid {0}'.format(colors.hash('d1_yellow'))
-c.hints.padding = { 'top': 3, 'bottom': 0, 'left': 3, 'right': 3 }
-c.hints.radius = 5
+c.hints.border = '1px solid {0}'.format(colors.hash('d3_purple'))
+c.hints.padding = { 'top': 2, 'bottom': 0, 'left': 2, 'right': 2 }
+c.hints.radius = 4
 
-c.fonts.hints = 'bold 10pt default_family'
+c.fonts.hints = 'bold 9pt default_family'
 
 # TODO: Provide a color formatter for RGBA.
 # TODO: Configure a color gradient.
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
-c.colors.hints.bg = colors.hash('yellow')
-c.colors.hints.fg = colors.hash('black')
-c.colors.hints.match.fg = colors.hash('magenta')
+c.colors.hints.bg = colors.hash('d2_purple')
+c.colors.hints.fg = colors.hash('l3_purple')
+c.colors.hints.match.fg = colors.hash('white')
 
 ## Keyhint component
 #-------------------------------------------------------------------------------
@@ -162,7 +162,7 @@ c.keyhint.delay = 500
 ### Appearance
 c.keyhint.radius = 5
 
-c.colors.keyhint.bg = 'rgba(0, 0, 0, 80%)'
+c.colors.keyhint.bg = colors.hash('black')
 c.colors.keyhint.fg = colors.hash('white')
 c.colors.keyhint.suffix.fg = colors.hash('l1_yellow')
 
@@ -177,17 +177,17 @@ c.colors.keyhint.suffix.fg = colors.hash('l1_yellow')
 c.messages.timeout = 5000
 
 ### Appearance
-c.fonts.messages.error = 'bold 9pt default_family'
-c.fonts.messages.info = '9pt default_family'
-c.fonts.messages.warning = 'bold 9pt default_family'
+c.fonts.messages.error = 'bold 10pt default_family'
+c.fonts.messages.info = '10pt default_family'
+c.fonts.messages.warning = 'bold 10pt default_family'
 
-c.colors.messages.info.bg = colors.hash('d2_blue')
+c.colors.messages.info.bg = colors.hash('black')
 c.colors.messages.info.border = colors.hash('black')
 c.colors.messages.info.fg = colors.hash('white')
-c.colors.messages.warning.bg = colors.hash('d2_blue')
+c.colors.messages.warning.bg = colors.hash('black')
 c.colors.messages.warning.border = colors.hash('black')
 c.colors.messages.warning.fg = colors.hash('l1_yellow')
-c.colors.messages.error.bg = colors.hash('d2_blue')
+c.colors.messages.error.bg = colors.hash('black')
 c.colors.messages.error.border = colors.hash('black')
 c.colors.messages.error.fg = colors.hash('l1_red')
 
@@ -211,7 +211,7 @@ c.colors.statusbar.caret.fg = colors.hash('magenta')
 c.colors.statusbar.caret.selection.bg = colors.hash('black')
 c.colors.statusbar.caret.selection.fg = colors.hash('cyan')
 c.colors.statusbar.command.bg = colors.hash('black')
-c.colors.statusbar.command.fg = colors.hash('l1_blue')
+c.colors.statusbar.command.fg = colors.hash('d1_cyan')
 c.colors.statusbar.insert.bg = colors.hash('black')
 c.colors.statusbar.insert.fg = colors.hash('green')
 c.colors.statusbar.passthrough.bg = colors.hash('black')
@@ -320,8 +320,8 @@ c.colors.contextmenu.disabled.bg = colors.hash('d3_gray')
 c.colors.contextmenu.disabled.fg = colors.hash('gray')
 c.colors.contextmenu.menu.bg = colors.hash('black')
 c.colors.contextmenu.menu.fg = colors.hash('white')
-c.colors.contextmenu.selected.bg = colors.hash('blue')
-c.colors.contextmenu.selected.fg = colors.hash('white')
+c.colors.contextmenu.selected.bg = colors.hash('d3_blue')
+c.colors.contextmenu.selected.fg = colors.hash('l1_white')
 
 ### Websites
 c.colors.webpage.bg = colors.hash('black')

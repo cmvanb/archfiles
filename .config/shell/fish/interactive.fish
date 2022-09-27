@@ -98,15 +98,15 @@ set -U tide_right_prompt_items
 set -U tide_context_always_display false
 set -U tide_context_bg_color (color_named 'd2_gray')
 set -U tide_context_color_default (color_named 'white')
-set -U tide_context_color_root (color_named 'l1_red')
-set -U tide_context_color_ssh (color_named 'l1_yellow')
+set -U tide_context_color_root (color_named 'red')
+set -U tide_context_color_ssh (color_named 'yellow')
 
 set -U tide_time_format '%H:%M:%S'
 set -U tide_time_bg_color (color_named 'black')
-set -U tide_time_color (color_named 'l1_blue')
+set -U tide_time_color (color_named 'cyan')
 
 set -U tide_jobs_icon ''
-set -U tide_jobs_bg_color (color_named 'l1_red')
+set -U tide_jobs_bg_color (color_named 'red')
 set -U tide_jobs_color (color_named 'black')
 
 set -U tide_git_icon ''

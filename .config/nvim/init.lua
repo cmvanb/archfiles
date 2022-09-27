@@ -63,6 +63,10 @@ opt.scrolloff = 3
 -- Enable mouse in all modes
 opt.mouse = 'a'
 
+-- Folding
+opt.foldmethod = 'syntax'
+opt.foldenable = false
+
 --------------------------------------------------------------------------------
 -- Key bindings
 --------------------------------------------------------------------------------
@@ -185,44 +189,43 @@ function ln(group, target)
 end
 
 -- User interface
--- group          . termfg . termbg . termprops        . guifg                    . guibg                     . guiprops
-hi('Normal       ', '6    ', '0    ', 'NONE           ', colors.hash('cyan')      , colors.hash('black')      , 'NONE           ')
-hi('NonText      ', '6    ', 'NONE ', 'NONE           ', colors.hash('cyan')      , 'NONE '                   , 'NONE           ')
-hi('Cursor       ', '0    ', '7    ', 'NONE           ', colors.hash('black')     , colors.hash('white')      , 'NONE           ')
-hi('CursorLine   ', 'NONE ', '0    ', 'NONE           ', 'NONE '                  , colors.hash('d2_blue')    , 'NONE           ')
-hi('MatchParen   ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')     , 'NONE '                   , 'bold,underline ')
-hi('NonText      ', '4    ', 'NONE ', 'NONE           ', colors.hash('blue')      , 'NONE '                   , 'NONE           ')
-hi('LineNr       ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')      , 'NONE '                   , 'NONE           ')
-hi('CursorLineNr ', '7    ', '0    ', 'NONE           ', colors.hash('white')     , colors.hash('black')      , 'NONE           ')
-hi('Visual       ', '0    ', '13   ', 'NONE           ', colors.hash('white')     , colors.hash('d2_magenta') , 'bold           ')
-hi('IncSearch    ', '0    ', '13   ', 'NONE           ', colors.hash('magenta')   , colors.hash('white')      , 'bold           ')
-hi('Search       ', '11   ', '2    ', 'bold           ', colors.hash('white')     , colors.hash('magenta')    , 'bold           ')
-hi('StatusLine   ', '7    ', '0    ', 'bold           ', colors.hash('white')     , colors.hash('black')      , 'bold           ')
-hi('StatusLineNC ', '8    ', '0    ', 'bold           ', colors.hash('gray')      , colors.hash('black')      , 'bold           ')
-hi('Folded       ', '6    ', '0    ', 'bold           ', colors.hash('cyan')      , colors.hash('black')      , 'bold           ')
-hi('ErrorMsg     ', '9    ', '4    ', 'bold           ', colors.hash('l1_red')    , colors.hash('d2_blue')    , 'bold           ')
-hi('WarningMsg   ', '11   ', '4    ', 'bold           ', colors.hash('l1_yellow') , colors.hash('d2_blue')    , 'bold           ')
-hi('MoreMsg      ', '7    ', '4    ', 'bold           ', colors.hash('white')     , colors.hash('d2_blue')    , 'bold           ')
-hi('Title        ', '3    ', 'NONE ', 'bold           ', colors.hash('yellow')    , 'NONE '                   , 'bold           ')
-hi('VertSplit    ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')      , 'NONE '                   , 'NONE           ')
-hi('PMenu        ', '7    ', '8    ', 'NONE           ', colors.hash('white')     , colors.hash('d2_blue')    , 'NONE           ')
-hi('PMenuSel     ', '7    ', '8    ', 'bold           ', colors.hash('l1_yellow') , colors.hash('d2_blue')    , 'bold           ')
+-- group          . termfg . termbg . termprops        . guifg                     . guibg                     . guiprops
+hi('Normal       ', '6    ', '0    ', 'NONE           ', colors.hash('d1_cyan')    , colors.hash('editor_bg')  , 'NONE           ')
+hi('NonText      ', '4    ', 'NONE ', 'NONE           ', colors.hash('blue')       , 'NONE '                   , 'NONE           ')
+hi('Cursor       ', '0    ', '7    ', 'NONE           ', colors.hash('black')      , colors.hash('white')      , 'NONE           ')
+hi('CursorLine   ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.hash('d4_blue')    , 'NONE           ')
+hi('MatchParen   ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE '                   , 'bold,underline ')
+hi('LineNr       ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                   , 'NONE           ')
+hi('CursorLineNr ', '7    ', '0    ', 'NONE           ', colors.hash('white')      , colors.hash('d4_blue')    , 'NONE           ')
+hi('Visual       ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_magenta') , 'NONE           ')
+hi('IncSearch    ', '0    ', '13   ', 'NONE           ', colors.hash('l1_magenta') , colors.hash('white')      , 'bold           ')
+hi('Search       ', '11   ', '2    ', 'bold           ', colors.hash('black')      , colors.hash('l1_magenta') , 'bold           ')
+hi('StatusLine   ', '7    ', '0    ', 'bold           ', colors.hash('white')      , colors.hash('d4_blue')    , 'bold           ')
+hi('StatusLineNC ', '8    ', '0    ', 'bold           ', colors.hash('gray')       , colors.hash('editor_bg')  , 'bold           ')
+hi('Folded       ', '6    ', '0    ', 'bold           ', colors.hash('l3_purple')  , colors.hash('purple')     , 'bold           ')
+hi('ErrorMsg     ', '9    ', '4    ', 'bold           ', colors.hash('l1_red')     , colors.hash('editor_bg')  , 'bold           ')
+hi('WarningMsg   ', '11   ', '4    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('editor_bg')  , 'bold           ')
+hi('MoreMsg      ', '7    ', '4    ', 'bold           ', colors.hash('white')      , colors.hash('editor_bg')  , 'bold           ')
+hi('Title        ', '3    ', 'NONE ', 'bold           ', colors.hash('yellow')     , 'NONE '                   , 'bold           ')
+hi('VertSplit    ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                   , 'NONE           ')
+hi('PMenu        ', '7    ', '8    ', 'NONE           ', colors.hash('white')      , colors.hash('d2_blue')    , 'NONE           ')
+hi('PMenuSel     ', '7    ', '8    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d2_blue')    , 'bold           ')
 
 -- Links
 ln('CursorColumn ', 'CursorLine ')
 ln('Question     ', 'MoreMsg    ')
 ln('ModeMsg      ', 'MoreMsg    ')
-ln('Error        ', 'ErrorMsg  ')
+ln('Error        ', 'ErrorMsg   ')
 
 -- Plugins
 -- group                    . termfg . termbg . termprops        . guifg                    . guibg  . guiprops
 hi('MiniCursorword         ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                  , 'NONE ', 'bold,underline ')
-hi('HopNextKey             ', '3    ', 'NONE ', 'bold           ', colors.hash('yellow')    , 'NONE ', 'bold           ')
-hi('HopNextKey1            ', '3    ', 'NONE ', 'bold           ', colors.hash('yellow')    , 'NONE ', 'bold           ')
-hi('HopNextKey2            ', '11   ', 'NONE ', 'bold           ', colors.hash('l1_yellow') , 'NONE ', 'bold           ')
-hi('TelescopeTitle         ', '12   ', 'NONE ', 'bold           ', colors.hash('l1_blue')   , 'NONE ', 'bold           ')
+hi('HopNextKey             ', '3    ', 'NONE ', 'bold           ', colors.hash('l1_purple') , 'NONE ', 'bold           ')
+hi('HopNextKey1            ', '3    ', 'NONE ', 'bold           ', colors.hash('l1_purple') , 'NONE ', 'bold           ')
+hi('HopNextKey2            ', '11   ', 'NONE ', 'bold           ', colors.hash('l2_purple') , 'NONE ', 'bold           ')
+hi('TelescopeTitle         ', '12   ', 'NONE ', 'bold           ', colors.hash('white')     , 'NONE ', 'bold           ')
 hi('TelescopeBorder        ', '4    ', 'NONE ', 'bold           ', colors.hash('d1_blue')   , 'NONE ', 'bold           ')
-hi('TelescopeMatching      ', '11   ', 'NONE ', 'bold           ', colors.hash('l1_yellow') , 'NONE ', 'bold           ')
+hi('TelescopeMatching      ', '11   ', 'NONE ', 'bold           ', colors.hash('yellow')    , 'NONE ', 'bold           ')
 
 -- Links
 ln('TelescopePromptCounter ', 'TelescopeTitle ')
@@ -231,20 +234,20 @@ ln('TelescopePromptCounter ', 'TelescopeTitle ')
 -- group             . termfg . termbg . termprops        . guifg                     . guibg  . guiprops
 hi('Identifier      ', '7    ', 'NONE ', 'NONE           ', colors.hash('white')      , 'NONE ', 'NONE           ')
 hi('Statement       ', '10   ', 'NONE ', 'bold           ', colors.hash('l1_green')   , 'NONE ', 'bold           ')
-hi('Comment         ', '8    ', 'NONE ', 'NONE           ', colors.hash('l1_gray')    , 'NONE ', 'NONE           ')
+hi('Comment         ', '8    ', 'NONE ', 'NONE           ', colors.hash('d1_gray')    , 'NONE ', 'NONE           ')
 hi('Type            ', '3    ', 'NONE ', 'NONE           ', colors.hash('yellow')     , 'NONE ', 'NONE           ')
 hi('PreProc         ', '11   ', 'NONE ', 'NONE           ', colors.hash('l1_yellow')  , 'NONE ', 'NONE           ')
 hi('Constant        ', '13   ', 'NONE ', 'NONE           ', colors.hash('l1_magenta') , 'NONE ', 'NONE           ')
-hi('Special         ', '14   ', 'NONE ', 'NONE           ', colors.hash('l1_cyan')    , 'NONE ', 'NONE           ')
+hi('Special         ', '14   ', 'NONE ', 'NONE           ', colors.hash('l1_purple')  , 'NONE ', 'bold           ')
 hi('Underlined      ', '4    ', 'NONE ', 'underline      ', colors.hash('blue')       , 'NONE ', 'underline      ')
 hi('Delimiter       ', '4    ', 'NONE ', 'NONE           ', colors.hash('d1_blue')    , 'NONE ', 'NONE           ')
-hi('String          ', '2    ', 'NONE ', 'NONE           ', colors.hash('green')      , 'NONE ', 'NONE           ')
+hi('String          ', '2    ', 'NONE ', 'NONE           ', colors.hash('l1_orange')  , 'NONE ', 'NONE           ')
 hi('Keyword         ', '10   ', 'NONE ', 'bold           ', colors.hash('l1_green')   , 'NONE ', 'bold           ')
-hi('Todo            ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE ', 'bold,underline ')
+hi('Todo            ', '7    ', 'NONE ', 'bold,underline ', colors.hash('l1_white')   , 'NONE ', 'bold,underline ')
 hi('Function        ', '13   ', 'NONE ', 'bold           ', colors.hash('l1_cyan')    , 'NONE ', 'bold           ')
 hi('Number          ', '9    ', 'NONE ', 'NONE           ', colors.hash('l1_red')     , 'NONE ', 'NONE           ')
-hi('Boolean         ', '9    ', 'NONE ', 'NONE           ', colors.hash('l1_red')     , 'NONE ', 'NONE           ')
-hi('Ignore          ', '0    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE ', 'NONE           ')
+hi('Boolean         ', '9    ', 'NONE ', 'NONE           ', colors.hash('red')        , 'NONE ', 'NONE           ')
+hi('Ignore          ', '0    ', 'NONE ', 'NONE           ', colors.hash('d3_gray')    , 'NONE ', 'bold           ')
 
 -- Links
 ln('vimCommentTitle ', 'Comment    ')

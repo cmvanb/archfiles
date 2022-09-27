@@ -1,21 +1,24 @@
 #!/bin/bash
 
+# TODO: Flip dependency. Color ranges should be base truth, ANSI/terminal colors
+# should be hand picked from the full range.
+
 # Indexed colors. Maximum 256
 i0='#0d0d0d'
-i1='#b30f1f'
-i2='#0aa060'
-i3='#ffbf00'
-i4='#0d55ea'
-i5='#c43b80'
-i6='#01b7e4'
+i1='#ec1329'
+i2='#00ff66'
+i3='#ffd900'
+i4='#0e5af1'
+i5='#ff0080'
+i6='#00bbff'
 i7='#dedee3'
-i8='#5d5d6f'
+i8='#71758e'
 i9='#fd4342'
-i10='#54de87'
-i11='#ffea4d'
-i12='#3e8ffe'
-i13='#e676b6'
-i14='#24e0ff'
+i10='#66ffa3'
+i11='#ffe866'
+i12='#6e9cf7'
+i13='#ff66b3'
+i14='#66d6ff'
 i15='#fcfcfd'
 
 # ANSI named shortcuts
@@ -44,59 +47,98 @@ white=$ansi_white
 l1_white=$ansi_brwhite
 
 # Red
-d2_red='#37040a'
-d1_red='#770914'
+d4_red='#2f0408'
+d3_red='#5e0810'
+d2_red='#8e0b18'
+d1_red='#bd0f21'
 red=$ansi_red
-l1_red=$ansi_brred
-
-# Green
-d2_green='#03301e'
-d1_green='#066039'
-green=$ansi_green
-l1_green=$ansi_brgreen
+l1_red='#f04254'
+l2_red=$ansi_brred
+l3_red='#f7a1a9'
 
 # Orange
-# TODO: Add orange
+d4_orange='#331e00'
+d3_orange='#663c00'
+d2_orange='#995900'
+d1_orange='#cc7700'
+orange='#ff9500'
+l1_orange='#ffaa33'
+l2_orange='#ffbf66'
+l3_orange='#ffd599'
 
 # Yellow
-d2_yellow='#534300'
-d1_yellow='#b38600'
+d4_yellow='#664d00'
+d3_yellow='#665700'
+d2_yellow='#998200'
+d1_yellow='#ccad00'
 yellow=$ansi_yellow
-l1_yellow=$ansi_bryellow
+l1_yellow='#ffe033'
+l2_yellow=$ansi_bryellow
+l3_yellow='#fff099'
 
-# Blue
-d2_blue='#021231'
-d1_blue='#073592'
-blue=$ansi_blue
-l1_blue=$ansi_brblue
-
-# Purple
-# TODO: Add purple
-
-# Magenta
-d2_magenta='#331127'
-d1_magenta='#76234d'
-magenta=$ansi_magenta
-l1_magenta=$ansi_brmagenta
+# Green
+d4_green='#003314'
+d3_green='#006629'
+d2_green='#00993d'
+d1_green='#00cc52'
+green=$ansi_green
+l1_green='#33ff85'
+l2_green=$ansi_brgreen
+l3_green='#99ffc2'
 
 # Cyan
-d2_cyan='#004760'
-d1_cyan='#018cb0'
+d4_cyan='#002533'
+d3_cyan='#004760'
+d2_cyan='#007099'
+d1_cyan='#0096cc'
 cyan=$ansi_cyan
-l1_cyan=$ansi_brcyan
+l1_cyan='#33c9ff'
+l2_cyan=$ansi_brcyan
+l3_cyan='#99e4ff'
 
-# Grayscale
-d4_gray=$ansi_black
-d3_gray='#1a1a1f'
-d2_gray='#2e2e38'
-d1_gray='#464653'
+# Blue
+d5_blue='#020918'
+d4_blue='#031230'
+d3_blue='#062460'
+d2_blue='#083691'
+d1_blue='#0b48c1'
+blue=$ansi_blue
+l1_blue='#3e7bf4'
+l2_blue=$ansi_brblue
+l3_blue='#9fbdf9'
+
+# Purple
+d4_purple='#1a0033'
+d3_purple='#330066'
+d2_purple='#4d0099'
+d1_purple='#6600cc'
+purple='#8000ff'
+l1_purple='#9933ff'
+l2_purple='#b366ff'
+l3_purple='#cc99ff'
+
+# Magenta
+d4_magenta='#33001a'
+d3_magenta='#660033'
+d2_magenta='#99004d'
+d1_magenta='#cc0066'
+magenta=$ansi_magenta
+l1_magenta='#ff3399'
+l2_magenta=$ansi_brmagenta
+l3_magenta='#ff99cc'
+
+# Gray
+d4_gray='#17171c'
+d3_gray='#2d2f39'
+d2_gray='#444655'
+d1_gray='#5b5e71'
 gray=$ansi_brblack
-l1_gray='#74748b'
-l2_gray='#9e9eae'
-l3_gray='#babac5'
-l4_gray=$ansi_white
+l1_gray='#8e91a4'
+l2_gray='#aaacbb'
+l3_gray='#c6c8d2'
 
 # Special
-background=$d2_blue
+terminal_bg=$black
+editor_bg=$d5_blue
 debug='#ff00ff'
 
