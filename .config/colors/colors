@@ -3,23 +3,139 @@
 # TODO: Flip dependency. Color ranges should be base truth, ANSI/terminal colors
 # should be hand picked from the full range.
 
+# Grayscale
+black='#000000'
+d5_gray='#0b0b0e'
+d4_gray='#17171c'
+d3_gray='#2d2f39'
+d2_gray='#444655'
+d1_gray='#5b5e71'
+gray='#71758e'
+l1_gray='#8e91a4'
+l2_gray='#aaacbb'
+l3_gray='#c6c8d2'
+l4_gray='#e3e3e8'
+white='#f1f1f4'
+l1_white='#ffffff'
+
+# Red
+d5_red='#170204'
+d4_red='#2f0408'
+d3_red='#5e0810'
+d2_red='#8e0b18'
+d1_red='#bd0f21'
+red='#ec1329'
+l1_red='#f04254'
+l2_red='#f4717e'
+l3_red='#f7a1a9'
+l4_red='#fbd0d4'
+
+# Orange
+d5_orange='#1a0f00'
+d4_orange='#331e00'
+d3_orange='#663c00'
+d2_orange='#995900'
+d1_orange='#cc7700'
+orange='#ff9500'
+l1_orange='#ffaa33'
+l2_orange='#ffbf66'
+l3_orange='#ffd599'
+l4_orange='#ffeacc'
+
+# Yellow
+d5_yellow='#1a1900'
+d4_yellow='#333100'
+d3_yellow='#666300'
+d2_yellow='#999400'
+d1_yellow='#ccc500'
+yellow='#fff700'
+l1_yellow='#fff833'
+l2_yellow='#fffa66'
+l3_yellow='#fffc99'
+l4_yellow='#fffdcc'
+
+# Green
+d5_green='#001a0a'
+d4_green='#003314'
+d3_green='#006629'
+d2_green='#00993d'
+d1_green='#00cc52'
+green='#00ff66'
+l1_green='#33ff85'
+l2_green='#66ffa3'
+l3_green='#99ffc2'
+l4_green='#ccffe0'
+
+# Cyan
+d5_cyan='#00131a'
+d4_cyan='#002533'
+d3_cyan='#004760'
+d2_cyan='#007099'
+d1_cyan='#0096cc'
+cyan='#00bbff'
+l1_cyan='#33c9ff'
+l2_cyan='#66d6ff'
+l3_cyan='#99e4ff'
+l4_cyan='#ccf1ff'
+
+# Blue
+d5_blue='#020918'
+d4_blue='#031230'
+d3_blue='#062460'
+d2_blue='#083691'
+d1_blue='#0b48c1'
+blue='#0e5af1'
+l1_blue='#3e7bf4'
+l2_blue='#6e9cf7'
+l3_blue='#9fbdf9'
+l4_blue='#cfdefc'
+
+# Purple
+d5_purple='#0d001a'
+d4_purple='#1a0033'
+d3_purple='#330066'
+d2_purple='#4d0099'
+d1_purple='#6600cc'
+purple='#8000ff'
+l1_purple='#9933ff'
+l2_purple='#b366ff'
+l3_purple='#cc99ff'
+l4_purple='#e6ccff'
+
+# Magenta
+d5_magenta='#1a000d'
+d4_magenta='#33001a'
+d3_magenta='#660033'
+d2_magenta='#99004d'
+d1_magenta='#cc0066'
+magenta='#ff0080'
+l1_magenta='#ff3399'
+l2_magenta='#ff66b3'
+l3_magenta='#ff99cc'
+l4_magenta='#ffcce6'
+
+# Special
+terminal_bg=$black
+editor_bg=$d5_blue
+debug='#ff00ff'
+
 # Indexed colors. Maximum 256
-i0='#0d0d0d'
-i1='#ec1329'
-i2='#00ff66'
-i3='#ffd900'
-i4='#0e5af1'
-i5='#ff0080'
-i6='#00bbff'
-i7='#dedee3'
-i8='#71758e'
-i9='#fd4342'
-i10='#66ffa3'
-i11='#ffe866'
-i12='#6e9cf7'
-i13='#ff66b3'
-i14='#66d6ff'
-i15='#fcfcfd'
+i0=$black
+i1=$red
+i2=$green
+i3=$yellow
+i4=$blue
+i5=$magenta
+i6=$cyan
+i7=$white
+i8=$gray
+i9=$l2_red
+i10=$l2_green
+i11=$l2_yellow
+i12=$l2_blue
+i13=$l2_magenta
+i14=$l2_cyan
+i15=$l1_white
 
 # ANSI named shortcuts
 ansi_black=$i0
@@ -38,107 +154,4 @@ ansi_brblue=$i12
 ansi_brmagenta=$i13
 ansi_brcyan=$i14
 ansi_brwhite=$i15
-
-# Black
-black=$ansi_black
-
-# White
-white=$ansi_white
-l1_white=$ansi_brwhite
-
-# Red
-d4_red='#2f0408'
-d3_red='#5e0810'
-d2_red='#8e0b18'
-d1_red='#bd0f21'
-red=$ansi_red
-l1_red='#f04254'
-l2_red=$ansi_brred
-l3_red='#f7a1a9'
-
-# Orange
-d4_orange='#331e00'
-d3_orange='#663c00'
-d2_orange='#995900'
-d1_orange='#cc7700'
-orange='#ff9500'
-l1_orange='#ffaa33'
-l2_orange='#ffbf66'
-l3_orange='#ffd599'
-
-# Yellow
-d4_yellow='#664d00'
-d3_yellow='#665700'
-d2_yellow='#998200'
-d1_yellow='#ccad00'
-yellow=$ansi_yellow
-l1_yellow='#ffe033'
-l2_yellow=$ansi_bryellow
-l3_yellow='#fff099'
-
-# Green
-d4_green='#003314'
-d3_green='#006629'
-d2_green='#00993d'
-d1_green='#00cc52'
-green=$ansi_green
-l1_green='#33ff85'
-l2_green=$ansi_brgreen
-l3_green='#99ffc2'
-
-# Cyan
-d4_cyan='#002533'
-d3_cyan='#004760'
-d2_cyan='#007099'
-d1_cyan='#0096cc'
-cyan=$ansi_cyan
-l1_cyan='#33c9ff'
-l2_cyan=$ansi_brcyan
-l3_cyan='#99e4ff'
-
-# Blue
-d5_blue='#020918'
-d4_blue='#031230'
-d3_blue='#062460'
-d2_blue='#083691'
-d1_blue='#0b48c1'
-blue=$ansi_blue
-l1_blue='#3e7bf4'
-l2_blue=$ansi_brblue
-l3_blue='#9fbdf9'
-
-# Purple
-d4_purple='#1a0033'
-d3_purple='#330066'
-d2_purple='#4d0099'
-d1_purple='#6600cc'
-purple='#8000ff'
-l1_purple='#9933ff'
-l2_purple='#b366ff'
-l3_purple='#cc99ff'
-
-# Magenta
-d4_magenta='#33001a'
-d3_magenta='#660033'
-d2_magenta='#99004d'
-d1_magenta='#cc0066'
-magenta=$ansi_magenta
-l1_magenta='#ff3399'
-l2_magenta=$ansi_brmagenta
-l3_magenta='#ff99cc'
-
-# Gray
-d4_gray='#17171c'
-d3_gray='#2d2f39'
-d2_gray='#444655'
-d1_gray='#5b5e71'
-gray=$ansi_brblack
-l1_gray='#8e91a4'
-l2_gray='#aaacbb'
-l3_gray='#c6c8d2'
-
-# Special
-terminal_bg=$black
-editor_bg=$d5_blue
-debug='#ff00ff'
 
