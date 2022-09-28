@@ -42,8 +42,11 @@ abbr -a exa exa -al
 # Bindings
 #-------------------------------------------------------------------------------
 
-# Unbind unwanted defaults
-bind \cx true
+# Clear screen
+bind \cl 'clear; commandline -f repaint'
+
+# Clear command line
+bind \cx 'commandline -r ""'
 
 # Basic bindings (many are already default)
 bind \e cancel # Escape
@@ -81,11 +84,6 @@ bind ')' self-insert expand-abbr
 
 # Expand ... to ../..
 bind . 'expand-dot-to-double-dot'
-
-# TODO: Decide on the following bindings:
-# CTRL + ? -> Clear screen
-# CTRL + ? -> Clear command line
-# bind \cl 'commandline -r ""'
 
 #-------------------------------------------------------------------------------
 # Colors
