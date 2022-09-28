@@ -37,8 +37,10 @@ if [[ -z $BW_CLIENTSECRET ]] ; then
     exit 3
 fi
 
+echo 'Login to Bitwarden'
+
 # login to bitwarden CLI with personal API key
-BW_CLIENTID=$BW_CLIENTID BW_CLIENTSECRET=$BW_CLIENTSECRET bw login --apikey
+BW_CLIENTID=$BW_CLIENTID BW_CLIENTSECRET=$BW_CLIENTSECRET bw login --apikey --raw
 
 if [[ $? -ne 0 ]] ; then
     bw_abort 4
@@ -64,14 +66,14 @@ PASSWORD=$(echo $RESULT | jq -r '.login.password')
 
 printf '\n'
 echo 'Found item: '$NAME
-printf '\n'
 
-# always lock and logout
-bw_finalize
-
-# copy final result to clipboard
+# copy result to clipboard so we can use it immediately
 wl-copy $PASSWORD
 
 printf '\n'
 echo 'Password is in Wayland clipboard'
+printf '\n'
+
+# always lock and logout
+bw_finalize
 

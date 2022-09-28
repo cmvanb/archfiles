@@ -9,14 +9,16 @@
 # Original author: https://github.com/EtienneM
 #-------------------------------------------------------------------------------
 
+script_name=`basename "$0"`
+
 print_usage() {
-    echo "$0 [--map=0:3] video_file" >&2
+    echo "$script_name [--map=0:3] video_file" >&2
     echo "" >&2
     echo "With video_file the path to a file like mkv which embeds the subtitles" >&2
     echo "--map: use the specified embedded subtitle." >&2
     echo "" >&2
     echo "Examples:" >&2
-    echo "$0 --map=0:3 ./movie.mkv" >&2
+    echo "$script_name --map=0:3 ./movie.mkv" >&2
 }
 
 map=""
