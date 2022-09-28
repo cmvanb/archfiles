@@ -100,6 +100,7 @@ set -U fish_color_operator (color_named 'l1_green')
 set -U fish_color_param (color_named 'd1_cyan')
 set -U fish_color_quote (color_named 'l1_orange')
 set -U fish_color_redirection (color_named 'l1_green')
+set -U fish_color_search_match --background=(color_named 'l1_magenta')
 
 set -U fish_pager_color_completion (color_named 'white')
 set -U fish_pager_color_description (color_named 'd1_cyan')
@@ -114,7 +115,6 @@ set -U fish_color_cwd_root (color_named 'debug')
 set -U fish_color_history_current (color_named 'debug') # --bold
 set -U fish_color_host (color_named 'debug')
 set -U fish_color_host_remote (color_named 'debug')
-set -U fish_color_search_match (color_named 'black') --background=(color_named 'l1_magenta')
 set -U fish_color_selection (color_named 'debug') # --bold --background=brblack
 set -U fish_color_status (color_named 'debug')
 set -U fish_color_user (color_named 'debug')
