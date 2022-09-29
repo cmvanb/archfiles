@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-#
-# Copyright 2021 Shay Gordon
+
+#-------------------------------------------------------------------------------
+# Copyright (c) 2021 Shay Gordon
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
 # use this file except in compliance with the License. You may obtain a copy
@@ -13,7 +14,8 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
-#
+#-------------------------------------------------------------------------------
+
 """
 Display colorized environment variable names and values in name order.
 Run with -h or --help command line option to print usage.
@@ -28,10 +30,8 @@ Possible enhancements:
 __author__ = "Shay Gordon"
 __email__ = "moebius.le.roi@gmail.com"
 
-
 # to discover what type of platform we're running on
 import platform
-
 
 # colors used in ANSI escape sequences
 colors = {
@@ -51,12 +51,10 @@ sep = ';' if windows else ':'
 # turn off ANSI escape sequences, modified by parse_args()
 off = '\033[0m'
 
-
 def esc(color, bright=True):
     """Return ANSI escape sequence for supplied color and brightness."""
     return '' if windows or args.unformatted else \
         '\033[%dm' % (colors[color] + (90 if bright else 30))
-
 
 def parse_args():
     """Parse command line arguments into global dictionary."""
@@ -109,7 +107,6 @@ def parse_args():
         global off
         off = ''
 
-
 def clear():
     """Clear or reset terminal based on command line arguments."""
     if args.reset:
@@ -117,12 +114,10 @@ def clear():
     elif args.clear:
         print('\033[H\033[J', end='')
 
-
 def wait():
     """Wait for user to press enter before exiting script."""
     if args.wait:
         input('\nPress return to exit')
-
 
 def search():
     """
@@ -149,38 +144,42 @@ def search():
     # return potentially empty dictionary of environment variables
     return env
 
-
 def print_one(key, value, fmt):
     """
     Print one environment variable name and value(s). Output format is
     controlled by the '--split' and '--key' command line arguments.
     """
+
+    key_color_seq = esc('white', False)
+
     # select value color
     if value.startswith('/'):
         # show unix path values in different color
-        fg = 'cyan'
+        value_color_seq = esc('cyan', False)
     else:
         try:
             # show integer values in different color
             int(value)
-            fg = 'white'
+            value_color_seq = esc('red', True)
         except ValueError:
             # show all other values in default color
-            fg = 'green'
+            value_color_seq = esc('yellow', False)
     # print multivalue variables on separate lines
     if args.split and not args.unformatted:
         values = value.split(args.split)
         if len(values) > 1:
             for index, value in enumerate(values):
                 if value:
-                    bright = True if index == 0 else False
+                    if index > 0:
+                        key_color_seq = esc('black', True)
+
                     key = key if not args.no_name_repeat or index == 0 else ''
-                    print(fmt % (esc('blue', bright), key, off,
-                                 esc(fg), value, off))
+                    print(fmt % (key_color_seq, key, off,
+                                 value_color_seq, value, off))
             return
     # print single value variable or unseparated multivalue variable
-    print(fmt % (esc('blue'), key, off, esc(fg), value, off))
-
+    print(fmt % (key_color_seq, key, off,
+                 value_color_seq, value, off))
 
 def print_env():
     """
@@ -200,7 +199,6 @@ def print_env():
         for key, value in sorted(env.items()):
             print_one(key, value, fmt)
 
-
 def main():
     parse_args()
 
@@ -208,6 +206,6 @@ def main():
     print_env()
     wait()
 
-
 if __name__ == '__main__':
     main()
+
