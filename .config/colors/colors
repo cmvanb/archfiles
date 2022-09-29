@@ -16,16 +16,17 @@ white='#f1f1f4'
 l1_white='#ffffff'
 
 # Red
-d5_red='#1a0002'
-d4_red='#330003'
-d3_red='#660007'
-d2_red='#bd0f21'
-d1_red='#bd0f21'
-red='#ff0011'
-l1_red='#ff3341'
-l2_red='#ff6670'
-l3_red='#ff99a0'
-l4_red='#ffcccf'
+
+d5_red='#1a0200'
+d4_red='#4d0500'
+d3_red='#800900'
+d2_red='#b30c00'
+d1_red='#cc0e00'
+red='#e60f00'
+l1_red='#ff291a'
+l2_red='#ff584d'
+l3_red='#ff8880'
+l4_red='#ffb8b3'
 
 # Orange
 d5_orange='#1a0f00'
@@ -40,16 +41,16 @@ l3_orange='#ffd699'
 l4_orange='#ffebcc'
 
 # Yellow
-d5_yellow='#1a1700'
-d4_yellow='#332f00'
-d3_yellow='#665e00'
-d2_yellow='#998c00'
-d1_yellow='#ccbb00'
-yellow='#ffeb00'
-l1_yellow='#ffee33'
-l2_yellow='#fff266'
-l3_yellow='#fff799'
-l4_yellow='#fffbcc'
+d5_yellow='#332a00'
+d4_yellow='#665300'
+d3_yellow='#997d00'
+d2_yellow='#cca700'
+d1_yellow='#ffd000'
+yellow='#ffda33'
+l1_yellow='#ffde4d'
+l2_yellow='#ffe880'
+l3_yellow='#fff1b3'
+l4_yellow='#fffae6'
 
 # Green
 d5_green='#001a0f'
@@ -57,18 +58,18 @@ d4_green='#00331f'
 d3_green='#00663d'
 d2_green='#00995c'
 d1_green='#00cc7a'
-green='#00ff99'
-l1_green='#33ffad'
-l2_green='#66ffc2'
-l3_green='#99ffd6'
-l4_green='#ccffeb'
+green='#00e68a'
+l1_green='#1affa3'
+l2_green='#4dffb8'
+l3_green='#80ffcc'
+l4_green='#b3ffe0'
 
 # Cyan
 d5_cyan='#00131a'
-d4_cyan='#002533'
-d3_cyan='#004760'
-d2_cyan='#007099'
-d1_cyan='#0096cc'
+d4_cyan='#00384d'
+d3_cyan='#005e80'
+d2_cyan='#0083b3'
+d1_cyan='#00a8e6'
 cyan='#00bbff'
 l1_cyan='#33c9ff'
 l2_cyan='#66d6ff'
@@ -119,20 +120,20 @@ debug='#ff00ff'
 
 # Indexed colors. Maximum 256
 i0=$black
-i1=$red
-i2=$green
-i3=$yellow
-i4=$blue
-i5=$magenta
-i6=$cyan
-i7=$white
+i1=$d1_red
+i2=$d1_green
+i3=$d1_yellow
+i4=$d1_blue
+i5=$d1_magenta
+i6=$d1_cyan
+i7=$l4_gray
 i8=$gray
-i9=$l2_red
-i10=$l2_green
-i11=$l2_yellow
-i12=$l2_blue
-i13=$l2_magenta
-i14=$l2_cyan
+i9=$l1_red
+i10=$l1_green
+i11=$l1_yellow
+i12=$l1_blue
+i13=$l1_magenta
+i14=$l1_cyan
 i15=$l1_white
 
 # ANSI named shortcuts
