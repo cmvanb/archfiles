@@ -76,6 +76,18 @@ l2_cyan='#66d6ff'
 l3_cyan='#99e4ff'
 l4_cyan='#ccf1ff'
 
+# Desaturated cyan
+ds_cyan_0='#09171c'
+ds_cyan_1='#0d1f26'
+ds_cyan_2='#132f39'
+ds_cyan_3='#193f4d'
+ds_cyan_4='#204f60'
+ds_cyan_5='#265e73'
+ds_cyan_6='#337e99'
+ds_cyan_7='#409dbf'
+ds_cyan_8='#66b1cc'
+ds_cyan_9='#8cc4d9'
+
 # Blue
 d5_blue='#00061a'
 d4_blue='#000d33'
@@ -87,6 +99,18 @@ l1_blue='#3366ff'
 l2_blue='#668cff'
 l3_blue='#99b3ff'
 l4_blue='#ccd9ff'
+
+# Desaturated blue
+ds_blue_0='#060a13'
+ds_blue_1='#0d1326'
+ds_blue_2='#131d39'
+ds_blue_3='#19264d'
+ds_blue_4='#203060'
+ds_blue_5='#263973'
+ds_blue_6='#334d99'
+ds_blue_7='#4060bf'
+ds_blue_8='#6680cc'
+ds_blue_9='#8c9fd9'
 
 # Purple
 d5_purple='#0e001a'
@@ -114,7 +138,7 @@ l4_magenta='#ffcce0'
 
 # Special
 terminal_bg=$d5_gray
-editor_bg=$d5_blue
+editor_bg=$ds_blue_0
 browser_bg=$d5_gray
 debug='#ff00ff'
 
