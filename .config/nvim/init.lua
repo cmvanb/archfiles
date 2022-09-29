@@ -58,7 +58,7 @@ opt.updatetime = 400
 opt.clipboard = 'unnamedplus'
 
 -- Start scrolling this many lines before cursor reaches edge of window
-opt.scrolloff = 3
+opt.scrolloff = 0
 
 -- Enable mouse in all modes
 opt.mouse = 'a'
@@ -196,19 +196,19 @@ hi('Normal       ', '6    ', '0    ', 'NONE           ', colors.hash('d1_cyan') 
 hi('NonText      ', '4    ', 'NONE ', 'NONE           ', colors.hash('blue')       , 'NONE '                    , 'NONE           ')
 hi('Cursor       ', '0    ', '7    ', 'NONE           ', colors.hash('black')      , colors.hash('white')       , 'NONE           ')
 hi('CursorLine   ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.hash('d4_blue')     , 'NONE           ')
-hi('MatchParen   ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE '                    , 'bold,underline ')
-hi('LineNr       ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                    , 'NONE           ')
 hi('CursorLineNr ', '7    ', '0    ', 'NONE           ', colors.hash('white')      , colors.hash('d4_blue')     , 'NONE           ')
+hi('LineNr       ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                    , 'NONE           ')
+hi('MatchParen   ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE '                    , 'bold,underline ')
 hi('Visual       ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'NONE           ')
 hi('IncSearch    ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_green')    , 'bold           ')
 hi('Search       ', '11   ', '2    ', 'bold           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'bold           ')
-hi('StatusLine   ', '7    ', '0    ', 'bold           ', colors.hash('white')      , colors.hash('d4_blue')     , 'bold           ')
-hi('StatusLineNC ', '8    ', '0    ', 'bold           ', colors.hash('d1_gray')    , colors.hash('d4_gray')     , 'NONE           ')
+hi('StatusLine   ', '7    ', '0    ', 'bold           ', colors.hash('white')      , colors.hash('d3_blue')     , 'bold           ')
+hi('StatusLineNC ', '8    ', '0    ', 'bold           ', colors.hash('d1_gray')    , colors.hash('d5_gray')     , 'NONE           ')
 hi('Folded       ', '6    ', '0    ', 'bold           ', colors.hash('l3_purple')  , colors.hash('purple')      , 'NONE           ')
-hi('ErrorMsg     ', '9    ', '4    ', 'bold           ', colors.hash('red')        , colors.hash('d4_red')      , 'bold           ')
-hi('WarningMsg   ', '11   ', '4    ', 'bold           ', colors.hash('yellow')     , colors.hash('d4_yellow')   , 'bold           ')
-hi('MoreMsg      ', '7    ', '4    ', 'bold           ', colors.hash('white')      , colors.hash('d4_gray')     , 'bold           ')
-hi('MsgArea      ', '7    ', '4    ', 'bold           ', colors.hash('l1_cyan')    , colors.hash('terminal_bg') , 'bold           ')
+hi('ErrorMsg     ', '9    ', '4    ', 'bold           ', colors.hash('l1_red')     , colors.hash('d4_red')      , 'bold           ')
+hi('WarningMsg   ', '11   ', '4    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d4_yellow')   , 'bold           ')
+hi('MoreMsg      ', '7    ', '4    ', 'bold           ', colors.hash('white')      , colors.hash('d2_gray')     , 'bold           ')
+hi('MsgArea      ', '7    ', '4    ', 'bold           ', colors.hash('l1_cyan')    , colors.hash('editor_bg')   , 'bold           ')
 hi('Title        ', '3    ', 'NONE ', 'bold           ', colors.hash('white')      , 'NONE '                    , 'bold           ')
 hi('VertSplit    ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                    , 'NONE           ')
 hi('PMenu        ', '7    ', '8    ', 'NONE           ', colors.hash('white')      , colors.hash('d2_blue')     , 'NONE           ')
