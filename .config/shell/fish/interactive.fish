@@ -42,6 +42,10 @@ abbr -a exa exa -al
 # Bindings
 #-------------------------------------------------------------------------------
 
+# NOTE: This binding was supposed to be CTRL+m, but due to some crazy unix
+# terminal legacy CTRL+m produces a carriage return.
+# TODO: Improve system binding scheme to work around this limitation. Perhaps
+# META or HYPER can help?
 # Clear screen
 bind \cl 'clear; commandline -f repaint'
 
