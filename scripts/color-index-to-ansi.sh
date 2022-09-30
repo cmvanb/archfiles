@@ -42,7 +42,7 @@ while getopts ":-:" optchar; do
     esac
 done
 
-# TODO: Consider handling the case of too many arguments.
+# TODO: Consider handling the case of too many or too few arguments.
 
 # Remove from the list of arguments the one already handled by getopts
 # shift $(($OPTIND - 1))
