@@ -44,6 +44,7 @@ abbr -a exa exa -al
 
 # NOTE: This binding was supposed to be CTRL+m, but due to some crazy unix
 # terminal legacy CTRL+m produces a carriage return.
+#   see: https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap10.html
 # TODO: Improve system binding scheme to work around this limitation. Perhaps
 # META or HYPER can help?
 # Clear screen
