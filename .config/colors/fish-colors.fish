@@ -7,15 +7,15 @@ function set_dict_color --argument-names key value
 end
 
 function color_named --argument-names key
-    eval echo \$'__color_'$key
+    eval echo -n \$'__color_'$key
 end
 
 function color_hash --argument-names key
-    echo '#'(eval echo \$'__color_'$key)
+    echo -n '#'(eval echo \$'__color_'$key)
 end
 
 function color_zerox --argument-names key
-    echo '0x'(eval echo \$'__color_'$key)
+    echo -n '0x'(eval echo \$'__color_'$key)
 end
 
 # ------------------------------------------------------------------------------
