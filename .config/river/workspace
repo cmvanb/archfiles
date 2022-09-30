@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #-------------------------------------------------------------------------------
-# Status bar configuration
+# Workspace configuration
 #-------------------------------------------------------------------------------
 
 # Secondary output
@@ -9,13 +9,14 @@
 riverctl focus-output next
 
 riverctl spawn "yambar"
+riverctl spawn "wezterm start -- fish -i -C \"nvim $HOME/Documents/TODO.md\""
 
 # NOTE: Magic number.
-sleep 0.10
+sleep 0.40
 
 # Primary output
 #-------------------------------------------------------------------------------
 riverctl focus-output previous
 
 riverctl spawn "yambar"
-
+riverctl spawn "wezterm"
