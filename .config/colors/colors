@@ -64,6 +64,18 @@ l2_green='#4dffb8'
 l3_green='#80ffcc'
 l4_green='#b3ffe0'
 
+# Desaturated green
+ds_green_0='#06130e'
+ds_green_1='#0d261c'
+ds_green_2='#194d38'
+ds_green_3='#267354'
+ds_green_4='#339970'
+ds_green_5='#39ac7e'
+ds_green_6='#53c698'
+ds_green_7='#79d2af'
+ds_green_8='#9fdfc6'
+ds_green_9='#c6ecdd'
+
 # Cyan
 d5_cyan='#00131a'
 d4_cyan='#00384d'
