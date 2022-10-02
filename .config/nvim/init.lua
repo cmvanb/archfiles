@@ -99,6 +99,9 @@ end
 
 -- TODO: Add additional map functions as needed.
 
+-- Disable default bindings
+noremap('q', '<Nop>')
+
 -- Leader key
 vim.g.mapleader = ' '
 
@@ -119,11 +122,14 @@ noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
 noremap('<leader>h', ':bprev<cr>')
 noremap('<leader>l', ':bnext<cr>')
 
+-- Close program without saving
+noremap('<C-q>', ':qa!<cr>')
+
 -- Close buffer
 noremap('<leader>q', ':bd<cr>')
 
 -- Close window
-map('<C-w>c', 'Nop')
+map('<C-w>c', '<Nop>')
 noremap('<C-w>q', ':close<cr>')
 
 -- Jump
@@ -227,11 +233,12 @@ hi('HopNextKey             ', '3    ', 'NONE ', 'bold           ', colors.hash('
 hi('HopNextKey1            ', '3    ', 'NONE ', 'bold           ', colors.hash('l1_purple') , 'NONE ', 'bold           ')
 hi('HopNextKey2            ', '11   ', 'NONE ', 'bold           ', colors.hash('l2_purple') , 'NONE ', 'bold           ')
 hi('TelescopeTitle         ', '12   ', 'NONE ', 'bold           ', colors.hash('white')     , 'NONE ', 'bold           ')
-hi('TelescopeBorder        ', '4    ', 'NONE ', 'bold           ', colors.hash('d1_blue')   , 'NONE ', 'bold           ')
+hi('TelescopeBorder        ', '4    ', 'NONE ', 'bold           ', colors.hash('ds_blue_5') , 'NONE ', 'bold           ')
 hi('TelescopeMatching      ', '11   ', 'NONE ', 'bold           ', colors.hash('yellow')    , 'NONE ', 'bold           ')
 
 -- Links
 ln('TelescopePromptCounter ', 'TelescopeTitle ')
+ln('MiniIndentscopeSymbol  ', 'NonText ')
 
 -- Syntax highlighting
 -- group             . termfg . termbg . termprops        . guifg                     . guibg  . guiprops
@@ -243,7 +250,7 @@ hi('PreProc         ', '11   ', 'NONE ', 'NONE           ', colors.hash('l1_yell
 hi('Constant        ', '13   ', 'NONE ', 'NONE           ', colors.hash('l1_magenta') , 'NONE ', 'NONE           ')
 hi('Special         ', '14   ', 'NONE ', 'NONE           ', colors.hash('yellow')     , 'NONE ', 'bold           ')
 hi('Underlined      ', '4    ', 'NONE ', 'underline      ', colors.hash('blue')       , 'NONE ', 'underline      ')
-hi('Delimiter       ', '4    ', 'NONE ', 'NONE           ', colors.hash('ds_blue_4')  , 'NONE ', 'NONE           ')
+hi('Delimiter       ', '4    ', 'NONE ', 'NONE           ', colors.hash('ds_green_5') , 'NONE ', 'NONE           ')
 hi('String          ', '2    ', 'NONE ', 'NONE           ', colors.hash('l1_orange')  , 'NONE ', 'NONE           ')
 hi('Keyword         ', '10   ', 'NONE ', 'bold           ', colors.hash('ds_green_7') , 'NONE ', 'bold           ')
 hi('Todo            ', '7    ', 'NONE ', 'bold,underline ', colors.hash('l1_white')   , 'NONE ', 'bold,underline ')
