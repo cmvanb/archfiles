@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #-------------------------------------------------------------------------------
-# Convert a terminal color index (0-15) to an ANSI terminal escape sequence.
+# Convert a terminal color index (0 -> 15) to an ANSI terminal escape sequence.
 #
 # Useful for pretty printing.
 #-------------------------------------------------------------------------------
@@ -11,8 +11,8 @@ script_name=`basename "$0"`
 print_usage() {
     echo "$script_name [--bg=15] [--fg=0] [--reset]" >&2
     echo "" >&2
-    echo "--bg: Set the terminal background color. Expects a terminal color index, from 0 to 15." >&2
-    echo "--fg: Set the terminal foreground color. Expects a terminal color index, from 0 to 15." >&2
+    echo "--bg: Set the terminal background color. Expects a terminal color index (integer 0 -> 15)." >&2
+    echo "--fg: Set the terminal foreground color. Expects a terminal color index (integer 0 -> 15)." >&2
     echo "--reset: Reset the terminal colors to default. Will override --bg and --fg." >&2
     echo "" >&2
     echo "Examples:" >&2
