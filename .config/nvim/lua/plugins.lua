@@ -90,6 +90,12 @@ return require('packer').startup(function()
         },
     })
 
+-- Misc
+--------------------------------------------------------------------------------
+
+    -- Redirect output to scratch buffer
+    use 'sbulav/nredir.nvim'
+
 -- Navigation
 --------------------------------------------------------------------------------
 
