@@ -197,34 +197,38 @@ end
 -- User interface
 -- TODO: Improve terminal color scheme.
 
--- group          . termfg . termbg . termprops        . guifg                     . guibg                      . guiprops
-hi('Normal       ', '6    ', '0    ', 'NONE           ', colors.hash('ds_cyan_7')  , colors.hash('editor_bg')   , 'NONE           ')
-hi('NonText      ', '4    ', 'NONE ', 'NONE           ', colors.hash('ds_cyan_4')  , 'NONE '                    , 'NONE           ')
-hi('Cursor       ', '0    ', '7    ', 'NONE           ', colors.hash('black')      , colors.hash('white')       , 'NONE           ')
-hi('CursorLine   ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.hash('ds_blue_1')   , 'NONE           ')
-hi('CursorLineNr ', '7    ', '0    ', 'NONE           ', colors.hash('ds_cyan_6')  , colors.hash('ds_blue_1')   , 'NONE           ')
-hi('LineNr       ', '8    ', 'NONE ', 'NONE           ', colors.hash('ds_cyan_4')  , 'NONE '                    , 'NONE           ')
-hi('MatchParen   ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE '                    , 'bold,underline ')
-hi('Visual       ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'NONE           ')
-hi('IncSearch    ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_green')    , 'bold           ')
-hi('Search       ', '11   ', '2    ', 'bold           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'bold           ')
-hi('StatusLine   ', '7    ', '0    ', 'bold           ', colors.hash('white')      , colors.hash('ds_blue_2')   , 'bold           ')
-hi('StatusLineNC ', '8    ', '0    ', 'bold           ', colors.hash('ds_cyan_4')  , colors.hash('ds_cyan_0')   , 'NONE           ')
-hi('Folded       ', '6    ', '0    ', 'bold           ', colors.hash('l3_purple')  , colors.hash('purple')      , 'NONE           ')
-hi('ErrorMsg     ', '9    ', '4    ', 'bold           ', colors.hash('l1_red')     , colors.hash('d4_red')      , 'bold           ')
-hi('WarningMsg   ', '11   ', '4    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d4_yellow')   , 'bold           ')
-hi('MoreMsg      ', '7    ', '4    ', 'bold           ', colors.hash('l1_green')   , colors.hash('d4_green')    , 'bold           ')
-hi('MsgArea      ', '7    ', '4    ', 'bold           ', colors.hash('ds_cyan_7')  , colors.hash('editor_bg')   , 'NONE           ')
-hi('Title        ', '3    ', 'NONE ', 'bold           ', colors.hash('white')      , 'NONE '                    , 'bold           ')
-hi('PMenu        ', '7    ', '8    ', 'NONE           ', colors.hash('white')      , colors.hash('d2_blue')     , 'NONE           ')
-hi('PMenuSel     ', '7    ', '8    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d2_blue')     , 'bold           ')
-hi('VertSplit    ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                    , 'NONE           ')
+-- group           . termfg . termbg . termprops        . guifg                     . guibg                      . guiprops
+hi('Normal        ', '6    ', '0    ', 'NONE           ', colors.hash('ds_cyan_7')  , colors.hash('editor_bg')   , 'NONE           ')
+hi('NonText       ', '4    ', 'NONE ', 'NONE           ', colors.hash('ds_cyan_4')  , 'NONE '                    , 'NONE           ')
+hi('Cursor        ', '0    ', '7    ', 'NONE           ', colors.hash('black')      , colors.hash('white')       , 'NONE           ')
+hi('CursorLine    ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.hash('d4_purple')   , 'NONE           ')
+hi('CursorLineNr  ', '7    ', '0    ', 'NONE           ', colors.hash('ds_cyan_6')  , colors.hash('d4_purple')   , 'NONE           ')
+hi('LineNr        ', '8    ', 'NONE ', 'NONE           ', colors.hash('ds_cyan_4')  , 'NONE '                    , 'NONE           ')
+hi('MatchParen    ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE '                    , 'bold,underline ')
+hi('Visual        ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'NONE           ')
+hi('IncSearch     ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_green')    , 'bold           ')
+hi('Search        ', '11   ', '2    ', 'bold           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'bold           ')
+hi('StatusLine    ', '7    ', '0    ', 'bold           ', colors.hash('ds_blue_9')  , colors.hash('ds_blue_3')   , 'bold           ')
+hi('StatusLineNC  ', '8    ', '0    ', 'bold           ', colors.hash('ds_blue_5')  , colors.hash('ds_blue_1')   , 'NONE           ')
+hi('TabLine       ', '7    ', '0    ', 'bold           ', colors.hash('ds_blue_5')  , colors.hash('ds_blue_1')   , 'bold           ')
+hi('TabLineSel    ', '7    ', '0    ', 'bold           ', colors.hash('ds_blue_9')  , colors.hash('ds_blue_3')   , 'bold           ')
+hi('TabLineFill   ', '7    ', '0    ', 'bold           ', 'NONE '                   , colors.hash('ds_blue_1')   , 'bold           ')
+hi('Folded        ', '6    ', '0    ', 'bold           ', colors.hash('l3_purple')  , colors.hash('purple')      , 'NONE           ')
+hi('MsgArea       ', '7    ', '4    ', 'bold           ', colors.hash('ds_blue_9')  , colors.hash('editor_bg')   , 'NONE           ')
+hi('ErrorMsg      ', '9    ', '4    ', 'bold           ', colors.hash('l1_red')     , colors.hash('d4_red')      , 'bold           ')
+hi('WarningMsg    ', '11   ', '4    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d4_yellow')   , 'bold           ')
+hi('MoreMsg       ', '7    ', '4    ', 'bold           ', colors.hash('l1_green')   , colors.hash('d4_green')    , 'bold           ')
+hi('Title         ', '3    ', 'NONE ', 'bold           ', colors.hash('white')      , 'NONE '                    , 'bold           ')
+hi('PMenu         ', '7    ', '8    ', 'NONE           ', colors.hash('white')      , colors.hash('d2_blue')     , 'NONE           ')
+hi('PMenuSel      ', '7    ', '8    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d2_blue')     , 'bold           ')
+hi('VertSplit     ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                    , 'NONE           ')
 
 -- Links
-ln('CursorColumn ', 'CursorLine ')
-ln('Question     ', 'MoreMsg    ')
-ln('ModeMsg      ', 'MoreMsg    ')
-ln('Error        ', 'ErrorMsg   ')
+ln('CursorColumn  ', 'CursorLine ')
+ln('Question      ', 'MoreMsg    ')
+ln('ModeMsg       ', 'MoreMsg    ')
+ln('Error         ', 'ErrorMsg   ')
+ln('healthSuccess ', 'MoreMsg   ')
 
 -- Plugins
 -- group                    . termfg . termbg . termprops        . guifg                    . guibg  . guiprops
@@ -277,7 +281,7 @@ cmd([[
         autocmd!
         autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO\|NOTE', -1)
     augroup END
-    ]])
+]])
 
 --------------------------------------------------------------------------------
 -- Plugins
