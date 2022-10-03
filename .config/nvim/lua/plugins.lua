@@ -4,16 +4,33 @@
 -- This file is called from init.lua with `lua.require('plugins')`
 --------------------------------------------------------------------------------
 
-return require('packer').startup(function()
+local packer = require('packer')
+
+-- Plugin manager configuration
+--------------------------------------------------------------------------------
+
+packerConfig = {
+    display = {
+        open_fn = function()
+            return require('packer.util').float({ border = 'rounded' })
+        end,
+    }
+}
+
+return packer.startup({ function()
 
 -- General
 --------------------------------------------------------------------------------
 
-    -- nvim plugin management
+    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     -- mini plugins collection
     use 'echasnovski/mini.nvim'
+
+    -- useful lua functions
+    -- NOTE: Some plugins may depend on this.
+    use 'nvim-lua/plenary.nvim'
 
 -- Appearance
 --------------------------------------------------------------------------------
@@ -26,6 +43,12 @@ return require('packer').startup(function()
     -- terminal background fix
     -- NOTE: Not needed when running in wezterm.
     -- use '~/projects/termbg.nvim'
+
+-- Commands
+--------------------------------------------------------------------------------
+
+    -- Redirect output to scratch buffer
+    use 'sbulav/nredir.nvim'
 
 -- Editing
 --------------------------------------------------------------------------------
@@ -90,11 +113,15 @@ return require('packer').startup(function()
         },
     })
 
--- Misc
+-- Git
 --------------------------------------------------------------------------------
 
-    -- Redirect output to scratch buffer
-    use 'sbulav/nredir.nvim'
+    use 'airblade/vim-gitgutter'
+
+-- LSP
+--------------------------------------------------------------------------------
+
+    use 'neovim/nvim-lspconfig'
 
 -- Navigation
 --------------------------------------------------------------------------------
@@ -173,18 +200,13 @@ return require('packer').startup(function()
         symbol = '╎',
     })
 
--- LSP
---------------------------------------------------------------------------------
-
-    use 'neovim/nvim-lspconfig'
-
 -- Search
 --------------------------------------------------------------------------------
 
     -- fuzzy finder
     use ({
         'nvim-telescope/telescope.nvim',
-        requires = {{ 'nvim-lua/plenary.nvim' }}
+        requires = { 'nvim-lua/plenary.nvim' }
     })
 
     require('telescope').setup({
@@ -213,6 +235,17 @@ return require('packer').startup(function()
         },
     })
 
+-- Status line
+--------------------------------------------------------------------------------
+
+    use ({
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    })
+
+    -- TODO: Configure lualine.
+    -- require('lualine').setup()
+
 -- Syntax
 --------------------------------------------------------------------------------
 
@@ -224,5 +257,6 @@ return require('packer').startup(function()
 
 --------------------------------------------------------------------------------
 
-end)
+end,
+config = packerConfig })
 

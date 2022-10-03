@@ -52,7 +52,7 @@ opt.formatoptions = opt.formatoptions - { 'o' }
 opt.iskeyword = opt.iskeyword + { '-' }
 
 -- Save swap file faster
-opt.updatetime = 400
+opt.updatetime = 100
 
 -- Set clipboard
 opt.clipboard = 'unnamedplus'
@@ -204,7 +204,7 @@ hi('Cursor        ', '0    ', '7    ', 'NONE           ', colors.hash('black')  
 hi('CursorLine    ', 'NONE ', '0    ', 'NONE           ', 'NONE '                   , colors.hash('d4_purple')   , 'NONE           ')
 hi('CursorLineNr  ', '7    ', '0    ', 'NONE           ', colors.hash('ds_cyan_6')  , colors.hash('d4_purple')   , 'NONE           ')
 hi('LineNr        ', '8    ', 'NONE ', 'NONE           ', colors.hash('ds_cyan_4')  , 'NONE '                    , 'NONE           ')
-hi('MatchParen    ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE '                    , 'bold,underline ')
+hi('SignColumn    ', '7    ', '0    ', 'NONE           ', colors.hash('ds_cyan_4')  , colors.hash('editor_bg')   , 'NONE           ')
 hi('Visual        ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'NONE           ')
 hi('IncSearch     ', '0    ', '13   ', 'NONE           ', colors.hash('black')      , colors.hash('l1_green')    , 'bold           ')
 hi('Search        ', '11   ', '2    ', 'bold           ', colors.hash('black')      , colors.hash('l1_magenta')  , 'bold           ')
@@ -219,28 +219,33 @@ hi('ErrorMsg      ', '9    ', '4    ', 'bold           ', colors.hash('l1_red') 
 hi('WarningMsg    ', '11   ', '4    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d4_yellow')   , 'bold           ')
 hi('MoreMsg       ', '7    ', '4    ', 'bold           ', colors.hash('l1_green')   , colors.hash('d4_green')    , 'bold           ')
 hi('Title         ', '3    ', 'NONE ', 'bold           ', colors.hash('white')      , 'NONE '                    , 'bold           ')
-hi('PMenu         ', '7    ', '8    ', 'NONE           ', colors.hash('white')      , colors.hash('d2_blue')     , 'NONE           ')
+hi('PMenu         ', '7    ', '8    ', 'NONE           ', colors.hash('white')      , colors.hash('editor_bg')   , 'NONE           ')
 hi('PMenuSel      ', '7    ', '8    ', 'bold           ', colors.hash('l1_yellow')  , colors.hash('d2_blue')     , 'bold           ')
-hi('VertSplit     ', '8    ', 'NONE ', 'NONE           ', colors.hash('gray')       , 'NONE '                    , 'NONE           ')
+hi('WinSeparator  ', '8    ', 'NONE ', 'NONE           ', colors.hash('ds_blue_3')  , 'NONE '                    , 'NONE           ')
+hi('MatchParen    ', '7    ', 'NONE ', 'bold,underline ', colors.hash('white')      , 'NONE '                    , 'bold,underline ')
 
 -- Links
-ln('CursorColumn  ', 'CursorLine ')
-ln('Question      ', 'MoreMsg    ')
-ln('ModeMsg       ', 'MoreMsg    ')
-ln('Error         ', 'ErrorMsg   ')
-ln('healthSuccess ', 'MoreMsg   ')
+ln('CursorColumn  ', 'CursorLine   ')
+ln('Question      ', 'MoreMsg      ')
+ln('ModeMsg       ', 'MoreMsg      ')
+ln('Error         ', 'ErrorMsg     ')
+ln('healthSuccess ', 'MoreMsg      ')
+ln('VertSplit     ', 'WinSeparator ')
 
 -- Plugins
 -- group                    . termfg . termbg . termprops        . guifg                    . guibg  . guiprops
 hi('MiniCursorword         ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                  , 'NONE ', 'bold,underline ')
+hi('GitGutterAdd           ', '6    ', 'NONE ', 'bold           ', colors.hash('d1_green')  , 'NONE ', 'NONE           ')
+hi('GitGutterChange        ', '3    ', 'NONE ', 'bold           ', colors.hash('d1_yellow') , 'NONE ', 'NONE           ')
+hi('GitGutterDelete        ', '1    ', 'NONE ', 'bold           ', colors.hash('red')       , 'NONE ', 'NONE           ')
 hi('HopNextKey             ', '3    ', 'NONE ', 'bold           ', colors.hash('l1_purple') , 'NONE ', 'bold           ')
 hi('HopNextKey1            ', '3    ', 'NONE ', 'bold           ', colors.hash('l1_purple') , 'NONE ', 'bold           ')
 hi('HopNextKey2            ', '11   ', 'NONE ', 'bold           ', colors.hash('l2_purple') , 'NONE ', 'bold           ')
 hi('TelescopeTitle         ', '12   ', 'NONE ', 'bold           ', colors.hash('white')     , 'NONE ', 'bold           ')
-hi('TelescopeBorder        ', '4    ', 'NONE ', 'bold           ', colors.hash('ds_blue_5') , 'NONE ', 'bold           ')
 hi('TelescopeMatching      ', '11   ', 'NONE ', 'bold           ', colors.hash('yellow')    , 'NONE ', 'bold           ')
 
 -- Links
+ln('TelescopeBorder        ', 'WinSeparator   ')
 ln('TelescopePromptCounter ', 'TelescopeTitle ')
 ln('MiniIndentscopeSymbol  ', 'NonText ')
 
