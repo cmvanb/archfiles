@@ -9,10 +9,10 @@
 script_name=`basename "$0"`
 
 print_usage() {
-    echo "$script_name [--bg=15] [--fg=0] [--reset]" >&2
+    echo "$script_name [--bg=0] [--fg=0] [--reset]" >&2
     echo "" >&2
-    echo "--bg: Set the terminal background color. Expects a terminal color index (integer 0 -> 15)." >&2
-    echo "--fg: Set the terminal foreground color. Expects a terminal color index (integer 0 -> 15)." >&2
+    echo "--bg: Set the terminal background color. Expects a terminal color index (integer 0 -> 255)." >&2
+    echo "--fg: Set the terminal foreground color. Expects a terminal color index (integer 0 -> 255)." >&2
     echo "--reset: Reset the terminal colors to default. Will override --bg and --fg." >&2
     echo "" >&2
     echo "Examples:" >&2
@@ -42,37 +42,22 @@ while getopts ":-:" optchar; do
     esac
 done
 
-# TODO: Consider handling the case of too many or too few arguments.
-
-# Remove from the list of arguments the one already handled by getopts
-# shift $(($OPTIND - 1))
-#
-# if [[ $# -ne 1 ]]; then
-#     echo "Wrong number of arguments." >&2
-#     print_usage
-#     exit -1
-# fi
-
 if [[ -n $background_color ]]; then
-    if (( 0 <= $background_color && $background_color <= 7 )); then
-        color_value="$((40 + $background_color))"
-        printf "\e[1;34;%dm" $color_value
+    if (( 0 >= $background_color && $background_color >= 255 )); then
+        echo "Error: --bg expects integer 0 -> 255."
+        exit 1
     fi
-    if (( 8 <= $background_color && $background_color <= 15 )); then
-        color_value="$((100 + $background_color - 8))"
-        printf "\e[1;34;%dm" $color_value
-    fi
+
+    printf "\e[48:5:%dm" $background_color
 fi
 
 if [[ -n $foreground_color ]]; then
-    if (( 0 <= $foreground_color && $foreground_color <= 7 )); then
-        color_value="$((30 + $foreground_color))"
-        printf "\e[1;34;%dm" $color_value
+    if (( 0 >= $foreground_color && $foreground_color >= 255 )); then
+        echo "Error: --fg expects integer 0 -> 255."
+        exit 1
     fi
-    if (( 8 <= $foreground_color && $foreground_color <= 15 )); then
-        color_value="$((90 + $foreground_color - 8))"
-        printf "\e[1;34;%dm" $color_value
-    fi
+
+    printf "\e[38:5:%dm" $foreground_color
 fi
 
 if [[ $reset -eq 1 ]]; then
