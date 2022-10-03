@@ -1,4 +1,4 @@
 #!/bin/bash
 
-RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/config /bin/rg $@
+RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/config /bin/rg "$@"
 
