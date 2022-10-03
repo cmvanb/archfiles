@@ -272,8 +272,17 @@ ln('Operator        ', 'Keyword    ')
 -- Auto commands
 --------------------------------------------------------------------------------
 
--- Reload vim configuration automatically when edited
+-- Reload vim configuration automatically when edited.
 cmd('au! bufwritepost $MYVIMRC source $MYVIMRC')
+
+-- Reload plugin configuration automatically when edited. Also triggers package
+-- manager compile step.
+cmd([[
+  augroup AutoReloadPlugins
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 -- Always highlight TODOs and NOTEs
 cmd([[
