@@ -41,7 +41,7 @@ return packer.startup({ function()
     require('colorizer').setup()
 
     -- terminal background fix
-    -- NOTE: Not needed when running in wezterm.
+    -- TODO: Plugin should dynamically read terminal and editor background color.
     -- use '~/projects/termbg.nvim'
 
 -- Commands
@@ -49,6 +49,62 @@ return packer.startup({ function()
 
     -- Redirect output to scratch buffer
     use 'sbulav/nredir.nvim'
+
+-- Completion
+--------------------------------------------------------------------------------
+
+    -- snippet engine
+    use 'L3MON4D3/LuaSnip'
+
+    -- various snippets
+    use 'rafamadriz/friendly-snippets'
+
+    -- completion plugin
+    use 'hrsh7th/nvim-cmp'
+
+    -- various completions
+    use 'hrsh7th/cmp-buffer'
+    -- use 'hrsh7th/cmp-cmdline'
+    -- use 'hrsh7th/cmp-path'
+    -- use 'hrsh7th/cmp-nvim-lua'
+    -- use 'hrsh7th/cmp-nvim-lsp'
+    use 'saadparwaiz1/cmp_luasnip'
+
+    local cmp = require('cmp')
+
+    cmp.setup({
+        mapping = cmp.mapping.preset.insert({
+            -- ['<C-k>'] = cmp.mapping.scroll_docs(-4),
+            -- ['<C-j>'] = cmp.mapping.scroll_docs(4),
+            -- ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-x>'] = cmp.mapping.abort(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
+        snippet = {
+            expand = function(args)
+                require('luasnip').lsp_expand(args.body)
+            end,
+        },
+        sources = {
+            { name = 'buffer' },
+            -- { name = 'cmdline' },
+            -- { name = 'path' },
+            -- { name = 'nvim_lua' },
+            -- { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+        },
+        window = {
+            completion = {
+                border = 'none',
+                winhighlight = 'Normal:CmpMenuBackground,CursorLine:CmpMenuSelect',
+            },
+        },
+    })
+
+-- LSP
+--------------------------------------------------------------------------------
+
+    use 'neovim/nvim-lspconfig'
 
 -- Editing
 --------------------------------------------------------------------------------
@@ -72,30 +128,17 @@ return packer.startup({ function()
 
     -- commenting
     require('mini.comment').setup({
-        -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
-            -- Toggle comment (like `gcip` - comment inner paragraph) for both
-            -- Normal and Visual modes
             comment = 'gc',
-            -- Toggle comment on current line
             comment_line = 'gcc',
-            -- Define 'comment' textobject (like `dgc` - delete whole comment block)
             textobject = 'gc',
         },
     })
 
     -- pairs
     require('mini.pairs').setup({
-        -- In which modes mappings from this `config` should be created
         modes = { insert = true, command = false, terminal = false },
 
-        -- Global mappings. Each right hand side should be a pair information, a
-        -- table with at least these fields (see more in |MiniPairs.map|):
-        -- - <action> - one of 'open', 'close', 'closeopen'.
-        -- - <pair> - two character string for pair to be used.
-        -- By default pair is not inserted after `\`, quotes are not recognized by
-        -- `<CR>`, `'` does not insert pair after a letter.
-        -- Only parts of tables can be tweaked (others will use these defaults).
         mappings = {
             ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
             ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
@@ -113,16 +156,6 @@ return packer.startup({ function()
         },
     })
 
--- Git
---------------------------------------------------------------------------------
-
-    use 'airblade/vim-gitgutter'
-
--- LSP
---------------------------------------------------------------------------------
-
-    use 'neovim/nvim-lspconfig'
-
 -- Navigation
 --------------------------------------------------------------------------------
 
@@ -131,7 +164,6 @@ return packer.startup({ function()
 
     -- highlight all occurrences of word under cursor
     require('mini.cursorword').setup({
-        -- Delay (in ms) between when cursor moved and when highlighting appeared
         delay = 0,
     })
 
@@ -156,47 +188,25 @@ return packer.startup({ function()
     -- show scope of current indent
     require('mini.indentscope').setup({
         draw = {
-            -- Delay (in ms) between event and start of drawing scope indicator.
             delay = 0,
-
-            -- Animation rule for scope's first drawing. A function which, given next
-            -- and total step numbers, returns wait time (in ms). See
-            -- |MiniIndentscope.gen_animation()| for builtin options. To not use
-            -- animation, supply `require('mini.indentscope').gen_animation('none')`.
             animation = require('mini.indentscope')
-            .gen_animation('cubicInOut', { duration = 15 }),
+                .gen_animation('cubicInOut', { duration = 15 }),
         },
 
-        -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
-            -- Textobjects
             object_scope = 'ii',
             object_scope_with_border = 'ai',
-
-            -- Motions (jump to respective border line; if not present - body line)
             goto_top = '[i',
             goto_bottom = ']i',
         },
 
-        -- Options which control computation of scope. Buffer local values can be
-        -- supplied in buffer variable `vim.b.miniindentscope_options`.
         options = {
-            -- Type of scope's border: which line(s) with smaller indent to
-            -- categorize as border. Can be one of: 'both', 'top', 'bottom', 'none'.
             border = 'both',
-
-            -- Whether to use cursor column when computing reference indent. Useful to
-            -- see incremental scopes with horizontal cursor movements.
             indent_at_cursor = true,
-
-            -- Whether to first check input line to be a border of adjacent scope.
-            -- Use it if you want to place cursor on function header to get scope of
-            -- its body.
             try_as_border = false,
         },
 
-        -- NOTE: By default, the highlight links to Delimter.
-        -- Which character to use for drawing scope indicator.
+        -- NOTE: By default, the highlight links to Delimiter.
         symbol = '╎',
     })
 
@@ -211,7 +221,6 @@ return packer.startup({ function()
 
     require('telescope').setup({
         defaults = {
-            -- Arguments for Telescope.live_grep picker.
             vimgrep_arguments = {
                 'rg',
                 '--color=never',
