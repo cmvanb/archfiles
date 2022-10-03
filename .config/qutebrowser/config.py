@@ -306,7 +306,9 @@ config.bind('k', 'scroll up')
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
 
 ### Insert mode
-# TODO: Remember what the reason for this is.
+# NOTE: 'Blur' the page when exiting insert mode, removes the blinking cursor
+# from the last active text element to prevent confusion.
+#   see: https://github.com/qutebrowser/qutebrowser/issues/2668
 config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 
 ## Color settings
