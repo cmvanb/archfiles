@@ -172,7 +172,7 @@ return {
         cursor_bg = colors.hash('l1_white'),
         cursor_fg = colors.hash('black'),
 
-        selection_bg = colors.hash('l1_magenta'),
+        selection_bg = colors.hash('magenta'),
         selection_fg = colors.hash('black'),
 
         ansi = {
