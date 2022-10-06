@@ -166,7 +166,7 @@ if vim.g.neovide ~= nil then
 end
 
 --------------------------------------------------------------------------------
--- Auto commands
+-- Automatic reload
 --------------------------------------------------------------------------------
 
 -- Reload configuration files automatically when edited. Also triggers package
@@ -178,14 +178,6 @@ cmd([[
         autocmd BufWritePost highlights.lua source <afile>
         autocmd BufWritePost plugins.lua source <afile> | PackerCompile
     augroup end
-]])
-
--- Always highlight TODOs and NOTEs
-cmd([[
-    augroup HighlightTodoNote
-        autocmd!
-        autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO\|NOTE', -1)
-    augroup END
 ]])
 
 --------------------------------------------------------------------------------

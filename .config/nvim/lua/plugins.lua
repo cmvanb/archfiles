@@ -239,7 +239,6 @@ return packer.startup({ function()
             try_as_border = false,
         },
 
-        -- NOTE: By default, the highlight links to Delimiter.
         symbol = '╎',
     })
 
