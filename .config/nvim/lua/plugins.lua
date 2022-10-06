@@ -57,6 +57,11 @@ return packer.startup({ function()
     use 'L3MON4D3/LuaSnip'
     local luasnip = require('luasnip')
 
+    luasnip.setup({
+        history = true,
+        update_events = 'TextChanged,TextChangedI',
+    })
+
     -- various snippets
     use 'rafamadriz/friendly-snippets'
     require('luasnip.loaders.from_vscode').lazy_load()
@@ -77,8 +82,6 @@ return packer.startup({ function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
-
-    f = io.open("filename", "r")
 
     cmp.setup({
         mapping = cmp.mapping.preset.insert({
@@ -191,9 +194,6 @@ return packer.startup({ function()
 
 -- Navigation
 --------------------------------------------------------------------------------
-
-    -- edgemotion
-    use 'haya14busa/vim-edgemotion'
 
     -- highlight all occurrences of word under cursor
     require('mini.cursorword').setup({

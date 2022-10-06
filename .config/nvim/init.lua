@@ -151,10 +151,6 @@ noremap('<leader>m', '<cmd>let @/=""<cr>:echo ""<cr>0<esc>', true)
 -- Format file
 noremap('<leader>;', 'gg=G')
 
--- Edgemotion
-noremap('<C-j>', '<Plug>(edgemotion-j)')
-noremap('<C-k>', '<Plug>(edgemotion-k)')
-
 --------------------------------------------------------------------------------
 -- Neovide (GUI) configuration
 --------------------------------------------------------------------------------
@@ -203,7 +199,7 @@ end
 -- group           | termfg | termbg | termprops        | guifg                    | guibg                     | guiprops
 hi('Normal        ', '6    ', '0    ', 'NONE '          , colors.hash('ds_cyan_7') , colors.hash('editor_bg')  , 'NONE '          )
 hi('NonText       ', '4    ', 'NONE ', 'NONE '          , colors.hash('white')     , 'NONE '                   , 'NONE '          )
-hi('EndOfBuffer   ', '4    ', 'NONE ', 'NONE '          , 'NONE'     , 'NONE '                   , 'NONE '          )
+hi('EndOfBuffer   ', '4    ', 'NONE ', 'NONE '          , 'NONE'                   , 'NONE '                   , 'NONE '          )
 hi('Cursor        ', '0    ', '7    ', 'NONE '          , colors.hash('black')     , colors.hash('white')      , 'NONE '          )
 hi('CursorLine    ', 'NONE ', '0    ', 'NONE '          , 'NONE '                  , colors.hash('d4_purple')  , 'NONE '          )
 hi('CursorLineNr  ', '7    ', '0    ', 'NONE '          , colors.hash('ds_cyan_6') , colors.hash('d4_purple')  , 'NONE '          )
