@@ -6,32 +6,32 @@
 }
 
 #input {
-    border: 2px solid #0d55ea;
-    border-radius: 0;
+    border: 2px solid #263973;
+    border-radius: 5;
 
-    background-color: #021231;
-    color: #dedee3;
+    background-color: #0d1326;
+    color: #8c9fd9;
 
     padding: 4px;
 }
 
 #scroll {
-    border: 2px solid #0d55ea;
+    border: 2px solid #263973;
     border-top: 0px;
-    border-radius: 0;
+    border-radius: 5;
 
-    background-color: #0d0d0d;
+    background-color: #060a13;
 }
 
 #text {
-    color: #dedee3;
+    color: #8c9fd9;
 }
 
 #text:selected {
-    color: #fcfcfd;
+    color: #ffffff;
 }
 
 #entry:selected {
-    background-color: #0d55ea;
+    background-color: #263973;
 }
 
