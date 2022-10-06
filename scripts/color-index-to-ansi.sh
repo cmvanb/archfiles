@@ -43,7 +43,7 @@ while getopts ":-:" optchar; do
 done
 
 if [[ -n $background_color ]]; then
-    if (( 0 >= $background_color && $background_color >= 255 )); then
+    if (( $background_color < 0 || $background_color > 255 )); then
         echo "Error: --bg expects integer 0 -> 255."
         exit 1
     fi
@@ -52,7 +52,7 @@ if [[ -n $background_color ]]; then
 fi
 
 if [[ -n $foreground_color ]]; then
-    if (( 0 >= $foreground_color && $foreground_color >= 255 )); then
+    if (( $foreground_color < 0 || $foreground_color > 255 )); then
         echo "Error: --fg expects integer 0 -> 255."
         exit 1
     fi
