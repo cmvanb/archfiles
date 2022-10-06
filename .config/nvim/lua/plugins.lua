@@ -55,38 +55,71 @@ return packer.startup({ function()
 
     -- snippet engine
     use 'L3MON4D3/LuaSnip'
+    local luasnip = require('luasnip')
 
     -- various snippets
     use 'rafamadriz/friendly-snippets'
+    require('luasnip.loaders.from_vscode').lazy_load()
 
     -- completion plugin
     use 'hrsh7th/nvim-cmp'
+    local cmp = require('cmp')
 
     -- various completions
-    use 'hrsh7th/cmp-buffer'
+    -- use 'hrsh7th/cmp-buffer'
     -- use 'hrsh7th/cmp-cmdline'
     -- use 'hrsh7th/cmp-path'
     -- use 'hrsh7th/cmp-nvim-lua'
     -- use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
 
-    local cmp = require('cmp')
+    local has_words_before = function()
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
+
+    f = io.open("filename", "r")
 
     cmp.setup({
         mapping = cmp.mapping.preset.insert({
             -- ['<C-k>'] = cmp.mapping.scroll_docs(-4),
             -- ['<C-j>'] = cmp.mapping.scroll_docs(4),
             -- ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-x>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            -- ['<C-x>'] = cmp.mapping.abort(),
+
+            ["<Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
+                elseif has_words_before() then
+                    cmp.complete()
+                else
+                    fallback()
+                end
+            end, { "i", "s" }),
+            -- TODO: Fix the shift-tab mapping not working.
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { "i", "s" }),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            -- NOTE: Inlcuded for consistency with fish shell. Ideally we want to change fish shell completion bindings.
+            ['<Right>'] = cmp.mapping.confirm({ select = true }),
         }),
+
         snippet = {
             expand = function(args)
                 require('luasnip').lsp_expand(args.body)
             end,
         },
         sources = {
-            { name = 'buffer' },
+            -- { name = 'buffer' },
             -- { name = 'cmdline' },
             -- { name = 'path' },
             -- { name = 'nvim_lua' },
