@@ -6,9 +6,48 @@ local colors = {}
 
 local _named = {}
 
-function colors.index(index)
+local ansi_lookup = {
+    ['black']     = 0,
+    ['red']       = 1,
+    ['green']     = 2,
+    ['yellow']    = 3,
+    ['blue']      = 4,
+    ['magenta']   = 5,
+    ['cyan']      = 6,
+    ['white']     = 7,
+    ['brblack']   = 8,
+    ['brred']     = 9,
+    ['brgreen']   = 10,
+    ['bryellow']  = 11,
+    ['brblue']    = 12,
+    ['brmagenta'] = 13,
+    ['brcyan']    = 14,
+    ['brwhite']   = 15
+}
+
+function colors.name_to_ansi_index(name)
+    if string.sub(name, 1, 5) == 'ansi_' then
+        name = string.sub(name, 6, -1)
+    else
+        error('colors.name_to_ansi_index expects string with format: `ansi_{name}`, received: `' .. name .. '`', 2)
+    end
+
+    if string.len(name) <= 0 then
+        error('colors.name_to_ansi_index expects string with format: `ansi_{name}`, received empty string.', 2)
+    end
+
+    local result = ansi_lookup[name]
+
+    if result == nil then
+        error('colors.name_to_ansi_index did not find `' .. name .. '`, expected format is: `ansi_{name}`.', 2)
+    end
+
+    return result
+end
+
+function colors.index_to_name(index)
     if index < 0 or index > 15 then
-        error('colors.index expects integer 0 -> 15, received: ' .. index, 2)
+        error('colors.index_to_name expects integer 0 -> 15, received: ' .. index, 2)
     end
     return _named['i' .. index]
 end

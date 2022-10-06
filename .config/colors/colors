@@ -154,7 +154,7 @@ editor_bg=$ds_blue_0
 browser_bg=$d5_gray
 debug='#ff00ff'
 
-# Indexed colors. Maximum 256
+# 256 indexed colors
 i0=$black
 i1=$d1_red
 i2=$d1_green
