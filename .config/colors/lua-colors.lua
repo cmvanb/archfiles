@@ -6,6 +6,13 @@ local colors = {}
 
 local _named = {}
 
+function colors.index(index)
+    if index < 0 or index > 15 then
+        error('colors.index expects integer 0 -> 15, received: ' .. index, 2)
+    end
+    return _named['i' .. index]
+end
+
 function colors.named(name)
     return _named[name]
 end
