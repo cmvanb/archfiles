@@ -14,9 +14,10 @@ local g = vim.g
 -- Use terminal title
 opt.title = true
 
+-- NOTE: These should be the default values.
 -- Syntax highlighting
-cmd('filetype plugin on')
-cmd('syntax on')
+-- cmd('filetype plugin on')
+-- cmd('syntax on')
 
 -- Show column and line info
 opt.ruler = true
