@@ -5,6 +5,8 @@
 -- Helpers
 local cmd = vim.cmd
 local opt = vim.opt
+local api = vim.api
+local fn = vim.fn
 local g = vim.g
 
 --------------------------------------------------------------------------------
@@ -13,11 +15,6 @@ local g = vim.g
 
 -- Use terminal title
 opt.title = true
-
--- NOTE: These should be the default values.
--- Syntax highlighting
--- cmd('filetype plugin on')
--- cmd('syntax on')
 
 -- Show column and line info
 opt.ruler = true
@@ -61,8 +58,8 @@ opt.updatetime = 100
 -- Set clipboard
 opt.clipboard = 'unnamedplus'
 
--- Start scrolling this many lines before cursor reaches edge of window
-opt.scrolloff = 0
+-- Start scrolling before cursor reaches edge of window
+opt.scrolloff = 15
 
 -- Enable mouse in all modes
 opt.mouse = 'a'
@@ -78,12 +75,12 @@ opt.foldenable = false
 -- Helpers
 function _map(mode, shortcut, command, silent)
     silent = silent or false
-    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = false, silent = silent })
+    api.nvim_set_keymap(mode, shortcut, command, { noremap = false, silent = silent })
 end
 
 function _noremap(mode, shortcut, command)
     silent = silent or false
-    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = silent })
+    api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = silent })
 end
 
 function map(shortcut, command, silent)
@@ -107,7 +104,7 @@ end
 noremap('q', '<Nop>')
 
 -- Leader key
-vim.g.mapleader = ' '
+g.mapleader = ' '
 
 -- Visual block select
 noremap('<leader>v', '<C-v>')
@@ -144,7 +141,7 @@ noremap('<leader>f', '<cmd>HopWord<cr>')
 map('<leader>/', 'gcc<esc>')
 
 -- Reload vim configuration (this file)
-noremap('<leader>r', '<cmd>source $MYVIMRC<bar>echo "Configuration reloaded. NOTE: Plugins may require restart, or `:PackerSync`."<cr>')
+noremap('<leader>r', '<cmd>source $MYVIMRC<bar>echo "Configuration reloaded."<cr>')
 
 -- Clear search buffer, clear command line and go to start of line
 noremap('<leader>m', '<cmd>let @/=""<cr>:echo ""<cr>0<esc>', true)
@@ -156,13 +153,13 @@ noremap('<leader>;', 'gg=G')
 -- Neovide (GUI) configuration
 --------------------------------------------------------------------------------
 
-if vim.g.neovide ~= nil then
+if g.neovide ~= nil then
     opt.guifont = 'Iosevka Nerd Font Mono:h12'
 
     -- TODO: Get Cursor highlighting working in Neovide.
     cmd('set guicursor=n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20') 
 
-    vim.g.neovide_cursor_vfx_mode = 'sonicboom'
+    g.neovide_cursor_vfx_mode = 'sonicboom'
 end
 
 --------------------------------------------------------------------------------
@@ -172,7 +169,7 @@ end
 -- Reload configuration files automatically when edited. Also triggers package
 -- manager compile step.
 cmd([[
-    augroup AutoReloadPlugins
+    augroup ReloadPlugins
         autocmd!
         autocmd BufWritePost init.lua source <afile>
         autocmd BufWritePost highlights.lua source <afile>

@@ -15,6 +15,8 @@ colors.parse_colors()
 
 local cmd = vim.cmd
 local opt = vim.opt
+local api = vim.api
+local fn = vim.fn
 local g = vim.g
 
 function hi(group, guifg, guibg, guiprops, termfg, termbg, termprops)
@@ -56,7 +58,7 @@ cmd('syntax reset')
 -- NVIM UI highlights
 --------------------------------------------------------------------------------
 
--- group            | guifg       | guibg       | guiprops | termfg          | termbg | termprops
+-- group            | guifg       | guibg       | guiprops | termfg          | termbg           | termprops
 hi('Normal',        'ds_cyan_7',  'editor_bg',  'NONE',    'ansi_cyan',      'ansi_black',      'NONE')
 hi('NonText',       'white',      'NONE',       'NONE',    'ansi_brwhite',   'NONE',            'NONE')
 hi('EndOfBuffer',   'NONE',       'NONE',       'NONE',    'NONE',           'NONE',            'NONE')
@@ -76,7 +78,7 @@ hi('TabLineFill',   'NONE',       'ds_blue_1',  'bold',    'ansi_white',     'an
 hi('Folded',        'l3_purple',  'purple',     'NONE',    'ansi_cyan',      'ansi_black',      'bold')
 hi('MsgArea',       'ds_blue_9',  'editor_bg',  'NONE',    'ansi_white',     'ansi_brblack',    'NONE')
 hi('ErrorMsg',      'l1_red',     'd4_red',     'bold',    'ansi_brred',     'ansi_red',        'bold')
-hi('WarningMsg',    'l1_yellow',  'd4_yellow',  'bold',    'ansi_bryellow',  'ansi_yellow',     'bold')
+hi('WarningMsg',    'l1_yellow',  'd2_orange',  'bold',    'ansi_bryellow',  'ansi_yellow',     'bold')
 hi('MoreMsg',       'l1_green',   'd4_green',   'bold',    'ansi_brgreen',   'ansi_green',      'bold')
 hi('Title',         'white',      'NONE',       'bold',    'ansi_brwhite',   'NONE',            'bold')
 hi('PMenu',         'white',      'editor_bg',  'NONE',    'ansi_white',     'ansi_black',      'NONE')
@@ -140,34 +142,26 @@ hi('Underlined',  'blue',        'NONE',  'underline',       'ansi_blue',       
 hi('Delimiter',   'ds_green_5',  'NONE',  'NONE',            'ansi_green',      'NONE',  'NONE')
 hi('String',      'l1_orange',   'NONE',  'NONE',            'ansi_yellow',     'NONE',  'NONE')
 hi('Keyword',     'ds_green_7',  'NONE',  'bold',            'ansi_brgreen',    'NONE',  'bold')
-hi('Todo',        'l1_white',    'NONE',  'bold,underline',  'ansi_brwhite',    'NONE',  'bold,underline')
 hi('Function',    'ds_cyan_9',   'NONE',  'bold',            'ansi_brcyan',     'NONE',  'bold')
 hi('Number',      'l1_red',      'NONE',  'NONE',            'ansi_brred',      'NONE',  'NONE')
 hi('Boolean',     'red',         'NONE',  'NONE',            'ansi_red',        'NONE',  'NONE')
 hi('Ignore',      'd3_gray',     'NONE',  'bold',            'ansi_brblack',    'NONE',  'NONE')
+hi('Todo',        'ds_cyan_9',   'NONE',  'bold,nocombine',  'ansi_brwhite',    'NONE',  'bold')
 
 -- group               | target
 ln('vimCommentTitle',  'Comment')
 ln('vimOption',        'Identifier')
 ln('Operator',         'Keyword')
 
--- Special highlights
+-- Special snowflakes
 --------------------------------------------------------------------------------
 
--- TODO: Sort this out in Lua
-
--- function highlightNotes
---     cmd([[
---         syn match Notes /\%(NOTE:\)/
---         hi link Notes Todo
---     ]])
--- end
---
--- -- Add highlighting for NOTEs
--- cmd([[
---     augroup HighlightNotes
---         autocmd!
---         autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO\|NOTE', -1)
---     augroup END
--- ]])
+-- Show notes in all files, just like todos.
+api.nvim_create_augroup('HighlightNotes', { clear = true })
+api.nvim_create_autocmd({ 'BufEnter', 'FileType' }, {
+    group = 'HighlightNotes',
+    callback = function()
+        fn.matchadd('Todo', 'TODO:\\|NOTE:')
+    end,
+})
 
