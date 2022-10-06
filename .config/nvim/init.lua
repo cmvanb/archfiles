@@ -166,141 +166,16 @@ if vim.g.neovide ~= nil then
 end
 
 --------------------------------------------------------------------------------
--- Colors
---------------------------------------------------------------------------------
-
--- Import system colors
-package.path = os.getenv('XDG_CONFIG_HOME') .. '/colors' .. [[/?.lua;]] .. package.path
-
-local colors = require('lua-colors')
-colors.parse_colors()
-
--- Use 24bit colors
-opt.termguicolors = true
-
--- NOTE: Is this doing anything?
--- Let vim know we are using a dark background color
-opt.background = dark
-
--- Reset any pre-existing syntax highlighting
-cmd('syntax reset')
-
--- Helper functions
-function hi(group, termfg, termbg, termprops, guifg, guibg, guiprops)
-    cmd('hi ' .. group .. ' ctermfg=' .. termfg .. ' ctermbg=' .. termbg .. ' cterm=' .. termprops .. ' guifg=' .. guifg .. ' guibg=' .. guibg .. ' gui=' .. guiprops)
-end
-
-function ln(group, target)
-    cmd('hi! link ' .. group .. ' ' .. target)
-end
-
--- TODO: Improve terminal color scheme.
-
--- User interface
--- group            | termfg | termbg | termprops        | guifg                    | guibg                     | guiprops
-hi('Normal',        '6',     '0',     'NONE',            colors.hash('ds_cyan_7'),  colors.hash('editor_bg'),  'NONE')
-hi('NonText',       '4',     'NONE',  'NONE',            colors.hash('white'),      'NONE',                    'NONE')
-hi('EndOfBuffer',   '4',     'NONE',  'NONE',            'NONE',                    'NONE',                    'NONE')
-hi('Cursor',        '0',     '7',     'NONE',            colors.hash('black'),      colors.hash('white'),      'NONE')
-hi('CursorLine',    'NONE',  '0',     'NONE',            'NONE',                    colors.hash('d4_purple'),  'NONE')
-hi('CursorLineNr',  '7',     '0',     'NONE',            colors.hash('ds_cyan_6'),  colors.hash('d4_purple'),  'NONE')
-hi('LineNr',        '8',     'NONE',  'NONE',            colors.hash('ds_cyan_4'),  'NONE',                    'NONE')
-hi('SignColumn',    '7',     '0',     'NONE',            colors.hash('ds_cyan_4'),  colors.hash('editor_bg'),  'NONE')
-hi('Visual',        '0',     '13',    'NONE',            colors.hash('black'),      colors.hash('magenta'),    'NONE')
-hi('IncSearch',     '0',     '13',    'NONE',            colors.hash('black'),      colors.hash('green'),      'bold')
-hi('Search',        '11',    '2',     'bold',            colors.hash('black'),      colors.hash('cyan'),       'bold')
-hi('StatusLine',    '7',     '0',     'bold',            colors.hash('ds_blue_9'),  colors.hash('ds_blue_3'),  'bold')
-hi('StatusLineNC',  '8',     '0',     'bold',            colors.hash('ds_blue_5'),  colors.hash('ds_blue_1'),  'NONE')
-hi('TabLine',       '7',     '0',     'bold',            colors.hash('ds_blue_5'),  colors.hash('ds_blue_1'),  'bold')
-hi('TabLineSel',    '7',     '0',     'bold',            colors.hash('ds_blue_9'),  colors.hash('ds_blue_3'),  'bold')
-hi('TabLineFill',   '7',     '0',     'bold',            'NONE',                    colors.hash('ds_blue_1'),  'bold')
-hi('Folded',        '6',     '0',     'bold',            colors.hash('l3_purple'),  colors.hash('purple'),     'NONE')
-hi('MsgArea',       '7',     '4',     'bold',            colors.hash('ds_blue_9'),  colors.hash('editor_bg'),  'NONE')
-hi('ErrorMsg',      '9',     '4',     'bold',            colors.hash('l1_red'),     colors.hash('d4_red'),     'bold')
-hi('WarningMsg',    '11',    '4',     'bold',            colors.hash('l1_yellow'),  colors.hash('d4_yellow'),  'bold')
-hi('MoreMsg',       '7',     '4',     'bold',            colors.hash('l1_green'),   colors.hash('d4_green'),   'bold')
-hi('Title',         '3',     'NONE',  'bold',            colors.hash('white'),      'NONE',                    'bold')
-hi('PMenu',         '7',     '8',     'NONE',            colors.hash('white'),      colors.hash('editor_bg'),  'NONE')
-hi('PMenuSel',      '7',     '8',     'bold',            colors.hash('l1_yellow'),  colors.hash('ds_blue_5'),  'bold')
-hi('WinSeparator',  '8',     'NONE',  'NONE',            colors.hash('ds_blue_3'),  'NONE',                    'NONE')
-hi('MatchParen',    '7',     'NONE',  'bold,underline',  colors.hash('white'),      'NONE',                    'bold,underline')
-
--- Links
--- src               | dest
-ln('CursorColumn',   'CursorLine')
-ln('Question',       'MoreMsg')
-ln('ModeMsg',        'MoreMsg')
-ln('Error',          'ErrorMsg')
-ln('healthSuccess',  'MoreMsg')
-ln('VertSplit',      'WinSeparator')
-ln('Whitespace',     'NonText')
-
--- Custom defined UI
--- group              | termfg | termbg | termprops | guifg                    | guibg                    | guiprops
-hi('CMenuNormal',     '0',     '8',     'NONE',     colors.hash('ds_blue_9'),  colors.hash('ds_blue_1'),  'bold')
-hi('CMenuSelection',  '2',     '15',    'bold',     colors.hash('white'),      colors.hash('ds_blue_5'),  'bold')
-hi('CMenuItem',       '15',    'NONE',  'NONE',     colors.hash('ds_blue_9'),  'NONE',                    'NONE')
-hi('CMenuItemMatch',  '11',    'NONE',  'NONE',     colors.hash('l1_yellow'),  'NONE',                    'NONE')
-
--- Plugins
--- group                     | termfg | termbg | termprops        | guifg                    | guibg  | guiprops
-hi('HopNextKey',             '3',     'NONE',  'bold',            colors.hash('l1_purple'),  'NONE',  'bold')          
-hi('HopNextKey1',            '3',     'NONE',  'bold',            colors.hash('l1_purple'),  'NONE',  'bold')          
-hi('HopNextKey2',            '11',    'NONE',  'bold',            colors.hash('l2_purple'),  'NONE',  'bold')          
-hi('MiniCursorword',         'NONE',  'NONE',  'bold,underline',  'NONE',                    'NONE',  'bold,underline  ')
-hi('MiniIndentscopeSymbol',  '6',     'NONE',  'NONE',            colors.hash('ds_cyan_3'),  'NONE',  'NONE')          
-
--- Links
--- src                        | dest
-ln('CmpMenuBackground',       'CMenuNormal')     
-ln('CmpMenuSelect',           'CMenuSelection')  
-ln('CmpItemAbbr',             'CMenuItem')       
-ln('CmpItemAbbrMatch',        'CMenuItemMatch')  
-ln('CmpItemKind',             'Type')            
-ln('TelescopeNormal',         'Normal')          
-ln('TelescopeBorder',         'WinSeparator')    
-ln('TelescopeTitle',          'Title')           
-ln('TelescopePromptCounter',  'TelescopeTitle')  
-ln('TelescopeMatching',       'CMenuItemMatch')  
-ln('TelescopeSelection',      'CMenuSelection')  
-
--- Syntax highlighting
--- group          | termfg | termbg  | termprops        | guifg                     | guibg  | guiprops
-hi('Identifier',  '7',      'NONE',  'NONE',            colors.hash('white'),       'NONE',  'NONE')
-hi('Statement',   '10',     'NONE',  'bold',            colors.hash('ds_green_7'),  'NONE',  'bold')
-hi('Comment',     '8',      'NONE',  'NONE',            colors.hash('ds_cyan_4'),   'NONE',  'italic')
-hi('Type',        '3',      'NONE',  'NONE',            colors.hash('l1_purple'),   'NONE',  'NONE')
-hi('PreProc',     '11',     'NONE',  'NONE',            colors.hash('l1_yellow'),   'NONE',  'NONE')
-hi('Constant',    '13',     'NONE',  'NONE',            colors.hash('l1_magenta'),  'NONE',  'NONE')
-hi('Special',     '14',     'NONE',  'NONE',            colors.hash('yellow'),      'NONE',  'bold')
-hi('Underlined',  '4',      'NONE',  'underline',       colors.hash('blue'),        'NONE',  'underline')
-hi('Delimiter',   '4',      'NONE',  'NONE',            colors.hash('ds_green_5'),  'NONE',  'NONE')
-hi('String',      '2',      'NONE',  'NONE',            colors.hash('l1_orange'),   'NONE',  'NONE')
-hi('Keyword',     '10',     'NONE',  'bold',            colors.hash('ds_green_7'),  'NONE',  'bold')
-hi('Todo',        '7',      'NONE',  'bold,underline',  colors.hash('l1_white'),    'NONE',  'bold,underline')
-hi('Function',    '13',     'NONE',  'bold',            colors.hash('ds_cyan_9'),   'NONE',  'bold')
-hi('Number',      '9',      'NONE',  'NONE',            colors.hash('l1_red'),      'NONE',  'NONE')
-hi('Boolean',     '9',      'NONE',  'NONE',            colors.hash('red'),         'NONE',  'NONE')
-hi('Ignore',      '0',      'NONE',  'NONE',            colors.hash('d3_gray'),     'NONE',  'bold')
-
--- Links
--- src                 | dest
-ln('vimCommentTitle',  'Comment')
-ln('vimOption',        'Identifier')
-ln('Operator',         'Keyword')
-
---------------------------------------------------------------------------------
 -- Auto commands
 --------------------------------------------------------------------------------
 
--- Reload vim configuration automatically when edited.
-cmd('au! bufwritepost $MYVIMRC source $MYVIMRC')
-
--- Reload plugin configuration automatically when edited. Also triggers package
+-- Reload configuration files automatically when edited. Also triggers package
 -- manager compile step.
 cmd([[
     augroup AutoReloadPlugins
         autocmd!
+        autocmd BufWritePost init.lua source <afile>
+        autocmd BufWritePost highlights.lua source <afile>
         autocmd BufWritePost plugins.lua source <afile> | PackerCompile
     augroup end
 ]])
@@ -314,8 +189,9 @@ cmd([[
 ]])
 
 --------------------------------------------------------------------------------
--- Plugins
+-- Configuration modules
 --------------------------------------------------------------------------------
 
+require('highlights')
 require('plugins')
 
