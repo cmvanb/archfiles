@@ -122,7 +122,7 @@ return {
         fade_in_function = 'Linear',
         fade_in_duration_ms = 0,
         fade_out_function = 'EaseOut',
-        fade_out_duration_ms = 400,
+        fade_out_duration_ms = 200,
     },
 
 --------------------------------------------------------------------------------
@@ -131,7 +131,7 @@ return {
 
     -- Color scheme mapping
     colors = {
-        visual_bell = colors.hash('blue'),
+        visual_bell = colors.hash('l1_blue'),
 
         tab_bar = {
             background = colors.hash('black'),
