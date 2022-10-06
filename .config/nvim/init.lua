@@ -28,8 +28,11 @@ opt.number = true
 opt.cursorline = true
 
 -- Whitespace visualization
-opt.listchars = { tab = '→-', eol = '↓', trail = '⌂' }
+opt.listchars = { tab = '-->', eol = '⏎', trail = '·' }
 opt.list = false
+
+-- End-of-buffer visualization
+opt.fillchars = { eob = ' ' }
 
 -- Tabs should be 4 spaces
 opt.tabstop = 4
@@ -199,7 +202,8 @@ end
 -- User interface
 -- group           | termfg | termbg | termprops        | guifg                    | guibg                     | guiprops
 hi('Normal        ', '6    ', '0    ', 'NONE '          , colors.hash('ds_cyan_7') , colors.hash('editor_bg')  , 'NONE '          )
-hi('NonText       ', '4    ', 'NONE ', 'NONE '          , colors.hash('ds_cyan_4') , 'NONE '                   , 'NONE '          )
+hi('NonText       ', '4    ', 'NONE ', 'NONE '          , colors.hash('white')     , 'NONE '                   , 'NONE '          )
+hi('EndOfBuffer   ', '4    ', 'NONE ', 'NONE '          , 'NONE'     , 'NONE '                   , 'NONE '          )
 hi('Cursor        ', '0    ', '7    ', 'NONE '          , colors.hash('black')     , colors.hash('white')      , 'NONE '          )
 hi('CursorLine    ', 'NONE ', '0    ', 'NONE '          , 'NONE '                  , colors.hash('d4_purple')  , 'NONE '          )
 hi('CursorLineNr  ', '7    ', '0    ', 'NONE '          , colors.hash('ds_cyan_6') , colors.hash('d4_purple')  , 'NONE '          )
@@ -231,6 +235,7 @@ ln('ModeMsg       ', 'MoreMsg      ')
 ln('Error         ', 'ErrorMsg     ')
 ln('healthSuccess ', 'MoreMsg      ')
 ln('VertSplit     ', 'WinSeparator ')
+ln('Whitespace    ', 'NonText      ')
 
 -- Custom defined UI
 -- group            | termfg | termbg | termprops        | guifg                    | guibg                    | guiprops
@@ -240,11 +245,12 @@ hi('CMenuItem      ', '15   ', 'NONE ', 'NONE '          , colors.hash('ds_blue_
 hi('CMenuItemMatch ', '11   ', 'NONE ', 'NONE '          , colors.hash('l1_yellow') , 'NONE'                   , 'NONE '          )
 
 -- Plugins
--- group                | termfg | termbg | termprops        | guifg                    | guibg                    | guiprops
-hi('MiniCursorword     ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                  , 'NONE '                  , 'bold,underline ')
-hi('HopNextKey         ', '3    ', 'NONE ', 'bold '          , colors.hash('l1_purple') , 'NONE '                  , 'bold '          )
-hi('HopNextKey1        ', '3    ', 'NONE ', 'bold '          , colors.hash('l1_purple') , 'NONE '                  , 'bold '          )
-hi('HopNextKey2        ', '11   ', 'NONE ', 'bold '          , colors.hash('l2_purple') , 'NONE '                  , 'bold '          )
+-- group                   | termfg | termbg | termprops        | guifg                    | guibg                    | guiprops
+hi('HopNextKey            ', '3    ', 'NONE ', 'bold '          , colors.hash('l1_purple') , 'NONE '                  , 'bold '          )
+hi('HopNextKey1           ', '3    ', 'NONE ', 'bold '          , colors.hash('l1_purple') , 'NONE '                  , 'bold '          )
+hi('HopNextKey2           ', '11   ', 'NONE ', 'bold '          , colors.hash('l2_purple') , 'NONE '                  , 'bold '          )
+hi('MiniCursorword        ', 'NONE ', 'NONE ', 'bold,underline ', 'NONE '                  , 'NONE '                  , 'bold,underline ')
+hi('MiniIndentscopeSymbol ', '6    ', 'NONE ', 'NONE '          , colors.hash('ds_cyan_3') , 'NONE '                  , 'NONE '          )
 
 -- Links
 ln('CmpMenuBackground      ', 'CMenuNormal    ')
@@ -258,7 +264,6 @@ ln('TelescopeTitle         ', 'Title          ')
 ln('TelescopePromptCounter ', 'TelescopeTitle ')
 ln('TelescopeMatching      ', 'CMenuItemMatch ')
 ln('TelescopeSelection     ', 'CMenuSelection ')
-ln('MiniIndentscopeSymbol  ', 'NonText        ')
 
 -- Syntax highlighting
 -- group             | termfg | termbg | termprops        | guifg                     | guibg  | guiprops
@@ -294,10 +299,10 @@ cmd('au! bufwritepost $MYVIMRC source $MYVIMRC')
 -- Reload plugin configuration automatically when edited. Also triggers package
 -- manager compile step.
 cmd([[
-  augroup AutoReloadPlugins
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
+    augroup AutoReloadPlugins
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    augroup end
 ]])
 
 -- Always highlight TODOs and NOTEs
