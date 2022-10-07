@@ -56,8 +56,9 @@ noremap('<C-v>', '"+p')
 
 -- Fuzzy finder
 noremap('<leader>o', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
-noremap('<leader>p', '<cmd>Telescope buffers<cr>')
+noremap('<leader>b', '<cmd>Telescope buffers<cr>')
 noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
+noremap('<leader>i', '<cmd>Telescope symbols<cr>')
 
 -- Switch buffers
 noremap('<leader>h', ':bprev<cr>')
@@ -67,7 +68,7 @@ noremap('<leader>l', ':bnext<cr>')
 noremap('<C-q>', ':qa!<cr>')
 
 -- Save buffer
-noremap('<C-s>', ':w<cr>')
+noremap('<C-s>', ':wa<cr>')
 
 -- Close buffer
 noremap('<leader>q', ':bd<cr>')
