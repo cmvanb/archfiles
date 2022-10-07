@@ -4,13 +4,14 @@
 -- This file is called from init.lua with `lua.require('plugins')`
 --------------------------------------------------------------------------------
 
-local packer = require('packer')
-
 -- Plugin manager configuration
 --------------------------------------------------------------------------------
 
+local packer = require('packer')
+
 packerConfig = {
     display = {
+        -- Use floating window
         open_fn = function()
             return require('packer.util').float({ border = 'rounded' })
         end,
@@ -191,6 +192,9 @@ return packer.startup({ function()
             ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
         },
     })
+
+    -- Symbols ❤️
+    use 'nvim-telescope/telescope-symbols.nvim'
 
 -- Navigation
 --------------------------------------------------------------------------------
