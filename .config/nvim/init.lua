@@ -9,7 +9,6 @@ local api = vim.api
 local fn = vim.fn
 local g = vim.g
 
---------------------------------------------------------------------------------
 -- Settings
 --------------------------------------------------------------------------------
 
@@ -68,101 +67,6 @@ opt.mouse = 'a'
 opt.foldmethod = 'syntax'
 opt.foldenable = false
 
---------------------------------------------------------------------------------
--- Key bindings
---------------------------------------------------------------------------------
-
--- Helpers
-function _map(mode, shortcut, command, silent)
-    silent = silent or false
-    api.nvim_set_keymap(mode, shortcut, command, { noremap = false, silent = silent })
-end
-
-function _noremap(mode, shortcut, command)
-    silent = silent or false
-    api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = silent })
-end
-
-function map(shortcut, command, silent)
-    silent = silent or false
-    _map('', shortcut, command, silent)
-end
-
-function noremap(shortcut, command, silent)
-    silent = silent or false
-    _noremap('', shortcut, command, silent)
-end
-
-function vnoremap(shortcut, command, silent)
-    silent = silent or false
-    _noremap('v', shortcut, command, silent)
-end
-
--- TODO: Add additional map functions as needed.
-
--- Disable default bindings
-noremap('q', '<Nop>')
-
--- Leader key
-g.mapleader = ' '
-
--- Visual block select
-noremap('<leader>v', '<C-v>')
-
--- System clipboard
--- NOTE: This is only working (in TUI) because Wezterm is configured for it.
-vnoremap('<C-c>', '"+y')
-noremap('<C-v>', '"+p')
-
--- Fuzzy finder
-noremap('<leader>o', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
-noremap('<leader>p', '<cmd>Telescope buffers<cr>')
-noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
-
--- Switch buffers
-noremap('<leader>h', ':bprev<cr>')
-noremap('<leader>l', ':bnext<cr>')
-
--- Close program without saving
-noremap('<C-q>', ':qa!<cr>')
-
--- Close buffer
-noremap('<leader>q', ':bd<cr>')
-
--- Close window
-map('<C-w>c', '<Nop>')
-noremap('<C-w>q', ':close<cr>')
-
--- Jump
-noremap('<leader>f', '<cmd>HopWord<cr>')
-
--- Comment out selection (VISUAL) or current line (NORMAL)
--- NOTE: Does this need to be `map`?
-map('<leader>/', 'gcc<esc>')
-
--- Reload vim configuration (this file)
-noremap('<leader>r', '<cmd>source $MYVIMRC<bar>echo "Configuration reloaded."<cr>')
-
--- Clear search buffer, clear command line and go to start of line
-noremap('<leader>m', '<cmd>let @/=""<cr>:echo ""<cr>0<esc>', true)
-
--- Format file
-noremap('<leader>;', 'gg=G')
-
---------------------------------------------------------------------------------
--- Neovide (GUI) configuration
---------------------------------------------------------------------------------
-
-if g.neovide ~= nil then
-    opt.guifont = 'Iosevka Nerd Font Mono:h12'
-
-    -- TODO: Get Cursor highlighting working in Neovide.
-    cmd('set guicursor=n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20') 
-
-    g.neovide_cursor_vfx_mode = 'sonicboom'
-end
-
---------------------------------------------------------------------------------
 -- Automatic reload
 --------------------------------------------------------------------------------
 
@@ -172,15 +76,18 @@ cmd([[
     augroup ReloadPlugins
         autocmd!
         autocmd BufWritePost init.lua source <afile>
+        autocmd BufWritePost gui.lua source <afile>
+        autocmd BufWritePost keybinds.lua source <afile>
         autocmd BufWritePost highlights.lua source <afile>
         autocmd BufWritePost plugins.lua source <afile> | PackerCompile
     augroup end
 ]])
 
---------------------------------------------------------------------------------
 -- Configuration modules
 --------------------------------------------------------------------------------
 
+require('gui')
+require('keybinds')
 require('highlights')
 require('plugins')
 
