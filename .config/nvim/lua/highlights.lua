@@ -63,15 +63,15 @@ hi('Normal',        'ds_cyan_7',  'editor_bg',  'NONE',    'ansi_cyan',      'an
 hi('NonText',       'white',      'NONE',       'NONE',    'ansi_brwhite',   'NONE',            'NONE')
 hi('EndOfBuffer',   'NONE',       'NONE',       'NONE',    'NONE',           'NONE',            'NONE')
 hi('Cursor',        'black',      'white',      'NONE',    'ansi_black',     'ansi_white',      'NONE')
-hi('CursorLine',    'NONE',       'd4_purple',  'NONE',    'NONE',           'ansi_brblack',    'bold')
-hi('CursorLineNr',  'ds_cyan_6',  'd4_purple',  'NONE',    'ansi_cyan',      'ansi_black',      'NONE')
+hi('CursorLine',    'NONE',       'ds_blue_1',  'NONE',    'NONE',           'ansi_brblack',    'bold')
+hi('CursorLineNr',  'ds_cyan_6',  'ds_blue_1',  'NONE',    'ansi_cyan',      'ansi_black',      'NONE')
 hi('LineNr',        'ds_cyan_4',  'NONE',       'NONE',    'ansi_brblack',   'NONE',            'NONE')
 hi('SignColumn',    'ds_cyan_4',  'editor_bg',  'NONE',    'ansi_white',     'ansi_black',      'NONE')
 hi('Visual',        'black',      'magenta',    'NONE',    'ansi_black',     'ansi_brmagenta',  'NONE')
 hi('IncSearch',     'black',      'green',      'bold',    'ansi_black',     'ansi_brgreen',    'NONE')
 hi('Search',        'black',      'cyan',       'bold',    'ansi_black',     'ansi_brcyan',     'NONE')
 hi('StatusLine',    'ds_blue_9',  'ds_blue_3',  'bold',    'ansi_white',     'ansi_blue',       'bold')
-hi('StatusLineNC',  'ds_blue_5',  'ds_blue_1',  'NONE',    'ansi_brblack',   'ansi_black',      'bold')
+hi('StatusLineNC',  'ds_blue_5',  'ds_blue_1',  'NONE',    'ansi_brblack',   'ansi_black',      'NONE')
 hi('TabLine',       'ds_blue_5',  'ds_blue_1',  'bold',    'ansi_white',     'ansi_blue',       'NONE')
 hi('TabLineSel',    'ds_blue_9',  'ds_blue_3',  'bold',    'ansi_white',     'ansi_blue',       'bold')
 hi('TabLineFill',   'NONE',       'ds_blue_1',  'bold',    'ansi_white',     'ansi_blue',       'bold')
@@ -156,7 +156,7 @@ ln('Operator',         'Keyword')
 -- Special snowflakes
 --------------------------------------------------------------------------------
 
--- Show notes in all files, just like todos.
+-- Highlight notes everywhere, just like todos.
 api.nvim_create_augroup('HighlightNotes', { clear = true })
 api.nvim_create_autocmd({ 'BufEnter', 'FileType' }, {
     group = 'HighlightNotes',
