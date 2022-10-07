@@ -73,12 +73,24 @@ opt.foldenable = false
 -- Reload configuration files automatically when edited. Also triggers package
 -- manager compile step.
 cmd([[
-    augroup ReloadPlugins
+    augroup ReloadInit
         autocmd!
         autocmd BufWritePost init.lua source <afile>
+    augroup end
+    augroup ReloadGUI
+        autocmd!
         autocmd BufWritePost gui.lua source <afile>
+    augroup end
+    augroup ReloadKeybinds
+        autocmd!
         autocmd BufWritePost keybinds.lua source <afile>
+    augroup end
+    augroup ReloadHighlights
+        autocmd!
         autocmd BufWritePost highlights.lua source <afile>
+    augroup end
+    augroup ReloadPlugins
+        autocmd!
         autocmd BufWritePost plugins.lua source <afile> | PackerCompile
     augroup end
 ]])
