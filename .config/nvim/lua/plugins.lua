@@ -1,7 +1,5 @@
 --------------------------------------------------------------------------------
--- NVIM plugins configuration --
---
--- This file is called from init.lua with `lua.require('plugins')`
+-- Neovim plugins
 --------------------------------------------------------------------------------
 
 -- Plugin manager configuration
@@ -205,22 +203,7 @@ return packer.startup({ function()
     })
 
     -- jump movement
-    -- TODO: Decide between hop and mini.jump2d.
-    use 'phaazon/hop.nvim'
-
-    require('hop').setup({
-        quit_key = '<esc>',
-    })
-
-    -- require('mini.jump2d').setup({
-    --     -- Label optimization based on home row keys.
-    --     labels = 'fjdksla;ghvmc-bnrueiwoqpty',
-    --
-    --     -- Module mappings. Use `''` (empty string) to disable one.
-    --     mappings = {
-    --         start_jumping = '<leader>f',
-    --     }
-    -- })
+    use 'ggandor/leap.nvim'
 
     -- show scope of current indent
     require('mini.indentscope').setup({

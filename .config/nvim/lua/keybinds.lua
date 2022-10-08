@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Key bindings
+-- Neovim key bindings
 --------------------------------------------------------------------------------
 
 -- Helpers
@@ -40,8 +40,11 @@ end
 --------------------------------------------------------------------------------
 
 -- Disable default bindings
-map('q', '<Nop>')
-map('<C-w>c', '<Nop>')
+map('f', '<nop>')
+map('F', '<nop>')
+map('q', '<nop>')
+map('Q', '<nop>')
+map('<C-w>c', '<nop>')
 
 -- Leader key
 g.mapleader = ' '
@@ -77,12 +80,14 @@ noremap('<leader>q', ':bd<cr>')
 noremap('<C-w>q', ':close<cr>')
 
 -- Jump
-noremap('<leader>f', '<cmd>HopWord<cr>')
+noremap('f', '<plug>(leap-forward)')
+noremap('F', '<plug>(leap-backward)')
 
 -- Comment out selection (VISUAL) or current line (NORMAL)
 -- NOTE: This is from `mini.comment` plugin.
 -- NOTE: Does this need to be `map`?
 map('<leader>/', 'gcc<esc>')
+
 
 -- Reload configuration
 -- NOTE: This binding is unnecessary since all configuration automatically reloads.

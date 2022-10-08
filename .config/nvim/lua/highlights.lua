@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Colors
+-- Neovim highlights
 --------------------------------------------------------------------------------
 
 -- Import system colors
@@ -108,9 +108,10 @@ hi('CMenuItemMatch',  'l1_yellow',  'NONE',       'NONE',    'ansi_bryellow',  '
 --------------------------------------------------------------------------------
 
 -- group                     | guifg       | guibg  | guiprops         | termfg           | termbg | termprops
-hi('HopNextKey',             'l1_purple',  'NONE',  'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('HopNextKey1',            'l1_purple',  'NONE',  'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('HopNextKey2',            'l2_purple',  'NONE',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('LeapMatch',              'debug',      'NONE',  'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelPrimary',       'l1_purple',  'NONE',  'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelSecondary',     'l2_purple',  'NONE',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('LeapLabelSelected',      'debug',      'NONE',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
 hi('MiniCursorword',         'NONE',       'NONE',  'bold,underline',  'NONE',            'NONE',  'bold,underline')
 hi('MiniIndentscopeSymbol',  'ds_cyan_3',  'NONE',  'NONE',            'ansi_brblack',    'NONE',  'NONE')
 
