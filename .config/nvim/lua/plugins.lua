@@ -27,16 +27,18 @@ return packer.startup({ function()
     -- mini plugins collection
     use 'echasnovski/mini.nvim'
 
-    -- useful lua functions
-    -- NOTE: Some plugins may depend on this.
-    use 'nvim-lua/plenary.nvim'
+-- Package management
+--------------------------------------------------------------------------------
+
+    -- Mason is a package manager for LSP tooling such as language servers, debug servers, linters and formatters.
+    use 'williamboman/mason.nvim'
+    require('mason').setup()
 
 -- Appearance
 --------------------------------------------------------------------------------
 
     -- view colors in editor
     use 'norcalli/nvim-colorizer.lua'
-
     require('colorizer').setup()
 
     -- terminal background fix
@@ -208,7 +210,7 @@ return packer.startup({ function()
     -- show scope of current indent
     require('mini.indentscope').setup({
         draw = {
-            delay = 0,
+            delay = 100,
             animation = require('mini.indentscope')
                 .gen_animation('cubicInOut', { duration = 15 }),
         },
