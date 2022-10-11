@@ -8,8 +8,8 @@
 import os
 import sys
 
-import_dir = os.path.expanduser('~/.config/colors')
-sys.path.append(import_dir)
+import_path = '{0}/colors'.format(os.environ['XDG_CONFIG_HOME'])
+sys.path.append(import_path)
 
 import py_colors as colors
 
@@ -275,8 +275,8 @@ config.unbind('d')
 
 ### Normal mode
 #### Session management
-config.bind('<Ctrl-o>', 'spawn --userscript session-load-wofi.sh')
-config.bind('<Ctrl-s>', 'spawn --userscript session-save-wofi.sh')
+config.bind('<Ctrl-o>', 'set-cmd-text -s :session-load ')
+config.bind('<Ctrl-s>', 'set-cmd-text -s :session-save -o ')
 
 #### Tab management
 config.bind('<Ctrl-1>', 'tab-focus 1')
