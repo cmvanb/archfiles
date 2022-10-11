@@ -71,7 +71,7 @@ noremap('<leader>l', ':bnext<cr>')
 noremap('<C-q>', ':qa!<cr>')
 
 -- Save buffer
-noremap('<C-s>', ':wa<cr>')
+noremap('<C-s>', ':wa!<cr>')
 
 -- Close buffer
 noremap('<leader>q', ':bd<cr>')
