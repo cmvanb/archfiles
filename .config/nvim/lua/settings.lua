@@ -17,6 +17,9 @@ local g = vim.g
 -- Use terminal title
 opt.title = true
 
+-- Use global statusbar
+opt.laststatus = 3
+
 -- Show column and line info
 opt.ruler = true
 
@@ -60,7 +63,7 @@ opt.updatetime = 100
 opt.clipboard = 'unnamedplus'
 
 -- Start scrolling before cursor reaches edge of window
-opt.scrolloff = 15
+opt.scrolloff = 5
 
 -- Enable mouse in all modes
 opt.mouse = 'a'
