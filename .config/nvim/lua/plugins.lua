@@ -27,13 +27,6 @@ return packer.startup({ function()
     -- mini plugins collection
     use 'echasnovski/mini.nvim'
 
--- Package management
---------------------------------------------------------------------------------
-
-    -- Mason is a package manager for LSP tooling such as language servers, debug servers, linters and formatters.
-    use 'williamboman/mason.nvim'
-    require('mason').setup()
-
 -- Appearance
 --------------------------------------------------------------------------------
 
@@ -50,6 +43,22 @@ return packer.startup({ function()
 
     -- Redirect output to scratch buffer
     use 'sbulav/nredir.nvim'
+
+-- LSP
+--------------------------------------------------------------------------------
+
+    -- Mason is a package manager for LSP tooling such as language servers,
+    -- debug servers, linters and formatters.
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+
+    require('mason').setup()
+    require('mason-lspconfig').setup()
+
+    use 'neovim/nvim-lspconfig'
+
+    -- Language servers setup manually for now...
+    require('lspconfig')['pyright'].setup({})
 
 -- Completion
 --------------------------------------------------------------------------------
@@ -137,11 +146,6 @@ return packer.startup({ function()
             },
         },
     })
-
--- LSP
---------------------------------------------------------------------------------
-
-    use 'neovim/nvim-lspconfig'
 
 -- Editing
 --------------------------------------------------------------------------------
