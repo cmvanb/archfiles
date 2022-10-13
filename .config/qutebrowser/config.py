@@ -77,6 +77,7 @@ c.url.searchengines = {
     'd': 'https://duckduckgo.com/?q={}',
     'g': 'https://google.com/search?q={}',
     'w': 'https://en.wikipedia.org/wiki/?search={}',
+    'y': 'https://www.youtube.com/results?search_query={}',
 }
 c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content' ]
 
