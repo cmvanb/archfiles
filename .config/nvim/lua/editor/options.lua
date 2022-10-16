@@ -1,24 +1,14 @@
 --------------------------------------------------------------------------------
--- Neovim settings
+-- Editor options
 --------------------------------------------------------------------------------
 
--- Helpers
---------------------------------------------------------------------------------
-
-local cmd = vim.cmd
 local opt = vim.opt
-local api = vim.api
-local fn = vim.fn
-local g = vim.g
-
--- Settings
---------------------------------------------------------------------------------
 
 -- Use terminal title
 opt.title = true
 
--- Use global statusbar
-opt.laststatus = 3
+-- Use per-window statusbar
+opt.laststatus = 2
 
 -- Show column and line info
 opt.ruler = true
@@ -30,11 +20,11 @@ opt.number = true
 opt.cursorline = true
 
 -- Whitespace visualization
-opt.listchars = { tab = '-->', eol = '⏎', trail = '·' }
+opt.listchars = { tab = '-->', eol = '⬇', trail = '▭' }
 opt.list = false
 
 -- End-of-buffer visualization
-opt.fillchars = { eob = ' ' }
+opt.fillchars = { eob = '⨯' }
 
 -- Tabs should be 4 spaces
 opt.tabstop = 4
@@ -63,7 +53,7 @@ opt.updatetime = 100
 opt.clipboard = 'unnamedplus'
 
 -- Start scrolling before cursor reaches edge of window
-opt.scrolloff = 5
+opt.scrolloff = 3
 
 -- Enable mouse in all modes
 opt.mouse = 'a'

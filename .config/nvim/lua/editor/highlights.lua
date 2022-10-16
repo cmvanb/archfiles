@@ -2,35 +2,37 @@
 -- Neovim highlights
 --------------------------------------------------------------------------------
 
--- Import system colors
+-- Retrieve system colors
 --------------------------------------------------------------------------------
 
-package.path = os.getenv('XDG_CONFIG_HOME') .. '/colors' .. [[/?.lua;]] .. package.path
+local colors_path = os.getenv('XDG_CONFIG_HOME') .. [[/colors/?.lua;]]
+local PathUtils = require('utils.path')
 
-local colors = require('lua-colors')
-colors.parse_colors()
+PathUtils.prepend_to_package_path(colors_path)
 
+local Colors = require('lua-colors')
+
+Colors.parse_colors()
+
+-- TODO: Extract utility.
 -- Helpers
 --------------------------------------------------------------------------------
 
 local cmd = vim.cmd
 local opt = vim.opt
-local api = vim.api
-local fn = vim.fn
-local g = vim.g
 
-function hi(group, guifg, guibg, guiprops, termfg, termbg, termprops)
+local function hi(group, guifg, guibg, guiprops, termfg, termbg, termprops)
     if guifg ~= 'NONE' then
-        guifg = colors.hash(guifg)
+        guifg = Colors.hash(guifg)
     end
     if guibg ~= 'NONE' then
-        guibg = colors.hash(guibg)
+        guibg = Colors.hash(guibg)
     end
     if termfg ~= 'NONE' then
-        termfg = colors.name_to_ansi_index(termfg)
+        termfg = Colors.name_to_ansi_index(termfg)
     end
     if termbg ~= 'NONE' then
-        termbg = colors.name_to_ansi_index(termbg)
+        termbg = Colors.name_to_ansi_index(termbg)
     end
 
     cmd('hi! ' .. group ..
@@ -42,7 +44,7 @@ function hi(group, guifg, guibg, guiprops, termfg, termbg, termprops)
         ' cterm=' .. termprops)
 end
 
-function ln(group, target)
+local function ln(group, target)
     cmd('hi! link ' .. group .. ' ' .. target)
 end
 
@@ -61,7 +63,7 @@ cmd('syntax reset')
 -- group            | guifg       | guibg       | guiprops | termfg          | termbg           | termprops
 hi('Normal',        'ds_cyan_7',  'editor_bg',  'NONE',    'ansi_cyan',      'ansi_black',      'NONE')
 hi('NonText',       'white',      'NONE',       'NONE',    'ansi_brwhite',   'NONE',            'NONE')
-hi('EndOfBuffer',   'NONE',       'NONE',       'NONE',    'NONE',           'NONE',            'NONE')
+hi('EndOfBuffer',   'ds_cyan_4',  'NONE',       'NONE',    'NONE',           'NONE',            'NONE')
 hi('Cursor',        'black',      'white',      'NONE',    'ansi_black',     'ansi_white',      'NONE')
 hi('CursorLine',    'NONE',       'ds_blue_1',  'NONE',    'NONE',           'ansi_brblack',    'bold')
 hi('CursorLineNr',  'ds_cyan_6',  'ds_blue_1',  'NONE',    'ansi_cyan',      'ansi_black',      'NONE')
@@ -107,13 +109,13 @@ hi('CMenuItemMatch',  'l1_yellow',  'NONE',       'NONE',    'ansi_bryellow',  '
 -- Plugin highlights
 --------------------------------------------------------------------------------
 
--- group                     | guifg       | guibg  | guiprops         | termfg           | termbg | termprops
-hi('LeapMatch',              'debug',      'NONE',  'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('LeapLabelPrimary',       'l1_purple',  'NONE',  'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('LeapLabelSecondary',     'l2_purple',  'NONE',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
-hi('LeapLabelSelected',      'debug',      'NONE',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
-hi('MiniCursorword',         'NONE',       'NONE',  'bold,underline',  'NONE',            'NONE',  'bold,underline')
-hi('MiniIndentscopeSymbol',  'ds_cyan_3',  'NONE',  'NONE',            'ansi_brblack',    'NONE',  'NONE')
+-- group                     | guifg       | guibg     | guiprops         | termfg           | termbg | termprops
+hi('LeapMatch',              'debug',      'NONE',     'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelPrimary',       'black',      'white',    'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelSecondary',     'white',      'l1_blue',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('LeapLabelSelected',      'debug',      'NONE',     'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('MiniCursorword',         'NONE',       'NONE',     'bold,underline',  'NONE',            'NONE',  'bold,underline')
+hi('MiniIndentscopeSymbol',  'ds_cyan_3',  'NONE',     'NONE',            'ansi_brblack',    'NONE',  'NONE')
 
 -- group                      | target
 ln('CmpMenuBackground',       'CMenuNormal')     
@@ -158,11 +160,11 @@ ln('Operator',         'Keyword')
 --------------------------------------------------------------------------------
 
 -- Highlight notes everywhere, just like todos.
-api.nvim_create_augroup('HighlightNotes', { clear = true })
-api.nvim_create_autocmd({ 'BufEnter', 'FileType' }, {
+vim.api.nvim_create_augroup('HighlightNotes', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' }, {
     group = 'HighlightNotes',
     callback = function()
-        fn.matchadd('Todo', 'TODO:\\|NOTE:')
+        vim.fn.matchadd('Todo', 'TODO:\\|NOTE:')
     end,
 })
 

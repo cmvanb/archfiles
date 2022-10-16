@@ -2,44 +2,29 @@
 -- Neovim configuration
 --------------------------------------------------------------------------------
 
--- Automatic reload
---------------------------------------------------------------------------------
+-- Packer's compile target is in `.local/share/nvim`, so we need to include this
+-- in the runtimepath to ensure NVIM can autoload Packer.
+-- TODO: Make sure this isn't adding duplicates when sourcing.
+vim.opt.runtimepath:append(vim.fn.stdpath('data'))
 
--- Reload configuration files automatically when edited. Also triggers package
--- manager compile step.
-vim.cmd([[
-    augroup ReloadInit
-        autocmd!
-        autocmd BufWritePost ~/.config/nvim/init.lua source <afile>
-    augroup end
-    augroup ReloadSettings
-        autocmd!
-        autocmd BufWritePost ~/.config/nvim/lua/settings.lua source <afile>
-    augroup end
-    augroup ReloadGUI
-        autocmd!
-        autocmd BufWritePost ~/.config/nvim/lua/gui.lua source <afile>
-    augroup end
-    augroup ReloadKeybinds
-        autocmd!
-        autocmd BufWritePost ~/.config/nvim/lua/keybinds.lua source <afile>
-    augroup end
-    augroup ReloadHighlights
-        autocmd!
-        autocmd BufWritePost ~/.config/nvim/lua/highlights.lua source <afile>
-    augroup end
-    augroup ReloadPlugins
-        autocmd!
-        autocmd BufWritePost ~/.config/nvim/lua/plugins.lua source <afile> | PackerCompile
-    augroup end
-]])
+-- Improve startup performance.
+require('utils.disable_builtins')
 
--- Configuration modules
---------------------------------------------------------------------------------
+-- Global utils.
+require('utils.debug')
+require('utils.do_load')
+require('utils.reload')
 
-require('settings')
-require('gui')
-require('keybinds')
-require('highlights')
-require('plugins')
+-- Load editor config.
+reload('editor.options')
+reload('editor.gui')
+reload('editor.highlights')
+reload('editor.keymaps')
+
+-- Load autocommands.
+reload('autocommands')
+
+-- Bootstrap Packer if necessary.
+local loader = reload('loader')
+loader.init()
 
