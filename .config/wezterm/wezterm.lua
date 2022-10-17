@@ -53,7 +53,7 @@ return {
             mods = 'CTRL',
             action = wezterm.action { PasteFrom = 'Clipboard' },
         },
-        -- Scroll down
+        -- Scroll down half-page
         {
             key = 'd',
             mods = 'CTRL',
@@ -65,7 +65,7 @@ return {
                 end
             end),
         },
-        -- Scroll up
+        -- Scroll up half-page
         {
             key = 'u',
             mods = 'CTRL',
@@ -77,12 +77,41 @@ return {
                 end
             end),
         },
-        -- TODO: Improve this key bind.
-        -- Close pane
+        -- Scroll down one line
         {
-            key = 'q',
-            mods = 'CTRL|SHIFT',
-            action = wezterm.action.CloseCurrentPane { confirm = true },
+            key = 'j',
+            mods = 'CTRL',
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action.SendKey { key = 'j', mods = 'CTRL' }, pane)
+                else
+                    window:perform_action(wezterm.action.ScrollByLine(1), pane)
+                end
+            end),
+        },
+        -- Scroll up one line
+        {
+            key = 'k',
+            mods = 'CTRL',
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action.SendKey { key = 'k', mods = 'CTRL' }, pane)
+                else
+                    window:perform_action(wezterm.action.ScrollByLine(-1), pane)
+                end
+            end),
+        },
+        -- Passthrough
+        {
+            key = 'm',
+            mods = 'CTRL',
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action.SendKey { key = 'm', mods = 'CTRL' }, pane)
+                else
+                    -- Do nothing.
+                end
+            end),
         },
     },
 
