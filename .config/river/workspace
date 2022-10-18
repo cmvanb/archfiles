@@ -12,7 +12,7 @@ riverctl spawn "yambar"
 riverctl spawn "wezterm start -- fish -i -C \"nvim $HOME/Documents/TODO.md\""
 
 # NOTE: Magic number.
-sleep 0.40
+sleep 0.50
 
 # Primary output
 #-------------------------------------------------------------------------------
