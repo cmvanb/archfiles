@@ -312,6 +312,10 @@ config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseva
 #   see: https://github.com/qutebrowser/qutebrowser/issues/2668
 config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 
+### Command mode
+config.bind('<Ctrl-J>', 'completion-item-focus --history next', mode='command')
+config.bind('<Ctrl-K>', 'completion-item-focus --history prev', mode='command')
+
 ## Color settings
 #-------------------------------------------------------------------------------
 
