@@ -22,6 +22,26 @@ local function map(shortcut, command, silent)
     _map('', shortcut, command, silent)
 end
 
+local function nmap(shortcut, command, silent)
+    silent = silent or false
+    _map('n', shortcut, command, silent)
+end
+
+local function vmap(shortcut, command, silent)
+    silent = silent or false
+    _map('v', shortcut, command, silent)
+end
+
+local function xmap(shortcut, command, silent)
+    silent = silent or false
+    _map('x', shortcut, command, silent)
+end
+
+local function imap(shortcut, command, silent)
+    silent = silent or false
+    _map('i', shortcut, command, silent)
+end
+
 local function noremap(shortcut, command, silent)
     silent = silent or false
     _noremap('', shortcut, command, silent)
@@ -66,14 +86,20 @@ map('<C-w>w', '<nop>')
 map('<C-w>W', '<nop>')
 map('<C-w>r', '<nop>')
 
-map('<C-n>', '<nop>')
-map('<C-p>', '<nop>')
 map('<C-o>', '<nop>')
 
 map('<C-h>', '<nop>')
 map('<C-j>', '<nop>')
 map('<C-k>', '<nop>')
 map('<C-l>', '<nop>')
+
+map('<C-n>', '<nop>')
+map('<C-p>', '<nop>')
+imap('<C-n>', '<nop>')
+imap('<C-p>', '<nop>')
+-- NOTE: Figure out why this override isn't working.
+xmap('<C-n>', '<nop>')
+xmap('<C-p>', '<nop>')
 
 -- Leader key
 nnoremap(' ', '')
@@ -116,6 +142,10 @@ nnoremap('K', '<esc>:m .-2<cr>==')
 noremap('<C-j>', '<C-w>w')
 noremap('<C-k>', '<C-w>W')
 noremap('<C-z>', '<C-w>r <bar> <C-w>W')
+
+-- Split windows
+noremap('<C-n>', ':vnew<cr>')
+noremap('<C-p>', ':new<cr>')
 
 -- Close program without saving
 noremap('<C-q>', ':qa!<cr>')
