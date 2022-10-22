@@ -147,10 +147,10 @@ noremap('<C-z>', '<C-w>r <bar> <C-w>W')
 noremap('<C-n>', ':vnew<cr>')
 noremap('<C-p>', ':new<cr>')
 
--- Close program without saving
+-- Close NVIM without saving
 noremap('<C-q>', ':qa!<cr>')
 
--- Save buffer
+-- Save all buffers
 noremap('<C-s>', ':wa!<cr>')
 
 -- Close buffer
@@ -172,3 +172,4 @@ noremap('<leader>m', '<cmd>let @/=""<cr>:echo ""<cr>', true)
 
 -- Format file
 noremap('<leader>;', 'gg=G')
+
