@@ -20,6 +20,7 @@ telescope.setup({
         },
         mappings = {
             i = {
+                ['<C-q>'] = actions.delete_buffer,
                 ['<C-n>'] = actions.select_vertical,
                 ['<C-p>'] = false,
                 ['<C-j>'] = actions.move_selection_next,

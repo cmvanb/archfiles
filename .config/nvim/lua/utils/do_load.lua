@@ -37,14 +37,14 @@ function _G.do_load(module_name)
         error(error_message)
     end
 
-    local ok, _ = xpcall(function()
+    local ok, result = xpcall(function()
         dofile(load_path)
     end, debug.traceback)
 
     if not ok then
         error('Could not load lua module: `' .. load_path .. '`.')
     end
-end
 
-return reload
+    return result
+end
 

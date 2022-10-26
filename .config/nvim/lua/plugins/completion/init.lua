@@ -8,6 +8,7 @@ local function has_words_before()
 end
 
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 
 cmp.setup({
     mapping = cmp.mapping.preset.insert({
@@ -39,7 +40,7 @@ cmp.setup({
             end
         end, { 'i', 's' }),
 
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
         -- NOTE: Inlcuded for consistency with fish shell. Ideally we want to change fish shell completion bindings.
         ['<Right>'] = cmp.mapping.confirm({ select = true }),

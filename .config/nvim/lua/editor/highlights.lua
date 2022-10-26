@@ -72,13 +72,13 @@ hi('SignColumn',    'ds_cyan_4',  'editor_bg',  'NONE',    'ansi_white',     'an
 hi('Visual',        'black',      'magenta',    'NONE',    'ansi_black',     'ansi_brmagenta',  'NONE')
 hi('IncSearch',     'black',      'green',      'bold',    'ansi_black',     'ansi_brgreen',    'NONE')
 hi('Search',        'black',      'cyan',       'bold',    'ansi_black',     'ansi_brcyan',     'NONE')
-hi('StatusLine',    'ds_blue_9',  'ds_blue_3',  'bold',    'ansi_white',     'ansi_blue',       'bold')
+hi('StatusLine',    'ds_blue_8',  'ds_blue_5',  'bold',    'ansi_white',     'ansi_blue',       'bold')
 hi('StatusLineNC',  'ds_blue_5',  'ds_blue_1',  'NONE',    'ansi_brblack',   'ansi_black',      'NONE')
 hi('TabLine',       'ds_blue_5',  'ds_blue_1',  'bold',    'ansi_white',     'ansi_blue',       'NONE')
-hi('TabLineSel',    'ds_blue_9',  'ds_blue_3',  'bold',    'ansi_white',     'ansi_blue',       'bold')
+hi('TabLineSel',    'ds_blue_8',  'ds_blue_3',  'bold',    'ansi_white',     'ansi_blue',       'bold')
 hi('TabLineFill',   'NONE',       'ds_blue_1',  'bold',    'ansi_white',     'ansi_blue',       'bold')
 hi('Folded',        'l3_purple',  'purple',     'NONE',    'ansi_cyan',      'ansi_black',      'bold')
-hi('MsgArea',       'ds_blue_9',  'editor_bg',  'NONE',    'ansi_white',     'ansi_brblack',    'NONE')
+hi('MsgArea',       'ds_blue_8',       'editor_bg',  'NONE',    'ansi_white',     'ansi_brblack',    'NONE')
 hi('ErrorMsg',      'l1_red',     'd4_red',     'bold',    'ansi_brred',     'ansi_red',        'bold')
 hi('WarningMsg',    'l1_yellow',  'd2_orange',  'bold',    'ansi_bryellow',  'ansi_yellow',     'bold')
 hi('MoreMsg',       'l1_green',   'd4_green',   'bold',    'ansi_brgreen',   'ansi_green',      'bold')
@@ -87,6 +87,9 @@ hi('PMenu',         'white',      'editor_bg',  'NONE',    'ansi_white',     'an
 hi('PMenuSel',      'l1_yellow',  'ds_blue_5',  'bold',    'ansi_white',     'ansi_black',      'bold')
 hi('WinSeparator',  'ds_blue_3',  'NONE',       'NONE',    'ansi_brblack',   'NONE',            'NONE')
 hi('MatchParen',    'white',      'NONE',       'bold',    'ansi_brwhite',   'NONE',            'bold,underline')
+hi('DiffAdd',       'green',      'NONE',       'bold',    'ansi_green',     'NONE',            'NONE')
+hi('DiffChange',    'yellow',     'NONE',       'bold',    'ansi_yellow',    'NONE',            'NONE')
+hi('DiffDelete',    'red',        'NONE',       'bold',    'ansi_red',       'NONE',            'NONE')
 
 -- group             | target
 ln('CursorColumn',   'CursorLine')
@@ -109,13 +112,20 @@ hi('CMenuItemMatch',  'l1_yellow',  'NONE',       'NONE',    'ansi_bryellow',  '
 -- Plugin highlights
 --------------------------------------------------------------------------------
 
--- group                     | guifg       | guibg     | guiprops         | termfg           | termbg | termprops
-hi('LeapMatch',              'debug',      'NONE',     'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('LeapLabelPrimary',       'black',      'white',    'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('LeapLabelSecondary',     'white',      'l1_blue',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
-hi('LeapLabelSelected',      'debug',      'NONE',     'bold',            'ansi_brmagenta',  'NONE',  'bold')
-hi('MiniCursorword',         'NONE',       'NONE',     'bold,underline',  'NONE',            'NONE',  'bold,underline')
-hi('MiniIndentscopeSymbol',  'ds_cyan_3',  'NONE',     'NONE',            'ansi_brblack',    'NONE',  'NONE')
+-- group                     | guifg       | guibg       | guiprops         | termfg           | termbg | termprops
+hi('LeapMatch',              'debug',      'NONE',       'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelPrimary',       'black',      'white',      'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelSecondary',     'white',      'l1_blue',    'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('LeapLabelSelected',      'debug',      'NONE',       'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('MiniCursorword',         'NONE',       'NONE',       'bold,underline',  'NONE',            'NONE',  'bold,underline')
+hi('MiniIndentscopeSymbol',  'ds_cyan_3',  'NONE',       'NONE',            'ansi_brblack',    'NONE',  'NONE')
+hi('LualineDiffAdd',         'd1_green',   'ds_blue_4',  'bold',            'ansi_green',      'NONE',  'NONE')
+hi('LualineDiffChange',      'yellow',     'ds_blue_4',  'bold',            'ansi_yellow',     'NONE',  'NONE')
+hi('LualineDiffDelete',      'red',        'ds_blue_4',  'bold',            'ansi_red',        'NONE',  'NONE')
+hi('LualineDiagError',       'red',        'ds_blue_3',  'bold',            'ansi_green',      'NONE',  'NONE')
+hi('LualineDiagWarn',        'yellow',     'ds_blue_3',  'bold',            'ansi_yellow',     'NONE',  'NONE')
+hi('LualineDiagInfo',        'white',      'ds_blue_3',  'bold',            'ansi_red',        'NONE',  'NONE')
+hi('LualineDiagHint',        'l2_purple',  'ds_blue_3',  'bold',            'ansi_red',        'NONE',  'NONE')
 
 -- group                      | target
 ln('CmpMenuBackground',       'CMenuNormal')     

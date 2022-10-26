@@ -12,7 +12,7 @@ local function _map(mode, shortcut, command, silent)
     vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = false, silent = silent })
 end
 
-local function _noremap(mode, shortcut, command)
+local function _noremap(mode, shortcut, command, silent)
     silent = silent or false
     vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = silent })
 end
@@ -71,8 +71,6 @@ end
 --------------------------------------------------------------------------------
 
 -- Disable default mappings
-map('f', '<nop>')
-map('F', '<nop>')
 map('q', '<nop>')
 map('Q', '<nop>')
 
@@ -97,18 +95,16 @@ map('<C-n>', '<nop>')
 map('<C-p>', '<nop>')
 imap('<C-n>', '<nop>')
 imap('<C-p>', '<nop>')
--- NOTE: Figure out why this override isn't working.
-xmap('<C-n>', '<nop>')
-xmap('<C-p>', '<nop>')
 
 -- Leader key
 nnoremap(' ', '')
 xnoremap(' ', '')
 vim.g.mapleader = ' '
 
--- Jump
-noremap('f', '<plug>(leap-forward)')
-noremap('F', '<plug>(leap-backward)')
+-- TODO: Extract to leap config.
+-- Leap
+noremap('<leader>f', '<plug>(leap-forward)')
+noremap('<leader>F', '<plug>(leap-backward)')
 
 -- Visual block select
 noremap('<leader>v', '<C-v>')
@@ -119,9 +115,14 @@ vnoremap('<C-c>', '"+y')
 noremap('<C-v>', '"+p')
 noremap('<C-x>', 'x')
 
+-- Windows style binds
+noremap('<C-a>', 'gg0vG$')
+noremap('<C-z>', 'u')
+
+-- TODO: Extract to telescope config.
 -- Fuzzy finder
 noremap('<leader>o', '<cmd>Telescope git_files<cr>')
-noremap('<leader>f', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
+noremap('<leader>p', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
 noremap('<leader>b', '<cmd>Telescope buffers<cr>')
 noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
 noremap('<leader>i', '<cmd>Telescope symbols<cr>')
@@ -139,37 +140,34 @@ nnoremap('J', '<esc>:m .+1<cr>==')
 nnoremap('K', '<esc>:m .-2<cr>==')
 
 -- Change window focus
+noremap('<C-m>', '<C-w>r <bar> <C-w>W')
 noremap('<C-j>', '<C-w>w')
 noremap('<C-k>', '<C-w>W')
-noremap('<C-z>', '<C-w>r <bar> <C-w>W')
+
+-- Change buffer
+noremap('<C-h>', ':bprev<cr>')
+noremap('<C-l>', ':bnext<cr>')
 
 -- Split windows
-noremap('<C-n>', ':vnew<cr>')
-noremap('<C-p>', ':new<cr>')
+nnoremap('<C-n>', '<esc>:vnew<cr>')
+nnoremap('<C-p>', '<esc>:new<cr>')
 
 -- Close NVIM without saving
-noremap('<C-q>', ':qa!<cr>')
+noremap('<C-S-q>', ':qa!<cr>')
 
 -- Save all buffers
 noremap('<C-s>', ':wa!<cr>')
 
 -- Close buffer
-noremap('<leader>q', ':bd<cr>')
+noremap('<C-q>', ':bd<cr>')
 
 -- Close window
 noremap('<C-w>q', ':close<cr>')
 
--- Comment out selection (VISUAL) or current line (NORMAL)
--- NOTE: This is from `mini.comment` plugin.
-map('<leader>/', 'gcc<esc>')
-
--- Reload configuration
--- NOTE: This mapping is unnecessary since all configuration automatically reloads.
--- noremap('<leader>r', '<cmd>source $MYVIMRC<bar>echo "Configuration reloaded."<cr>')
-
 -- Clear search buffer, clear command line and go to start of line
-noremap('<leader>m', '<cmd>let @/=""<cr>:echo ""<cr>', true)
+noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
 
--- Format file
+-- Formatting
+noremap(';', '=')
 noremap('<leader>;', 'gg=G')
 

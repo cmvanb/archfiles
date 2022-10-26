@@ -33,28 +33,33 @@ return {
     -- Redirect output to scratch buffer.
     { 'sbulav/nredir.nvim' },
 
-    -- TODO: Restore LSP.
     -- Mason is a package manager for LSP tooling such as language servers,
     -- debug servers, linters and formatters.
-    -- {
-    --     'williamboman/mason.nvim',
-    --     config = function()
-    --         require('mason').setup()
-    --     end,
-    -- },
-    -- {
-    --     'williamboman/mason-lspconfig.nvim',
-    --     config = function()
-    --         require('mason-lspconfig').setup()
-    --     end,
-    -- },
-    -- -- Default language server configurations
-    -- {
-    --     'neovim/nvim-lspconfig',
-    --     config = function()
-    --         require('lspconfig')['pyright'].setup({})
-    --     end,
-    -- },
+    {
+        'williamboman/mason.nvim',
+        config = function()
+            require('mason').setup({
+                ui = {
+                    border = 'rounded',
+                },
+            })
+        end,
+    },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        config = function()
+            require('mason-lspconfig').setup()
+        end,
+    },
+
+    -- Default language server configurations
+    {
+        'neovim/nvim-lspconfig',
+        config = function()
+            require('lspconfig')['pyright'].setup({})
+            require('lspconfig')['sumneko_lua'].setup({})
+        end,
+    },
 
     -- Snippet engine.
     {
@@ -81,6 +86,7 @@ return {
     -- Completion.
     {
         'hrsh7th/nvim-cmp',
+        requires = { 'L3MON4D3/LuaSnip' },
         config = function()
             do_load('plugins/completion')
         end
@@ -93,7 +99,6 @@ return {
     -- { 'hrsh7th/cmp-nvim-lua' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'saadparwaiz1/cmp_luasnip' },
-
 
     -- Surround.
     -- sa: add, sd: delete, sr: replace
@@ -134,14 +139,13 @@ return {
         'nvim-telescope/telescope-symbols.nvim',
     },
 
-    -- {
-    --     'nvim-lualine/lualine.nvim',
-    --     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    --     config = function()
-    --         -- TODO: Configure lualine.
-    --         -- require('lualine').setup()
-    --     end,
-    -- }
+    {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function()
+            do_load('plugins/lualine')
+        end,
+    },
 
     -- Fish syntax highlighting.
     { 'khaveesh/vim-fish-syntax' },

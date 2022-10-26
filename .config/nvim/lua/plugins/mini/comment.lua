@@ -4,10 +4,11 @@
 
 require('mini.comment').setup({
     mappings = {
-        comment_line = 'gcc',
-        -- TODO: Test whether these mappings work as desired.
-        comment = 'gc',
-        textobject = 'gc',
+        -- NOTE: <C-_> actually maps <C-/>
+        -- Toggle comment on selection (VISUAL) or current line (NORMAL)
+        comment = '<C-_>',
+        -- Toggle comment on current line
+        comment_line = '<C-_>',
     },
 })
 
