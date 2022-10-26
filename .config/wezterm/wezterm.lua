@@ -102,16 +102,22 @@ return {
             end),
         },
         -- Passthrough
+        -- see: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
+        -- see: https://en.wikipedia.org/wiki/List_of_Unicode_characters#Basic_Latin
+        {
+            key = 'i',
+            mods = 'CTRL',
+            action = wezterm.action { SendString = '\x1b[105;5u' },
+        },
         {
             key = 'm',
             mods = 'CTRL',
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action.SendKey { key = 'm', mods = 'CTRL' }, pane)
-                else
-                    -- Do nothing.
-                end
-            end),
+            action = wezterm.action { SendString = '\x1b[109;5u' },
+        },
+        {
+            key = 'q',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action { SendString = '\x1b[81;5u' },
         },
     },
 
@@ -132,6 +138,9 @@ return {
     -- Font
     font = wezterm.font({
         family = 'Iosevka Nerd Font Mono',
+        -- family = 'Hack NF JBM Ligatured',
+        -- family = 'MesloLGS NF',
+        -- family = 'Fira Code',
         weight = 'Regular',
     }),
     font_size = 12.0,
