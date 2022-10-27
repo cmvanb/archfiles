@@ -101,19 +101,34 @@ return {
                 end
             end),
         },
-        -- Passthrough
-        -- see: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-        -- see: https://en.wikipedia.org/wiki/List_of_Unicode_characters#Basic_Latin
+        -- NOTE: It's not possible for nvim to distinguish <C-i> from <Tab>, or
+        -- <C-m> from <CR>, best we can do is pass unused function keys.
         {
             key = 'i',
             mods = 'CTRL',
-            action = wezterm.action { SendString = '\x1b[105;5u' },
+            -- action = wezterm.action { SendString = '\x1b[25~' },
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action { SendString = '\x1b[25~' }, pane)
+                else
+                    window:perform_action(wezterm.action.SendKey { key = 'i', mods = 'CTRL' }, pane)
+                end
+            end),
         },
         {
             key = 'm',
             mods = 'CTRL',
-            action = wezterm.action { SendString = '\x1b[109;5u' },
+            action = wezterm.action_callback(function(window, pane)
+                if pane:is_alt_screen_active() then
+                    window:perform_action(wezterm.action { SendString = '\x1b[26~' }, pane)
+                else
+                    window:perform_action(wezterm.action.SendKey { key = 'm', mods = 'CTRL' }, pane)
+                end
+            end),
         },
+        -- Passthrough
+        -- see: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
+        -- see: https://en.wikipedia.org/wiki/List_of_Unicode_characters#Basic_Latin
         {
             key = 'q',
             mods = 'CTRL|SHIFT',
