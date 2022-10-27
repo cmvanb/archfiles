@@ -134,11 +134,12 @@ return {
         end
     },
 
-    -- Symbols ❤️
+    -- Symbols. 🔥
     {
         'nvim-telescope/telescope-symbols.nvim',
     },
 
+    -- Status line.
     {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },

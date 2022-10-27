@@ -16,6 +16,9 @@ opt.ruler = true
 -- Show line numbers
 opt.number = true
 
+-- Show signs in number column.
+opt.signcolumn = 'number'
+
 -- Highlight current line
 opt.cursorline = true
 
@@ -61,4 +64,7 @@ opt.mouse = 'a'
 -- Folding
 opt.foldmethod = 'syntax'
 opt.foldenable = false
+
+-- Current mode is already visible in status line (lualine)
+opt.showmode = false
 

@@ -18,12 +18,14 @@ require('utils.reload')
 reload('editor.options')
 reload('editor.gui')
 reload('editor.highlights')
-reload('editor.keymaps')
 
 -- Load autocommands.
 reload('autocommands')
 
 -- Load plugins. Will bootstrap Packer if necessary.
-local loader = reload('loader')
-loader.init()
+reload('loader')
+Loader.init()
+
+-- Some key mappings may depend on plugins.
+reload('editor.keymaps')
 

@@ -78,10 +78,10 @@ hi('TabLine',       'ds_blue_5',  'ds_blue_1',  'bold',    'ansi_white',     'an
 hi('TabLineSel',    'ds_blue_8',  'ds_blue_3',  'bold',    'ansi_white',     'ansi_blue',       'bold')
 hi('TabLineFill',   'NONE',       'ds_blue_1',  'bold',    'ansi_white',     'ansi_blue',       'bold')
 hi('Folded',        'l3_purple',  'purple',     'NONE',    'ansi_cyan',      'ansi_black',      'bold')
-hi('MsgArea',       'ds_blue_8',       'editor_bg',  'NONE',    'ansi_white',     'ansi_brblack',    'NONE')
+hi('MsgArea',       'ds_blue_8',  'editor_bg',  'NONE',    'ansi_white',     'ansi_brblack',    'NONE')
 hi('ErrorMsg',      'l1_red',     'd4_red',     'bold',    'ansi_brred',     'ansi_red',        'bold')
 hi('WarningMsg',    'l1_yellow',  'd2_orange',  'bold',    'ansi_bryellow',  'ansi_yellow',     'bold')
-hi('MoreMsg',       'l1_green',   'd4_green',   'bold',    'ansi_brgreen',   'ansi_green',      'bold')
+hi('MoreMsg',       'l1_white',   'gray',       'bold',    'ansi_brgreen',   'ansi_green',      'bold')
 hi('Title',         'white',      'NONE',       'bold',    'ansi_brwhite',   'NONE',            'bold')
 hi('PMenu',         'white',      'editor_bg',  'NONE',    'ansi_white',     'ansi_black',      'NONE')
 hi('PMenuSel',      'l1_yellow',  'ds_blue_5',  'bold',    'ansi_white',     'ansi_black',      'bold')
@@ -103,15 +103,18 @@ ln('Whitespace',     'NonText')
 -- Custom UI highlights
 --------------------------------------------------------------------------------
 
--- group              | guifg       | guibg       | guiprops | termfg          | termbg       | termprops
-hi('CMenuNormal',     'ds_blue_9',  'ds_blue_1',  'bold',    'ansi_cyan',      'ansi_blue',   'NONE')
-hi('CMenuSelection',  'white',      'ds_blue_5',  'bold',    'ansi_brwhite',   'ansi_black',  'bold')
-hi('CMenuItem',       'ds_blue_9',  'NONE',       'NONE',    'ansi_brblue',    'NONE',        'NONE')
-hi('CMenuItemMatch',  'l1_yellow',  'NONE',       'NONE',    'ansi_bryellow',  'NONE',        'NONE')
+-- group                  | guifg       | guibg       | guiprops | termfg          | termbg       | termprops
+hi('CMenuNormal',         'ds_blue_9',  'ds_blue_1',  'NONE',    'ansi_cyan',      'ansi_blue',   'NONE')
+hi('CMenuSelection',      'white',      'ds_blue_5',  'bold',    'ansi_brwhite',   'ansi_black',  'bold')
+hi('CMenuItem',           'ds_blue_9',  'NONE',       'NONE',    'ansi_brblue',    'NONE',        'NONE')
+hi('CMenuItemMatch',      'l1_yellow',  'NONE',       'bold',    'ansi_bryellow',  'NONE',        'NONE')
+hi('FloatMenuNormal',     'ds_blue_8',  'editor_bg',  'NONE',    'ansi_cyan',      'ansi_blue',   'NONE')
+hi('FloatMenuSelection',  'white',      'ds_blue_5',  'bold',    'ansi_brwhite',   'ansi_black',  'bold')
+hi('FloatMenuItem',       'ds_blue_8',  'NONE',       'NONE',    'ansi_cyan',      'ansi_blue',   'NONE')
+hi('FloatMenuItemMatch',  'l1_yellow',  'NONE',       'bold',    'ansi_cyan',      'ansi_blue',   'NONE')
 
 -- Plugin highlights
 --------------------------------------------------------------------------------
-
 -- group                     | guifg       | guibg       | guiprops         | termfg           | termbg | termprops
 hi('LeapMatch',              'debug',      'NONE',       'bold',            'ansi_magenta',    'NONE',  'NONE')
 hi('LeapLabelPrimary',       'black',      'white',      'bold',            'ansi_magenta',    'NONE',  'NONE')
@@ -122,23 +125,24 @@ hi('MiniIndentscopeSymbol',  'ds_cyan_3',  'NONE',       'NONE',            'ans
 hi('LualineDiffAdd',         'd1_green',   'ds_blue_4',  'bold',            'ansi_green',      'NONE',  'NONE')
 hi('LualineDiffChange',      'yellow',     'ds_blue_4',  'bold',            'ansi_yellow',     'NONE',  'NONE')
 hi('LualineDiffDelete',      'red',        'ds_blue_4',  'bold',            'ansi_red',        'NONE',  'NONE')
-hi('LualineDiagError',       'red',        'ds_blue_3',  'bold',            'ansi_green',      'NONE',  'NONE')
-hi('LualineDiagWarn',        'yellow',     'ds_blue_3',  'bold',            'ansi_yellow',     'NONE',  'NONE')
-hi('LualineDiagInfo',        'white',      'ds_blue_3',  'bold',            'ansi_red',        'NONE',  'NONE')
-hi('LualineDiagHint',        'l2_purple',  'ds_blue_3',  'bold',            'ansi_red',        'NONE',  'NONE')
+hi('LualineDiagError',       'red',        'ds_blue_4',  'bold',            'ansi_green',      'NONE',  'NONE')
+hi('LualineDiagWarn',        'yellow',     'ds_blue_4',  'bold',            'ansi_yellow',     'NONE',  'NONE')
+hi('LualineDiagInfo',        'white',      'ds_blue_4',  'bold',            'ansi_red',        'NONE',  'NONE')
+hi('LualineDiagHint',        'l2_purple',  'ds_blue_4',  'bold',            'ansi_red',        'NONE',  'NONE')
 
 -- group                      | target
-ln('CmpMenuBackground',       'CMenuNormal')     
-ln('CmpMenuSelect',           'CMenuSelection')  
-ln('CmpItemAbbr',             'CMenuItem')       
-ln('CmpItemAbbrMatch',        'CMenuItemMatch')  
-ln('CmpItemKind',             'Type')            
-ln('TelescopeNormal',         'Normal')          
-ln('TelescopeBorder',         'WinSeparator')    
-ln('TelescopeTitle',          'Title')           
-ln('TelescopePromptCounter',  'TelescopeTitle')  
-ln('TelescopeMatching',       'CMenuItemMatch')  
-ln('TelescopeSelection',      'CMenuSelection')  
+ln('CmpMenuBackground',       'CMenuNormal')
+ln('CmpMenuSelect',           'CMenuSelection')
+ln('CmpItemAbbr',             'CMenuItem')
+ln('CmpItemAbbrMatch',        'CMenuItemMatch')
+ln('CmpItemKind',             'Type')
+ln('TelescopeNormal',         'FloatMenuNormal')
+ln('TelescopeBorder',         'WinSeparator')
+ln('TelescopeTitle',          'Title')
+ln('TelescopePromptCounter',  'TelescopeTitle')
+ln('TelescopeMatching',       'FloatMenuItemMatch')
+ln('TelescopeSelection',      'FloatMenuSelection')
+ln('TelescopePreviewNormal',  'Normal')
 
 -- Syntax highlights
 --------------------------------------------------------------------------------

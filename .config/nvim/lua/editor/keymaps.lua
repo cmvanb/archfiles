@@ -1,9 +1,11 @@
--- TODO: Clear existing key mappings when reloading.
 --------------------------------------------------------------------------------
 -- Editor key mappings
 --------------------------------------------------------------------------------
 
--- TODO: Extract utility.
+-- TODO: Extract map functions to utility.
+-- TODO: Better options parameter for map functions.
+-- TODO: Clear existing key mappings when reloading.
+
 -- Helpers
 --------------------------------------------------------------------------------
 
@@ -145,12 +147,12 @@ noremap('<C-j>', '<C-w>w')
 noremap('<C-k>', '<C-w>W')
 
 -- Change buffer
-noremap('<C-h>', ':bprev<cr>')
-noremap('<C-l>', ':bnext<cr>')
+noremap('<C-h>', ':bprev<cr>', true)
+noremap('<C-l>', ':bnext<cr>', true)
 
 -- Split windows
-nnoremap('<C-n>', '<esc>:vnew<cr>')
-nnoremap('<C-p>', '<esc>:new<cr>')
+nnoremap('<C-n>', '<esc>:vnew<cr>', true)
+nnoremap('<C-p>', '<esc>:new<cr>', true)
 
 -- Close NVIM without saving
 noremap('<C-S-q>', ':qa!<cr>')
@@ -159,10 +161,10 @@ noremap('<C-S-q>', ':qa!<cr>')
 noremap('<C-s>', ':wa!<cr>')
 
 -- Close buffer
-noremap('<C-q>', ':bd<cr>')
+noremap('<C-q>', ':bd<cr>', true)
 
 -- Close window
-noremap('<C-w>q', ':close<cr>')
+noremap('<C-w>q', ':close<cr>', true)
 
 -- Clear search buffer, clear command line and go to start of line
 noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
@@ -170,4 +172,7 @@ noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
 -- Formatting
 noremap(';', '=')
 noremap('<leader>;', 'gg=G')
+
+-- Reload plugins.
+noremap('<leader>r', 'v:lua Loader.reload_plugins()<cr>', true)
 

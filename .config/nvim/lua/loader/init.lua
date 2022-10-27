@@ -111,22 +111,10 @@ local function compile_packer(callback)
     packer.compile()
 end
 
-local function reload_plugins()
-    load_plugin_config()
-
-    clean_plugins(function()
-        install_plugins(function()
-            compile_packer(function()
-                vim.notify('Packer compiled.')
-            end)
-        end)
-    end)
-end
-
 -- Public interface
 --------------------------------------------------------------------------------
 
-local Loader = {}
+_G.Loader = {}
 
 function Loader.init()
     local bootstrapping = false
@@ -144,11 +132,10 @@ function Loader.init()
     local packer_config = reload('loader.config')
     packer.init(packer_config)
 
-    -- Load plugin configuration.
-    load_plugin_config()
-
-    -- Sync if necesssary.
+    -- If bootstrapping, sync.
     if bootstrapping then
+        load_plugin_config()
+
         vim.api.nvim_create_autocmd('User', {
             pattern = 'PackerComplete',
             once = true,
@@ -163,6 +150,9 @@ function Loader.init()
         })
 
         packer.sync()
+    -- Otherwise clean/install/compile.
+    else
+        Loader.reload_plugins()
     end
 
     -- Auto reload plugins if configuration changes.
@@ -171,9 +161,21 @@ function Loader.init()
         group = augroup,
         pattern = plugins_config_path .. '/*.lua',
         callback = function()
-            reload_plugins()
+            Loader.reload_plugins()
         end,
     })
+end
+
+function Loader.reload_plugins()
+    load_plugin_config()
+
+    clean_plugins(function()
+        install_plugins(function()
+            compile_packer(function()
+                vim.notify('Plugins loaded, Packer compiled.')
+            end)
+        end)
+    end)
 end
 
 return Loader
