@@ -98,6 +98,8 @@ map('<C-p>', '<nop>')
 imap('<C-n>', '<nop>')
 imap('<C-p>', '<nop>')
 
+map('<CR>', '<nop>')
+
 -- Leader key
 nnoremap(' ', '')
 xnoremap(' ', '')
@@ -138,11 +140,11 @@ onoremap('H', '0')
 onoremap('L', '$')
 
 -- Swap lines
-nnoremap('J', '<esc>:m .+1<cr>==')
-nnoremap('K', '<esc>:m .-2<cr>==')
+nnoremap('J', '<esc>:m .+1<cr>==', true)
+nnoremap('K', '<esc>:m .-2<cr>==', true)
 
 -- Change window focus
-noremap('<C-m>', '<C-w>r <bar> <C-w>W')
+noremap('<F14>', '<C-w>r <bar> <C-w>W')
 noremap('<C-j>', '<C-w>w')
 noremap('<C-k>', '<C-w>W')
 

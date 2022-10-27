@@ -48,7 +48,7 @@ require('lualine').setup({
                     error = 'LualineDiagError',
                     warn  = 'LualineDiagWarn',
                     info  = 'LualineDiagInfo',
-                    hint = 'LualineDiagHint',
+                    hint  = 'LualineDiagHint',
                 },
             },
             'filetype',

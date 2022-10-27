@@ -21,6 +21,7 @@ opt.signcolumn = 'number'
 
 -- Highlight current line
 opt.cursorline = true
+opt.cursorcolumn = false
 
 -- Whitespace visualization
 opt.listchars = { tab = '-->', eol = '⬇', trail = '▭' }
