@@ -156,6 +156,9 @@ set -U tide_git_bg_color_unstable (color_named 'ansi_yellow')
 set -U tide_git_bg_color_urgent (color_named 'ansi_red')
 
 # TODO: Configure virtualenv module.
+set -U tide_virtual_env_icon ''
+set -U tide_virtual_env_bg_color (color_named 'ansi_magenta')
+set -U tide_virtual_env_color (color_named 'ansi_bryellow')
 
 set -U tide_pwd_icon ''
 set -U tide_pwd_icon_home ''
