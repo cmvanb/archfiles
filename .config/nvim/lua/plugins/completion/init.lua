@@ -52,7 +52,7 @@ cmp.setup({
         end,
     },
     sources = {
-        -- { name = 'buffer' },
+        { name = 'buffer' },
         -- { name = 'cmdline' },
         -- { name = 'path' },
         -- { name = 'nvim_lua' },
