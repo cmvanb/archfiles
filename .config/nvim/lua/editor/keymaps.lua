@@ -144,7 +144,7 @@ nnoremap('J', '<esc>:m .+1<cr>==', true)
 nnoremap('K', '<esc>:m .-2<cr>==', true)
 
 -- Change window focus
-noremap('<F14>', '<C-w>r <bar> <C-w>W')
+noremap('<F14>', '<C-w>r')
 noremap('<C-j>', '<C-w>w')
 noremap('<C-k>', '<C-w>W')
 
