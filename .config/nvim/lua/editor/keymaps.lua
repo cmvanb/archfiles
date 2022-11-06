@@ -100,6 +100,16 @@ imap('<C-p>', '<nop>')
 
 map('<CR>', '<nop>')
 
+map('ga', '<nop>')
+map('gd', '<nop>')
+map('ge', '<nop>')
+map('gD', '<nop>')
+map('gh', '<nop>')
+map('gH', '<nop>')
+map('gi', '<nop>')
+map('go', '<nop>')
+map('gr', '<nop>')
+
 -- Leader key
 nnoremap(' ', '')
 xnoremap(' ', '')

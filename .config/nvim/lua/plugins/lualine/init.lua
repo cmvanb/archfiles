@@ -50,6 +50,12 @@ require('lualine').setup({
                     info  = 'LualineDiagInfo',
                     hint  = 'LualineDiagHint',
                 },
+                symbols = {
+                    error = '✘ ',
+                    warn = '⚠ ',
+                    hint = ' ',
+                    info = 'ℹ ',
+                },
             },
             'filetype',
         },

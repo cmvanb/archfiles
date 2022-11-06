@@ -10,6 +10,8 @@ end
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 cmp.setup({
     mapping = cmp.mapping.preset.insert({
         -- ['<C-k>'] = cmp.mapping.scroll_docs(-4),
@@ -46,24 +48,51 @@ cmp.setup({
         ['<Right>'] = cmp.mapping.confirm({ select = true }),
     }),
 
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
+
+    formatting = {
+        fields = { 'abbr', 'menu', 'kind' },
+        format = function(entry, item)
+            local short_name = {
+                nvim_lsp = 'LSP',
+                nvim_lua = 'nvim'
+            }
+
+            local menu_name = short_name[entry.source.name] or entry.source.name
+
+            item.menu = string.format('[%s]', menu_name)
+            return item
+        end,
+    },
+
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
         end,
     },
+
     sources = {
-        { name = 'buffer' },
-        -- { name = 'cmdline' },
-        -- { name = 'path' },
-        -- { name = 'nvim_lua' },
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        { name = 'buffer', keyword_length = 3 },
+        { name = 'nvim_lua', keyword_length = 3 },
+        { name = 'nvim_lsp', keyword_length = 3 },
+        { name = 'luasnip', keyword_length = 2 },
     },
+
     window = {
         completion = {
             border = 'none',
             winhighlight = 'Normal:CmpMenuBackground,CursorLine:CmpMenuSelect',
         },
+        documentation = vim.tbl_deep_extend(
+            'force',
+            cmp.config.window.bordered(),
+            {
+                max_height = 15,
+                max_width = 60,
+            }
+        ),
     },
 })
 

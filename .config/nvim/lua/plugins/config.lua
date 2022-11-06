@@ -37,27 +37,22 @@ return {
     -- debug servers, linters and formatters.
     {
         'williamboman/mason.nvim',
-        config = function()
-            require('mason').setup({
-                ui = {
-                    border = 'rounded',
-                },
-            })
-        end,
     },
     {
         'williamboman/mason-lspconfig.nvim',
-        config = function()
-            require('mason-lspconfig').setup()
-        end,
+        after = {
+            'mason.nvim',
+        },
     },
 
     -- Default language server configurations
     {
         'neovim/nvim-lspconfig',
+        after = {
+            'mason-lspconfig.nvim',
+        },
         config = function()
-            require('lspconfig')['pyright'].setup({})
-            require('lspconfig')['sumneko_lua'].setup({})
+            do_load('plugins/lsp')
         end,
     },
 
@@ -94,9 +89,7 @@ return {
 
     -- various completions
     { 'hrsh7th/cmp-buffer' },
-    -- { 'hrsh7th/cmp-cmdline' },
-    -- { 'hrsh7th/cmp-path' },
-    -- { 'hrsh7th/cmp-nvim-lua' },
+    { 'hrsh7th/cmp-nvim-lua' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'saadparwaiz1/cmp_luasnip' },
 
