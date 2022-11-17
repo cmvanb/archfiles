@@ -7,6 +7,13 @@ return {
     -- Packer can manage itself.
     { 'wbthomason/packer.nvim' },
 
+    -- Obsidian notes integration
+    { 'epwalsh/obsidian.nvim',
+        config = function()
+            do_load('plugins/obsidian')
+        end
+    },
+
     -- Mini plugins collection.
     {
         'echasnovski/mini.nvim',
