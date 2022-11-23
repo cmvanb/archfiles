@@ -21,10 +21,17 @@ bw_finalize ()
     bw logout
 }
 
+newline ()
+{
+    printf "\n"
+}
+
 # Input validation
 #-------------------------------------------------------------------------------
 if [[ -z $1 ]]; then
-    echo 'Missing parameter: TARGET' 1>&2
+    echo "Missing parameter: TARGET" 1>&2
+    newline
+
     exit 1
 fi
 
@@ -35,26 +42,33 @@ TARGET=$1
 . ~/.secrets
 
 if [[ -z $BW_CLIENTID ]]; then
-    echo 'Missing secret: BW_CLIENTID' 1>&2
+    echo "Missing secret: BW_CLIENTID" 1>&2
+    newline
+
     exit 2
 fi
 
 if [[ -z $BW_CLIENTSECRET ]]; then
-    echo 'Missing secret: BW_CLIENTSECRET' 1>&2
+    echo "Missing secret: BW_CLIENTSECRET" 1>&2
+    newline
+
     exit 3
 fi
 
 # Login to bitwarden CLI with personal API key
 #-------------------------------------------------------------------------------
-echo 'Login to Bitwarden'
+echo "Login to Bitwarden"
 
 LOGIN_RESULT=$(BW_CLIENTID=$BW_CLIENTID BW_CLIENTSECRET=$BW_CLIENTSECRET bw login --apikey --raw)
 
 if [[ $? -ne 0 ]]; then
+    echo "Error logging in." 1>&2
+    newline
+
     bw_abort 4
 fi
 
-# echo $LOGIN_RESULT
+# TODO: Improve handling of `already logged in`.
 # echo $LOGIN_RESULT =~ "You are already logged in"
 #
 # if [[ $? -ne 0 ]]; then
@@ -70,6 +84,9 @@ fi
 #-------------------------------------------------------------------------------
 SESSION_KEY=$(bw unlock)
 if [[ $? -ne 0 ]]; then
+    echo "Error unlocking vault." 1>&2
+    newline
+
     bw_abort 5
 fi
 
@@ -78,41 +95,52 @@ fi
 # RESULT=$(bw get item $TARGET --session $SESSION_KEY)
 RESULT=$(bw list items --search $TARGET --session $SESSION_KEY)
 if [[ $? -ne 0 ]]; then
+    echo "Error listing items." 1>&2
+    newline
+
     bw_abort 6
 fi
 
-ITEMS_COUNT=$(echo $RESULT | jq '. | length')
+ITEMS_COUNT=$(echo $RESULT | jq ". | length")
 
-if [[ $ITEMS_COUNT -gt 1 ]]; then
-    printf '\n'
-    echo "Found multiple items matching input: \`$TARGET\`." 1>&2
-    printf '\n'
-    echo "$(echo $RESULT | jq -r '.[] | {name: .name, id: .id} | values[]')" 1>&2
-    printf '\n'
+newline
 
-    bw_abort 7
-
-elif [[ $ITEMS_COUNT -lt 1 ]]; then
-    printf '\n'
+if [[ $ITEMS_COUNT -lt 1 ]]; then
     echo "Did not find any items matching input: \`$TARGET\`." 1>&2
-    printf '\n'
+    newline
 
     bw_abort 8
 
 elif [[ $ITEMS_COUNT -eq 1 ]]; then
-    NAME=$(echo $RESULT | jq -r '.[] | .name')
-    PASSWORD=$(echo $RESULT | jq -r '.[] | .login.password')
+    NAME=$(printf "%s" "$RESULT" | jq -r ".[] | .name")
+    PASSWORD=$(printf "%s" "$RESULT" | jq -r ".[] | .login.password")
 
-    printf '\n'
-    echo 'Found item: '$NAME
+    echo "Found item: \`$NAME\`"
+    newline
 
-    # Copy result to clipboard so we can use it immediately
-    wl-copy $PASSWORD
+elif [[ $ITEMS_COUNT -gt 1 ]]; then
+    echo "Found multiple items matching input: \`$TARGET\`." 1>&2
+    newline
 
-    printf '\n'
-    echo 'Password is in Wayland clipboard.'
-    printf '\n'
+    NAME="$(printf "%s" "$RESULT" | jq -r ".[].name" | fzf --reverse)"
+
+    if [[ $? -ne 0 ]]; then
+        echo "Error matching input: \`$TARGET\`." 1>&2
+        newline
+
+        bw_abort 7
+    fi
+
+    PASSWORD="$(printf "%s" "$RESULT" | jq -r ".[] | select(.name == \"$NAME\") | .login.password")"
+
+    echo "Selected item: \`$NAME\`"
 fi
+
+# Copy result to clipboard so we can use it immediately
+wl-copy $PASSWORD
+
+echo "Password is in Wayland clipboard."
+newline
 
 # Always lock and logout
 #-------------------------------------------------------------------------------
