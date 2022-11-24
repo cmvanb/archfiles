@@ -53,6 +53,18 @@ return {
             mods = 'CTRL',
             action = wezterm.action { PasteFrom = 'Clipboard' },
         },
+        -- STTY interrupt passthrough
+        {
+            key = 'x',
+            mods = 'CTRL',
+            action = wezterm.action.SendKey { key = 'c', mods = 'CTRL' },
+        },
+        -- STTY interrupt passthrough
+        {
+            key = 'e',
+            mods = 'CTRL',
+            action = wezterm.action.SendKey { key = 'd', mods = 'CTRL' },
+        },
         -- Scroll down half-page
         {
             key = 'd',

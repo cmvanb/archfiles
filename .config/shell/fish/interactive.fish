@@ -52,7 +52,9 @@ abbr -a exa exa --group-directories-first -al
 bind \cl 'clear; commandline -f repaint'
 
 # Clear command line
-bind \cx 'commandline -r ""'
+# NOTE: Ctrl+C is bound to `Copy` by Wezterm, Ctrl+X is bound to emulate
+# Ctrl+C, which is what fish picks up here.
+bind \cc 'commandline -r ""'
 
 # Basic bindings (many are already default)
 bind \e cancel # Escape
@@ -75,15 +77,11 @@ bind -k backspace backward-delete-char
 bind \t complete # Tab
 bind \r execute # Enter
 
-bind \cc fish_clipboard_copy
-bind \cv fish_clipboard_paste
-
 bind '' self-insert
 bind ' ' self-insert expand-abbr
 bind ';' self-insert expand-abbr
 bind '|' self-insert expand-abbr
 bind '&' self-insert expand-abbr
-bind ^ self-insert expand-abbr
 bind '>' self-insert expand-abbr
 bind '<' self-insert expand-abbr
 bind ')' self-insert expand-abbr
