@@ -70,7 +70,7 @@ c.input.insert_mode.auto_load = True
 #-------------------------------------------------------------------------------
 
 c.url.start_pages = [ 'about:blank' ]
-c.url.auto_search = 'schemeless'
+c.url.auto_search = 'dns'
 c.url.default_page = 'about:blank'
 c.url.searchengines = {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
@@ -315,6 +315,7 @@ config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()',
 ### Command mode
 config.bind('<Ctrl-J>', 'completion-item-focus --history next', mode='command')
 config.bind('<Ctrl-K>', 'completion-item-focus --history prev', mode='command')
+config.bind('<Ctrl-D>', 'completion-item-del', mode='command')
 
 ## Color settings
 #-------------------------------------------------------------------------------
@@ -1332,13 +1333,6 @@ c.colors.webpage.darkmode.enabled = True
 ## Type: Int
 # c.prompt.radius = 8
 
-## Additional arguments to pass to Qt, without leading `--`. With
-## QtWebEngine, some Chromium arguments (see
-## https://peter.sh/experiments/chromium-command-line-switches/ for a
-## list) will work.
-## Type: List of String
-# c.qt.args = []
-
 ## When to use Chromium's low-end device mode. This improves the RAM
 ## usage of renderer processes, at the expense of performance.
 ## Type: String
@@ -1784,7 +1778,6 @@ c.colors.webpage.darkmode.enabled = True
 # config.bind('<Ctrl-A>', 'rl-beginning-of-line', mode='command')
 # config.bind('<Ctrl-B>', 'rl-backward-char', mode='command')
 # config.bind('<Ctrl-C>', 'completion-item-yank', mode='command')
-# config.bind('<Ctrl-D>', 'completion-item-del', mode='command')
 # config.bind('<Ctrl-E>', 'rl-end-of-line', mode='command')
 # config.bind('<Ctrl-F>', 'rl-forward-char', mode='command')
 # config.bind('<Ctrl-H>', 'rl-backward-delete-char', mode='command')
