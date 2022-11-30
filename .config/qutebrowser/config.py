@@ -50,6 +50,8 @@ c.fonts.web.family.sans_serif = 'Noto Sans'
 c.fonts.web.family.serif = 'Noto Serif'
 c.fonts.web.family.standard = 'default_family'
 c.fonts.web.size.minimum = 6
+c.fonts.web.size.default = 16
+c.fonts.web.size.default_fixed = 18
 
 ### Interface
 c.fonts.contextmenu = 'default_size sans-serif'
@@ -931,11 +933,6 @@ c.colors.webpage.darkmode.enabled = True
 # Font family for fantasy fonts.
 # c.fonts.web.family.fantasy = ''
 
-# Default font size (in pixels) for regular text.
-# c.fonts.web.size.default = 16
-
-# Default font size (in pixels) for fixed-pitch text.
-# c.fonts.web.size.default_fixed = 13
 
 # Minimum logical font size (in pixels) that is applied when zooming
 # out.
