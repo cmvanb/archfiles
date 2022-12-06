@@ -265,6 +265,7 @@ c.colors.tabs.selected.even.fg = colors.hash('white')
 #-------------------------------------------------------------------------------
 
 ### Unwanted default bindings
+config.unbind('<Ctrl-a>')
 config.unbind('<Ctrl-q>')
 config.unbind('<Ctrl-PgDown>')
 config.unbind('<Ctrl-PgUp>')
@@ -304,6 +305,7 @@ config.bind('K', 'back')
 #### Page navigation
 config.bind('j', 'scroll down')
 config.bind('k', 'scroll up')
+config.bind('Ctrl+a', 'mode-enter caret ;; selection-toggle ;; move-to-end-of-document')
 
 # TODO: Remember what the reason for this is.
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
