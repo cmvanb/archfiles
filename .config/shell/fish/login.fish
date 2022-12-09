@@ -9,19 +9,35 @@
 #   `bass 'source /home/casper/.config/shell/generic/login'`
 #-------------------------------------------------------------------------------
 
-# Add user binaries to path
-fish_add_path -pP $HOME/bin
+#-------------------------------------------------------------------------------
+# Environment
+#
+# Put your shell-independent, login environment variables here.
+#-------------------------------------------------------------------------------
 
-# Use neovim as text editor
+# Configure pyenv (for dynamically swapping python versions).
+set -x PYENV_ROOT $HOME/.pyenv
+
+# Use neovim as text editor.
 set -x EDITOR /usr/bin/nvim
 set -x VISUAL $EDITOR
 
-# XDG user directories
+# XDG user directories>
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_STATE_HOME $HOME/.local/state
 
-# Provide ssh-agent socket
+# Provide ssh-agent socket.
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.sock
+
+#-------------------------------------------------------------------------------
+# Path
+#-------------------------------------------------------------------------------
+
+# Add user binaries to path.
+fish_add_path -pP $HOME/bin
+
+# Add pyenv python shims to path.
+fish_add_path -pP $PYENV_ROOT/bin
 

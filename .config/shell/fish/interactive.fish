@@ -12,16 +12,10 @@
 source $XDG_CONFIG_HOME/shell/generic/interactive
 
 #-------------------------------------------------------------------------------
-# Import system colors
+# Abbreviations & Aliases
 #-------------------------------------------------------------------------------
 
-source $XDG_CONFIG_HOME/colors/fish-colors.fish
-
-parse_colors
-
-#-------------------------------------------------------------------------------
-# Abbreviations
-#-------------------------------------------------------------------------------
+alias exa "exa --group-directories-first"
 
 abbr -a gs git status
 abbr -a gsu git status -u
@@ -37,8 +31,10 @@ abbr -a gpf git push --force
 abbr -a grc git rm --cached
 abbr -a e edit
 abbr -a ed edit
-abbr -a ex exa --group-directories-first -al
-abbr -a exa exa --group-directories-first -al
+# abbr -a ex exa --group-directories-first -al
+# abbr -a exa exa --group-directories-first -al
+abbr -a ex exa -al
+abbr -a exa exa -al
 
 #-------------------------------------------------------------------------------
 # Bindings
@@ -93,6 +89,10 @@ bind . 'expand-dot-to-double-dot'
 #-------------------------------------------------------------------------------
 # Colors
 #-------------------------------------------------------------------------------
+
+# Import and parse system colors.
+source $XDG_CONFIG_HOME/colors/fish-colors.fish
+parse_colors
 
 # TODO: Use ANSI colors only.
 
@@ -166,4 +166,9 @@ set -U tide_pwd_bg_color (color_named 'ansi_blue')
 set -U tide_pwd_color_anchors (color_named 'ansi_brwhite')
 set -U tide_pwd_color_dirs (color_named 'ansi_brwhite')
 set -U tide_pwd_color_truncated_dirs (color_named 'ansi_white')
+
+#-------------------------------------------------------------------------------
+# Python environment
+#-------------------------------------------------------------------------------
+pyenv init - | source
 
