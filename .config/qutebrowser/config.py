@@ -298,6 +298,9 @@ config.bind('L', 'tab-next')
 config.bind('H', 'tab-prev')
 config.bind('<Ctrl-q>', 'tab-close')
 
+#### Downloads management
+config.bind('<Ctrl-m>', 'download-clear')
+
 #### History navigation
 config.bind('J', 'forward')
 config.bind('K', 'back')
@@ -1643,7 +1646,6 @@ c.colors.webpage.darkmode.enabled = True
 # config.bind('`', 'mode-enter set_mark')
 # config.bind('ad', 'download-cancel')
 # config.bind('b', 'set-cmd-text -s :quickmark-load')
-# config.bind('cd', 'download-clear')
 # config.bind('co', 'tab-only')
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
