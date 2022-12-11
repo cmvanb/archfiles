@@ -170,5 +170,7 @@ set -U tide_pwd_color_truncated_dirs (color_named 'ansi_white')
 #-------------------------------------------------------------------------------
 # Python environment
 #-------------------------------------------------------------------------------
-pyenv init - | source
+if command -v pyenv
+    pyenv init - | source
+end
 
