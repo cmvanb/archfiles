@@ -72,7 +72,7 @@ c.input.insert_mode.auto_load = True
 #-------------------------------------------------------------------------------
 
 c.url.start_pages = [ 'about:blank' ]
-c.url.auto_search = 'dns'
+c.url.auto_search = 'naive'
 c.url.default_page = 'about:blank'
 c.url.searchengines = {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
