@@ -2,7 +2,7 @@
 
 systemd-cat --identifier=user-init echo "User initialization"
 
-exec $HOME/bin/river-run
+exec $HOME/.local/bin/river-run
 
 # exec fish -i -l
 # exec bash -i -l

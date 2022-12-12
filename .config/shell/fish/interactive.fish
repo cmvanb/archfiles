@@ -16,6 +16,7 @@ source $XDG_CONFIG_HOME/shell/generic/interactive
 #-------------------------------------------------------------------------------
 
 alias exa "exa --group-directories-first"
+alias edit "$EDITOR"
 
 abbr -a gs git status
 abbr -a gsu git status -u
@@ -31,8 +32,6 @@ abbr -a gpf git push --force
 abbr -a grc git rm --cached
 abbr -a e edit
 abbr -a ed edit
-# abbr -a ex exa --group-directories-first -al
-# abbr -a exa exa --group-directories-first -al
 abbr -a ex exa -al
 abbr -a exa exa -al
 

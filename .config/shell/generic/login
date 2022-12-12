@@ -65,7 +65,7 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.sock
 #-------------------------------------------------------------------------------
 
 # Add user binaries to path
-pathprepend $HOME/bin PATH
+pathprepend $HOME/.local/bin PATH
 
 # Add pyenv python shims to path
 pathprepend $PYENV_ROOT/bin PATH

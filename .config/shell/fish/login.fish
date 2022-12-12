@@ -36,7 +36,7 @@ set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.sock
 #-------------------------------------------------------------------------------
 
 # Add user binaries to path.
-fish_add_path -pP $HOME/bin
+fish_add_path -pP $HOME/.local/bin
 
 # Add pyenv python shims to path.
 fish_add_path -pP $PYENV_ROOT/bin
