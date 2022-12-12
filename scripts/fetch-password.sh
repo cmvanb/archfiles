@@ -39,7 +39,7 @@ TARGET=$1
 
 # Retrieve secrets
 #-------------------------------------------------------------------------------
-. ~/.secrets
+. ~/.secrets/bw
 
 if [[ -z $BW_CLIENTID ]]; then
     echo "Missing secret: BW_CLIENTID" 1>&2
