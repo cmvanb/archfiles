@@ -155,28 +155,29 @@ ln('TelescopePreviewNormal',  'Normal')
 -- Syntax highlights
 --------------------------------------------------------------------------------
 
--- group          | guifg        | guibg  | guiprops         | termfg           | termbg | termprops
-hi('Identifier',  'white',       'NONE',  'NONE',            'ansi_white',      'NONE',  'NONE')
-hi('Statement',   'ds_green_7',  'NONE',  'bold',            'ansi_brgreen',    'NONE',  'bold')
-hi('Comment',     'ds_cyan_4',   'NONE',  'italic',          'ansi_brblack',    'NONE',  'NONE')
-hi('Type',        'l1_purple',   'NONE',  'NONE',            'ansi_magenta',    'NONE',  'NONE')
-hi('PreProc',     'l1_yellow',   'NONE',  'NONE',            'ansi_bryellow',   'NONE',  'NONE')
-hi('Constant',    'l1_magenta',  'NONE',  'NONE',            'ansi_brmagenta',  'NONE',  'NONE')
-hi('Special',     'yellow',      'NONE',  'bold',            'ansi_yellow',     'NONE',  'NONE')
-hi('Underlined',  'blue',        'NONE',  'underline',       'ansi_blue',       'NONE',  'underline')
-hi('Delimiter',   'ds_green_5',  'NONE',  'NONE',            'ansi_green',      'NONE',  'NONE')
-hi('String',      'l1_orange',   'NONE',  'NONE',            'ansi_yellow',     'NONE',  'NONE')
-hi('Keyword',     'ds_green_7',  'NONE',  'bold',            'ansi_brgreen',    'NONE',  'bold')
-hi('Function',    'ds_cyan_9',   'NONE',  'bold',            'ansi_brcyan',     'NONE',  'bold')
-hi('Number',      'l1_red',      'NONE',  'NONE',            'ansi_brred',      'NONE',  'NONE')
-hi('Boolean',     'red',         'NONE',  'NONE',            'ansi_red',        'NONE',  'NONE')
-hi('Ignore',      'd3_gray',     'NONE',  'bold',            'ansi_brblack',    'NONE',  'NONE')
-hi('Todo',        'ds_cyan_9',   'NONE',  'bold,nocombine',  'ansi_brwhite',    'NONE',  'bold')
+-- group          | guifg        | guibg       | guiprops         | termfg           | termbg | termprops
+hi('Identifier',  'ds_cyan_7',   'NONE',       'NONE',            'ansi_cyan',       'NONE',  'NONE')
+hi('Statement',   'd1_green',    'NONE',       'bold',            'ansi_brgreen',    'NONE',  'bold')
+hi('Comment',     'ds_cyan_4',   'NONE',       'italic',          'ansi_brblack',    'NONE',  'NONE')
+hi('Type',        'white',       'NONE',       'NONE',            'ansi_magenta',    'NONE',  'NONE')
+hi('PreProc',     'l1_yellow',   'NONE',       'NONE',            'ansi_bryellow',   'NONE',  'NONE')
+hi('Constant',    'l1_magenta',  'NONE',       'NONE',            'ansi_brmagenta',  'NONE',  'NONE')
+hi('Special',     'yellow',      'NONE',       'bold',            'ansi_yellow',     'NONE',  'NONE')
+hi('Underlined',  'blue',        'NONE',       'underline',       'ansi_blue',       'NONE',  'underline')
+hi('Delimiter',   'ds_green_4',  'NONE',       'NONE',            'ansi_green',      'NONE',  'NONE')
+hi('String',      'l1_orange',   'NONE',       'NONE',            'ansi_yellow',     'NONE',  'NONE')
+hi('Keyword',     'd1_green',    'NONE',       'bold',            'ansi_brgreen',    'NONE',  'bold')
+hi('Function',    'ds_cyan_9',   'NONE',       'bold',            'ansi_brcyan',     'NONE',  'bold')
+hi('Number',      'l1_red',      'NONE',       'NONE',            'ansi_brred',      'NONE',  'NONE')
+hi('Boolean',     'red',         'NONE',       'NONE',            'ansi_red',        'NONE',  'NONE')
+hi('Ignore',      'd3_gray',     'NONE',       'bold',            'ansi_brblack',    'NONE',  'NONE')
+hi('Todo',        'l3_cyan',     'd4_cyan',    'bold,nocombine',  'ansi_brwhite',    'NONE',  'bold')
 
 -- group               | target
 ln('vimCommentTitle',  'Comment')
 ln('vimOption',        'Identifier')
 ln('Operator',         'Keyword')
+ln('@text.literal',    'String')
 
 -- Special snowflakes
 --------------------------------------------------------------------------------

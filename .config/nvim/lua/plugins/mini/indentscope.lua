@@ -9,7 +9,7 @@ local indentscope = require('mini.indentscope')
 indentscope.setup({
     draw = {
         delay = 200,
-        animation = indentscope.gen_animation('cubicInOut', { duration = 15 }),
+        animation = indentscope.gen_animation.cubic({ easing = 'in-out', duration = 15 }),
     },
 
     mappings = {
