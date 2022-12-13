@@ -12,7 +12,8 @@
 #-------------------------------------------------------------------------------
 
 # Save history in an XDG compliant directory.
-export HISTFILE=$XDG_DATA_HOME/bash/.bash_history
+[[ ! -d "$DATA_DIR" ]] && mkdir -p "$DATA_DIR"
+export HISTFILE=$XDG_DATA_HOME/bash/bash_history
 
 # GNU readline configuration
 export INPUTRC=~/.config/readline/config
