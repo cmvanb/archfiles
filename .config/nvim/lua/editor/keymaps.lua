@@ -110,6 +110,12 @@ map('gi', '<nop>')
 map('go', '<nop>')
 map('gr', '<nop>')
 
+-- Visual selection expansion powered by nvim-treesitter.
+nmap('+', 'gnn')
+nmap('-', '<nop>')
+xmap('+', 'grn')
+xmap('-', 'grm')
+
 -- Leader key
 nnoremap(' ', '')
 xnoremap(' ', '')
