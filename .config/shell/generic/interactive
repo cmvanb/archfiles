@@ -1,6 +1,9 @@
 # NOTE: This file is sourced in fish shell by `~/.config/shell/fish/interactive`.
 # If you need to use anything other than simple commands, this won't work anymore.
 
+# Set consolefont (TTY).
+setfont ter-u16b
+
 # Disable unwanted bindings.
 stty erase undef
 stty start undef
