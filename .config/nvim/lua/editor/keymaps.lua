@@ -121,7 +121,6 @@ nnoremap(' ', '')
 xnoremap(' ', '')
 vim.g.mapleader = ' '
 
--- TODO: Extract to leap config.
 -- Leap
 noremap('<leader>f', '<plug>(leap-forward)')
 noremap('<leader>F', '<plug>(leap-backward)')
@@ -139,13 +138,16 @@ noremap('<C-x>', 'x')
 noremap('<C-a>', 'gg0vG$')
 noremap('<C-z>', 'u')
 
--- TODO: Extract to telescope config.
+-- File opener
+noremap('<leader>o', '<cmd>Lf<cr>')
+
 -- Fuzzy finder
-noremap('<leader>o', '<cmd>Telescope git_files<cr>')
-noremap('<leader>p', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
+noremap('<leader>d', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
 noremap('<leader>b', '<cmd>Telescope buffers<cr>')
 noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
 noremap('<leader>i', '<cmd>Telescope symbols<cr>')
+-- TODO: Restore this binding on another key.
+-- noremap('<leader>o', '<cmd>Telescope git_files<cr>')
 
 -- Start/end of line
 nnoremap('H', '0')

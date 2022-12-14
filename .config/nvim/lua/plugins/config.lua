@@ -4,11 +4,20 @@
 
 return {
 
+    {
+        'ptzz/lf.vim',
+        requires = { 'voldikss/vim-floaterm' },
+        config = function()
+            vim.g.lf_map_keys = 0
+        end
+    },
+
     -- Packer can manage itself.
     { 'wbthomason/packer.nvim' },
 
     -- Obsidian notes integration
-    { 'epwalsh/obsidian.nvim',
+    {
+        'epwalsh/obsidian.nvim',
         config = function()
             do_load('plugins/obsidian')
         end
