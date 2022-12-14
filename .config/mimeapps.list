@@ -1,0 +1,18 @@
+
+[Default Applications]
+text/html=qutebrowser.desktop
+x-scheme-handler/http=qutebrowser.desktop
+x-scheme-handler/https=qutebrowser.desktop
+x-scheme-handler/qute=qutebrowser.desktop
+application/pdf=zathura.desktop
+image/webp=imv.desktop
+image/bmp=imv.desktop
+image/gif=imv.desktop
+image/jpeg=imv.desktop
+image/jpg=imv.desktop
+image/png=imv.desktop
+image/x-bmp=imv.desktop
+image/x-png=imv.desktop
+image/x-pcx=imv.desktop
+image/x-tga=imv.desktop
+image/heif=imv.desktop

@@ -18,7 +18,9 @@
 # Configure pyenv (for dynamically swapping python versions).
 set -x PYENV_ROOT $HOME/.pyenv
 
-# Use neovim as text editor.
+# Some programs respect these defaults, others are supported by XDG with
+# configuration in `.config/mimeapps.list` and `.local/share/applications/`.
+set -x BROWSER /usr/bin/qutebrowser
 set -x EDITOR /usr/bin/nvim
 set -x VISUAL $EDITOR
 

@@ -48,6 +48,7 @@ pathprepend () {
 export PYENV_ROOT=$HOME/.pyenv
 
 # Use neovim as text editor>
+export BROWSER=/usr/bin/qutebrowser
 export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR
 
