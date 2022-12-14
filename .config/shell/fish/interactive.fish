@@ -29,6 +29,7 @@ abbr -a gc git commit -m
 abbr -a gca git commit --amend
 abbr -a gp git push
 abbr -a gpf git push --force
+abbr -a grb git rebase -i
 abbr -a grc git rm --cached
 abbr -a e edit
 abbr -a ed edit
