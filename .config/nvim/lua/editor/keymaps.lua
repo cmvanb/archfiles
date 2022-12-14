@@ -69,10 +69,9 @@ local function onoremap(shortcut, command, silent)
     _noremap('o', shortcut, command, silent)
 end
 
--- Mappings
+-- Disable default mappings
 --------------------------------------------------------------------------------
 
--- Disable default mappings
 map('q', '<nop>')
 map('Q', '<nop>')
 
@@ -110,23 +109,15 @@ map('gi', '<nop>')
 map('go', '<nop>')
 map('gr', '<nop>')
 
--- Visual selection expansion powered by nvim-treesitter.
-nmap('+', 'gnn')
-nmap('-', '<nop>')
-xmap('+', 'grn')
-xmap('-', 'grm')
-
 -- Leader key
+--------------------------------------------------------------------------------
+
 nnoremap(' ', '')
 xnoremap(' ', '')
 vim.g.mapleader = ' '
 
--- Leap
-noremap('<leader>f', '<plug>(leap-forward)')
-noremap('<leader>F', '<plug>(leap-backward)')
-
--- Visual block select
-noremap('<leader>v', '<C-v>')
+-- Convenience
+--------------------------------------------------------------------------------
 
 -- System clipboard
 -- NOTE: This is only working in TUI because Wezterm is configured for it.
@@ -137,6 +128,36 @@ noremap('<C-x>', 'x')
 -- Windows style binds
 noremap('<C-a>', 'gg0vG$')
 noremap('<C-z>', 'u')
+
+-- Selection
+--------------------------------------------------------------------------------
+
+-- Visual selection expansion powered by nvim-treesitter.
+nmap('+', 'gnn')
+nmap('-', '<nop>')
+xmap('+', 'grn')
+xmap('-', 'grm')
+
+-- Visual block select
+noremap('<leader>v', '<C-v>')
+
+-- Navigation
+--------------------------------------------------------------------------------
+
+-- Start/end of line
+nnoremap('H', '0')
+nnoremap('L', '$')
+xnoremap('H', '0')
+xnoremap('L', '$')
+onoremap('H', '0')
+onoremap('L', '$')
+
+-- Leap
+noremap('<leader>f', '<plug>(leap-forward)')
+noremap('<leader>F', '<plug>(leap-backward)')
+
+-- Search
+--------------------------------------------------------------------------------
 
 -- File opener
 noremap('<leader>o', '<cmd>Lf<cr>')
@@ -149,17 +170,22 @@ noremap('<leader>i', '<cmd>Telescope symbols<cr>')
 -- TODO: Restore this binding on another key.
 -- noremap('<leader>o', '<cmd>Telescope git_files<cr>')
 
--- Start/end of line
-nnoremap('H', '0')
-nnoremap('L', '$')
-xnoremap('H', '0')
-xnoremap('L', '$')
-onoremap('H', '0')
-onoremap('L', '$')
+-- Clear search buffer, clear command line and go to start of line
+noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
+
+-- Text editing
+--------------------------------------------------------------------------------
 
 -- Swap lines
 nnoremap('J', '<esc>:m .+1<cr>==', true)
 nnoremap('K', '<esc>:m .-2<cr>==', true)
+
+-- Formatting
+noremap(';', '=')
+noremap('<leader>;', 'gg=G')
+
+-- Windows
+--------------------------------------------------------------------------------
 
 -- Change window focus
 noremap('<F14>', '<C-w>r')
@@ -174,8 +200,11 @@ noremap('<C-l>', ':bnext<cr>', true)
 nnoremap('<C-n>', '<esc>:vnew<cr>', true)
 nnoremap('<C-p>', '<esc>:new<cr>', true)
 
--- Close NVIM without saving
-noremap('<C-S-q>', ':qa!<cr>')
+-- Close window
+noremap('<C-w>q', ':close<cr>', true)
+
+-- Write/quit
+--------------------------------------------------------------------------------
 
 -- Save all buffers
 noremap('<C-s>', ':wa!<cr>')
@@ -183,15 +212,11 @@ noremap('<C-s>', ':wa!<cr>')
 -- Close buffer
 noremap('<C-q>', ':bd<cr>', true)
 
--- Close window
-noremap('<C-w>q', ':close<cr>', true)
+-- Close NVIM without saving
+noremap('<C-S-q>', ':qa!<cr>')
 
--- Clear search buffer, clear command line and go to start of line
-noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
-
--- Formatting
-noremap(';', '=')
-noremap('<leader>;', 'gg=G')
+-- Plugin management
+--------------------------------------------------------------------------------
 
 -- Reload plugins.
 noremap('<leader>r', 'v:lua Loader.reload_plugins()<cr>', true)
