@@ -130,41 +130,60 @@ set -U fish_color_valid_path (color_named 'debug') # --underline
 # Prompt (https://github.com/IlanCosman/tide)
 #-------------------------------------------------------------------------------
 
-set -U tide_prompt_color_separator_same_color (color_named 'ansi_white')
-set -U tide_left_prompt_items context time jobs git virtual_env pwd
+# Separators
+set -U tide_left_prompt_separator_diff_color ''
+set -U tide_left_prompt_separator_same_color ''
+set -U tide_prompt_color_separator_same_color (color_named 'debug')
+
+# Items
+set -U tide_left_prompt_items time context jobs git virtual_env pwd
 set -U tide_right_prompt_items
 
+# Context (user@hostname)
 set -U tide_context_always_display false
-set -U tide_context_bg_color (color_named 'ansi_brblack')
-set -U tide_context_color_default (color_named 'ansi_white')
-set -U tide_context_color_root (color_named 'ansi_red')
-set -U tide_context_color_ssh (color_named 'ansi_yellow')
+set -U tide_context_bg_color (color_named 'd4_gray')
+set -U tide_context_color_default (color_named 'l4_blue')
+set -U tide_context_color_root (color_named 'l2_red')
+set -U tide_context_color_ssh (color_named 'l2_yellow')
 
+# Time
 set -U tide_time_format '%H:%M:%S'
-set -U tide_time_bg_color (color_named 'ansi_black')
-set -U tide_time_color (color_named 'ansi_cyan')
+set -U tide_time_bg_color (color_named 'ds_blue_0')
+set -U tide_time_color (color_named 'd1_cyan')
 
+# Background jobs
 set -U tide_jobs_icon ''
 set -U tide_jobs_bg_color (color_named 'ansi_red')
 set -U tide_jobs_color (color_named 'ansi_black')
 
+# Git
 set -U tide_git_icon ''
-set -U tide_git_bg_color (color_named 'ansi_green')
-set -U tide_git_bg_color_unstable (color_named 'ansi_yellow')
+set -U tide_git_bg_color (color_named 'd1_green')
+set -U tide_git_bg_color_unstable (color_named 'l1_orange')
 set -U tide_git_bg_color_urgent (color_named 'ansi_red')
+# NOTE: Listed in tide documentation, but has no effect.
+# set -U tide_git_color_branch (color_named 'debug')
+set -U tide_git_color_operation (color_named 'black')
+set -U tide_git_color_upstream (color_named 'black')
+set -U tide_git_color_stash (color_named 'black')
+set -U tide_git_color_conflicted (color_named 'black')
+set -U tide_git_color_staged (color_named 'black')
+set -U tide_git_color_dirty (color_named 'black')
+set -U tide_git_color_untracked (color_named 'black')
 
-# TODO: Configure virtualenv module.
+# Python virtual environment
 set -U tide_virtual_env_icon ''
 set -U tide_virtual_env_bg_color (color_named 'ansi_magenta')
 set -U tide_virtual_env_color (color_named 'ansi_bryellow')
 
+# Working directory
 set -U tide_pwd_icon ''
 set -U tide_pwd_icon_home ''
 set -U tide_pwd_icon_unwritable ''
-set -U tide_pwd_bg_color (color_named 'ansi_blue')
-set -U tide_pwd_color_anchors (color_named 'ansi_brwhite')
-set -U tide_pwd_color_dirs (color_named 'ansi_brwhite')
-set -U tide_pwd_color_truncated_dirs (color_named 'ansi_white')
+set -U tide_pwd_bg_color (color_named 'd3_blue')
+set -U tide_pwd_color_anchors (color_named 'l4_cyan')
+set -U tide_pwd_color_dirs (color_named 'l3_cyan')
+set -U tide_pwd_color_truncated_dirs (color_named 'l4_cyan')
 
 #-------------------------------------------------------------------------------
 # Python environment
