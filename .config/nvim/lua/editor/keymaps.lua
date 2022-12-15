@@ -156,24 +156,7 @@ onoremap('L', '$')
 noremap('<leader>f', '<plug>(leap-forward)')
 noremap('<leader>F', '<plug>(leap-backward)')
 
--- Search
---------------------------------------------------------------------------------
-
--- File opener
-noremap('<leader>o', '<cmd>Lf<cr>')
-
--- Fuzzy finder
-noremap('<leader>d', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
-noremap('<leader>b', '<cmd>Telescope buffers<cr>')
-noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
-noremap('<leader>i', '<cmd>Telescope symbols<cr>')
--- TODO: Restore this binding on another key.
--- noremap('<leader>o', '<cmd>Telescope git_files<cr>')
-
--- Clear search buffer, clear command line and go to start of line
-noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
-
--- Text editing
+-- Editing
 --------------------------------------------------------------------------------
 
 -- Swap lines
@@ -184,6 +167,18 @@ nnoremap('K', '<esc>:m .-2<cr>==', true)
 noremap(';', '=')
 noremap('<leader>;', 'gg=G')
 
+-- Search
+--------------------------------------------------------------------------------
+
+-- Fuzzy finder
+noremap('<leader>d', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
+noremap('<leader>b', '<cmd>Telescope buffers<cr>')
+noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
+noremap('<leader>i', '<cmd>Telescope symbols<cr>')
+
+-- Clear search buffer, clear command line and go to start of line
+noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
+
 -- Windows
 --------------------------------------------------------------------------------
 
@@ -192,28 +187,34 @@ noremap('<F14>', '<C-w>r')
 noremap('<C-j>', '<C-w>w')
 noremap('<C-k>', '<C-w>W')
 
--- Change buffer
-noremap('<C-h>', ':bprev<cr>', true)
-noremap('<C-l>', ':bnext<cr>', true)
-
 -- Split windows
-nnoremap('<C-n>', '<esc>:vnew<cr>', true)
-nnoremap('<C-p>', '<esc>:new<cr>', true)
+nnoremap('<C-n>', '<esc>:belowright vnew<cr>', true)
+nnoremap('<C-p>', '<esc>:belowright new<cr>', true)
 
 -- Close window
 noremap('<C-w>q', ':close<cr>', true)
 
--- Write/quit
+-- Buffers
 --------------------------------------------------------------------------------
+
+-- Change buffer
+noremap('<C-h>', ':bprev<cr>', true)
+noremap('<C-l>', ':bnext<cr>', true)
 
 -- Save all buffers
 noremap('<C-s>', ':wa!<cr>')
 
 -- Close buffer
-noremap('<C-q>', ':bd<cr>', true)
+nnoremap('<C-q>', ':Bdelete<cr>', true)
 
 -- Close NVIM without saving
-noremap('<C-S-q>', ':qa!<cr>')
+noremap('<Leader>q', ':qa!<cr>')
+
+-- Sessions
+--------------------------------------------------------------------------------
+
+noremap('<leader>s', '<cmd>lua require("persistence").save()<cr>:echo "Session saved."<cr>')
+noremap('<leader>o', '<cmd>lua require("persistence").load()<cr>:echo "Session loaded."<cr>')
 
 -- Plugin management
 --------------------------------------------------------------------------------

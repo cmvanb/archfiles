@@ -3,25 +3,8 @@
 --------------------------------------------------------------------------------
 
 return {
-
-    {
-        'ptzz/lf.vim',
-        requires = { 'voldikss/vim-floaterm' },
-        config = function()
-            vim.g.lf_map_keys = 0
-        end
-    },
-
     -- Packer can manage itself.
     { 'wbthomason/packer.nvim' },
-
-    -- Obsidian notes integration
-    {
-        'epwalsh/obsidian.nvim',
-        config = function()
-            do_load('plugins/obsidian')
-        end
-    },
 
     -- Mini plugins collection.
     {
@@ -34,17 +17,23 @@ return {
         end
     },
 
-    -- View colors in editor.
+    -- Session management
     {
-        'NvChad/nvim-colorizer.lua',
+        'folke/persistence.nvim',
+        event = 'BufReadPre', -- this will only start session saving when an actual file was opened
+        module = 'persistence',
         config = function()
-            do_load('plugins/colorizer')
-        end
+            require('persistence').setup({
+                -- directory where session files are saved
+                dir = vim.fn.expand(vim.fn.stdpath('data') .. '/sessions/'),
+                -- sessionoptions used for saving
+                options = { 'buffers', 'curdir', 'tabpages', 'winsize' },
+            })
+        end,
     },
 
-    -- Terminal background fix.
-    -- TODO: Plugin should dynamically read terminal and editor background color.
-    -- { '~/projects/termbg.nvim' },
+    -- Better buffer deletion
+    { 'famiu/bufdelete.nvim' },
 
     -- Redirect output to scratch buffer.
     { 'sbulav/nredir.nvim' },
@@ -142,6 +131,37 @@ return {
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'saadparwaiz1/cmp_luasnip' },
 
+    -- Fuzzy finder.
+    {
+        'nvim-telescope/telescope.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            do_load('plugins/telescope')
+        end
+    },
+
+    -- Status line.
+    {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function()
+            do_load('plugins/lualine')
+        end,
+    },
+
+    -- Symbols. 🔥
+    {
+        'nvim-telescope/telescope-symbols.nvim',
+    },
+
+    -- Jump movement.
+    {
+        'ggandor/leap.nvim',
+        config = function()
+            do_load('plugins/leap')
+        end
+    },
+
     -- Surround.
     -- sa: add, sd: delete, sr: replace
     -- ib: inner select, ab: outer select (VISUAL mode)
@@ -159,35 +179,12 @@ return {
         end,
     },
 
-    -- Jump movement.
+    -- View colors in editor.
     {
-        'ggandor/leap.nvim',
+        'NvChad/nvim-colorizer.lua',
         config = function()
-            do_load('plugins/leap')
+            do_load('plugins/colorizer')
         end
-    },
-
-    -- Fuzzy finder.
-    {
-        'nvim-telescope/telescope.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
-        config = function()
-            do_load('plugins/telescope')
-        end
-    },
-
-    -- Symbols. 🔥
-    {
-        'nvim-telescope/telescope-symbols.nvim',
-    },
-
-    -- Status line.
-    {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function()
-            do_load('plugins/lualine')
-        end,
     },
 
     -- Fish syntax highlighting.
@@ -195,6 +192,5 @@ return {
 
     -- Zig syntax highlighting.
     { 'ziglang/zig.vim' },
-
 }
 
