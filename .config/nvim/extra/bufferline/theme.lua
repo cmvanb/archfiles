@@ -19,10 +19,10 @@ Colors.parse_colors()
 
 local colors = {
     debug           =  Colors.hash('debug'),
-    background      =  Colors.hash('d5_gray'),
-    hidden_bg       =  Colors.hash('ds_blue_1'),
+    background      =  Colors.hash('ds_blue_1'),
+    hidden_bg       =  Colors.hash('ds_blue_0'),
     hidden_fg       =  Colors.hash('ds_blue_5'),
-    visible_bg      =  Colors.hash('ds_blue_3'),
+    visible_bg      =  Colors.hash('ds_blue_2'),
     visible_fg      =  Colors.hash('ds_blue_8'),
     selected_bg     =  Colors.hash('ds_blue_5'),
     selected_fg     =  Colors.hash('l4_blue'),

@@ -80,11 +80,6 @@ map('J', '<nop>')
 map('K', '<nop>')
 map('L', '<nop>')
 
-map('<C-w>c', '<nop>')
-map('<C-w>w', '<nop>')
-map('<C-w>W', '<nop>')
-map('<C-w>r', '<nop>')
-
 map('<C-o>', '<nop>')
 
 map('<C-h>', '<nop>')
@@ -192,7 +187,7 @@ nnoremap('<C-n>', '<esc>:belowright vnew<cr>', true)
 nnoremap('<C-p>', '<esc>:belowright new<cr>', true)
 
 -- Close window
-noremap('<C-w>q', ':close<cr>', true)
+noremap('<C-w>', ':close<cr>', true)
 
 -- Buffers
 --------------------------------------------------------------------------------

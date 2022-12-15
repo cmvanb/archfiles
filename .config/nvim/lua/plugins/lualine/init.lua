@@ -8,10 +8,9 @@ require('lualine').setup({
     options = {
         theme = theme,
         component_separators = ' ',
-        section_separators = {
-            left = '',
-            right = '',
-        },
+        -- section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
     },
     sections = {
         lualine_a = { 'mode' },
@@ -34,10 +33,6 @@ require('lualine').setup({
         },
         lualine_c =
         {
-            {
-                'filename',
-                path = 1,
-            },
         },
         lualine_x = {},
         lualine_y = {
@@ -57,7 +52,10 @@ require('lualine').setup({
                     info = 'ℹ ',
                 },
             },
-            'filetype',
+            {
+                'filetype',
+                icons_enabled = false,
+            },
         },
         lualine_z = { 'location' }
     },
@@ -65,10 +63,6 @@ require('lualine').setup({
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-            {
-                'filename',
-                path = 1,
-            },
         },
         lualine_x = {},
         lualine_y = {},
@@ -81,46 +75,57 @@ require('lualine').setup({
 
                 icons_enabled = false,
                 padding = { left = 2, right = 2 },
-                separator = nil,
+                separator = { left = '', right = '' },
 
-                show_filename_only = true,   -- Shows shortened relative path when set to false.
-                hide_filename_extension = false,   -- Hide filename extension when set to true.
-                show_modified_status = true, -- Shows indicator when the buffer is modified.
+                show_filename_only = true,
+                hide_filename_extension = false,
+                show_modified_status = true,
 
-                mode = 4, -- 0: Shows buffer name
-                -- 1: Shows buffer index
-                -- 2: Shows buffer name + buffer index
-                -- 3: Shows buffer number
-                -- 4: Shows buffer name + buffer number
+                mode = 0,
 
-                max_length = vim.o.columns * 2 / 3, -- Maximum width of buffers component,
-                -- it can also be a function that returns
-                -- the value of `max_length` dynamically.
+                -- Don't limit length.
+                max_length = 0,
+
                 filetype_names = {
                     TelescopePrompt = 'Telescope',
-                    dashboard = 'Dashboard',
                     packer = 'Packer',
-                    fzf = 'FZF',
-                    alpha = 'Alpha'
-                }, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
+                },
 
                 buffers_color = {
-                    active = 'lualine_b_normal',
-                    inactive = 'lualine_b_inactive',
+                    active = 'lualine_a_normal',
+                    inactive = 'lualine_c_inactive',
                 },
 
                 symbols = {
-                    modified = ' ●',      -- Text to show when the buffer is modified
-                    alternate_file = '', -- Text to show to identify the alternate file
-                    directory =  '',     -- Text to show when the buffer is a directory
+                    modified = ' ●',
+                    alternate_file = '',
+                    directory =  '',
                 },
             },
         },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
+        lualine_b = {
+        },
+        lualine_c = {
+        },
+        lualine_x = {
+        },
+        lualine_y = {
+        },
+        lualine_z = {
+            {
+                'filename',
+                path = 3,
+                shorting_target = 0,
+                separator = { left = '', right = '' },
+                padding = { left = 2, right = 2 },
+                symbols = {
+                    modified = '',
+                    readonly = '',
+                    unnamed = '',
+                    newfile = '',
+                }
+            },
+        }
     },
 })
 
