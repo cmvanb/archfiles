@@ -178,9 +178,13 @@ noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
 --------------------------------------------------------------------------------
 
 -- Change window focus
-noremap('<F14>', '<C-w>r')
-noremap('<C-j>', '<C-w>w')
-noremap('<C-k>', '<C-w>W')
+noremap('<C-h>', '<C-w>h')
+noremap('<C-j>', '<C-w>j')
+noremap('<C-k>', '<C-w>k')
+noremap('<C-l>', '<C-w>l')
+
+-- Cycle window focus
+noremap('<C-z>', '<C-w>r')
 
 -- Split windows
 nnoremap('<C-n>', '<esc>:belowright vnew<cr>', true)
@@ -193,8 +197,9 @@ noremap('<C-w>', ':close<cr>', true)
 --------------------------------------------------------------------------------
 
 -- Change buffer
-noremap('<C-h>', ':bprev<cr>', true)
-noremap('<C-l>', ':bnext<cr>', true)
+-- NOTE: Wezterm translates <C-BS> to <F15> for us.
+noremap('<F15>', ':bprev<cr>', true)
+noremap('<C-Tab>', ':bnext<cr>', true)
 
 -- Save all buffers
 noremap('<C-s>', ':wa!<cr>')

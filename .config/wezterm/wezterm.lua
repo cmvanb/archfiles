@@ -10,6 +10,18 @@ package.path = os.getenv('XDG_CONFIG_HOME') .. '/colors' .. [[/?.lua]]
 local colors = require('lua-colors')
 colors.parse_colors()
 
+-- Introduce some alternate mappings to `alt-screen` applications such as 
+-- terminal NVIM.
+function alt_action(window, pane, alt_screen_action, terminal_action)
+    return wezterm.action_callback(function(window, pane)
+        if pane:is_alt_screen_active() then
+            window:perform_action(alt_screen_action, pane)
+        else
+            window:perform_action(terminal_action, pane)
+        end
+    end)
+end
+
 return {
 --------------------------------------------------------------------------------
 -- General settings
@@ -39,13 +51,11 @@ return {
         {
             key = 'c',
             mods = 'CTRL',
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action.SendKey { key = 'c', mods = 'CTRL' }, pane)
-                else
-                    window:perform_action(wezterm.action { CopyTo = 'ClipboardAndPrimarySelection' }, pane)
-                end
-            end),
+            action = alt_action(
+                window, pane,
+                wezterm.action.SendKey { key = 'c', mods = 'CTRL' },
+                wezterm.action { CopyTo = 'ClipboardAndPrimarySelection' }
+            ),
         },
         -- Paste
         {
@@ -69,82 +79,93 @@ return {
         {
             key = 'd',
             mods = 'CTRL',
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action.SendKey { key = 'd', mods = 'CTRL' }, pane)
-                else
-                    window:perform_action(wezterm.action.ScrollByPage(0.5), pane)
-                end
-            end),
+            action = alt_action(
+                window, pane,
+                wezterm.action.SendKey { key = 'd', mods = 'CTRL' },
+                wezterm.action.ScrollByPage(0.5)
+            ),
         },
         -- Scroll up half-page
         {
             key = 'u',
             mods = 'CTRL',
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action.SendKey { key = 'u', mods = 'CTRL' }, pane)
-                else
-                    window:perform_action(wezterm.action.ScrollByPage(-0.5), pane)
-                end
-            end),
+            action = alt_action(
+                window, pane,
+                wezterm.action.SendKey { key = 'u', mods = 'CTRL' },
+                wezterm.action.ScrollByPage(-0.5)
+            ),
         },
         -- Scroll down one line
         {
             key = 'j',
             mods = 'CTRL',
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action.SendKey { key = 'j', mods = 'CTRL' }, pane)
-                else
-                    window:perform_action(wezterm.action.ScrollByLine(1), pane)
-                end
-            end),
+            action = alt_action(
+                window, pane,
+                wezterm.action.SendKey { key = 'j', mods = 'CTRL' },
+                wezterm.action.ScrollByLine(1)
+            ),
         },
         -- Scroll up one line
         {
             key = 'k',
             mods = 'CTRL',
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action.SendKey { key = 'k', mods = 'CTRL' }, pane)
-                else
-                    window:perform_action(wezterm.action.ScrollByLine(-1), pane)
-                end
-            end),
+            action = alt_action(
+                window, pane,
+                wezterm.action.SendKey { key = 'k', mods = 'CTRL' },
+                wezterm.action.ScrollByLine(-1)
+            ),
         },
-        -- NOTE: It's not possible for nvim to distinguish <C-i> from <Tab>, or
-        -- <C-m> from <CR>, best we can do is pass unused function keys.
+        -- Key passthrough
+        -- It's not possible for NVIM to distinguish <C-i> from <Tab>, or
+        -- <C-m> from <CR>, or <C-BS> from <C-H>. Best we can do is pass escape  
+        -- codes for unused function keys. Use `showkeys -a` to find codes for 
+        -- specific keys.
+        --  see: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
+        --  see: https://en.wikipedia.org/wiki/List_of_Unicode_characters#Basic_Latin
         {
             key = 'i',
             mods = 'CTRL',
-            -- action = wezterm.action { SendString = '\x1b[25~' },
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action { SendString = '\x1b[25~' }, pane)
-                else
-                    window:perform_action(wezterm.action.SendKey { key = 'i', mods = 'CTRL' }, pane)
-                end
-            end),
+            action = alt_action(
+                window, pane,
+                wezterm.action { SendString = '\x1b[1;2P' },
+                wezterm.action.Nop
+            ),
         },
         {
             key = 'm',
             mods = 'CTRL',
-            action = wezterm.action_callback(function(window, pane)
-                if pane:is_alt_screen_active() then
-                    window:perform_action(wezterm.action { SendString = '\x1b[26~' }, pane)
-                else
-                    window:perform_action(wezterm.action.SendKey { key = 'm', mods = 'CTRL' }, pane)
-                end
-            end),
+            action = alt_action(
+                window, pane,
+                wezterm.action { SendString = '\x1b[1;2Q' },
+                wezterm.action.Nop
+            ),
         },
-        -- Passthrough
-        -- see: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-        -- see: https://en.wikipedia.org/wiki/List_of_Unicode_characters#Basic_Latin
+        {
+            key = 'Backspace',
+            mods = 'CTRL',
+            action = alt_action(
+                window, pane,
+                wezterm.action { SendString = '\x1b[1;2R' },
+                wezterm.action.Nop
+            ),
+        },
+        {
+            key = 'Tab',
+            mods = 'CTRL',
+            action = alt_action(
+                window, pane,
+                wezterm.action { SendString = '\x1b[9;5u' },
+                wezterm.action.Nop
+            ),
+        },
         {
             key = 'q',
             mods = 'CTRL|SHIFT',
-            action = wezterm.action { SendString = '\x1b[81;5u' },
+            action = alt_action(
+                window, pane,
+                wezterm.action { SendString = '\x1b[81;5u' },
+                wezterm.action.Nop
+            ),
         },
     },
 
