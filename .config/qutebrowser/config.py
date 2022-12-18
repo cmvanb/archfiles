@@ -277,10 +277,14 @@ config.unbind('d')
 
 # TODO: Most of the default bindings should be unbound
 
+#### Program management
+config.bind('<Ctrl-w>', 'close')
+config.bind('<Ctrl-q>', 'tab-close')
+
 ### Normal mode
 #### Session management
-config.bind('<Ctrl-o>', 'set-cmd-text -s :session-load ')
-config.bind('<Ctrl-s>', 'set-cmd-text -s :session-save -o ')
+config.bind('<Space>o', 'set-cmd-text -s :session-load')
+config.bind('<Space>s', 'set-cmd-text -s :session-save -o')
 
 #### Tab management
 config.bind('<Ctrl-1>', 'tab-focus 1')
@@ -292,14 +296,12 @@ config.bind('<Ctrl-6>', 'tab-focus 6')
 config.bind('<Ctrl-7>', 'tab-focus 7')
 config.bind('<Ctrl-8>', 'tab-focus 8')
 config.bind('<Ctrl-9>', 'tab-focus 9')
-config.bind('<Ctrl-0>', 'tab-focus 10')
 config.bind('<Ctrl-g>', 'set-cmd-text -s :tab-give')
-config.bind('L', 'tab-next')
 config.bind('H', 'tab-prev')
-config.bind('<Ctrl-q>', 'tab-close')
+config.bind('L', 'tab-next')
 
 #### Downloads management
-config.bind('<Ctrl-m>', 'download-clear')
+config.bind('<Space>l', 'download-clear')
 
 #### History navigation
 config.bind('J', 'forward')
@@ -308,21 +310,20 @@ config.bind('K', 'back')
 #### Page navigation
 config.bind('j', 'scroll down')
 config.bind('k', 'scroll up')
-config.bind('Ctrl+a', 'mode-enter caret ;; selection-toggle ;; move-to-end-of-document')
+config.bind('<Ctrl+a>', 'mode-enter caret ;; selection-toggle ;; move-to-end-of-document')
 
-# TODO: Remember what the reason for this is.
-config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
-
-### Insert mode
 # NOTE: 'Blur' the page when exiting insert mode, removes the blinking cursor
 # from the last active text element to prevent confusion.
 #   see: https://github.com/qutebrowser/qutebrowser/issues/2668
+config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
+
+### Insert mode
 config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 
 ### Command mode
-config.bind('<Ctrl-J>', 'completion-item-focus --history next', mode='command')
-config.bind('<Ctrl-K>', 'completion-item-focus --history prev', mode='command')
-config.bind('<Ctrl-D>', 'completion-item-del', mode='command')
+config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
+config.bind('<Ctrl-d>', 'completion-item-del', mode='command')
 
 ## Color settings
 #-------------------------------------------------------------------------------
