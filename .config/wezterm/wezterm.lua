@@ -47,6 +47,12 @@ return {
     disable_default_key_bindings = true,
 
     keys = {
+        -- Spawn new terminal in current directory
+        {
+            key = 'n',
+            mods = 'CTRL',
+            action = wezterm.action.SpawnWindow,
+        },
         -- Copy
         {
             key = 'c',
