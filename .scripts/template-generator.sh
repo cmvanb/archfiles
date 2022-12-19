@@ -45,6 +45,6 @@ for template in $target_directory/**/*.template; do
     echo " -> $file_name"
 
     # Subsitute environment vars and output config files.
-    cat $template | envsubst > "$file_name".test
+    cat $template | envsubst > "$file_name"
 done
 

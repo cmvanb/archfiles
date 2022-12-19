@@ -5,14 +5,17 @@
 local theme = require('system.theme')
 
 local colors = {
-    theme_1_fg  = theme.color_hash('l4_blue'),
-    theme_2_fg  = theme.color_hash('ds_blue_6'),
-    theme_3_fg  = theme.color_hash('ds_blue_6'),
-    theme_1_bg  = theme.color_hash('ds_blue_4'),
-    theme_2_bg  = theme.color_hash('ds_blue_2'),
-    theme_3_bg  = theme.color_hash('editor_bg'),
-    normal_fg   = theme.color_hash('l4_blue'),
-    normal_bg   = theme.color_hash('ds_blue_4'),
+    theme_1_bg  = theme.color_hash('primary_6'),
+    theme_1_fg  = theme.color_hash('text_7'),
+    theme_2_bg  = theme.color_hash('primary_4'),
+    theme_2_fg  = theme.color_hash('text_2'),
+    theme_3_bg  = theme.color_hash('primary_2'),
+    theme_3_fg  = theme.color_hash('text_1'),
+    inactive_bg = theme.color_hash('primary_1'),
+    inactive_fg = theme.color_hash('text_1'),
+
+    normal_bg   = theme.color_hash('primary_6'),
+    normal_fg   = theme.color_hash('text_7'),
     insert_bg   = theme.color_hash('d3_green'),
     insert_fg   = theme.color_hash('green'),
     visual_bg   = theme.color_hash('d1_magenta'),
@@ -21,8 +24,6 @@ local colors = {
     command_fg  = theme.color_hash('l1_yellow'),
     replace_bg  = theme.color_hash('d2_purple'),
     replace_fg  = theme.color_hash('l3_purple'),
-    inactive_fg = theme.color_hash('ds_blue_5'),
-    inactive_bg = theme.color_hash('ds_blue_1'),
 }
 
 -- Construct theme
@@ -73,8 +74,8 @@ return {
         a = { bg = colors.inactive_bg, fg = colors.inactive_fg, gui = 'bold' },
         b = { bg = colors.inactive_bg, fg = colors.inactive_fg },
         c = { bg = colors.inactive_bg, fg = colors.inactive_fg },
-        x = { bg = colors.theme_3_bg, fg = colors.theme_3_fg },
-        y = { bg = colors.theme_2_bg, fg = colors.theme_2_fg },
+        x = { bg = colors.inactive_bg, fg = colors.inactive_fg },
+        y = { bg = colors.inactive_bg, fg = colors.inactive_fg },
         z = { bg = colors.inactive_bg, fg = colors.inactive_fg },
     }
 }

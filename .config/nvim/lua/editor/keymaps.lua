@@ -172,7 +172,7 @@ noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
 noremap('<leader>i', '<cmd>Telescope symbols<cr>')
 
 -- Clear search buffer, clear command line and go to start of line
-noremap('<leader>l', '<cmd>let @/=""<cr>:echo ""<cr>', true)
+noremap('<leader>l', '<cmd>noh<cr>:echo ""<cr>')
 
 -- Windows
 --------------------------------------------------------------------------------

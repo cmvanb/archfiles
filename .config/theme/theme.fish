@@ -27,9 +27,14 @@ function parse_vars --argument-names filePath
         end
 
         for char in (string split '' $line)
-            # Space, keep reading
+            # Space after assignment, append to value.
+            # Space before assignment, keep reading.
             if test $char = ' '
-                continue
+                if test $assignment_op = 'true'
+                    set value "$value$char"
+                else
+                    continue
+                end
 
             # Hash after assignment, char is ignored, but continue parsing value.
             # Hash before assignment, line is skipped.

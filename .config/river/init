@@ -45,8 +45,8 @@ riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard pointer-accel
 source "$XDG_CONFIG_HOME/theme/theme.sh"
 
 riverctl background-color "$(colors_zerox $d5_gray)"
-riverctl border-color-focused "$(colors_zerox $ds_blue_5)"
-riverctl border-color-unfocused "$(colors_zerox $ds_blue_2)"
+riverctl border-color-focused "$(colors_zerox $primary_6)"
+riverctl border-color-unfocused "$(colors_zerox $primary_2)"
 riverctl border-color-urgent "$(colors_zerox $d1_red)"
 
 riverctl border-width 2

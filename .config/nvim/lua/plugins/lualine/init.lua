@@ -92,8 +92,8 @@ require('lualine').setup({
                 },
 
                 buffers_color = {
-                    active = 'lualine_a_normal',
-                    inactive = 'lualine_c_inactive',
+                    active = 'lualine_z_normal',
+                    inactive = 'lualine_y_normal',
                 },
 
                 symbols = {
@@ -124,6 +124,15 @@ require('lualine').setup({
                     unnamed = '',
                     newfile = '',
                 }
+            },
+            {
+                'tabs',
+                separator = { left = '', right = '' },
+                padding = { left = 2, right = 2 },
+                tabs_color = {
+                    active = 'lualine_z_normal',
+                    inactive = 'lualine_y_normal',
+                },
             },
         }
     },

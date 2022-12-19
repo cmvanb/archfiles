@@ -23,9 +23,15 @@ def parse_vars(filePath):
         lookup = False
 
         for char in line:
-            # Space, keep reading
+            # Space after assignment, append to value.
+            # Space before assignment, keep reading.
             if char == ' ':
-                continue
+                if assignment_op == True:
+                    if value == None:
+                        value = ''
+                    value = value + char
+                else:
+                    continue
 
             # Hash after assignment, char is ignored, but continue parsing value.
             # Hash before assignment, line is skipped.

@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 -- Retrieve system colors
-local theme = require('system.theme')
+local theme = reload('system/theme')
 
 -- Helpers
 --------------------------------------------------------------------------------
@@ -52,42 +52,46 @@ cmd('syntax reset')
 -- NVIM UI highlights
 --------------------------------------------------------------------------------
 
--- group                   | guifg       | guibg        | guiprops | termfg           | termbg           | termprops
-hi('Normal',               'ds_cyan_7',  'editor_bg',   'NONE',    'ansi_cyan',       'ansi_black',      'NONE')
-hi('NonText',              'white',      'NONE',        'NONE',    'ansi_brwhite',    'NONE',            'NONE')
-hi('EndOfBuffer',          'ds_cyan_4',  'NONE',        'NONE',    'NONE',            'NONE',            'NONE')
-hi('Cursor',               'black',      'white',       'NONE',    'ansi_black',      'ansi_white',      'NONE')
-hi('CursorLine',           'NONE',       'ds_blue_1',   'NONE',    'NONE',            'ansi_brblack',    'bold')
-hi('CursorLineNr',         'ds_cyan_6',  'ds_blue_1',   'NONE',    'ansi_cyan',       'ansi_black',      'NONE')
-hi('LineNr',               'ds_cyan_4',  'NONE',        'NONE',    'ansi_brblack',    'NONE',            'NONE')
-hi('SignColumn',           'ds_cyan_4',  'editor_bg',   'NONE',    'ansi_white',      'ansi_black',      'NONE')
-hi('Visual',               'black',      'd1_cyan',     'NONE',    'ansi_black',      'ansi_brcyan',     'NONE')
-hi('IncSearch',            'black',      'd1_green',    'bold',    'ansi_black',      'ansi_brgreen',    'NONE')
-hi('Search',               'black',      'd1_magenta',  'bold',    'ansi_black',      'ansi_brmagenta',  'NONE')
-hi('StatusLine',           'ds_blue_8',  'ds_blue_4',   'bold',    'ansi_white',      'ansi_blue',       'bold')
-hi('StatusLineNC',         'ds_blue_5',  'ds_blue_1',   'NONE',    'ansi_brblack',    'ansi_black',      'NONE')
-hi('TabLine',              'ds_blue_5',  'ds_blue_1',   'bold',    'ansi_white',      'ansi_blue',       'NONE')
-hi('TabLineSel',           'ds_blue_8',  'ds_blue_3',   'bold',    'ansi_white',      'ansi_blue',       'bold')
-hi('TabLineFill',          'NONE',       'ds_blue_1',   'bold',    'ansi_white',      'ansi_blue',       'bold')
-hi('Folded',               'l3_purple',  'purple',      'NONE',    'ansi_cyan',       'ansi_black',      'bold')
-hi('MsgArea',              'ds_blue_8',  'editor_bg',   'NONE',    'ansi_white',      'ansi_brblack',    'NONE')
-hi('ErrorMsg',             'l1_red',     'd4_red',      'bold',    'ansi_brred',      'ansi_red',        'bold')
-hi('WarningMsg',           'l1_yellow',  'd2_orange',   'bold',    'ansi_bryellow',   'ansi_yellow',     'bold')
-hi('MoreMsg',              'l1_white',   'gray',        'bold',    'ansi_brgreen',    'ansi_green',      'bold')
-hi('Title',                'white',      'NONE',        'bold',    'ansi_brwhite',    'NONE',            'bold')
-hi('PMenu',                'white',      'editor_bg',   'NONE',    'ansi_white',      'ansi_black',      'NONE')
-hi('PMenuSel',             'l1_yellow',  'ds_blue_5',   'bold',    'ansi_white',      'ansi_black',      'bold')
-hi('WinSeparator',         'ds_blue_3',  'NONE',        'NONE',    'ansi_brblack',    'NONE',            'NONE')
-hi('MatchParen',           'white',      'NONE',        'bold',    'ansi_brwhite',    'NONE',            'bold,underline')
-hi('DiffAdd',              'green',      'NONE',        'bold',    'ansi_green',      'NONE',            'NONE')
-hi('DiffChange',           'yellow',     'NONE',        'bold',    'ansi_yellow',     'NONE',            'NONE')
-hi('DiffDelete',           'red',        'NONE',        'bold',    'ansi_red',        'NONE',            'NONE')
-hi('DiagnosticSignError',  'red',        'NONE',        'bold',    'ansi_red',        'NONE',            'NONE')
-hi('DiagnosticSignWarn',   'yellow',     'NONE',        'bold',    'ansi_yellow',     'NONE',            'NONE')
-hi('DiagnosticSignInfo',   'white',      'NONE',        'bold',    'ansi_white',      'NONE',            'NONE')
-hi('DiagnosticSignHint',   'l2_purple',  'NONE',        'bold',    'ansi_magenta',    'NONE',            'NONE')
-hi('SpecialKey',           'debug',      'NONE',        'NONE',    'ansi_brmagenta',  'NONE',            'NONE')
-hi('Directory',            'ds_blue_8',  'NONE',        'NONE',    'ansi_cyan',       'ansi_black',      'NONE')
+-- group                   | guifg         | guibg        | guiprops | termfg           | termbg           | termprops
+hi('Normal',               'secondary_9',  'primary_0',   'NONE',    'ansi_cyan',       'ansi_black',      'NONE')
+hi('NonText',              'text_3',       'NONE',        'NONE',    'ansi_brwhite',    'NONE',            'NONE')
+hi('EndOfBuffer',          'primary_4',    'NONE',        'NONE',    'NONE',            'NONE',            'NONE')
+hi('Cursor',               'text_0',       'text_7',      'NONE',    'ansi_black',      'ansi_white',      'NONE')
+hi('CursorLine',           'NONE',         'primary_1',   'NONE',    'NONE',            'ansi_brblack',    'bold')
+hi('CursorLineNr',         'text_1',       'primary_1',   'NONE',    'ansi_cyan',       'ansi_black',      'NONE')
+hi('LineNr',               'text_0',       'NONE',        'NONE',    'ansi_brblack',    'NONE',            'NONE')
+hi('SignColumn',           'text_0',       'primary_0',   'NONE',    'ansi_white',      'ansi_black',      'NONE')
+
+hi('StatusLine',           'text_6',       'primary_6',   'bold',    'ansi_white',      'ansi_blue',       'bold')
+hi('StatusLineNC',         'text_4',       'primary_1',   'NONE',    'ansi_brblack',    'ansi_black',      'NONE')
+hi('TabLine',              'primary_5',    'primary_1',   'bold',    'ansi_white',      'ansi_blue',       'NONE')
+hi('TabLineSel',           'primary_11',   'primary_3',   'bold',    'ansi_white',      'ansi_blue',       'bold')
+hi('TabLineFill',          'NONE',         'primary_1',   'bold',    'ansi_white',      'ansi_blue',       'bold')
+
+hi('MsgArea',              'text_2',       'primary_0',   'NONE',    'ansi_white',      'ansi_brblack',    'NONE')
+hi('ErrorMsg',             'l1_red',       'd4_red',      'bold',    'ansi_brred',      'ansi_red',        'bold')
+hi('WarningMsg',           'l1_yellow',    'd2_orange',   'bold',    'ansi_bryellow',   'ansi_yellow',     'bold')
+hi('MoreMsg',              'white',        'gray',        'bold',    'ansi_brgreen',    'ansi_green',      'bold')
+
+hi('Visual',               'black',        'd1_cyan',     'NONE',    'ansi_black',      'ansi_brcyan',     'NONE')
+hi('IncSearch',            'black',        'd1_green',    'bold',    'ansi_black',      'ansi_brgreen',    'NONE')
+hi('Search',               'black',        'd1_magenta',  'bold',    'ansi_black',      'ansi_brmagenta',  'NONE')
+
+hi('Title',                'text_6',       'NONE',        'bold',    'ansi_brwhite',    'NONE',            'bold')
+hi('PMenu',                'text_3',       'primary_0',   'NONE',    'ansi_white',      'ansi_black',      'NONE')
+hi('PMenuSel',             'l1_yellow',    'primary_5',   'bold',    'ansi_white',      'ansi_black',      'bold')
+hi('WinSeparator',         'primary_2',    'NONE',        'NONE',    'ansi_brblack',    'NONE',            'NONE')
+hi('MatchParen',           'text_3',       'NONE',        'bold',    'ansi_brwhite',    'NONE',            'bold,underline')
+hi('DiffAdd',              'green',        'NONE',        'bold',    'ansi_green',      'NONE',            'NONE')
+hi('DiffChange',           'yellow',       'NONE',        'bold',    'ansi_yellow',     'NONE',            'NONE')
+hi('DiffDelete',           'red',          'NONE',        'bold',    'ansi_red',        'NONE',            'NONE')
+hi('DiagnosticSignError',  'red',          'NONE',        'bold',    'ansi_red',        'NONE',            'NONE')
+hi('DiagnosticSignWarn',   'yellow',       'NONE',        'bold',    'ansi_yellow',     'NONE',            'NONE')
+hi('DiagnosticSignInfo',   'text_3',       'NONE',        'bold',    'ansi_white',      'NONE',            'NONE')
+hi('DiagnosticSignHint',   'l2_purple',    'NONE',        'bold',    'ansi_magenta',    'NONE',            'NONE')
+hi('SpecialKey',           'debug',        'NONE',        'NONE',    'ansi_brmagenta',  'NONE',            'NONE')
+hi('Directory',            'primary_8',    'NONE',        'NONE',    'ansi_cyan',       'ansi_black',      'NONE')
+hi('Folded',               'l3_purple',    'purple',      'NONE',    'ansi_cyan',       'ansi_black',      'bold')
 
 -- group             | target
 ln('CursorColumn',   'CursorLine')
@@ -101,34 +105,34 @@ ln('Whitespace',     'NonText')
 -- Custom UI highlights
 --------------------------------------------------------------------------------
 
--- group                  | guifg       | guibg       | guiprops | termfg          | termbg       | termprops
-hi('CMenuNormal',         'debug',      'ds_blue_1',  'NONE',    'ansi_cyan',      'ansi_blue',   'NONE')
-hi('CMenuSelection',      'white',      'ds_blue_8',  'bold',    'ansi_brwhite',   'ansi_black',  'bold')
-hi('CMenuItem',           'ds_blue_9',  'NONE',       'NONE',    'ansi_brblue',    'NONE',        'NONE')
-hi('CMenuItemMatch',      'l1_yellow',  'NONE',       'bold',    'ansi_bryellow',  'NONE',        'NONE')
-hi('FloatMenuNormal',     'ds_blue_8',  'editor_bg',  'NONE',    'ansi_cyan',      'ansi_blue',   'NONE')
-hi('FloatMenuSelection',  'white',      'ds_blue_7',  'bold',    'ansi_brwhite',   'ansi_black',  'bold')
-hi('FloatMenuItemMatch',  'l1_yellow',  'NONE',       'bold',    'ansi_cyan',      'ansi_blue',   'NONE')
+-- group                  | guifg        | guibg       | guiprops | termfg          | termbg       | termprops
+hi('CMenuNormal',         'debug',       'primary_1',  'NONE',    'ansi_cyan',      'ansi_blue',   'NONE')
+hi('CMenuSelection',      'text_7',      'primary_8',  'bold',    'ansi_brwhite',   'ansi_black',  'bold')
+hi('CMenuItem',           'text_4',      'NONE',       'NONE',    'ansi_brblue',    'NONE',        'NONE')
+hi('CMenuItemMatch',      'l1_yellow',   'NONE',       'bold',    'ansi_bryellow',  'NONE',        'NONE')
+hi('FloatMenuNormal',     'primary_8',   'primary_0',  'NONE',    'ansi_cyan',      'ansi_blue',   'NONE')
+hi('FloatMenuSelection',  'text_7',      'primary_7',  'bold',    'ansi_brwhite',   'ansi_black',  'bold')
+hi('FloatMenuItemMatch',  'l1_yellow',   'NONE',       'bold',    'ansi_cyan',      'ansi_blue',   'NONE')
 
 -- group            | target
 ln('QuickFixLine',  'FloatMenuSelection')
 
 -- Plugin highlights
 --------------------------------------------------------------------------------
--- group                     | guifg       | guibg       | guiprops         | termfg           | termbg | termprops
-hi('LeapMatch',              'debug',      'NONE',       'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('LeapLabelPrimary',       'black',      'white',      'bold',            'ansi_magenta',    'NONE',  'NONE')
-hi('LeapLabelSecondary',     'white',      'l1_blue',    'bold',            'ansi_brmagenta',  'NONE',  'bold')
-hi('LeapLabelSelected',      'debug',      'NONE',       'bold',            'ansi_brmagenta',  'NONE',  'bold')
-hi('MiniCursorword',         'NONE',       'NONE',       'bold,underline',  'NONE',            'NONE',  'bold,underline')
-hi('MiniIndentscopeSymbol',  'ds_cyan_3',  'NONE',       'NONE',            'ansi_brblack',    'NONE',  'NONE')
-hi('LualineDiffAdd',         'd1_green',   'ds_blue_2',  'bold',            'ansi_green',      'NONE',  'NONE')
-hi('LualineDiffChange',      'yellow',     'ds_blue_2',  'bold',            'ansi_yellow',     'NONE',  'NONE')
-hi('LualineDiffDelete',      'red',        'ds_blue_2',  'bold',            'ansi_red',        'NONE',  'NONE')
-hi('LualineDiagError',       'red',        'ds_blue_2',  'bold',            'ansi_red',        'NONE',  'NONE')
-hi('LualineDiagWarn',        'yellow',     'ds_blue_2',  'bold',            'ansi_yellow',     'NONE',  'NONE')
-hi('LualineDiagInfo',        'white',      'ds_blue_2',  'bold',            'ansi_white',      'NONE',  'NONE')
-hi('LualineDiagHint',        'l2_purple',  'ds_blue_2',  'bold',            'ansi_magenta',    'NONE',  'NONE')
+-- group                     | guifg         | guibg        | guiprops         | termfg           | termbg | termprops
+hi('LeapMatch',              'debug',        'NONE',        'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelPrimary',       'black',        'primary_15',  'bold',            'ansi_magenta',    'NONE',  'NONE')
+hi('LeapLabelSecondary',     'primary_2',    'primary_11',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('LeapLabelSelected',      'debug',        'NONE',        'bold',            'ansi_brmagenta',  'NONE',  'bold')
+hi('MiniCursorword',         'NONE',         'NONE',        'bold,underline',  'NONE',            'NONE',  'bold,underline')
+hi('MiniIndentscopeSymbol',  'secondary_2',  'NONE',        'NONE',            'ansi_brblack',    'NONE',  'NONE')
+hi('LualineDiffAdd',         'd1_green',     'primary_4',   'bold',            'ansi_green',      'NONE',  'NONE')
+hi('LualineDiffChange',      'yellow',       'primary_4',   'bold',            'ansi_yellow',     'NONE',  'NONE')
+hi('LualineDiffDelete',      'red',          'primary_4',   'bold',            'ansi_red',        'NONE',  'NONE')
+hi('LualineDiagError',       'red',          'primary_4',   'bold',            'ansi_red',        'NONE',  'NONE')
+hi('LualineDiagWarn',        'yellow',       'primary_4',   'bold',            'ansi_yellow',     'NONE',  'NONE')
+hi('LualineDiagInfo',        'primary_15',   'primary_4',   'bold',            'ansi_white',      'NONE',  'NONE')
+hi('LualineDiagHint',        'l2_purple',    'primary_4',   'bold',            'ansi_magenta',    'NONE',  'NONE')
 
 -- group                      | target
 ln('CmpMenuBackground',       'CMenuNormal')
@@ -147,23 +151,23 @@ ln('TelescopePreviewNormal',  'Normal')
 -- Syntax highlights
 --------------------------------------------------------------------------------
 
--- group          | guifg        | guibg       | guiprops         | termfg           | termbg | termprops
-hi('Identifier',  'ds_cyan_7',   'NONE',       'NONE',            'ansi_cyan',       'NONE',  'NONE')
-hi('Statement',   'd1_green',    'NONE',       'bold',            'ansi_brgreen',    'NONE',  'bold')
-hi('Comment',     'ds_cyan_4',   'NONE',       'italic',          'ansi_brblack',    'NONE',  'NONE')
-hi('Type',        'white',       'NONE',       'NONE',            'ansi_magenta',    'NONE',  'NONE')
-hi('PreProc',     'l1_yellow',   'NONE',       'NONE',            'ansi_bryellow',   'NONE',  'NONE')
-hi('Constant',    'l1_magenta',  'NONE',       'NONE',            'ansi_brmagenta',  'NONE',  'NONE')
-hi('Special',     'yellow',      'NONE',       'bold',            'ansi_yellow',     'NONE',  'NONE')
-hi('Underlined',  'blue',        'NONE',       'underline',       'ansi_blue',       'NONE',  'underline')
-hi('Delimiter',   'ds_green_4',  'NONE',       'NONE',            'ansi_green',      'NONE',  'NONE')
-hi('String',      'l1_orange',   'NONE',       'NONE',            'ansi_yellow',     'NONE',  'NONE')
-hi('Keyword',     'd1_green',    'NONE',       'bold',            'ansi_brgreen',    'NONE',  'bold')
-hi('Function',    'ds_cyan_9',   'NONE',       'bold',            'ansi_brcyan',     'NONE',  'bold')
-hi('Number',      'l1_red',      'NONE',       'NONE',            'ansi_brred',      'NONE',  'NONE')
-hi('Boolean',     'red',         'NONE',       'NONE',            'ansi_red',        'NONE',  'NONE')
-hi('Ignore',      'd3_gray',     'NONE',       'bold',            'ansi_brblack',    'NONE',  'NONE')
-hi('Todo',        'l3_cyan',     'd4_cyan',    'bold,nocombine',  'ansi_brwhite',    'NONE',  'bold')
+-- group          | guifg         | guibg       | guiprops         | termfg           | termbg | termprops
+hi('Identifier',  'secondary_8',  'NONE',       'NONE',            'ansi_cyan',       'NONE',  'NONE')
+hi('Statement',   'd1_green',     'NONE',       'bold',            'ansi_brgreen',    'NONE',  'bold')
+hi('Comment',     'secondary_4',  'NONE',       'italic',          'ansi_brblack',    'NONE',  'NONE')
+hi('Type',        'secondary_15', 'NONE',       'NONE',            'ansi_magenta',    'NONE',  'NONE')
+hi('PreProc',     'l1_yellow',    'NONE',       'NONE',            'ansi_bryellow',   'NONE',  'NONE')
+hi('Constant',    'l1_magenta',   'NONE',       'NONE',            'ansi_brmagenta',  'NONE',  'NONE')
+hi('Special',     'yellow',       'NONE',       'bold',            'ansi_yellow',     'NONE',  'NONE')
+hi('Underlined',  'blue',         'NONE',       'underline',       'ansi_blue',       'NONE',  'underline')
+hi('Delimiter',   'ds_green_4',   'NONE',       'NONE',            'ansi_green',      'NONE',  'NONE')
+hi('String',      'l1_orange',    'NONE',       'NONE',            'ansi_yellow',     'NONE',  'NONE')
+hi('Keyword',     'd1_green',     'NONE',       'bold',            'ansi_brgreen',    'NONE',  'bold')
+hi('Function',    'secondary_12', 'NONE',       'bold',            'ansi_brcyan',     'NONE',  'bold')
+hi('Number',      'l1_red',       'NONE',       'NONE',            'ansi_brred',      'NONE',  'NONE')
+hi('Boolean',     'red',          'NONE',       'NONE',            'ansi_red',        'NONE',  'NONE')
+hi('Ignore',      'd3_gray',      'NONE',       'bold',            'ansi_brblack',    'NONE',  'NONE')
+hi('Todo',        'l3_cyan',      'd4_cyan',    'bold,nocombine',  'ansi_brwhite',    'NONE',  'bold')
 
 -- group               | target
 ln('vimCommentTitle',  'Comment')

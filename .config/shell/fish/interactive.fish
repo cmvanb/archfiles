@@ -81,20 +81,20 @@ bind . 'expand-dot-to-double-dot'
 source $XDG_CONFIG_HOME/theme/theme.fish
 
 set -U fish_color_autosuggestion (color_named 'l1_gray')
-set -U fish_color_command (color_named 'l1_cyan')
+set -U fish_color_command (color_named 'secondary_10')
 set -U fish_color_comment (color_named 'd1_gray')
 set -U fish_color_end (color_named 'l1_green')
 set -U fish_color_error (color_named 'red')
 set -U fish_color_escape (color_named 'yellow')
-set -U fish_color_normal (color_named 'white')
+set -U fish_color_normal (color_named 'text_7')
 set -U fish_color_operator (color_named 'l1_green')
-set -U fish_color_param (color_named 'd1_cyan')
+set -U fish_color_param (color_named 'secondary_8')
 set -U fish_color_quote (color_named 'l1_orange')
 set -U fish_color_redirection (color_named 'l1_green')
 set -U fish_color_search_match --background=(color_named 'l1_magenta')
 
-set -U fish_pager_color_completion (color_named 'white')
-set -U fish_pager_color_description (color_named 'd1_cyan')
+set -U fish_pager_color_completion (color_named 'text_7')
+set -U fish_pager_color_description (color_named 'secondary_8')
 set -U fish_pager_color_prefix (color_named 'yellow')
 set -U fish_pager_color_progress (color_named 'd1_green')
 set -U fish_pager_color_selected_background --background=(color_named 'd2_gray')
@@ -127,14 +127,14 @@ set -U tide_right_prompt_items
 # Context (user@hostname)
 set -U tide_context_always_display false
 set -U tide_context_bg_color (color_named 'd4_gray')
-set -U tide_context_color_default (color_named 'l4_blue')
+set -U tide_context_color_default (color_named 'text_7')
 set -U tide_context_color_root (color_named 'l2_red')
 set -U tide_context_color_ssh (color_named 'l2_yellow')
 
 # Time
 set -U tide_time_format '%H:%M:%S'
-set -U tide_time_bg_color (color_named 'ds_blue_0')
-set -U tide_time_color (color_named 'd1_cyan')
+set -U tide_time_bg_color (color_named 'primary_6')
+set -U tide_time_color (color_named 'text_6')
 
 # Background jobs
 set -U tide_jobs_icon ''
@@ -165,10 +165,10 @@ set -U tide_virtual_env_color (color_named 'ansi_bryellow')
 set -U tide_pwd_icon ''
 set -U tide_pwd_icon_home ''
 set -U tide_pwd_icon_unwritable ''
-set -U tide_pwd_bg_color (color_named 'd3_blue')
-set -U tide_pwd_color_anchors (color_named 'l4_cyan')
-set -U tide_pwd_color_dirs (color_named 'l3_cyan')
-set -U tide_pwd_color_truncated_dirs (color_named 'l4_cyan')
+set -U tide_pwd_bg_color (color_named 'primary_6')
+set -U tide_pwd_color_anchors (color_named 'text_7')
+set -U tide_pwd_color_dirs (color_named 'text_6')
+set -U tide_pwd_color_truncated_dirs (color_named 'text_6')
 
 # Python environment
 #-------------------------------------------------------------------------------

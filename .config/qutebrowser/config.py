@@ -93,10 +93,10 @@ c.completion.scrollbar.width = 10
 c.colors.completion.category.border.top = theme.color_hash('browser_bg')
 c.colors.completion.category.border.bottom = theme.color_hash('browser_bg')
 c.colors.completion.category.bg = theme.color_hash('d4_blue')
-c.colors.completion.category.fg = theme.color_hash('l1_white')
+c.colors.completion.category.fg = theme.color_hash('white')
 c.colors.completion.even.bg = theme.color_hash('browser_bg')
 c.colors.completion.odd.bg = theme.color_hash('browser_bg')
-c.colors.completion.fg = [ theme.color_hash('white'), theme.color_hash('white'), theme.color_hash('white') ]
+c.colors.completion.fg = [ theme.color_hash('text_7'), theme.color_hash('text_7'), theme.color_hash('text_7') ]
 
 c.colors.completion.item.selected.border.bottom = theme.color_hash('l1_magenta')
 c.colors.completion.item.selected.border.top = theme.color_hash('l1_magenta')
@@ -147,7 +147,7 @@ c.fonts.hints = 'bold 9pt default_family'
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
 c.colors.hints.bg = theme.color_hash('d2_purple')
 c.colors.hints.fg = theme.color_hash('l3_purple')
-c.colors.hints.match.fg = theme.color_hash('white')
+c.colors.hints.match.fg = theme.color_hash('text_7')
 
 # Keyhint component
 #-------------------------------------------------------------------------------
@@ -160,7 +160,7 @@ c.keyhint.delay = 500
 c.keyhint.radius = 5
 
 c.colors.keyhint.bg = theme.color_hash('browser_bg')
-c.colors.keyhint.fg = theme.color_hash('white')
+c.colors.keyhint.fg = theme.color_hash('text_7')
 c.colors.keyhint.suffix.fg = theme.color_hash('l1_yellow')
 
 # Messages component
@@ -180,7 +180,7 @@ c.fonts.messages.warning = 'bold 10pt default_family'
 
 c.colors.messages.info.border = theme.color_hash('browser_bg')
 c.colors.messages.info.bg = theme.color_hash('browser_bg')
-c.colors.messages.info.fg = theme.color_hash('white')
+c.colors.messages.info.fg = theme.color_hash('text_7')
 c.colors.messages.warning.border = theme.color_hash('browser_bg')
 c.colors.messages.warning.bg = theme.color_hash('browser_bg')
 c.colors.messages.warning.fg = theme.color_hash('l1_yellow')
@@ -202,7 +202,7 @@ c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
 c.statusbar.position = 'bottom'
 
 c.colors.statusbar.normal.bg = theme.color_hash('browser_bg')
-c.colors.statusbar.normal.fg = theme.color_hash('white')
+c.colors.statusbar.normal.fg = theme.color_hash('text_7')
 c.colors.statusbar.caret.bg = theme.color_hash('browser_bg')
 c.colors.statusbar.caret.fg = theme.color_hash('magenta')
 c.colors.statusbar.caret.selection.bg = theme.color_hash('browser_bg')
@@ -214,12 +214,12 @@ c.colors.statusbar.insert.fg = theme.color_hash('green')
 c.colors.statusbar.passthrough.bg = theme.color_hash('browser_bg')
 c.colors.statusbar.passthrough.fg = theme.color_hash('yellow')
 c.colors.statusbar.private.bg = theme.color_hash('d4_purple')
-c.colors.statusbar.private.fg = theme.color_hash('white')
+c.colors.statusbar.private.fg = theme.color_hash('text_7')
 c.colors.statusbar.command.private.bg = theme.color_hash('browser_bg')
 c.colors.statusbar.command.private.fg = theme.color_hash('l1_cyan')
-c.colors.statusbar.progress.bg = theme.color_hash('white')
+c.colors.statusbar.progress.bg = theme.color_hash('text_7')
 c.colors.statusbar.url.error.fg = theme.color_hash('red')
-c.colors.statusbar.url.fg = theme.color_hash('white')
+c.colors.statusbar.url.fg = theme.color_hash('text_7')
 c.colors.statusbar.url.hover.fg = theme.color_hash('l1_cyan')
 c.colors.statusbar.url.success.http.fg = theme.color_hash('l1_yellow')
 c.colors.statusbar.url.success.https.fg = theme.color_hash('l1_green')
@@ -253,9 +253,9 @@ c.colors.tabs.odd.fg = theme.color_hash('l1_gray')
 c.colors.tabs.even.bg = theme.color_hash('browser_bg')
 c.colors.tabs.even.fg = theme.color_hash('l1_gray')
 c.colors.tabs.selected.odd.bg = theme.color_hash('browser_bg')
-c.colors.tabs.selected.odd.fg = theme.color_hash('white')
+c.colors.tabs.selected.odd.fg = theme.color_hash('text_7')
 c.colors.tabs.selected.even.bg = theme.color_hash('browser_bg')
-c.colors.tabs.selected.even.fg = theme.color_hash('white')
+c.colors.tabs.selected.even.fg = theme.color_hash('text_7')
 
 # Key bindings
 #-------------------------------------------------------------------------------
@@ -330,9 +330,9 @@ config.bind('<Ctrl-d>', 'completion-item-del', mode='command')
 c.colors.contextmenu.disabled.bg = theme.color_hash('d3_gray')
 c.colors.contextmenu.disabled.fg = theme.color_hash('gray')
 c.colors.contextmenu.menu.bg = theme.color_hash('browser_bg')
-c.colors.contextmenu.menu.fg = theme.color_hash('white')
+c.colors.contextmenu.menu.fg = theme.color_hash('text_7')
 c.colors.contextmenu.selected.bg = theme.color_hash('d3_blue')
-c.colors.contextmenu.selected.fg = theme.color_hash('l1_white')
+c.colors.contextmenu.selected.fg = theme.color_hash('white')
 
 # Websites
 c.colors.webpage.bg = theme.color_hash('d5_purple')

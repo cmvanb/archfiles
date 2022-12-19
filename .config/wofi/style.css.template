@@ -6,32 +6,32 @@
 }
 
 #input {
-    border: 2px solid #${ds_blue_5};
+    border: 2px solid #${primary_6};
     border-radius: 5;
 
-    background-color: #${ds_blue_1};
-    color: #${ds_blue_9};
+    background-color: #${primary_2};
+    color: #${text_6};
 
     padding: 4px;
 }
 
 #scroll {
-    border: 2px solid #${ds_blue_5};
+    border: 2px solid #${primary_6};
     border-top: 0px;
     border-radius: 5;
 
-    background-color: #${ds_blue_0};
+    background-color: #${primary_1};
 }
 
 #text {
-    color: #${ds_blue_9};
+    color: #${primary_13};
 }
 
 #text:selected {
-    color: #${l1_white};
+    color: #${text_7};
 }
 
 #entry:selected {
-    background-color: #${ds_blue_5};
+    background-color: #${primary_6};
 }
 

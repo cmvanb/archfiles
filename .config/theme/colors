@@ -1,5 +1,53 @@
 #!/bin/bash
 
+# https://cssgradient.io/
+
+# Primary
+ primary_0='#000610'
+ primary_1='#031120'
+ primary_2='#071B30'
+ primary_3='#0A2640'
+ primary_4='#0E3150'
+ primary_5='#113C60'
+ primary_6='#144670'
+ primary_7='#185180'
+ primary_8='#1B5C8F'
+ primary_9='#1F679F'
+primary_10='#2271AF'
+primary_11='#257CBF'
+primary_12='#2987CF'
+primary_13='#2C92DF'
+primary_14='#309CEF'
+primary_15='#33A7FF'
+
+# Text
+text_0='#0E3150'
+text_1='#2E4E69'
+text_2='#4E6B82'
+text_3='#6E889B'
+text_4='#8FA4B4'
+text_5='#AFC1CD'
+text_6='#CFDEE6'
+text_7='#EFFBFF'
+
+# Secondary
+ secondary_0='#000e14'
+ secondary_1='#091c24'
+ secondary_2='#122934'
+ secondary_3='#1b3744'
+ secondary_4='#244554'
+ secondary_5='#2c5263'
+ secondary_6='#356073'
+ secondary_7='#3e6d83'
+ secondary_8='#477b93'
+ secondary_9='#4c849e'
+secondary_10='#6698ae'
+secondary_11='#80abbe'
+secondary_12='#9abfcf'
+secondary_13='#b4d3df'
+secondary_14='#cee6ef'
+secondary_15='#e8faff'
+
 # Grayscale
 black='#000000'
 d5_gray='#0b0b0e'
@@ -12,8 +60,8 @@ l1_gray='#8e91a4'
 l2_gray='#aaacbb'
 l3_gray='#c6c8d2'
 l4_gray='#e3e3e8'
-white='#f1f1f4'
-l1_white='#ffffff'
+l5_gray='#f1f1f4'
+white='#ffffff'
 
 # Red
 d5_red='#1a0200'
@@ -111,18 +159,6 @@ l2_blue='#668cff'
 l3_blue='#99b3ff'
 l4_blue='#ccd9ff'
 
-# Desaturated blue
-ds_blue_0='#060a13'
-ds_blue_1='#0d1326'
-ds_blue_2='#131d39'
-ds_blue_3='#19264d'
-ds_blue_4='#203060'
-ds_blue_5='#263973'
-ds_blue_6='#334d99'
-ds_blue_7='#4060bf'
-ds_blue_8='#6680cc'
-ds_blue_9='#8c9fd9'
-
 # Purple
 d5_purple='#0e001a'
 d4_purple='#1d0033'
@@ -149,7 +185,7 @@ l4_magenta='#ffcce0'
 
 # Special
 terminal_bg=$d5_gray
-editor_bg=$ds_blue_0
+editor_bg=$primary_0
 browser_bg=$d5_gray
 debug='#ff00ff'
 
@@ -160,16 +196,16 @@ i2=$d1_green
 i3=$d1_yellow
 i4=$blue
 i5=$d1_magenta
-i6=$d1_cyan
-i7=$l4_gray
+i6=$primary_8
+i7=$text_7
 i8=$gray
 i9=$l1_red
 i10=$l1_green
 i11=$l1_yellow
 i12=$l2_blue
 i13=$l1_magenta
-i14=$l1_cyan
-i15=$l1_white
+i14=$primary_15
+i15=$white
 
 # ANSI named shortcuts
 ansi_black=$i0

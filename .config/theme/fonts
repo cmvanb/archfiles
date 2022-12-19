@@ -1,9 +1,7 @@
 #!/bin/bash
 
 font_mono='Iosevka Nerd Font Mono'
-#font_mono='Hack NF JBM Ligatured'
 #font_mono='MesloLGS NF'
-#font_mono='Fira Code'
 
 font_sans='Noto Sans'
 font_serif='Noto Serif'

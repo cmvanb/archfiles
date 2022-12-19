@@ -5,7 +5,7 @@ bar:
   left-margin: 0
   right-margin: 8
 
-  foreground: ${white}ff
+  foreground: ${text_7}ff
   background: ${d5_gray}ff
 
   font: ${font_mono}:pixelsize=11:style=bold
@@ -34,11 +34,11 @@ bar:
               focused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: ${ds_blue_5}ff}}
+                  deco: {background: {color: ${primary_6}ff}}
               unfocused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: ${ds_blue_2}ff}}
+                  deco: {background: {color: ${primary_2}ff}}
               invisible:
                 map:
                   tag: occupied
@@ -53,7 +53,7 @@ bar:
 
   center:
     - river:
-        title: {string: {text: "{title}"}}
+        title: {string: {text: "{title}", max: 120}}
         content:
           empty: {}
 

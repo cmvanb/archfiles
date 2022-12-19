@@ -8,8 +8,8 @@ local indentscope = require('mini.indentscope')
 
 indentscope.setup({
     draw = {
-        delay = 200,
-        animation = indentscope.gen_animation.cubic({ easing = 'in-out', duration = 15 }),
+        delay = 10,
+        animation = indentscope.gen_animation.cubic({ easing = 'in', duration = 200, unit = 'total' }),
     },
 
     mappings = {

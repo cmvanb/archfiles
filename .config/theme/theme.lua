@@ -27,9 +27,17 @@ local function parse_vars(filePath)
         for i = 1, #line do
             local char = line:byte(i)
 
-            -- Space, keep reading
+            -- Space after assignment, append to value.
+            -- Space before assignment, keep reading.
             if char == string.byte(' ') then
-                goto continue
+                if assignment == true then
+                    if value == nil then
+                        value = ''
+                    end
+                    value = value .. string.char(char)
+                else
+                    goto continue
+                end
 
             -- Hash after assignment, char is ignored, but continue parsing value.
             -- Hash before assignment, line is skipped.
