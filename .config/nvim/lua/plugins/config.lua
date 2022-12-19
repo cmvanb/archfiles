@@ -23,12 +23,7 @@ return {
         event = 'BufReadPre', -- this will only start session saving when an actual file was opened
         module = 'persistence',
         config = function()
-            require('persistence').setup({
-                -- directory where session files are saved
-                dir = vim.fn.expand(vim.fn.stdpath('data') .. '/sessions/'),
-                -- sessionoptions used for saving
-                options = { 'buffers', 'curdir', 'tabpages', 'winsize' },
-            })
+            do_load('plugins/session')
         end,
     },
 

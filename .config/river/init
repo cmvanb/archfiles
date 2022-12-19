@@ -42,7 +42,7 @@ riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard pointer-accel
 # Styling
 #-------------------------------------------------------------------------------
 
-. "$XDG_CONFIG_HOME/colors/sh-colors.sh"
+source "$XDG_CONFIG_HOME/theme/theme.sh"
 
 riverctl background-color "$(colors_zerox $d5_gray)"
 riverctl border-color-focused "$(colors_zerox $ds_blue_5)"
@@ -62,7 +62,7 @@ riverctl xcursor-theme Simp1e 24
 #   `riverctl map normal Alt N spawn "cage -d alacritty"`
 # Unfortunately cage degrades performance of alacritty and doesn't appear to
 # work with wezterm.
-riverctl map normal Alt N spawn "wezterm"
+riverctl map normal Alt T spawn "wezterm"
 
 # Command menu
 riverctl map normal Alt O spawn "wofi --show run"
@@ -137,7 +137,7 @@ done
 # Status bar
 #-------------------------------------------------------------------------------
 
-. "$XDG_CONFIG_HOME/river/workspace.sh"
+source "$XDG_CONFIG_HOME/river/workspace.sh"
 
 # Layout generator
 #-------------------------------------------------------------------------------

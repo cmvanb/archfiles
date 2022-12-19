@@ -8,11 +8,11 @@
 #   `bass 'source /home/casper/.config/shell/generic/interactive'`
 #-------------------------------------------------------------------------------
 
-# NOTE: Currently, the generic interactive script *can* be sourced.
+# NOTE: In it's present form, the generic interactive script *can* be sourced.
+# That may not always be true.
 source $XDG_CONFIG_HOME/shell/generic/interactive
 
-#-------------------------------------------------------------------------------
-# Abbreviations & Aliases
+# Abbreviations & aliases
 #-------------------------------------------------------------------------------
 
 alias exa "exa --group-directories-first"
@@ -33,18 +33,13 @@ abbr -a grb git rebase -i
 abbr -a grc git rm --cached
 abbr -a e edit
 abbr -a ed edit
+abbr -a edi edit
 abbr -a ex exa -al
 abbr -a exa exa -al
 
-#-------------------------------------------------------------------------------
 # Bindings
 #-------------------------------------------------------------------------------
 
-# NOTE: This binding was supposed to be CTRL+m, but due to some crazy unix
-# terminal legacy CTRL+m produces a carriage return.
-#   see: https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap10.html
-# TODO: Improve system binding scheme to work around this limitation. Perhaps
-# META or HYPER can help?
 # Clear screen
 bind \cl 'clear; commandline -f repaint'
 
@@ -55,25 +50,18 @@ bind \cc 'commandline -r ""'
 
 # Basic bindings (many are already default)
 bind \e cancel # Escape
-
 bind \e\[A up-or-search # Up
 bind \e\[B down-or-search # Down
-
 bind \e\[D backward-char # Left
 bind \e\[C forward-char # Right
-
 bind \e\[1\;5C forward-word # Ctrl + Right
 bind \e\[1\;5D backward-word # Ctrl + Left
-
 bind \e\[H beginning-of-line # Home
 bind \e\[F end-of-line # End
-
 bind -k dc delete-char # Delete
 bind -k backspace backward-delete-char
-
 bind \t complete # Tab
 bind \r execute # Enter
-
 bind '' self-insert
 bind ' ' self-insert expand-abbr
 bind ';' self-insert expand-abbr
@@ -86,15 +74,11 @@ bind ')' self-insert expand-abbr
 # Expand ... to ../..
 bind . 'expand-dot-to-double-dot'
 
-#-------------------------------------------------------------------------------
 # Colors
 #-------------------------------------------------------------------------------
 
 # Import and parse system colors.
-source $XDG_CONFIG_HOME/colors/fish-colors.fish
-parse_colors
-
-# TODO: Use ANSI colors only.
+source $XDG_CONFIG_HOME/theme/theme.fish
 
 set -U fish_color_autosuggestion (color_named 'l1_gray')
 set -U fish_color_command (color_named 'l1_cyan')
@@ -127,14 +111,14 @@ set -U fish_color_status (color_named 'debug')
 set -U fish_color_user (color_named 'debug')
 set -U fish_color_valid_path (color_named 'debug') # --underline
 
-#-------------------------------------------------------------------------------
-# Prompt (https://github.com/IlanCosman/tide)
+# Prompt
+#   see: https://github.com/IlanCosman/tide
 #-------------------------------------------------------------------------------
 
 # Separators
 set -U tide_left_prompt_separator_diff_color ''
 set -U tide_left_prompt_separator_same_color ''
-set -U tide_prompt_color_separator_same_color (color_named 'debug')
+# set -U tide_prompt_color_separator_same_color (color_named 'debug')
 
 # Items
 set -U tide_left_prompt_items time context jobs git virtual_env pwd
@@ -186,7 +170,6 @@ set -U tide_pwd_color_anchors (color_named 'l4_cyan')
 set -U tide_pwd_color_dirs (color_named 'l3_cyan')
 set -U tide_pwd_color_truncated_dirs (color_named 'l4_cyan')
 
-#-------------------------------------------------------------------------------
 # Python environment
 #-------------------------------------------------------------------------------
 if command -v pyenv &> /dev/null

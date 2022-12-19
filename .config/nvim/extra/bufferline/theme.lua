@@ -2,36 +2,25 @@
 -- Bufferline theme
 --------------------------------------------------------------------------------
 
--- Retrieve system colors
---------------------------------------------------------------------------------
+local theme = require('system.theme')
 
-local colors_path = os.getenv('XDG_CONFIG_HOME') .. [[/colors/?.lua;]]
-local PathUtils = require('utils.path')
-
-PathUtils.prepend_to_package_path(colors_path)
-
-local Colors = require('lua-colors')
-
-Colors.parse_colors()
+local colors = {
+    debug           =  theme.color_hash('debug'),
+    background      =  theme.color_hash('ds_blue_1'),
+    hidden_bg       =  theme.color_hash('ds_blue_0'),
+    hidden_fg       =  theme.color_hash('ds_blue_5'),
+    visible_bg      =  theme.color_hash('ds_blue_2'),
+    visible_fg      =  theme.color_hash('ds_blue_8'),
+    selected_bg     =  theme.color_hash('ds_blue_5'),
+    selected_fg     =  theme.color_hash('l4_blue'),
+    selected_d1_fg  =  theme.color_hash('ds_blue_9'),
+    modified        =  theme.color_hash('l1_orange'),
+    pick_bg         =  theme.color_hash('white'),
+    pick_fg         =  theme.color_hash('black'),
+}
 
 -- Construct theme
 --------------------------------------------------------------------------------
-
-local colors = {
-    debug           =  Colors.hash('debug'),
-    background      =  Colors.hash('ds_blue_1'),
-    hidden_bg       =  Colors.hash('ds_blue_0'),
-    hidden_fg       =  Colors.hash('ds_blue_5'),
-    visible_bg      =  Colors.hash('ds_blue_2'),
-    visible_fg      =  Colors.hash('ds_blue_8'),
-    selected_bg     =  Colors.hash('ds_blue_5'),
-    selected_fg     =  Colors.hash('l4_blue'),
-    selected_d1_fg  =  Colors.hash('ds_blue_9'),
-    modified        =  Colors.hash('l1_orange'),
-    pick_bg         =  Colors.hash('white'),
-    pick_fg         =  Colors.hash('black'),
-}
-
 return {
     fill = {
         bg = colors.background,
@@ -237,8 +226,8 @@ return {
     },
 
     offset_separator = {
-        -- bg = Colors.hash('debug'),
-        -- fg = Colors.hash('white'),
+        -- bg = theme.color_hash('debug'),
+        -- fg = theme.color_hash('white'),
     },
 }
 

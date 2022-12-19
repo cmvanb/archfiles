@@ -4,15 +4,17 @@
 
 local wezterm = require('wezterm')
 
--- Import system colors
-package.path = os.getenv('XDG_CONFIG_HOME') .. '/colors' .. [[/?.lua]]
+-- Retrieve system theme
+--------------------------------------------------------------------------------
 
-local colors = require('lua-colors')
-colors.parse_colors()
+package.path = os.getenv('XDG_CONFIG_HOME') .. '/theme' .. [[/?.lua]]
+local theme = require('theme')
 
--- Introduce some alternate mappings to `alt-screen` applications such as 
--- terminal NVIM.
-function alt_action(window, pane, alt_screen_action, terminal_action)
+-- Helpers
+--------------------------------------------------------------------------------
+
+-- Create alternate mappings to `alt-screen` applications such as terminal NVIM.
+local function alt_action(window, pane, alt_screen_action, terminal_action)
     return wezterm.action_callback(function(window, pane)
         if pane:is_alt_screen_active() then
             window:perform_action(alt_screen_action, pane)
@@ -23,7 +25,7 @@ function alt_action(window, pane, alt_screen_action, terminal_action)
 end
 
 return {
---------------------------------------------------------------------------------
+
 -- General settings
 --------------------------------------------------------------------------------
 
@@ -49,7 +51,7 @@ return {
     keys = {
         -- Spawn new terminal in current directory
         {
-            key = 'n',
+            key = 't',
             mods = 'CTRL',
             action = wezterm.action.SpawnWindow,
         },
@@ -191,10 +193,7 @@ return {
 
     -- Font
     font = wezterm.font({
-        family = 'Iosevka Nerd Font Mono',
-        -- family = 'Hack NF JBM Ligatured',
-        -- family = 'MesloLGS NF',
-        -- family = 'Fira Code',
+        family = theme.font('font_mono'),
         weight = 'Regular',
     }),
     font_size = 12.0,
@@ -223,172 +222,172 @@ return {
 
     -- Color scheme mapping
     colors = {
-        visual_bell = colors.hash('l1_blue'),
+        visual_bell = theme.color_hash('l1_blue'),
 
         tab_bar = {
-            background = colors.hash('black'),
+            background = theme.color_hash('black'),
 
             active_tab = {
-                bg_color = colors.hash('black'),
-                fg_color = colors.hash('white'),
+                bg_color = theme.color_hash('black'),
+                fg_color = theme.color_hash('white'),
 
                 intensity = 'Bold',
             },
 
             inactive_tab = {
-                bg_color = colors.hash('black'),
-                fg_color = colors.hash('gray'),
+                bg_color = theme.color_hash('black'),
+                fg_color = theme.color_hash('gray'),
 
                 intensity = 'Normal',
             },
 
             inactive_tab_hover = {
-                bg_color = colors.hash('d3_gray'),
-                fg_color = colors.hash('l1_gray'),
+                bg_color = theme.color_hash('d3_gray'),
+                fg_color = theme.color_hash('l1_gray'),
             },
 
             new_tab = {
-                bg_color = colors.hash('black'),
-                fg_color = colors.hash('gray'),
+                bg_color = theme.color_hash('black'),
+                fg_color = theme.color_hash('gray'),
             },
 
             new_tab_hover = {
-                bg_color = colors.hash('d3_gray'),
-                fg_color = colors.hash('l1_gray'),
+                bg_color = theme.color_hash('d3_gray'),
+                fg_color = theme.color_hash('l1_gray'),
             },
         },
 
-        background = colors.hash('terminal_bg'),
-        foreground = colors.hash('white'),
+        background = theme.color_hash('terminal_bg'),
+        foreground = theme.color_hash('white'),
 
-        cursor_bg = colors.hash('l1_white'),
-        cursor_fg = colors.hash('black'),
+        cursor_bg = theme.color_hash('l1_white'),
+        cursor_fg = theme.color_hash('black'),
 
-        selection_bg = colors.hash('magenta'),
-        selection_fg = colors.hash('black'),
+        selection_bg = theme.color_hash('magenta'),
+        selection_fg = theme.color_hash('black'),
 
         ansi = {
-            colors.hash('ansi_black'),
-            colors.hash('ansi_red'),
-            colors.hash('ansi_green'),
-            colors.hash('ansi_yellow'),
-            colors.hash('ansi_blue'),
-            colors.hash('ansi_magenta'),
-            colors.hash('ansi_cyan'),
-            colors.hash('ansi_white'),
+            theme.color_hash('ansi_black'),
+            theme.color_hash('ansi_red'),
+            theme.color_hash('ansi_green'),
+            theme.color_hash('ansi_yellow'),
+            theme.color_hash('ansi_blue'),
+            theme.color_hash('ansi_magenta'),
+            theme.color_hash('ansi_cyan'),
+            theme.color_hash('ansi_white'),
         },
 
         brights = {
-            colors.hash('ansi_brblack'),
-            colors.hash('ansi_brred'),
-            colors.hash('ansi_brgreen'),
-            colors.hash('ansi_bryellow'),
-            colors.hash('ansi_brblue'),
-            colors.hash('ansi_brmagenta'),
-            colors.hash('ansi_brcyan'),
-            colors.hash('ansi_brwhite'),
+            theme.color_hash('ansi_brblack'),
+            theme.color_hash('ansi_brred'),
+            theme.color_hash('ansi_brgreen'),
+            theme.color_hash('ansi_bryellow'),
+            theme.color_hash('ansi_brblue'),
+            theme.color_hash('ansi_brmagenta'),
+            theme.color_hash('ansi_brcyan'),
+            theme.color_hash('ansi_brwhite'),
         },
 
         -- TODO: Update indexed colors.
         indexed = {
-            [16] = colors.hash('d5_gray'),
-            [17] = colors.hash('d4_gray'),
-            [18] = colors.hash('d3_gray'),
-            [19] = colors.hash('d2_gray'),
-            [20] = colors.hash('d1_gray'),
-            [21] = colors.hash('gray'),
-            [22] = colors.hash('l1_gray'),
-            [23] = colors.hash('l2_gray'),
-            [24] = colors.hash('l3_gray'),
-            [25] = colors.hash('l4_gray'),
+            [16] = theme.color_hash('d5_gray'),
+            [17] = theme.color_hash('d4_gray'),
+            [18] = theme.color_hash('d3_gray'),
+            [19] = theme.color_hash('d2_gray'),
+            [20] = theme.color_hash('d1_gray'),
+            [21] = theme.color_hash('gray'),
+            [22] = theme.color_hash('l1_gray'),
+            [23] = theme.color_hash('l2_gray'),
+            [24] = theme.color_hash('l3_gray'),
+            [25] = theme.color_hash('l4_gray'),
 
-            [26] = colors.hash('d5_red'),
-            [27] = colors.hash('d4_red'),
-            [28] = colors.hash('d3_red'),
-            [29] = colors.hash('d2_red'),
-            [30] = colors.hash('d1_red'),
-            [31] = colors.hash('red'),
-            [32] = colors.hash('l1_red'),
-            [33] = colors.hash('l2_red'),
-            [34] = colors.hash('l3_red'),
-            [35] = colors.hash('l4_red'),
+            [26] = theme.color_hash('d5_red'),
+            [27] = theme.color_hash('d4_red'),
+            [28] = theme.color_hash('d3_red'),
+            [29] = theme.color_hash('d2_red'),
+            [30] = theme.color_hash('d1_red'),
+            [31] = theme.color_hash('red'),
+            [32] = theme.color_hash('l1_red'),
+            [33] = theme.color_hash('l2_red'),
+            [34] = theme.color_hash('l3_red'),
+            [35] = theme.color_hash('l4_red'),
 
-            [36] = colors.hash('d5_orange'),
-            [37] = colors.hash('d4_orange'),
-            [38] = colors.hash('d3_orange'),
-            [39] = colors.hash('d2_orange'),
-            [40] = colors.hash('d1_orange'),
-            [41] = colors.hash('orange'),
-            [42] = colors.hash('l1_orange'),
-            [43] = colors.hash('l2_orange'),
-            [44] = colors.hash('l3_orange'),
-            [45] = colors.hash('l4_orange'),
+            [36] = theme.color_hash('d5_orange'),
+            [37] = theme.color_hash('d4_orange'),
+            [38] = theme.color_hash('d3_orange'),
+            [39] = theme.color_hash('d2_orange'),
+            [40] = theme.color_hash('d1_orange'),
+            [41] = theme.color_hash('orange'),
+            [42] = theme.color_hash('l1_orange'),
+            [43] = theme.color_hash('l2_orange'),
+            [44] = theme.color_hash('l3_orange'),
+            [45] = theme.color_hash('l4_orange'),
 
-            [46] = colors.hash('d5_yellow'),
-            [47] = colors.hash('d4_yellow'),
-            [48] = colors.hash('d3_yellow'),
-            [49] = colors.hash('d2_yellow'),
-            [50] = colors.hash('d1_yellow'),
-            [51] = colors.hash('yellow'),
-            [52] = colors.hash('l1_yellow'),
-            [53] = colors.hash('l2_yellow'),
-            [54] = colors.hash('l3_yellow'),
-            [55] = colors.hash('l4_yellow'),
+            [46] = theme.color_hash('d5_yellow'),
+            [47] = theme.color_hash('d4_yellow'),
+            [48] = theme.color_hash('d3_yellow'),
+            [49] = theme.color_hash('d2_yellow'),
+            [50] = theme.color_hash('d1_yellow'),
+            [51] = theme.color_hash('yellow'),
+            [52] = theme.color_hash('l1_yellow'),
+            [53] = theme.color_hash('l2_yellow'),
+            [54] = theme.color_hash('l3_yellow'),
+            [55] = theme.color_hash('l4_yellow'),
 
-            [56] = colors.hash('d5_green'),
-            [57] = colors.hash('d4_green'),
-            [58] = colors.hash('d3_green'),
-            [59] = colors.hash('d2_green'),
-            [60] = colors.hash('d1_green'),
-            [61] = colors.hash('green'),
-            [62] = colors.hash('l1_green'),
-            [63] = colors.hash('l2_green'),
-            [64] = colors.hash('l3_green'),
-            [65] = colors.hash('l4_green'),
+            [56] = theme.color_hash('d5_green'),
+            [57] = theme.color_hash('d4_green'),
+            [58] = theme.color_hash('d3_green'),
+            [59] = theme.color_hash('d2_green'),
+            [60] = theme.color_hash('d1_green'),
+            [61] = theme.color_hash('green'),
+            [62] = theme.color_hash('l1_green'),
+            [63] = theme.color_hash('l2_green'),
+            [64] = theme.color_hash('l3_green'),
+            [65] = theme.color_hash('l4_green'),
 
-            [66] = colors.hash('d5_cyan'),
-            [67] = colors.hash('d4_cyan'),
-            [68] = colors.hash('d3_cyan'),
-            [69] = colors.hash('d2_cyan'),
-            [70] = colors.hash('d1_cyan'),
-            [71] = colors.hash('cyan'),
-            [72] = colors.hash('l1_cyan'),
-            [73] = colors.hash('l2_cyan'),
-            [74] = colors.hash('l3_cyan'),
-            [75] = colors.hash('l4_cyan'),
+            [66] = theme.color_hash('d5_cyan'),
+            [67] = theme.color_hash('d4_cyan'),
+            [68] = theme.color_hash('d3_cyan'),
+            [69] = theme.color_hash('d2_cyan'),
+            [70] = theme.color_hash('d1_cyan'),
+            [71] = theme.color_hash('cyan'),
+            [72] = theme.color_hash('l1_cyan'),
+            [73] = theme.color_hash('l2_cyan'),
+            [74] = theme.color_hash('l3_cyan'),
+            [75] = theme.color_hash('l4_cyan'),
 
-            [76] = colors.hash('d5_blue'),
-            [77] = colors.hash('d4_blue'),
-            [78] = colors.hash('d3_blue'),
-            [79] = colors.hash('d2_blue'),
-            [80] = colors.hash('d1_blue'),
-            [81] = colors.hash('blue'),
-            [82] = colors.hash('l1_blue'),
-            [83] = colors.hash('l2_blue'),
-            [84] = colors.hash('l3_blue'),
-            [85] = colors.hash('l4_blue'),
+            [76] = theme.color_hash('d5_blue'),
+            [77] = theme.color_hash('d4_blue'),
+            [78] = theme.color_hash('d3_blue'),
+            [79] = theme.color_hash('d2_blue'),
+            [80] = theme.color_hash('d1_blue'),
+            [81] = theme.color_hash('blue'),
+            [82] = theme.color_hash('l1_blue'),
+            [83] = theme.color_hash('l2_blue'),
+            [84] = theme.color_hash('l3_blue'),
+            [85] = theme.color_hash('l4_blue'),
 
-            [86] = colors.hash('d5_purple'),
-            [87] = colors.hash('d4_purple'),
-            [88] = colors.hash('d3_purple'),
-            [89] = colors.hash('d2_purple'),
-            [90] = colors.hash('d1_purple'),
-            [91] = colors.hash('purple'),
-            [92] = colors.hash('l1_purple'),
-            [93] = colors.hash('l2_purple'),
-            [94] = colors.hash('l3_purple'),
-            [95] = colors.hash('l4_purple'),
+            [86] = theme.color_hash('d5_purple'),
+            [87] = theme.color_hash('d4_purple'),
+            [88] = theme.color_hash('d3_purple'),
+            [89] = theme.color_hash('d2_purple'),
+            [90] = theme.color_hash('d1_purple'),
+            [91] = theme.color_hash('purple'),
+            [92] = theme.color_hash('l1_purple'),
+            [93] = theme.color_hash('l2_purple'),
+            [94] = theme.color_hash('l3_purple'),
+            [95] = theme.color_hash('l4_purple'),
 
-            [96] = colors.hash('d5_magenta'),
-            [97] = colors.hash('d4_magenta'),
-            [98] = colors.hash('d3_magenta'),
-            [99] = colors.hash('d2_magenta'),
-            [100] = colors.hash('d1_magenta'),
-            [101] = colors.hash('magenta'),
-            [102] = colors.hash('l1_magenta'),
-            [103] = colors.hash('l2_magenta'),
-            [104] = colors.hash('l3_magenta'),
-            [105] = colors.hash('l4_magenta'),
+            [96] = theme.color_hash('d5_magenta'),
+            [97] = theme.color_hash('d4_magenta'),
+            [98] = theme.color_hash('d3_magenta'),
+            [99] = theme.color_hash('d2_magenta'),
+            [100] = theme.color_hash('d1_magenta'),
+            [101] = theme.color_hash('magenta'),
+            [102] = theme.color_hash('l1_magenta'),
+            [103] = theme.color_hash('l2_magenta'),
+            [104] = theme.color_hash('l3_magenta'),
+            [105] = theme.color_hash('l4_magenta'),
         },
     },
 }

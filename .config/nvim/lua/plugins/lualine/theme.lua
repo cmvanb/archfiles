@@ -2,41 +2,31 @@
 -- Lualine theme
 --------------------------------------------------------------------------------
 
--- Retrieve system colors
---------------------------------------------------------------------------------
+local theme = require('system.theme')
 
-local colors_path = os.getenv('XDG_CONFIG_HOME') .. [[/colors/?.lua;]]
-local PathUtils = require('utils.path')
-
-PathUtils.prepend_to_package_path(colors_path)
-
-local Colors = require('lua-colors')
-
-Colors.parse_colors()
+local colors = {
+    theme_1_fg  = theme.color_hash('l4_blue'),
+    theme_2_fg  = theme.color_hash('ds_blue_6'),
+    theme_3_fg  = theme.color_hash('ds_blue_6'),
+    theme_1_bg  = theme.color_hash('ds_blue_4'),
+    theme_2_bg  = theme.color_hash('ds_blue_2'),
+    theme_3_bg  = theme.color_hash('editor_bg'),
+    normal_fg   = theme.color_hash('l4_blue'),
+    normal_bg   = theme.color_hash('ds_blue_4'),
+    insert_bg   = theme.color_hash('d3_green'),
+    insert_fg   = theme.color_hash('green'),
+    visual_bg   = theme.color_hash('d1_magenta'),
+    visual_fg   = theme.color_hash('l4_magenta'),
+    command_bg  = theme.color_hash('d2_orange'),
+    command_fg  = theme.color_hash('l1_yellow'),
+    replace_bg  = theme.color_hash('d2_purple'),
+    replace_fg  = theme.color_hash('l3_purple'),
+    inactive_fg = theme.color_hash('ds_blue_5'),
+    inactive_bg = theme.color_hash('ds_blue_1'),
+}
 
 -- Construct theme
 --------------------------------------------------------------------------------
-
-local colors = {
-    theme_1_fg  = Colors.hash('l4_blue'),
-    theme_2_fg  = Colors.hash('ds_blue_6'),
-    theme_3_fg  = Colors.hash('ds_blue_6'),
-    theme_1_bg  = Colors.hash('ds_blue_4'),
-    theme_2_bg  = Colors.hash('ds_blue_2'),
-    theme_3_bg  = Colors.hash('editor_bg'),
-    normal_fg   = Colors.hash('l4_blue'),
-    normal_bg   = Colors.hash('ds_blue_4'),
-    insert_bg   = Colors.hash('d3_green'),
-    insert_fg   = Colors.hash('green'),
-    visual_bg   = Colors.hash('d1_magenta'),
-    visual_fg   = Colors.hash('l4_magenta'),
-    command_bg  = Colors.hash('d2_orange'),
-    command_fg  = Colors.hash('l1_yellow'),
-    replace_bg  = Colors.hash('d2_purple'),
-    replace_fg  = Colors.hash('l3_purple'),
-    inactive_fg = Colors.hash('ds_blue_5'),
-    inactive_bg = Colors.hash('ds_blue_1'),
-}
 
 return {
     normal = {

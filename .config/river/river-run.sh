@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load river environment.
-. $XDG_CONFIG_HOME/river/environment.sh
+source $XDG_CONFIG_HOME/river/environment.sh
 
 # Run river and save session log file.
 /usr/bin/river 2> $XDG_DATA_HOME/river/session_log

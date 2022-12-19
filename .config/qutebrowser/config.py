@@ -2,23 +2,19 @@
 # Qutebrowser configuration
 #-------------------------------------------------------------------------------
 
-## System color lookup
+# Retrieve system theme
 #-------------------------------------------------------------------------------
 
 import os
 import sys
 
-import_path = '{0}/colors'.format(os.environ['XDG_CONFIG_HOME'])
-sys.path.append(import_path)
+sys.path.append(f"{os.environ['XDG_CONFIG_HOME']}/theme")
+import theme
 
-import py_colors as colors
-
-colors.parse_colors()
-
-## General settings
+# General settings
 #-------------------------------------------------------------------------------
 
-# NOTE: Loads session configuration changes from autoconfig.yml.
+# Loads session configuration changes from autoconfig.yml.
 config.load_autoconfig(True)
 
 c.auto_save.session = False
@@ -27,7 +23,7 @@ c.scrolling.smooth = True
 c.scrolling.bar = 'always'
 c.session.default_name = 'default'
 
-## Content settings
+# Content settings
 #-------------------------------------------------------------------------------
 
 c.content.autoplay = False
@@ -37,38 +33,38 @@ c.content.headers.do_not_track = True
 c.content.javascript.enabled = False
 c.content.notifications.enabled = False
 
-## Font settings
+# Font settings
 #-------------------------------------------------------------------------------
 
-### Defaults
-c.fonts.default_family = [ 'Iosevka Nerd Font Mono' ]
+# Defaults
+c.fonts.default_family = [ f'{theme.font("font_mono")}' ]
 c.fonts.default_size = '12pt'
 
-### Webpages
+# Webpages
 c.fonts.web.family.fixed = 'default_family'
-c.fonts.web.family.sans_serif = 'Noto Sans'
-c.fonts.web.family.serif = 'Noto Serif'
+c.fonts.web.family.sans_serif = f"{theme.font('font_sans')}"
+c.fonts.web.family.serif = f"{theme.font('font_serif')}"
 c.fonts.web.family.standard = 'default_family'
 c.fonts.web.size.minimum = 6
 c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 18
 
-### Interface
+# Interface
 c.fonts.contextmenu = 'default_size sans-serif'
 c.fonts.debug_console = 'default_size default_family'
 c.fonts.downloads = 'default_size default_family'
 c.fonts.keyhint = 'default_size default_family'
 c.fonts.prompts = 'default_size sans-serif'
 
-## Input settings
+# Input settings
 #-------------------------------------------------------------------------------
 
-# NOTE: Doesn't work in every case. See: https://github.com/qutebrowser/qutebrowser/discussions/7350
+# NOTE: Doesn't work in many cases. See: https://github.com/qutebrowser/qutebrowser/discussions/7350
 c.input.insert_mode.auto_enter = True
 c.input.insert_mode.auto_leave = True
 c.input.insert_mode.auto_load = True
 
-## URL settings
+# URL settings
 #-------------------------------------------------------------------------------
 
 c.url.start_pages = [ 'about:blank' ]
@@ -83,10 +79,10 @@ c.url.searchengines = {
 }
 c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content' ]
 
-## Completion view component
+# Completion view component
 #-------------------------------------------------------------------------------
 
-### Appearance
+# Appearance
 c.fonts.completion.category = 'bold default_size default_family'
 c.fonts.completion.entry = 'default_size default_family'
 
@@ -94,43 +90,43 @@ c.completion.height = '40%'
 c.completion.scrollbar.padding = 3
 c.completion.scrollbar.width = 10
 
-c.colors.completion.category.border.top = colors.hash('browser_bg')
-c.colors.completion.category.border.bottom = colors.hash('browser_bg')
-c.colors.completion.category.bg = colors.hash('d4_blue')
-c.colors.completion.category.fg = colors.hash('l1_white')
-c.colors.completion.even.bg = colors.hash('browser_bg')
-c.colors.completion.odd.bg = colors.hash('browser_bg')
-c.colors.completion.fg = [ colors.hash('white'), colors.hash('white'), colors.hash('white') ]
+c.colors.completion.category.border.top = theme.color_hash('browser_bg')
+c.colors.completion.category.border.bottom = theme.color_hash('browser_bg')
+c.colors.completion.category.bg = theme.color_hash('d4_blue')
+c.colors.completion.category.fg = theme.color_hash('l1_white')
+c.colors.completion.even.bg = theme.color_hash('browser_bg')
+c.colors.completion.odd.bg = theme.color_hash('browser_bg')
+c.colors.completion.fg = [ theme.color_hash('white'), theme.color_hash('white'), theme.color_hash('white') ]
 
-c.colors.completion.item.selected.border.bottom = colors.hash('l1_magenta')
-c.colors.completion.item.selected.border.top = colors.hash('l1_magenta')
-c.colors.completion.item.selected.bg = colors.hash('l1_magenta')
-c.colors.completion.item.selected.fg = colors.hash('black')
-c.colors.completion.item.selected.match.fg = colors.hash('yellow')
-c.colors.completion.match.fg = colors.hash('l1_yellow')
-c.colors.completion.scrollbar.fg = colors.hash('d3_gray')
-c.colors.completion.scrollbar.bg = colors.hash('browser_bg')
+c.colors.completion.item.selected.border.bottom = theme.color_hash('l1_magenta')
+c.colors.completion.item.selected.border.top = theme.color_hash('l1_magenta')
+c.colors.completion.item.selected.bg = theme.color_hash('l1_magenta')
+c.colors.completion.item.selected.fg = theme.color_hash('black')
+c.colors.completion.item.selected.match.fg = theme.color_hash('yellow')
+c.colors.completion.match.fg = theme.color_hash('l1_yellow')
+c.colors.completion.scrollbar.fg = theme.color_hash('d3_gray')
+c.colors.completion.scrollbar.bg = theme.color_hash('browser_bg')
 
-## Downloads component
+# Downloads component
 #-------------------------------------------------------------------------------
 
-### Appearance
+# Appearance
 c.downloads.position = 'bottom'
 
-c.colors.downloads.bar.bg = colors.hash('browser_bg')
-c.colors.downloads.error.bg = colors.hash('d4_red')
-c.colors.downloads.error.fg = colors.hash('red')
-c.colors.downloads.stop.bg = colors.hash('d4_green')
-c.colors.downloads.stop.fg = colors.hash('green')
-c.colors.downloads.start.bg = colors.hash('d4_blue')
-c.colors.downloads.start.fg = colors.hash('blue')
+c.colors.downloads.bar.bg = theme.color_hash('browser_bg')
+c.colors.downloads.error.bg = theme.color_hash('d4_red')
+c.colors.downloads.error.fg = theme.color_hash('red')
+c.colors.downloads.stop.bg = theme.color_hash('d4_green')
+c.colors.downloads.stop.fg = theme.color_hash('green')
+c.colors.downloads.start.bg = theme.color_hash('d4_blue')
+c.colors.downloads.start.fg = theme.color_hash('blue')
 c.colors.downloads.system.bg = 'rgb'
 c.colors.downloads.system.fg = 'rgb'
 
-## Hints component
+# Hints component
 #-------------------------------------------------------------------------------
 
-### Behavior
+# Behavior
 c.hints.auto_follow = 'unique-match'
 c.hints.auto_follow_timeout = 0
 c.hints.leave_on_load = False
@@ -139,8 +135,8 @@ c.hints.chars = 'asdfghjkl'
 c.hints.min_chars = 1
 c.hints.uppercase = False
 
-### Appearance
-c.hints.border = '1px solid {0}'.format(colors.hash('d3_purple'))
+# Appearance
+c.hints.border = f'1px solid {theme.color_hash("d3_purple")}'
 c.hints.padding = { 'top': 2, 'bottom': 0, 'left': 2, 'right': 2 }
 c.hints.radius = 4
 
@@ -149,97 +145,97 @@ c.fonts.hints = 'bold 9pt default_family'
 # TODO: Provide a color formatter for RGBA.
 # TODO: Configure a color gradient.
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
-c.colors.hints.bg = colors.hash('d2_purple')
-c.colors.hints.fg = colors.hash('l3_purple')
-c.colors.hints.match.fg = colors.hash('white')
+c.colors.hints.bg = theme.color_hash('d2_purple')
+c.colors.hints.fg = theme.color_hash('l3_purple')
+c.colors.hints.match.fg = theme.color_hash('white')
 
-## Keyhint component
+# Keyhint component
 #-------------------------------------------------------------------------------
 
-### Behavior
+# Behavior
 c.keyhint.blacklist = []
 c.keyhint.delay = 500
 
-### Appearance
+# Appearance
 c.keyhint.radius = 5
 
-c.colors.keyhint.bg = colors.hash('browser_bg')
-c.colors.keyhint.fg = colors.hash('white')
-c.colors.keyhint.suffix.fg = colors.hash('l1_yellow')
+c.colors.keyhint.bg = theme.color_hash('browser_bg')
+c.colors.keyhint.fg = theme.color_hash('white')
+c.colors.keyhint.suffix.fg = theme.color_hash('l1_yellow')
 
-## Messages component
+# Messages component
 #-------------------------------------------------------------------------------
 
 # Info Test: ?
 # Warning Test: Enter a search term that doesn't appear on the page.
 # Error Test: `session-load` a non-existent session.
 
-### Behavior
+# Behavior
 c.messages.timeout = 5000
 
-### Appearance
+# Appearance
 c.fonts.messages.error = 'bold 10pt default_family'
 c.fonts.messages.info = '10pt default_family'
 c.fonts.messages.warning = 'bold 10pt default_family'
 
-c.colors.messages.info.border = colors.hash('browser_bg')
-c.colors.messages.info.bg = colors.hash('browser_bg')
-c.colors.messages.info.fg = colors.hash('white')
-c.colors.messages.warning.border = colors.hash('browser_bg')
-c.colors.messages.warning.bg = colors.hash('browser_bg')
-c.colors.messages.warning.fg = colors.hash('l1_yellow')
-c.colors.messages.error.border = colors.hash('browser_bg')
-c.colors.messages.error.bg = colors.hash('browser_bg')
-c.colors.messages.error.fg = colors.hash('l1_red')
+c.colors.messages.info.border = theme.color_hash('browser_bg')
+c.colors.messages.info.bg = theme.color_hash('browser_bg')
+c.colors.messages.info.fg = theme.color_hash('white')
+c.colors.messages.warning.border = theme.color_hash('browser_bg')
+c.colors.messages.warning.bg = theme.color_hash('browser_bg')
+c.colors.messages.warning.fg = theme.color_hash('l1_yellow')
+c.colors.messages.error.border = theme.color_hash('browser_bg')
+c.colors.messages.error.bg = theme.color_hash('browser_bg')
+c.colors.messages.error.fg = theme.color_hash('l1_red')
 
-## Statusbar component
+# Statusbar component
 #-------------------------------------------------------------------------------
 
-### Behavior
+# Behavior
 c.statusbar.show = 'always'
 c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'history', 'tabs', 'progress' ]
 
-### Appearance
+# Appearance
 c.fonts.statusbar = 'default_size default_family'
 
 c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
 c.statusbar.position = 'bottom'
 
-c.colors.statusbar.normal.bg = colors.hash('browser_bg')
-c.colors.statusbar.normal.fg = colors.hash('white')
-c.colors.statusbar.caret.bg = colors.hash('browser_bg')
-c.colors.statusbar.caret.fg = colors.hash('magenta')
-c.colors.statusbar.caret.selection.bg = colors.hash('browser_bg')
-c.colors.statusbar.caret.selection.fg = colors.hash('l1_cyan')
-c.colors.statusbar.command.bg = colors.hash('browser_bg')
-c.colors.statusbar.command.fg = colors.hash('l1_cyan')
-c.colors.statusbar.insert.bg = colors.hash('browser_bg')
-c.colors.statusbar.insert.fg = colors.hash('green')
-c.colors.statusbar.passthrough.bg = colors.hash('browser_bg')
-c.colors.statusbar.passthrough.fg = colors.hash('yellow')
-c.colors.statusbar.private.bg = colors.hash('d4_purple')
-c.colors.statusbar.private.fg = colors.hash('white')
-c.colors.statusbar.command.private.bg = colors.hash('browser_bg')
-c.colors.statusbar.command.private.fg = colors.hash('l1_cyan')
-c.colors.statusbar.progress.bg = colors.hash('white')
-c.colors.statusbar.url.error.fg = colors.hash('red')
-c.colors.statusbar.url.fg = colors.hash('white')
-c.colors.statusbar.url.hover.fg = colors.hash('l1_cyan')
-c.colors.statusbar.url.success.http.fg = colors.hash('l1_yellow')
-c.colors.statusbar.url.success.https.fg = colors.hash('l1_green')
-c.colors.statusbar.url.warn.fg = colors.hash('l1_yellow')
+c.colors.statusbar.normal.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.normal.fg = theme.color_hash('white')
+c.colors.statusbar.caret.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.caret.fg = theme.color_hash('magenta')
+c.colors.statusbar.caret.selection.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.caret.selection.fg = theme.color_hash('l1_cyan')
+c.colors.statusbar.command.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.command.fg = theme.color_hash('l1_cyan')
+c.colors.statusbar.insert.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.insert.fg = theme.color_hash('green')
+c.colors.statusbar.passthrough.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.passthrough.fg = theme.color_hash('yellow')
+c.colors.statusbar.private.bg = theme.color_hash('d4_purple')
+c.colors.statusbar.private.fg = theme.color_hash('white')
+c.colors.statusbar.command.private.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.command.private.fg = theme.color_hash('l1_cyan')
+c.colors.statusbar.progress.bg = theme.color_hash('white')
+c.colors.statusbar.url.error.fg = theme.color_hash('red')
+c.colors.statusbar.url.fg = theme.color_hash('white')
+c.colors.statusbar.url.hover.fg = theme.color_hash('l1_cyan')
+c.colors.statusbar.url.success.http.fg = theme.color_hash('l1_yellow')
+c.colors.statusbar.url.success.https.fg = theme.color_hash('l1_green')
+c.colors.statusbar.url.warn.fg = theme.color_hash('l1_yellow')
 
-## Tabs component
+# Tabs component
 #-------------------------------------------------------------------------------
 
-### Behavior
+# Behavior
 c.tabs.last_close = 'default-page'
 c.tabs.mode_on_change = 'normal'
 c.tabs.select_on_remove = 'last-used'
 c.tabs.show = 'multiple'
 c.tabs.tooltips = False
 
-### Appearance
+# Appearance
 c.fonts.tabs.selected = 'bold 10pt default_family'
 c.fonts.tabs.unselected = '10pt default_family'
 
@@ -251,20 +247,21 @@ c.tabs.position = 'top'
 c.tabs.title.alignment = 'left'
 c.tabs.title.format = '{audio}[{index}] {current_title}'
 
-c.colors.tabs.bar.bg = colors.hash('browser_bg')
-c.colors.tabs.odd.bg = colors.hash('browser_bg')
-c.colors.tabs.odd.fg = colors.hash('l1_gray')
-c.colors.tabs.even.bg = colors.hash('browser_bg')
-c.colors.tabs.even.fg = colors.hash('l1_gray')
-c.colors.tabs.selected.odd.bg = colors.hash('browser_bg')
-c.colors.tabs.selected.odd.fg = colors.hash('white')
-c.colors.tabs.selected.even.bg = colors.hash('browser_bg')
-c.colors.tabs.selected.even.fg = colors.hash('white')
+c.colors.tabs.bar.bg = theme.color_hash('browser_bg')
+c.colors.tabs.odd.bg = theme.color_hash('browser_bg')
+c.colors.tabs.odd.fg = theme.color_hash('l1_gray')
+c.colors.tabs.even.bg = theme.color_hash('browser_bg')
+c.colors.tabs.even.fg = theme.color_hash('l1_gray')
+c.colors.tabs.selected.odd.bg = theme.color_hash('browser_bg')
+c.colors.tabs.selected.odd.fg = theme.color_hash('white')
+c.colors.tabs.selected.even.bg = theme.color_hash('browser_bg')
+c.colors.tabs.selected.even.fg = theme.color_hash('white')
 
-## Key bindings
+# Key bindings
 #-------------------------------------------------------------------------------
 
-### Unwanted default bindings
+# Unwanted default bindings
+# TODO: Most of the default bindings should be unbound
 config.unbind('<Ctrl-a>')
 config.unbind('<Ctrl-q>')
 config.unbind('<Ctrl-PgDown>')
@@ -275,18 +272,16 @@ config.unbind('<Ctrl-w>')
 config.unbind('q')
 config.unbind('d')
 
-# TODO: Most of the default bindings should be unbound
-
-#### Program management
+# General
 config.bind('<Ctrl-w>', 'close')
 config.bind('<Ctrl-q>', 'tab-close')
 
-### Normal mode
-#### Session management
+# Normal mode
+#-- Session management
 config.bind('<Space>o', 'set-cmd-text -s :session-load')
 config.bind('<Space>s', 'set-cmd-text -s :session-save -o')
 
-#### Tab management
+#-- Tab management
 config.bind('<Ctrl-1>', 'tab-focus 1')
 config.bind('<Ctrl-2>', 'tab-focus 2')
 config.bind('<Ctrl-3>', 'tab-focus 3')
@@ -300,14 +295,14 @@ config.bind('<Ctrl-g>', 'set-cmd-text -s :tab-give')
 config.bind('H', 'tab-prev')
 config.bind('L', 'tab-next')
 
-#### Downloads management
+#-- Downloads management
 config.bind('<Space>l', 'download-clear')
 
-#### History navigation
+#-- History navigation
 config.bind('J', 'forward')
 config.bind('K', 'back')
 
-#### Page navigation
+#-- Page navigation
 config.bind('j', 'scroll down')
 config.bind('k', 'scroll up')
 config.bind('<Ctrl+a>', 'mode-enter caret ;; selection-toggle ;; move-to-end-of-document')
@@ -317,33 +312,33 @@ config.bind('<Ctrl+a>', 'mode-enter caret ;; selection-toggle ;; move-to-end-of-
 #   see: https://github.com/qutebrowser/qutebrowser/issues/2668
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
 
-### Insert mode
+# Insert mode
 config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 
-### Command mode
+# Command mode
 config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
 config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
 config.bind('<Ctrl-d>', 'completion-item-del', mode='command')
 
-## Color settings
+# Color settings
 #-------------------------------------------------------------------------------
 
-### Context menu
-c.colors.contextmenu.disabled.bg = colors.hash('d3_gray')
-c.colors.contextmenu.disabled.fg = colors.hash('gray')
-c.colors.contextmenu.menu.bg = colors.hash('browser_bg')
-c.colors.contextmenu.menu.fg = colors.hash('white')
-c.colors.contextmenu.selected.bg = colors.hash('d3_blue')
-c.colors.contextmenu.selected.fg = colors.hash('l1_white')
+# Context menu
+c.colors.contextmenu.disabled.bg = theme.color_hash('d3_gray')
+c.colors.contextmenu.disabled.fg = theme.color_hash('gray')
+c.colors.contextmenu.menu.bg = theme.color_hash('browser_bg')
+c.colors.contextmenu.menu.fg = theme.color_hash('white')
+c.colors.contextmenu.selected.bg = theme.color_hash('d3_blue')
+c.colors.contextmenu.selected.fg = theme.color_hash('l1_white')
 
-### Websites
-c.colors.webpage.bg = colors.hash('d5_purple')
+# Websites
+c.colors.webpage.bg = theme.color_hash('d5_purple')
 c.colors.webpage.preferred_color_scheme = 'dark'
 
-### Dark mode
+# Dark mode
 c.colors.webpage.darkmode.enabled = True
 
-### Prompts
+# Prompts
 # TODO: Configure prompts colors
 
 # Background color for prompts.
@@ -358,7 +353,7 @@ c.colors.webpage.darkmode.enabled = True
 # Type: QssColor
 # c.colors.prompts.fg = 'white'
 
-### Filename prompts
+# Filename prompts
 # TODO: Configure filename prompt colors
 
 # Background color for the selected item in filename prompts.
@@ -375,7 +370,7 @@ c.colors.webpage.darkmode.enabled = True
 # Configuration graveyard
 #-------------------------------------------------------------------------------
 
-## General settings
+# General settings
 # ---
 
 ## Time interval (in milliseconds) between auto-saves of
@@ -1521,27 +1516,6 @@ c.colors.webpage.darkmode.enabled = True
 ## Type: Bool
 # c.url.open_base_url = False
 
-## Search engines which can be used via the address bar.  Maps a search
-## engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
-## placeholder. The placeholder will be replaced by the search term, use
-## `{{` and `}}` for literal `{`/`}` braces.  The following further
-## placeholds are defined to configure how special characters in the
-## search terms are replaced by safe characters (called 'quoting'):  *
-## `{}` and `{semiquoted}` quote everything except slashes; this is the
-## most   sensible choice for almost all search engines (for the search
-## term   `slash/and&amp` this placeholder expands to `slash/and%26amp`).
-## * `{quoted}` quotes all characters (for `slash/and&amp` this
-## placeholder   expands to `slash%2Fand%26amp`). * `{unquoted}` quotes
-## nothing (for `slash/and&amp` this placeholder   expands to
-## `slash/and&amp`). * `{0}` means the same as `{}`, but can be used
-## multiple times.  The search engine named `DEFAULT` is used when
-## `url.auto_search` is turned on and something else than a URL was
-## entered to be opened. Other search engines can be used by prepending
-## the search engine name to the search term, e.g. `:open google
-## qutebrowser`.
-## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
-
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
 # c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
@@ -1859,10 +1833,7 @@ c.colors.webpage.darkmode.enabled = True
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
 
-## Color settings
-# ---
-
-### Dark mode
+# Dark mode
 # ---
 
 # Which algorithm to use for modifying how colors are rendered with

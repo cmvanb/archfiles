@@ -1,28 +1,20 @@
-# ------------------------------------------------------------------------------
-# Lookup
-# ------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# System theme Fish API
+#-------------------------------------------------------------------------------
 
-function set_dict_color --argument-names key value
-    set -g '__color_'$key $value
+function dict_get --argument-names key
+    eval echo -n \$'__var_'$key
 end
 
-function color_named --argument-names key
-    eval echo -n \$'__color_'$key
+function dict_set --argument-names key value
+    set -g '__var_'$key $value
 end
 
-function color_hash --argument-names key
-    echo -n '#'(eval echo \$'__color_'$key)
-end
+# Parsing
+#-------------------------------------------------------------------------------
 
-function color_zerox --argument-names key
-    echo -n '0x'(eval echo \$'__color_'$key)
-end
-
-# ------------------------------------------------------------------------------
-# Parser
-# ------------------------------------------------------------------------------
-function parse_colors --argument-names colors_file
-    test -z $colors_file && set colors_file "$XDG_CONFIG_HOME/colors/colors"
+function parse_vars --argument-names filePath
+    test -z $filePath && set filePath $XDG_CONFIG_HOME"/theme/colors"
 
     while read line
         set -l key ''
@@ -34,9 +26,7 @@ function parse_colors --argument-names colors_file
             continue
         end
 
-        # for c in (string split '' abc)
         for char in (string split '' $line)
-
             # Space, keep reading
             if test $char = ' '
                 continue
@@ -52,7 +42,7 @@ function parse_colors --argument-names colors_file
                     break
                 end
 
-            # Quote, only allowed after assignment
+            # Quote, char is ignored, only allowed after assignment
             else if test $char = '\''
                 if test $assignment_op = 'true'
                     continue
@@ -61,7 +51,7 @@ function parse_colors --argument-names colors_file
                     return 2
                 end
 
-            # Dollar, only allowed after assignment
+            # Dollar, indicates variable lookup, only allowed after assignment
             else if test $char = '$'
                 if test $assignment_op = 'true'
                     set lookup 'true'
@@ -88,21 +78,45 @@ function parse_colors --argument-names colors_file
             else
                 echo "Unable to continue parsing, unexpected character [$char]."
                 return 4
-
             end
         end
 
         # Assign value
         if test -n $key && test -n $value
             if test $lookup = 'true'
-                set_dict_color $key $(color_named $value)
+                dict_set $key $(dict_get $value)
             else
-                set_dict_color $key $value
+                dict_set $key $value
             end
         end
 
-    end < $colors_file
+    end < $filePath
 
     return 0
+end
+
+# Entry point
+#-------------------------------------------------------------------------------
+
+parse_vars $XDG_CONFIG_HOME"/theme/colors"
+parse_vars $XDG_CONFIG_HOME"/theme/fonts"
+
+# Lookup
+#-------------------------------------------------------------------------------
+
+function color_named --argument-names key
+    eval echo -n (dict_get $key)
+end
+
+function color_hash --argument-names key
+    eval echo -n '#'(dict_get $key)
+end
+
+function color_zerox --argument-names key
+    eval echo -n '0x'(dict_get $key)
+end
+
+function font --argument-names key
+    eval echo -n (dict_get $key)
 end
 

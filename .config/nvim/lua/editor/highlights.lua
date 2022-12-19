@@ -3,36 +3,27 @@
 --------------------------------------------------------------------------------
 
 -- Retrieve system colors
---------------------------------------------------------------------------------
+local theme = require('system.theme')
 
-local colors_path = os.getenv('XDG_CONFIG_HOME') .. [[/colors/?.lua;]]
-local PathUtils = require('utils.path')
-
-PathUtils.prepend_to_package_path(colors_path)
-
-local Colors = require('lua-colors')
-
-Colors.parse_colors()
-
--- TODO: Extract utility.
 -- Helpers
 --------------------------------------------------------------------------------
 
 local cmd = vim.cmd
 local opt = vim.opt
 
+-- TODO: Extract utility.
 local function hi(group, guifg, guibg, guiprops, termfg, termbg, termprops)
     if guifg ~= 'NONE' then
-        guifg = Colors.hash(guifg)
+        guifg = theme.color_hash(guifg)
     end
     if guibg ~= 'NONE' then
-        guibg = Colors.hash(guibg)
+        guibg = theme.color_hash(guibg)
     end
     if termfg ~= 'NONE' then
-        termfg = Colors.name_to_ansi_index(termfg)
+        termfg = theme.color_name_to_ansi_index(termfg)
     end
     if termbg ~= 'NONE' then
-        termbg = Colors.name_to_ansi_index(termbg)
+        termbg = theme.color_name_to_ansi_index(termbg)
     end
 
     cmd('hi! ' .. group ..
@@ -44,6 +35,7 @@ local function hi(group, guifg, guibg, guiprops, termfg, termbg, termprops)
         ' cterm=' .. termprops)
 end
 
+-- TODO: Extract utility.
 local function ln(group, target)
     cmd('hi! link ' .. group .. ' ' .. target)
 end
