@@ -66,7 +66,9 @@ cmp.setup({
             return item
         end,
     },
-
+    matching = {
+        disallow_fuzzy_matching = true,
+    },
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
