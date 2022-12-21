@@ -277,6 +277,9 @@ config.bind('<Ctrl-w>', 'close')
 config.bind('<Ctrl-q>', 'tab-close')
 
 # Normal mode
+#-- Reader mode
+config.bind('<Ctrl-r>', 'spawn --userscript readability')
+
 #-- Session management
 config.bind('<Space>o', 'set-cmd-text -s :session-load')
 config.bind('<Space>s', 'set-cmd-text -s :session-save -o')
@@ -295,7 +298,7 @@ config.bind('<Ctrl-g>', 'set-cmd-text -s :tab-give')
 config.bind('H', 'tab-prev')
 config.bind('L', 'tab-next')
 
-#-- Downloads management
+#-- Downloads
 config.bind('<Space>l', 'download-clear')
 
 #-- History navigation
