@@ -37,24 +37,33 @@ c.content.notifications.enabled = False
 #-------------------------------------------------------------------------------
 
 # Defaults
-c.fonts.default_family = [ f'{theme.font("font_mono")}' ]
+c.fonts.default_family = [ f"{theme.font('font_mono')}" ]
 c.fonts.default_size = '12pt'
 
 # Webpages
-c.fonts.web.family.fixed = 'default_family'
+c.fonts.web.family.fixed = f"{theme.font('font_mono')}"
 c.fonts.web.family.sans_serif = f"{theme.font('font_sans')}"
 c.fonts.web.family.serif = f"{theme.font('font_serif')}"
-c.fonts.web.family.standard = 'default_family'
+c.fonts.web.family.standard = f"{theme.font('font_sans')}"
 c.fonts.web.size.minimum = 6
 c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 18
 
 # Interface
-c.fonts.contextmenu = 'default_size sans-serif'
-c.fonts.debug_console = 'default_size default_family'
-c.fonts.downloads = 'default_size default_family'
-c.fonts.keyhint = 'default_size default_family'
-c.fonts.prompts = 'default_size sans-serif'
+c.fonts.contextmenu         = f"default_size {theme.font('font_sans')}"
+c.fonts.debug_console       = f"default_size {theme.font('font_mono')}"
+c.fonts.downloads           = f"default_size {theme.font('font_mono')}"
+c.fonts.keyhint             = f"default_size {theme.font('font_mono')}"
+c.fonts.prompts             = f"default_size {theme.font('font_sans')}"
+c.fonts.completion.category = f"bold default_size {theme.font('font_mono')}"
+c.fonts.completion.entry    = f"default_size {theme.font('font_mono')}"
+c.fonts.hints               = f"bold 9pt {theme.font('font_mono')}"
+c.fonts.messages.error      = f"bold 10pt  {theme.font('font_mono')}"
+c.fonts.messages.info       = f"10pt {theme.font('font_mono')}"
+c.fonts.messages.warning    = f"bold 10pt  {theme.font('font_mono')}"
+c.fonts.statusbar           = f"default_size {theme.font('font_mono')}"
+c.fonts.tabs.selected       = f"bold 10pt {theme.font('font_mono')}"
+c.fonts.tabs.unselected     = f"10pt {theme.font('font_mono')}"
 
 # Input settings
 #-------------------------------------------------------------------------------
@@ -83,16 +92,13 @@ c.url.yank_ignored_parameters = [ 'ref', 'utm_source', 'utm_medium', 'utm_campai
 #-------------------------------------------------------------------------------
 
 # Appearance
-c.fonts.completion.category = 'bold default_size default_family'
-c.fonts.completion.entry = 'default_size default_family'
-
 c.completion.height = '40%'
 c.completion.scrollbar.padding = 3
 c.completion.scrollbar.width = 10
 
 c.colors.completion.category.border.top = theme.color_hash('browser_bg')
 c.colors.completion.category.border.bottom = theme.color_hash('browser_bg')
-c.colors.completion.category.bg = theme.color_hash('d4_blue')
+c.colors.completion.category.bg = theme.color_hash('primary_2')
 c.colors.completion.category.fg = theme.color_hash('white')
 c.colors.completion.even.bg = theme.color_hash('browser_bg')
 c.colors.completion.odd.bg = theme.color_hash('browser_bg')
@@ -140,7 +146,6 @@ c.hints.border = f'1px solid {theme.color_hash("d3_purple")}'
 c.hints.padding = { 'top': 2, 'bottom': 0, 'left': 2, 'right': 2 }
 c.hints.radius = 4
 
-c.fonts.hints = 'bold 9pt default_family'
 
 # TODO: Provide a color formatter for RGBA.
 # TODO: Configure a color gradient.
@@ -174,10 +179,6 @@ c.colors.keyhint.suffix.fg = theme.color_hash('l1_yellow')
 c.messages.timeout = 5000
 
 # Appearance
-c.fonts.messages.error = 'bold 10pt default_family'
-c.fonts.messages.info = '10pt default_family'
-c.fonts.messages.warning = 'bold 10pt default_family'
-
 c.colors.messages.info.border = theme.color_hash('browser_bg')
 c.colors.messages.info.bg = theme.color_hash('browser_bg')
 c.colors.messages.info.fg = theme.color_hash('text_7')
@@ -196,8 +197,6 @@ c.statusbar.show = 'always'
 c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'history', 'tabs', 'progress' ]
 
 # Appearance
-c.fonts.statusbar = 'default_size default_family'
-
 c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
 c.statusbar.position = 'bottom'
 
@@ -236,9 +235,6 @@ c.tabs.show = 'multiple'
 c.tabs.tooltips = False
 
 # Appearance
-c.fonts.tabs.selected = 'bold 10pt default_family'
-c.fonts.tabs.unselected = '10pt default_family'
-
 c.tabs.favicons.show = 'never'
 c.tabs.indicator.width = 0
 c.tabs.max_width = 240
@@ -256,6 +252,33 @@ c.colors.tabs.selected.odd.bg = theme.color_hash('browser_bg')
 c.colors.tabs.selected.odd.fg = theme.color_hash('text_7')
 c.colors.tabs.selected.even.bg = theme.color_hash('browser_bg')
 c.colors.tabs.selected.even.fg = theme.color_hash('text_7')
+
+# Prompt component
+#-------------------------------------------------------------------------------
+c.colors.prompts.bg = theme.color_hash('primary_2')
+c.colors.prompts.border = f"2px solid {theme.color_hash('primary_6')}"
+c.colors.prompts.fg = theme.color_hash('text_7')
+c.colors.prompts.selected.bg = theme.color_hash('primary_6')
+c.colors.prompts.selected.fg = theme.color_hash('white')
+
+# Context menu component
+#-------------------------------------------------------------------------------
+c.colors.contextmenu.disabled.bg = theme.color_hash('primary_1')
+c.colors.contextmenu.disabled.fg = theme.color_hash('text_1')
+c.colors.contextmenu.menu.bg = theme.color_hash('primary_2')
+c.colors.contextmenu.menu.fg = theme.color_hash('text_6')
+c.colors.contextmenu.selected.bg = theme.color_hash('primary_6')
+c.colors.contextmenu.selected.fg = theme.color_hash('white')
+
+# Website color settings
+#-------------------------------------------------------------------------------
+
+# Websites
+c.colors.webpage.bg = theme.color_hash('primary_1')
+c.colors.webpage.preferred_color_scheme = 'dark'
+
+# Dark mode
+c.colors.webpage.darkmode.enabled = True
 
 # Key bindings
 #-------------------------------------------------------------------------------
@@ -322,50 +345,6 @@ config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()',
 config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
 config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
 config.bind('<Ctrl-d>', 'completion-item-del', mode='command')
-
-# Color settings
-#-------------------------------------------------------------------------------
-
-# Context menu
-c.colors.contextmenu.disabled.bg = theme.color_hash('d3_gray')
-c.colors.contextmenu.disabled.fg = theme.color_hash('gray')
-c.colors.contextmenu.menu.bg = theme.color_hash('browser_bg')
-c.colors.contextmenu.menu.fg = theme.color_hash('text_7')
-c.colors.contextmenu.selected.bg = theme.color_hash('d3_blue')
-c.colors.contextmenu.selected.fg = theme.color_hash('white')
-
-# Websites
-c.colors.webpage.bg = theme.color_hash('d5_purple')
-c.colors.webpage.preferred_color_scheme = 'dark'
-
-# Dark mode
-c.colors.webpage.darkmode.enabled = True
-
-# Prompts
-# TODO: Configure prompts colors
-
-# Background color for prompts.
-# Type: QssColor
-# c.colors.prompts.bg = '#444444'
-
-# Border used around UI elements in prompts.
-# Type: String
-# c.colors.prompts.border = '1px solid gray'
-
-# Foreground color for prompts.
-# Type: QssColor
-# c.colors.prompts.fg = 'white'
-
-# Filename prompts
-# TODO: Configure filename prompt colors
-
-# Background color for the selected item in filename prompts.
-# Type: QssColor
-# c.colors.prompts.selected.bg = 'grey'
-
-# Foreground color for the selected item in filename prompts.
-# Type: QssColor
-# c.colors.prompts.selected.fg = 'white'
 
 
 
