@@ -12,7 +12,8 @@ if vim.g.neovide ~= nil then
 
     vim.g.neovide_cursor_vfx_mode = 'sonicboom'
 
+    -- TODO: Clean this up.
     vim.api.nvim_set_keymap('', '<C-Backspace>', ':bprev<cr>', { noremap = true, silent = true })
-    -- TODO: Fix Ctrl+C/V as well.
+    vim.api.nvim_set_keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
 end
 
