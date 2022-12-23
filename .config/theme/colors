@@ -190,22 +190,22 @@ browser_bg=$d5_gray
 debug='#ff00ff'
 
 # 256 indexed colors
-i0=$black
+i0=$d5_gray
 i1=$d1_red
-i2=$d1_green
-i3=$d1_yellow
-i4=$blue
+i2=$ds_green_4
+i3=$l1_orange
+i4=$primary_11
 i5=$d1_magenta
-i6=$primary_8
-i7=$text_7
-i8=$gray
+i6=$d2_cyan
+i7=$text_5
+i8=$text_2
 i9=$l1_red
-i10=$l1_green
+i10=$green
 i11=$l1_yellow
-i12=$l2_blue
+i12=$primary_15
 i13=$l1_magenta
-i14=$primary_15
-i15=$white
+i14=$cyan
+i15=$text_7
 
 # ANSI named shortcuts
 ansi_black=$i0
