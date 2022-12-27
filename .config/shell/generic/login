@@ -44,9 +44,6 @@ pathprepend () {
 # Put your shell-independent, login environment variables here.
 #-------------------------------------------------------------------------------
 
-# Configure pyenv (for dynamically swapping python versions).
-export PYENV_ROOT=$HOME/.pyenv
-
 # Use neovim as text editor>
 export BROWSER=/usr/bin/qutebrowser
 export EDITOR=/usr/bin/nvim
@@ -60,6 +57,9 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 # Provide ssh-agent socket.
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.sock
+
+# Configure pyenv (for dynamically swapping python versions).
+export PYENV_ROOT=$HOME/.pyenv
 
 #-------------------------------------------------------------------------------
 # Path
