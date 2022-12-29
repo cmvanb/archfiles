@@ -7,3 +7,15 @@
 set show-all-if-ambiguous on
 set completion-ignore-case on
 
+# Delete key
+"\e[3~": delete-char
+
+# Left arrow
+"\e[D": backward-char
+
+# Right arrow
+"\e[C": forward-char
+
+# Ideas:
+# Use H and L for backward-char/forward-char
+# Use C-b and C-w for backward-word/forward-word

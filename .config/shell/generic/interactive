@@ -2,7 +2,6 @@
 # If you need to use anything other than simple commands, this won't work anymore.
 
 # Disable unwanted bindings.
-stty erase undef
 stty start undef
 stty stop undef
 stty susp undef
@@ -11,10 +10,20 @@ stty werase undef
 stty lnext undef
 stty discard undef
 
-# Configure terminal escape bindings.
+# Quit signal
 stty quit ^Q
-stty kill ^W
-# NOTE: These bindings are passed through by Wezterm.
-stty intr ^C
-stty eof ^D
 
+# Backspace
+stty erase "^?"
+
+# Clear line
+# TODO: Sync with other clear line bindings.
+stty kill ^W
+
+# Interrupt signal
+# NOTE: This binding is passed through by Wezterm.
+stty intr ^C
+
+# EOF signal
+# NOTE: This binding is passed through by Wezterm.
+stty eof ^D
