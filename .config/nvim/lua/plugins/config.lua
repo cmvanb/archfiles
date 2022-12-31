@@ -27,6 +27,9 @@ return {
         end,
     },
 
+    -- Git blame
+    { 'https://github.com/f-person/git-blame.nvim' },
+
     -- Better buffer deletion
     { 'famiu/bufdelete.nvim' },
 
