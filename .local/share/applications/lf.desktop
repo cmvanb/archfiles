@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=File Explorer
+GenericName=File Explorer
+Icon=utilities-terminal
+Terminal=false
+Exec=/usr/bin/wezterm cli spawn --new-window -- lf
+Categories=ConsoleOnly;System;FileTools;FileManager
+MimeType=inode/directory;

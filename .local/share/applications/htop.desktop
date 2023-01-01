@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Process Manager
+GenericName=Process Manager
+Icon=htop
+Exec=/usr/bin/wezterm cli spawn --new-window -- htop
+Terminal=false
+Categories=System;Monitor;ConsoleOnly;
+Keywords=system;process;task

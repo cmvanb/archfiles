@@ -65,7 +65,7 @@ riverctl xcursor-theme Simp1e 24
 riverctl map normal Alt T spawn "wezterm"
 
 # Command menu
-riverctl map normal Alt O spawn "wofi --show run"
+riverctl map normal Alt O spawn "wofi --no-actions --show drun"
 
 # Browser
 riverctl map normal Alt B spawn "qutebrowser"

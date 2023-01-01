@@ -1,0 +1,8 @@
+[Desktop Entry]
+NoDisplay=true
+Version=1.0
+Type=Application
+Exec=/usr/bin/wezterm cli spawn --new-window -- fish
+Name=Fish
+Icon=fish
+Terminal=false
