@@ -28,7 +28,12 @@ return {
     },
 
     -- Git blame
-    { 'https://github.com/f-person/git-blame.nvim' },
+    {
+        'https://github.com/f-person/git-blame.nvim',
+        config = function()
+            vim.g.gitblame_enabled = 0
+        end,
+    },
 
     -- Better buffer deletion
     { 'famiu/bufdelete.nvim' },
