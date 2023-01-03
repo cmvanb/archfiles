@@ -1,8 +1,9 @@
-local persistence = require('persistence')
+local sessions = require('sessions')
 
-return persistence.setup({
-    -- directory where session files are saved
-    dir = vim.fn.expand(vim.fn.stdpath('data') .. '/sessions/'),
-    -- sessionoptions used for saving
-    options = { 'buffers', 'curdir', 'tabpages', 'winsize' },
+return sessions.setup({
+    -- Use absolute path.
+    absolute = true,
+
+    -- Path where session files are saved.
+    session_filepath = vim.fn.stdpath('data') .. '/sessions',
 })

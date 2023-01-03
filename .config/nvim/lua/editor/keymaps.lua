@@ -213,8 +213,8 @@ noremap('<Leader>q', ':qa!<cr>')
 -- Sessions
 --------------------------------------------------------------------------------
 
-noremap('<leader>s', '<cmd>lua require("persistence").save()<cr>:echo "Session saved."<cr>')
-noremap('<leader>o', '<cmd>lua require("persistence").load()<cr>:echo "Session loaded."<cr>')
+noremap('<leader>s', '<cmd>SessionsSave<cr>:echo "Session saved."<cr>')
+noremap('<leader>o', '<cmd>SessionsLoad<cr>:echo "Session loaded."<cr>')
 
 -- Plugin management
 --------------------------------------------------------------------------------
