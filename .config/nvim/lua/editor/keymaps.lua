@@ -11,12 +11,12 @@
 
 local function _map(mode, shortcut, command, silent)
     silent = silent or false
-    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = false, silent = silent })
+    vim.keymap.set(mode, shortcut, command, { noremap = false, silent = silent })
 end
 
 local function _noremap(mode, shortcut, command, silent)
     silent = silent or false
-    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = silent })
+    vim.keymap.set(mode, shortcut, command, { noremap = true, silent = silent })
 end
 
 local function map(shortcut, command, silent)
@@ -148,8 +148,8 @@ onoremap('H', '0')
 onoremap('L', '$')
 
 -- Leap
-noremap('<leader>f', '<plug>(leap-forward)')
-noremap('<leader>F', '<plug>(leap-backward)')
+noremap('<leader>j', function() require('leap').leap({}) end)
+noremap('<leader>k', function() require('leap').leap({ backward = true }) end)
 
 -- Editing
 --------------------------------------------------------------------------------
@@ -166,7 +166,9 @@ noremap('<leader>;', 'gg=G')
 --------------------------------------------------------------------------------
 
 -- Fuzzy finder
-noremap('<leader>d', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
+noremap('<leader>a', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
+noremap('<leader>d', '<cmd>Telescope find_files<cr>')
+noremap('<leader>f', '<cmd>Telescope git_files<cr>')
 noremap('<leader>b', '<cmd>Telescope buffers<cr>')
 noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
 noremap('<leader>i', '<cmd>Telescope symbols<cr>')
@@ -219,6 +221,8 @@ noremap('<leader>o', '<cmd>SessionsLoad<cr>:echo "Session loaded."<cr>')
 -- Plugin management
 --------------------------------------------------------------------------------
 
+-- TODO: Add key to reload full config.
+
 -- Reload plugins.
-noremap('<leader>r', 'v:lua Loader.reload_plugins()<cr>', true)
+noremap('<leader>r', Loader.reload_plugins, true)
 
