@@ -44,7 +44,8 @@ pathprepend () {
 # Put your shell-independent, login environment variables here.
 #-------------------------------------------------------------------------------
 
-# Use neovim as text editor>
+# Some programs respect these defaults, others are supported by XDG with
+# configuration in `.config/mimeapps.list` and `.local/share/applications/`.
 export BROWSER=/usr/bin/qutebrowser
 export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR

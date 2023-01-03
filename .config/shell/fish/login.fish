@@ -15,9 +15,6 @@
 # Put your shell-independent, login environment variables here.
 #-------------------------------------------------------------------------------
 
-# Configure pyenv (for dynamically swapping python versions).
-set -x PYENV_ROOT $HOME/.pyenv
-
 # Some programs respect these defaults, others are supported by XDG with
 # configuration in `.config/mimeapps.list` and `.local/share/applications/`.
 set -x BROWSER /usr/bin/qutebrowser
@@ -32,6 +29,9 @@ set -x XDG_STATE_HOME $HOME/.local/state
 
 # Provide ssh-agent socket.
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.sock
+
+# Configure pyenv (for dynamically swapping python versions).
+set -x PYENV_ROOT $HOME/.pyenv
 
 #-------------------------------------------------------------------------------
 # Path
