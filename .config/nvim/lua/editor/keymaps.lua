@@ -64,6 +64,11 @@ local function xnoremap(shortcut, command, silent)
     _noremap('x', shortcut, command, silent)
 end
 
+local function inoremap(shortcut, command, silent)
+    silent = silent or false
+    _noremap('i', shortcut, command, silent)
+end
+
 local function onoremap(shortcut, command, silent)
     silent = silent or false
     _noremap('o', shortcut, command, silent)
@@ -204,7 +209,9 @@ noremap('<F15>', ':bprev<cr>', true)
 noremap('<C-Tab>', ':bnext<cr>', true)
 
 -- Save all buffers
-noremap('<C-s>', ':wa!<cr>')
+nnoremap('<C-s>', ':wa!<cr>')
+xnoremap('<C-s>', '<esc>:wa!<cr>')
+inoremap('<C-s>', '<esc>:wa!<cr>')
 
 -- Close buffer
 nnoremap('<C-q>', ':Bdelete<cr>', true)
