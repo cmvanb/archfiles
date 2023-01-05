@@ -15,8 +15,8 @@ telescope.setup({
             '--line-number',
             '--column',
             '--smart-case',
-            '--no-ignore',
             '--hidden',
+            '--ignore',
         },
         mappings = {
             i = {
