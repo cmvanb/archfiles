@@ -49,6 +49,12 @@ return {
     disable_default_key_bindings = true,
 
     keys = {
+        -- Reload wezterm config.
+        {
+            key = 'r',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.ReloadConfiguration,
+        },
         -- Spawn new terminal in current directory
         {
             key = 't',
