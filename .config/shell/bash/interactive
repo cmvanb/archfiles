@@ -38,8 +38,12 @@ alias grc="git rm --cached"
 alias edit="$EDITOR"
 alias e="edit"
 alias ed="edit"
-alias ex="exa --group-directories-first -al"
-alias exa="exa --group-directories-first -al"
+alias edi="edit"
+alias exa="exa --group-directories-first"
+alias ex="exa"
+alias ls="exa -l"
+alias lsa="exa -al"
+alias lsi="exa -al --git-ignore"
 
 #-------------------------------------------------------------------------------
 # Prompt

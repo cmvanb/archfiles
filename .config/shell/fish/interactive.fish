@@ -12,11 +12,11 @@
 # That may not always be true.
 source $XDG_CONFIG_HOME/shell/generic/interactive
 
-# Abbreviations & aliases
+# Aliases & Abbreviations
 #-------------------------------------------------------------------------------
 
-alias exa "exa --group-directories-first"
 alias edit "$EDITOR"
+alias exa "exa --group-directories-first"
 
 abbr -a gs git status
 abbr -a gsu git status -u
@@ -34,8 +34,10 @@ abbr -a grc git rm --cached
 abbr -a e edit
 abbr -a ed edit
 abbr -a edi edit
-abbr -a ex exa -al
-abbr -a exa exa -al
+abbr -a ex exa
+abbr -a ls exa -l
+abbr -a lsa exa -al
+abbr -a lsi exa -al --git-ignore
 
 # Bindings
 #-------------------------------------------------------------------------------
