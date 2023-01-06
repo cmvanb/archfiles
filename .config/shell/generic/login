@@ -46,9 +46,16 @@ pathprepend () {
 
 # Some programs respect these defaults, others are supported by XDG with
 # configuration in `.config/mimeapps.list` and `.local/share/applications/`.
-export BROWSER=/usr/bin/qutebrowser
-export EDITOR=/usr/bin/nvim
+export BROWSER=qutebrowser
+export EDITOR=nvim
+export PAGER=ov
 export VISUAL=$EDITOR
+
+# Configure systemd pager.
+export SYSTEMD_PAGERSECURE=true
+
+# Configure git pager.
+export GIT_PAGER="ov -X"
 
 # XDG user directories.
 export XDG_CONFIG_HOME=$HOME/.config
