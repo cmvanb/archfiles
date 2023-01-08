@@ -19,14 +19,14 @@
 # configuration in `.config/mimeapps.list` and `.local/share/applications/`.
 set -x BROWSER qutebrowser
 set -x EDITOR nvim
-set -x PAGER ov
+set -x PAGER "ov -F"
 set -x VISUAL $EDITOR
 
 # Configure systemd pager.
 set -x SYSTEMD_PAGERSECURE true
 
 # Configure git pager.
-set -x GIT_PAGER "ov -X"
+set -x GIT_PAGER "ov -F -X"
 
 # XDG user directories>
 set -x XDG_CONFIG_HOME $HOME/.config
