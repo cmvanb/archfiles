@@ -1,6 +1,9 @@
 <configuration version="37">
     <folder id="wttz7k-nk4um" label="Obsidian Vaults" path="/home/surfer/Documents/vaults" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
+        <device id="A6U4DXU-ZT4W6FZ-JGS3AG4-FCQTXXU-LBP56TX-6KQXDCG-UQ3YSGI-ZFHL5AN" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
         <device id="ENHZPZJ-2IS7LUS-WFLKYD2-KB3FR23-U4RAUJD-I6QVIST-XKT2PBX-KRAEZQZ" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
@@ -43,6 +46,16 @@
             <maxTotalSize>4096</maxTotalSize>
         </xattrFilter>
     </folder>
+    <device id="A6U4DXU-ZT4W6FZ-JGS3AG4-FCQTXXU-LBP56TX-6KQXDCG-UQ3YSGI-ZFHL5AN" name="dojo" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+        <address>dynamic</address>
+        <paused>false</paused>
+        <autoAcceptFolders>false</autoAcceptFolders>
+        <maxSendKbps>0</maxSendKbps>
+        <maxRecvKbps>0</maxRecvKbps>
+        <maxRequestKiB>0</maxRequestKiB>
+        <untrusted>false</untrusted>
+        <remoteGUIPort>0</remoteGUIPort>
+    </device>
     <device id="ENHZPZJ-2IS7LUS-WFLKYD2-KB3FR23-U4RAUJD-I6QVIST-XKT2PBX-KRAEZQZ" name="portal-gun" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
@@ -121,6 +134,9 @@
     <defaults>
         <folder id="" label="" path="~" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
             <filesystemType>basic</filesystemType>
+            <device id="A6U4DXU-ZT4W6FZ-JGS3AG4-FCQTXXU-LBP56TX-6KQXDCG-UQ3YSGI-ZFHL5AN" introducedBy="">
+                <encryptionPassword></encryptionPassword>
+            </device>
             <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
                 <encryptionPassword></encryptionPassword>
             </device>
