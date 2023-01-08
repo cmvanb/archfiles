@@ -119,6 +119,7 @@ riverctl map normal Alt Page_Up send-layout-cmd rivercarro "main-ratio -0.05"
 
 # Take a screenshot of a selected rectangle
 riverctl map normal Alt P spawn "$HOME/.scripts/screenshot-rectangle.sh"
+riverctl map normal Alt+Shift P spawn "$HOME/.scripts/screenshot-rectangle.sh --upload"
 
 for i in $(seq 1 9)
 do
