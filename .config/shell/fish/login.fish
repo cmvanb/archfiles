@@ -9,9 +9,7 @@
 #   `bass 'source /home/casper/.config/shell/generic/login'`
 #-------------------------------------------------------------------------------
 
-#-------------------------------------------------------------------------------
 # Environment
-#
 # Put your shell-independent, login environment variables here.
 #-------------------------------------------------------------------------------
 
@@ -28,11 +26,18 @@ set -x SYSTEMD_PAGERSECURE true
 # Configure git pager.
 set -x GIT_PAGER "ov -F -X"
 
-# XDG user directories>
+# XDG base directories>
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_STATE_HOME $HOME/.local/state
+
+# XDG user directories.
+set -x XDG_DOCUMENTS_DIR $HOME/Documents
+set -x XDG_DOWNLOAD_DIR $HOME/Downloads
+set -x XDG_MUSIC_DIR $HOME/Media/Music
+set -x XDG_PICTURES_DIR $HOME/Media/Images
+set -x XDG_VIDEOS_DIR $HOME/Media/Videos
 
 # Provide ssh-agent socket.
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.sock
@@ -40,7 +45,11 @@ set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.sock
 # Configure pyenv (for dynamically swapping python versions).
 set -x PYENV_ROOT $HOME/.pyenv
 
+# User directories
 #-------------------------------------------------------------------------------
+
+mkdir -p $XDG_DOCUMENTS_DIR $XDG_DOWNLOAD_DIR $XDG_MUSIC_DIR $XDG_PICTURES_DIR $XDG_VIDEOS_DIR
+
 # Path
 #-------------------------------------------------------------------------------
 

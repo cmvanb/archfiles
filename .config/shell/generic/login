@@ -1,4 +1,7 @@
 #-------------------------------------------------------------------------------
+# Generic POSIX shell login configuration
+#-------------------------------------------------------------------------------
+
 # Functions
 #-------------------------------------------------------------------------------
 
@@ -38,18 +41,16 @@ pathprepend () {
     export ${var}="${1}${value:+:${value}}"
 }
 
-#-------------------------------------------------------------------------------
 # Environment
-#
 # Put your shell-independent, login environment variables here.
 #-------------------------------------------------------------------------------
 
 # Some programs respect these defaults, others are supported by XDG with
 # configuration in `.config/mimeapps.list` and `.local/share/applications/`.
-export BROWSER=qutebrowser
-export EDITOR=nvim
+export BROWSER="qutebrowser"
+export EDITOR="nvim"
 export PAGER="ov -F"
-export VISUAL=$EDITOR
+export VISUAL="$EDITOR"
 
 # Configure systemd pager.
 export SYSTEMD_PAGERSECURE=true
@@ -57,25 +58,36 @@ export SYSTEMD_PAGERSECURE=true
 # Configure git pager.
 export GIT_PAGER="ov -F -X"
 
+# XDG base directories.
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # XDG user directories.
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_STATE_HOME=$HOME/.local/state
+export XDG_DOCUMENTS_DIR="$HOME/Documents"
+export XDG_DOWNLOAD_DIR="$HOME/Downloads"
+export XDG_MUSIC_DIR="$HOME/Media/Music"
+export XDG_PICTURES_DIR="$HOME/Media/Images"
+export XDG_VIDEOS_DIR="$HOME/Media/Videos"
 
 # Provide ssh-agent socket.
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.sock
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
 
 # Configure pyenv (for dynamically swapping python versions).
-export PYENV_ROOT=$HOME/.pyenv
+export PYENV_ROOT="$HOME/.pyenv"
 
+# User directories
 #-------------------------------------------------------------------------------
+
+mkdir -p $XDG_DOCUMENTS_DIR $XDG_DOWNLOAD_DIR $XDG_MUSIC_DIR $XDG_PICTURES_DIR $XDG_VIDEOS_DIR
+
 # Path
 #-------------------------------------------------------------------------------
 
 # Add user binaries to path
-pathprepend $HOME/.local/bin PATH
+pathprepend "$HOME/.local/bin" PATH
 
 # Add pyenv python shims to path
-pathprepend $PYENV_ROOT/bin PATH
+pathprepend "$PYENV_ROOT/bin" PATH
 
