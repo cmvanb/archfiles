@@ -37,7 +37,7 @@ while getopts ":-:" option; do
     esac
 done
 
-# Log an error.
+# Log a debug message.
 log() {
     echo "$1" 1>&2
 }
@@ -70,14 +70,15 @@ if [[ -n $error ]]; then
     fatal_error 2 "$error"
 fi
 
-# Upload to image share host and dispatch success notification.
+# If `upload` flag was passed, upload screenshot to image share host and
+# dispatch success notification.
 if [[ "$upload" == true ]]; then
     url=$(0x0 -f $filePath 2>/dev/null)
 
     message="Screenshot saved to $filePath and uploaded to $url"
     log "$message"
 
-    # Notifcation with actions.
+    # Notifcation with multiple actions.
     result=$(notify-send --action="default=View URL." --action="image=View image." "$message")
     if [[ $result == "default" ]]; then
         xdg-open "$url"
