@@ -18,25 +18,25 @@ print_usage() {
     echo "" >&2
     echo "Examples:" >&2
     echo "$script_name --bg=ffffff --fg=000000" >&2
-    echo "$script_name --gg=a0bb9c" >&2
+    echo "$script_name --fg=a0bb9c" >&2
+    echo "$script_name --reset" >&2
 }
 
 background_color=""
 foreground_color=""
-reset=false
 while getopts ":-:" optchar; do
     [[ "${optchar}" == "-" ]] || continue
     case "${OPTARG}" in
-        bg=* )
+        bg=*)
             background_color=${OPTARG#*=}
             ;;
-        fg=* )
+        fg=*)
             foreground_color=${OPTARG#*=}
             ;;
-        reset=* )
+        reset)
             reset=true
             ;;
-        help )
+        help)
             print_usage
             exit -1
             ;;
@@ -71,7 +71,7 @@ if [[ -n $foreground_color ]]; then
     printf "\e[38:2:%d:%d:%dm" $((16#$red_value)) $((16#$green_value)) $((16#$blue_value))
 fi
 
-if [[ $reset -eq 1 ]]; then
+if [[ "$reset" == true ]]; then
     printf "\e[0m"
 fi
 
