@@ -28,6 +28,7 @@ abbr -a ga git add
 abbr -a gaa git add -A
 abbr -a gc git commit -m
 abbr -a gca git commit --amend
+abbr -a gco git checkout
 abbr -a gp git push
 abbr -a gpf git push --force
 abbr -a grb git rebase -i
