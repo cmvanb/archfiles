@@ -17,6 +17,7 @@ source $XDG_CONFIG_HOME/shell/generic/interactive
 
 alias edit "$EDITOR"
 alias exa "exa --group-directories-first"
+alias sysyadm "sudo yadm --yadm-dir /etc/yadm --yadm-data /etc/yadm/data"
 
 abbr -a gs git status
 abbr -a gsu git status -u
