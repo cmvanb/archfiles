@@ -45,18 +45,6 @@ pathprepend () {
 # Put your shell-independent, login environment variables here.
 #-------------------------------------------------------------------------------
 
-# Some programs respect these defaults, others are supported by XDG with
-# configuration in `.config/mimeapps.list` and `.local/share/applications/`.
-export BROWSER="qutebrowser"
-export EDITOR="nvim"
-export VISUAL="$EDITOR"
-
-# Configure pagers.
-export PAGER="ov -F"
-export SYSTEMD_PAGERSECURE=true
-export GIT_PAGER="ov -F -X"
-export BAT_PAGER="ov -F -X"
-
 # XDG base directories.
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

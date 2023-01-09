@@ -21,3 +21,15 @@ set -x BASH_ENV $HOME/.config/shell/bash/env
 # No write permissions for group or others.
 umask 0022
 
+# Some programs respect these defaults, others are supported by XDG with
+# configuration in `.config/mimeapps.list` and `.local/share/applications/`.
+set -x BROWSER "qutebrowser"
+set -x EDITOR "nvim"
+set -x VISUAL "$EDITOR"
+
+# Configure pager.
+set -x PAGER "ov -F"
+set -x SYSTEMD_PAGERSECURE true
+set -x GIT_PAGER "ov -F -X"
+set -x BAT_PAGER "ov -F -X"
+
