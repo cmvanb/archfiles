@@ -39,7 +39,8 @@ abbr -a edi edit
 abbr -a ex exa
 abbr -a ls exa -l
 abbr -a lsa exa -al
-abbr -a lsi exa -al --git-ignore
+abbr -a lsi exa -l --git-ignore
+abbr -a lst exa -lT --git-ignore
 
 # Bindings
 #-------------------------------------------------------------------------------

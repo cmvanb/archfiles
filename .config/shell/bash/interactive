@@ -44,7 +44,8 @@ alias edi="edit"
 alias ex="exa"
 alias ls="exa -l"
 alias lsa="exa -al"
-alias lsi="exa -al --git-ignore"
+alias lsi="exa -l --git-ignore"
+alias lst="exa -lT --git-ignore"
 
 # Colors
 #-------------------------------------------------------------------------------
