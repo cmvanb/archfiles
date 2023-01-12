@@ -156,6 +156,10 @@ onoremap('L', '$')
 noremap('<leader>j', function() require('leap').leap({}) end)
 noremap('<leader>k', function() require('leap').leap({ backward = true }) end)
 
+-- Line up/down
+noremap('<C-j>', '<C-e>')
+noremap('<C-k>', '<C-y>')
+
 -- Editing
 --------------------------------------------------------------------------------
 
@@ -186,11 +190,9 @@ noremap('<leader>l', '<cmd>noh<cr>:echo ""<cr>')
 
 -- Change window focus
 noremap('<C-h>', '<C-w>h')
-noremap('<C-j>', '<C-w>j')
-noremap('<C-k>', '<C-w>k')
 noremap('<C-l>', '<C-w>l')
 
--- Cycle window focus
+-- Cycle windows
 noremap('<C-z>', '<C-w>r')
 
 -- Split windows
@@ -204,7 +206,7 @@ noremap('<C-w>', ':close<cr>', true)
 --------------------------------------------------------------------------------
 
 -- Change buffer
--- NOTE: Wezterm translates <C-BS> to <F15> for us.
+-- NOTE: Wezterm translates <C-BS> to <F15> to get around NVIM's limitation.
 noremap('<F15>', ':bprev<cr>', true)
 noremap('<C-Tab>', ':bnext<cr>', true)
 
@@ -228,6 +230,6 @@ noremap('<leader>o', '<cmd>SessionsLoad<cr>:echo "Session loaded."<cr>')
 -- Plugin management
 --------------------------------------------------------------------------------
 
--- Reload plugins.
+-- Reload config and plugins.
 noremap('<leader>r', _G.reload_config, true)
 
