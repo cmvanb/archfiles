@@ -228,8 +228,6 @@ noremap('<leader>o', '<cmd>SessionsLoad<cr>:echo "Session loaded."<cr>')
 -- Plugin management
 --------------------------------------------------------------------------------
 
--- TODO: Add key to reload full config.
-
 -- Reload plugins.
-noremap('<leader>r', Loader.reload_plugins, true)
+noremap('<leader>r', _G.reload_config, true)
 

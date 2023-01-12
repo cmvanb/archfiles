@@ -26,6 +26,15 @@ reload('autocommands')
 reload('loader')
 Loader.init()
 
+-- Global reload config, mapped in keymaps.
+function _G.reload_config()
+    reload('editor.options')
+    reload('editor.gui')
+    reload('editor.highlights')
+    reload('autocommands')
+    Loader.reload_plugins()
+    reload('editor.keymaps')
+end
+
 -- Some key mappings may depend on plugins.
 reload('editor.keymaps')
-

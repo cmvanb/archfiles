@@ -125,7 +125,7 @@ hi('LeapLabelPrimary',       'black',        'primary_15',  'bold',            '
 hi('LeapLabelSecondary',     'primary_2',    'primary_11',  'bold',            'ansi_brmagenta',  'NONE',  'bold')
 hi('LeapLabelSelected',      'debug',        'NONE',        'bold',            'ansi_brmagenta',  'NONE',  'bold')
 hi('MiniCursorword',         'NONE',         'NONE',        'bold,underline',  'NONE',            'NONE',  'bold,underline')
-hi('MiniIndentscopeSymbol',  'secondary_2',  'NONE',        'NONE',            'ansi_brblack',    'NONE',  'NONE')
+hi('MiniIndentscopeSymbol',  'secondary_3',  'NONE',        'NONE',            'ansi_brblack',    'NONE',  'NONE')
 hi('LualineDiffAdd',         'd1_green',     'primary_4',   'bold',            'ansi_green',      'NONE',  'NONE')
 hi('LualineDiffChange',      'yellow',       'primary_4',   'bold',            'ansi_yellow',     'NONE',  'NONE')
 hi('LualineDiffDelete',      'red',          'primary_4',   'bold',            'ansi_red',        'NONE',  'NONE')
@@ -152,9 +152,9 @@ ln('TelescopePreviewNormal',  'Normal')
 --------------------------------------------------------------------------------
 
 -- group          | guifg         | guibg       | guiprops         | termfg           | termbg | termprops
-hi('Identifier',  'secondary_8',  'NONE',       'NONE',            'ansi_cyan',       'NONE',  'NONE')
+hi('Identifier',  'secondary_9',  'NONE',       'NONE',            'ansi_cyan',       'NONE',  'NONE')
 hi('Statement',   'd1_green',     'NONE',       'bold',            'ansi_brgreen',    'NONE',  'bold')
-hi('Comment',     'secondary_4',  'NONE',       'italic',          'ansi_brblack',    'NONE',  'NONE')
+hi('Comment',     'secondary_5',  'NONE',       'italic',          'ansi_brblack',    'NONE',  'NONE')
 hi('Type',        'secondary_15', 'NONE',       'NONE',            'ansi_magenta',    'NONE',  'NONE')
 hi('PreProc',     'l1_yellow',    'NONE',       'NONE',            'ansi_bryellow',   'NONE',  'NONE')
 hi('Constant',    'l1_magenta',   'NONE',       'NONE',            'ansi_brmagenta',  'NONE',  'NONE')
