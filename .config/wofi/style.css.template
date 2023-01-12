@@ -24,7 +24,7 @@
 }
 
 #text {
-    color: #${primary_13};
+    color: #${text_5};
 }
 
 #text:selected {

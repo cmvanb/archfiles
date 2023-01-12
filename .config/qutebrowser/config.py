@@ -96,22 +96,22 @@ c.completion.height = '40%'
 c.completion.scrollbar.padding = 3
 c.completion.scrollbar.width = 10
 
-c.colors.completion.category.border.top = theme.color_hash('browser_bg')
-c.colors.completion.category.border.bottom = theme.color_hash('browser_bg')
+c.colors.completion.category.border.top = theme.color_hash('primary_1')
+c.colors.completion.category.border.bottom = theme.color_hash('primary_1')
 c.colors.completion.category.bg = theme.color_hash('primary_2')
-c.colors.completion.category.fg = theme.color_hash('white')
-c.colors.completion.even.bg = theme.color_hash('browser_bg')
-c.colors.completion.odd.bg = theme.color_hash('browser_bg')
-c.colors.completion.fg = [ theme.color_hash('text_7'), theme.color_hash('text_7'), theme.color_hash('text_7') ]
+c.colors.completion.category.fg = theme.color_hash('text_7')
+c.colors.completion.even.bg = theme.color_hash('primary_1')
+c.colors.completion.odd.bg = theme.color_hash('primary_1')
+c.colors.completion.fg = [ theme.color_hash('text_5'), theme.color_hash('text_5'), theme.color_hash('text_5') ]
 
-c.colors.completion.item.selected.border.bottom = theme.color_hash('l1_magenta')
-c.colors.completion.item.selected.border.top = theme.color_hash('l1_magenta')
-c.colors.completion.item.selected.bg = theme.color_hash('l1_magenta')
-c.colors.completion.item.selected.fg = theme.color_hash('black')
+c.colors.completion.item.selected.border.bottom = theme.color_hash('primary_6')
+c.colors.completion.item.selected.border.top = theme.color_hash('primary_6')
+c.colors.completion.item.selected.bg = theme.color_hash('primary_6')
+c.colors.completion.item.selected.fg = theme.color_hash('text_7')
 c.colors.completion.item.selected.match.fg = theme.color_hash('yellow')
 c.colors.completion.match.fg = theme.color_hash('l1_yellow')
 c.colors.completion.scrollbar.fg = theme.color_hash('d3_gray')
-c.colors.completion.scrollbar.bg = theme.color_hash('browser_bg')
+c.colors.completion.scrollbar.bg = theme.color_hash('primary_1')
 
 # Downloads component
 #-------------------------------------------------------------------------------
@@ -119,7 +119,7 @@ c.colors.completion.scrollbar.bg = theme.color_hash('browser_bg')
 # Appearance
 c.downloads.position = 'bottom'
 
-c.colors.downloads.bar.bg = theme.color_hash('browser_bg')
+c.colors.downloads.bar.bg = theme.color_hash('d5_gray')
 c.colors.downloads.error.bg = theme.color_hash('d4_red')
 c.colors.downloads.error.fg = theme.color_hash('red')
 c.colors.downloads.stop.bg = theme.color_hash('d4_green')
@@ -164,7 +164,7 @@ c.keyhint.delay = 500
 # Appearance
 c.keyhint.radius = 5
 
-c.colors.keyhint.bg = theme.color_hash('browser_bg')
+c.colors.keyhint.bg = theme.color_hash('d5_gray')
 c.colors.keyhint.fg = theme.color_hash('text_7')
 c.colors.keyhint.suffix.fg = theme.color_hash('l1_yellow')
 
@@ -179,14 +179,14 @@ c.colors.keyhint.suffix.fg = theme.color_hash('l1_yellow')
 c.messages.timeout = 5000
 
 # Appearance
-c.colors.messages.info.border = theme.color_hash('browser_bg')
-c.colors.messages.info.bg = theme.color_hash('browser_bg')
+c.colors.messages.info.border = theme.color_hash('d5_gray')
+c.colors.messages.info.bg = theme.color_hash('d5_gray')
 c.colors.messages.info.fg = theme.color_hash('text_7')
-c.colors.messages.warning.border = theme.color_hash('browser_bg')
-c.colors.messages.warning.bg = theme.color_hash('browser_bg')
+c.colors.messages.warning.border = theme.color_hash('d5_gray')
+c.colors.messages.warning.bg = theme.color_hash('d5_gray')
 c.colors.messages.warning.fg = theme.color_hash('l1_yellow')
-c.colors.messages.error.border = theme.color_hash('browser_bg')
-c.colors.messages.error.bg = theme.color_hash('browser_bg')
+c.colors.messages.error.border = theme.color_hash('d5_gray')
+c.colors.messages.error.bg = theme.color_hash('d5_gray')
 c.colors.messages.error.fg = theme.color_hash('l1_red')
 
 # Statusbar component
@@ -200,21 +200,21 @@ c.statusbar.widgets = [ 'keypress', 'url', 'scroll', 'history', 'tabs', 'progres
 c.statusbar.padding = { 'top': 1, 'bottom': 1, 'left': 0, 'right': 0 }
 c.statusbar.position = 'bottom'
 
-c.colors.statusbar.normal.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.normal.bg = theme.color_hash('d5_gray')
 c.colors.statusbar.normal.fg = theme.color_hash('text_7')
-c.colors.statusbar.caret.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.caret.bg = theme.color_hash('d5_gray')
 c.colors.statusbar.caret.fg = theme.color_hash('magenta')
-c.colors.statusbar.caret.selection.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.caret.selection.bg = theme.color_hash('d5_gray')
 c.colors.statusbar.caret.selection.fg = theme.color_hash('l1_cyan')
-c.colors.statusbar.command.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.command.bg = theme.color_hash('d5_gray')
 c.colors.statusbar.command.fg = theme.color_hash('l1_cyan')
-c.colors.statusbar.insert.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.insert.bg = theme.color_hash('d5_gray')
 c.colors.statusbar.insert.fg = theme.color_hash('green')
-c.colors.statusbar.passthrough.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.passthrough.bg = theme.color_hash('d5_gray')
 c.colors.statusbar.passthrough.fg = theme.color_hash('yellow')
 c.colors.statusbar.private.bg = theme.color_hash('d4_purple')
 c.colors.statusbar.private.fg = theme.color_hash('text_7')
-c.colors.statusbar.command.private.bg = theme.color_hash('browser_bg')
+c.colors.statusbar.command.private.bg = theme.color_hash('d5_gray')
 c.colors.statusbar.command.private.fg = theme.color_hash('l1_cyan')
 c.colors.statusbar.progress.bg = theme.color_hash('text_7')
 c.colors.statusbar.url.error.fg = theme.color_hash('red')
@@ -243,14 +243,14 @@ c.tabs.position = 'top'
 c.tabs.title.alignment = 'left'
 c.tabs.title.format = '{audio}[{index}] {current_title}'
 
-c.colors.tabs.bar.bg = theme.color_hash('browser_bg')
-c.colors.tabs.odd.bg = theme.color_hash('browser_bg')
+c.colors.tabs.bar.bg = theme.color_hash('d5_gray')
+c.colors.tabs.odd.bg = theme.color_hash('d5_gray')
 c.colors.tabs.odd.fg = theme.color_hash('l1_gray')
-c.colors.tabs.even.bg = theme.color_hash('browser_bg')
+c.colors.tabs.even.bg = theme.color_hash('d5_gray')
 c.colors.tabs.even.fg = theme.color_hash('l1_gray')
-c.colors.tabs.selected.odd.bg = theme.color_hash('browser_bg')
+c.colors.tabs.selected.odd.bg = theme.color_hash('d5_gray')
 c.colors.tabs.selected.odd.fg = theme.color_hash('text_7')
-c.colors.tabs.selected.even.bg = theme.color_hash('browser_bg')
+c.colors.tabs.selected.even.bg = theme.color_hash('d5_gray')
 c.colors.tabs.selected.even.fg = theme.color_hash('text_7')
 
 # Prompt component
@@ -274,7 +274,7 @@ c.colors.contextmenu.selected.fg = theme.color_hash('white')
 #-------------------------------------------------------------------------------
 
 # Websites
-c.colors.webpage.bg = theme.color_hash('primary_1')
+c.colors.webpage.bg = theme.color_hash('secondary_0')
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 # Dark mode
