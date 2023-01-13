@@ -41,6 +41,7 @@ abbr -a ls exa -l
 abbr -a lsa exa -al
 abbr -a lsi exa -l --git-ignore
 abbr -a lst exa -lT --git-ignore
+abbr -a ip ip -c
 
 # Bindings
 #-------------------------------------------------------------------------------
