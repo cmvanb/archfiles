@@ -4,7 +4,6 @@
 
 Clone dotfiles.  
 ```
-cd /
 yadm clone git@git.sr.ht:~casper/dotfiles
 ```
 
