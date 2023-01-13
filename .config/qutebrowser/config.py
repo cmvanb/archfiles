@@ -285,29 +285,102 @@ c.colors.webpage.darkmode.enabled = True
 
 # Unwanted default bindings
 # TODO: Most of the default bindings should be unbound
-config.unbind('<Ctrl-a>')
-config.unbind('<Ctrl-q>')
+config.unbind('<Ctrl-Shift-t>')
+config.unbind('<Ctrl-Shift-w>')
+config.unbind('<Ctrl-Alt-p>')
 config.unbind('<Ctrl-PgDown>')
 config.unbind('<Ctrl-PgUp>')
-config.unbind('gD')
+config.unbind('<Ctrl-a>')
 config.unbind('<Ctrl-h>')
+config.unbind('<Ctrl-q>')
+config.unbind('<Ctrl-p>')
 config.unbind('<Ctrl-w>')
-config.unbind('q')
+config.unbind('<Alt-m>')
+config.unbind('<Back>')
+config.unbind('<Forward>')
+config.unbind('<F11>')
+config.unbind('ad')
+config.unbind('b')
+config.unbind('cd')
+config.unbind('co')
 config.unbind('d')
+config.unbind('ga')
+config.unbind('gB')
+config.unbind('gb')
+config.unbind('gC')
+config.unbind('gD')
+config.unbind('gd')
+config.unbind('gf')
+config.unbind('gi')
+config.unbind('gJ')
+config.unbind('gK')
+config.unbind('gm')
+config.unbind('gO')
+config.unbind('gu')
+config.unbind('gU')
+config.unbind('g0')
+config.unbind('g$')
+config.unbind('g^')
+config.unbind('M')
+config.unbind('m')
+config.unbind('q')
+config.unbind('Sb')
+config.unbind('Sh')
+config.unbind('Sq')
+config.unbind('Ss')
+config.unbind('sk')
+config.unbind('sf')
+config.unbind('sl')
+config.unbind('ss')
+config.unbind('th')
+config.unbind('tl')
+config.unbind('tCh')
+config.unbind('tCH')
+config.unbind('tcH')
+config.unbind('tch')
+config.unbind('tCu')
+config.unbind('tcu')
+config.unbind('tIH')
+config.unbind('tIh')
+config.unbind('tiH')
+config.unbind('tih')
+config.unbind('tIu')
+config.unbind('tiu')
+config.unbind('tPH')
+config.unbind('tPh')
+config.unbind('tpH')
+config.unbind('tph')
+config.unbind('tPu')
+config.unbind('tpu')
+config.unbind('tSH')
+config.unbind('tSu')
+config.unbind('tsH')
+config.unbind('tsh')
+config.unbind('tSh')
+config.unbind('tsu')
+config.unbind('yd')
+config.unbind('wi')
+config.unbind('wIf')
+config.unbind('ZQ')
+config.unbind('@')
+config.unbind('.')
 
 # General
+#-- Window management
 config.bind('<Ctrl-w>', 'close')
-config.bind('<Ctrl-q>', 'tab-close')
 
-# Normal mode
-#-- Reader mode
-config.bind('<Ctrl-r>', 'spawn --userscript readability')
+#-- Config management
+config.bind('<Space>r', 'config-source ;; message-info \"Configuration reloaded.\"')
 
 #-- Session management
 config.bind('<Space>o', 'set-cmd-text -s :session-load')
 config.bind('<Space>s', 'set-cmd-text -s :session-save -o')
 
 #-- Tab management
+config.bind('<Ctrl-q>', 'tab-close')
+config.bind('H', 'tab-prev')
+config.bind('L', 'tab-next')
+config.bind('<Ctrl-g>', 'set-cmd-text -s :tab-give')
 config.bind('<Ctrl-1>', 'tab-focus 1')
 config.bind('<Ctrl-2>', 'tab-focus 2')
 config.bind('<Ctrl-3>', 'tab-focus 3')
@@ -317,9 +390,6 @@ config.bind('<Ctrl-6>', 'tab-focus 6')
 config.bind('<Ctrl-7>', 'tab-focus 7')
 config.bind('<Ctrl-8>', 'tab-focus 8')
 config.bind('<Ctrl-9>', 'tab-focus 9')
-config.bind('<Ctrl-g>', 'set-cmd-text -s :tab-give')
-config.bind('H', 'tab-prev')
-config.bind('L', 'tab-next')
 
 #-- Downloads
 config.bind('<Space>l', 'download-clear')
@@ -333,7 +403,22 @@ config.bind('j', 'scroll down')
 config.bind('k', 'scroll up')
 config.bind('<Ctrl+a>', 'mode-enter caret ;; selection-toggle ;; move-to-end-of-document')
 
-# NOTE: 'Blur' the page when exiting insert mode, removes the blinking cursor
+#-- Reader mode
+config.bind('<Ctrl-r>', 'spawn --userscript readability')
+
+#-- Devtools
+config.bind('<F11>', 'view-source')
+config.bind('<F12>', 'devtools')
+
+#-- Javascript
+# TODO: Improve the message output by converting these commands to userscripts.
+config.bind('tj', 'config-cycle -p -t -u *://*.{url:host}/* content.javascript.enabled ;; reload ;; message-info \"TEMPORARY\"')
+config.bind('tJ', 'config-cycle -p -u *://*.{url:host}/* content.javascript.enabled ;; reload ;; message-info \"PERMANENT\"')
+
+#-- Printing
+config.bind('<Space>p', 'print')
+
+# 'Blur' the page when exiting insert mode, removes the blinking cursor
 # from the last active text element to prevent confusion.
 #   see: https://github.com/qutebrowser/qutebrowser/issues/2668
 config.bind('<Escape>', 'clear-keychain ;; search ;; fullscreen --leave ;; jseval -q document.activeElement.blur()')
