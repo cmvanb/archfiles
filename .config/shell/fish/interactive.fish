@@ -81,41 +81,39 @@ bind ')' self-insert expand-abbr
 bind . 'expand-dot-to-double-dot'
 
 # Colors
+# see: https://fishshell.com/docs/current/interactive.html#color
 #-------------------------------------------------------------------------------
 
 # Import and parse system colors.
 source $XDG_CONFIG_HOME/theme/theme.fish
 
-set -U fish_color_autosuggestion (color_named 'l1_gray')
-set -U fish_color_command (color_named 'secondary_10')
-set -U fish_color_comment (color_named 'd1_gray')
-set -U fish_color_end (color_named 'l1_green')
-set -U fish_color_error (color_named 'red')
-set -U fish_color_escape (color_named 'yellow')
-set -U fish_color_normal (color_named 'text_7')
-set -U fish_color_operator (color_named 'l1_green')
-set -U fish_color_param (color_named 'secondary_8')
-set -U fish_color_quote (color_named 'l1_orange')
-set -U fish_color_redirection (color_named 'l1_green')
+set -U fish_color_autosuggestion (color_named 'text_2')
+set -U fish_color_command (color_named 'ansi_cyan')
+set -U fish_color_comment (color_named 'secondary_5')
+set -U fish_color_end (color_named 'd1_green') # pipe
+set -U fish_color_error (color_named 'ansi_red')
+set -U fish_color_normal (color_named 'text_7') # search: text
+set -U fish_color_operator (color_named 'd1_green')
+set -U fish_color_option (color_named 'ansi_bryellow')
+set -U fish_color_param (color_named 'secondary_12')
+set -U fish_color_quote (color_named 'ansi_yellow')
+set -U fish_color_redirection (color_named 'ansi_brmagenta')
 set -U fish_color_search_match --background=(color_named 'l1_magenta')
+set -U fish_color_valid_path (color_named 'ansi_brcyan') --bold #--underline
 
-set -U fish_pager_color_completion (color_named 'text_7')
-set -U fish_pager_color_description (color_named 'secondary_8')
+set -U fish_pager_color_completion (color_named 'text_4')
+set -U fish_pager_color_description (color_named 'text_2')
 set -U fish_pager_color_prefix (color_named 'yellow')
 set -U fish_pager_color_progress (color_named 'd1_green')
-set -U fish_pager_color_selected_background --background=(color_named 'd2_gray')
+set -U fish_pager_color_selected_background --background=(color_named 'primary_7')
+set -U fish_pager_color_selected_completion (color_named 'text_7')
+set -U fish_pager_color_selected_description (color_named 'text_7')
 
 # TODO: Find where these colors are used by fish.
+set -U fish_color_escape (color_named 'debug')
 set -U fish_color_cancel (color_named 'debug') # -r
-set -U fish_color_cwd (color_named 'debug')
-set -U fish_color_cwd_root (color_named 'debug')
 set -U fish_color_history_current (color_named 'debug') # --bold
-set -U fish_color_host (color_named 'debug')
-set -U fish_color_host_remote (color_named 'debug')
 set -U fish_color_selection (color_named 'debug') # --bold --background=brblack
-set -U fish_color_status (color_named 'debug')
-set -U fish_color_user (color_named 'debug')
-set -U fish_color_valid_path (color_named 'debug') # --underline
 
 # Prompt
 #   see: https://github.com/IlanCosman/tide
