@@ -13,28 +13,20 @@ require('utils.disable_builtins')
 require('utils.debug')
 require('utils.do_load')
 require('utils.reload')
+require('utils.reload_config')
 
 -- Load editor config.
-reload('editor.options')
-reload('editor.gui')
-reload('editor.highlights')
+require('editor.options')
+require('editor.gui')
+require('editor.highlights')
 
 -- Load autocommands.
-reload('autocommands')
+require('autocommands')
 
 -- Load plugins. Will bootstrap Packer if necessary.
-reload('loader')
+require('loader')
 Loader.init()
 
--- Global reload config, mapped in keymaps.
-function _G.reload_config()
-    reload('editor.options')
-    reload('editor.gui')
-    reload('editor.highlights')
-    reload('autocommands')
-    Loader.reload_plugins()
-    reload('editor.keymaps')
-end
+-- Load key mappings last; some key mappings may depend on plugins.
+require('editor.keymaps')
 
--- Some key mappings may depend on plugins.
-reload('editor.keymaps')

@@ -154,25 +154,18 @@ function Loader.init()
     else
         Loader.reload_plugins()
     end
-
-    -- Auto reload plugins if configuration changes.
-    local augroup = vim.api.nvim_create_augroup("ReloadPluginsConfig", { clear = true })
-    vim.api.nvim_create_autocmd('BufWritePost', {
-        group = augroup,
-        pattern = plugins_config_path .. '/*.lua',
-        callback = function()
-            Loader.reload_plugins()
-        end,
-    })
 end
 
-function Loader.reload_plugins()
+function Loader.reload_plugins(callback)
     load_plugin_config()
 
     clean_plugins(function()
         install_plugins(function()
             compile_packer(function()
                 vim.notify('Plugins loaded, Packer compiled.')
+                if callback then
+                    callback()
+                end
             end)
         end)
     end)

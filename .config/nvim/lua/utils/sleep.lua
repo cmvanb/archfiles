@@ -8,5 +8,3 @@ function _G.sleep(seconds)
     end 
 end
 
-return sleep
-
