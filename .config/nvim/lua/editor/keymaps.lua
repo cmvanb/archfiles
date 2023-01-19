@@ -175,12 +175,11 @@ noremap('<leader>;', 'gg=G')
 --------------------------------------------------------------------------------
 
 -- Fuzzy finder
-noremap('<leader>a', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>')
-noremap('<leader>d', '<cmd>Telescope find_files<cr>')
-noremap('<leader>f', '<cmd>Telescope git_files<cr>')
-noremap('<leader>b', '<cmd>Telescope buffers<cr>')
-noremap('<leader>g', '<cmd>Telescope live_grep<cr>')
-noremap('<leader>i', '<cmd>Telescope symbols<cr>')
+noremap('<leader>a', function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end)
+noremap('<leader>f', function() require('plugins.telescope.project_files')() end)
+noremap('<leader>b', function() require('telescope.builtin').buffers({}) end)
+noremap('<leader>g', function() require('telescope.builtin').live_grep({}) end)
+noremap('<leader>i', function() require('telescope.builtin').symbols({}) end)
 
 -- Clear search buffer, clear command line and go to start of line
 noremap('<leader>l', '<cmd>noh<cr>:echo ""<cr>')
