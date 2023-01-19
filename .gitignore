@@ -1,15 +1,7 @@
 #-------------------------------------------------------------------------------
-# 
+# Git ignore
 #-------------------------------------------------------------------------------
 
-# Exclude all from the git root directory.
-/*
-
-# Include `.config` directory (needed for sub-directory inclusion), but not it's
-# contents.
-!.config/
-.config/*
-
-# Include `.config/nvim/`
-!.config/nvim/
+# Exclude all.
+*
 
