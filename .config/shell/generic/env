@@ -1,3 +1,7 @@
+#-------------------------------------------------------------------------------
+# Generic environment configuration
+#-------------------------------------------------------------------------------
+
 # We need to set $ENV so that if you use shell X as your login shell, and then
 # start "sh" as a non-login interactive shell the startup scripts will
 # correctly run.
@@ -21,4 +25,7 @@ export PAGER="ov -F"
 export SYSTEMD_PAGERSECURE=true
 export GIT_PAGER="ov -F -X"
 export BAT_PAGER="ov -F -X"
+
+# Configure ls/exa.
+export LS_COLORS="no=37:fi=37:di=34;1:ln=33:or=31:mi=31:ex=32;1:*.pdf=37:*.zip=37"
 
