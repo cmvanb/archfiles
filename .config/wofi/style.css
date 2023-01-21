@@ -6,32 +6,32 @@
 }
 
 #input {
-    border: 2px solid #144670;
+    border: 2px solid #023469;
     border-radius: 5px;
 
-    background-color: #071B30;
-    color: #CFDEE6;
+    background-color: #00152d;
+    color: #c7d5dc;
 
     padding: 4px;
 }
 
 #scroll {
-    border: 2px solid #144670;
+    border: 2px solid #023469;
     border-top: 0px;
     border-radius: 5px;
 
-    background-color: #031120;
+    background-color: #000d1e;
 }
 
 #text {
-    color: #AFC1CD;
+    color: #a0b0ba;
 }
 
 #text:selected {
-    color: #EFFBFF;
+    color: #effbff;
 }
 
 #entry:selected {
-    background-color: #144670;
+    background-color: #023469;
 }
 

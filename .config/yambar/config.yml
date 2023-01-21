@@ -5,7 +5,7 @@ bar:
   left-margin: 0
   right-margin: 8
 
-  foreground: EFFBFFff
+  foreground: effbffff
   background: 0b0b0eff
 
   font: Iosevka Nerd Font Mono:pixelsize=11:style=bold
@@ -34,11 +34,11 @@ bar:
               focused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: 144670ff}}
+                  deco: {background: {color: 023469ff}}
               unfocused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: 071B30ff}}
+                  deco: {background: {color: 00152dff}}
               invisible:
                 map:
                   tag: occupied

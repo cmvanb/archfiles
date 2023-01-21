@@ -2,52 +2,84 @@
 
 # https://cssgradient.io/
 
+# Theme
+#-------------------------------------------------------------------------------
+
 # Primary
  primary_0='#000610'
- primary_1='#031120'
- primary_2='#071B30'
- primary_3='#0A2640'
- primary_4='#0E3150'
- primary_5='#113C60'
- primary_6='#144670'
- primary_7='#185180'
- primary_8='#1B5C8F'
- primary_9='#1F679F'
-primary_10='#2271AF'
-primary_11='#257CBF'
-primary_12='#2987CF'
-primary_13='#2C92DF'
-primary_14='#309CEF'
-primary_15='#33A7FF'
+ primary_1='#000d1e'
+ primary_2='#00152d'
+ primary_3='#011d3c'
+ primary_4='#01244b'
+ primary_5='#022c5a'
+ primary_6='#023469'
+ primary_7='#023b78'
+ primary_8='#034387'
+ primary_9='#034b96'
+primary_10='#055eb5'
+primary_11='#056dc4'
+primary_12='#057cd3'
+primary_13='#058be1'
+primary_14='#059af0'
+primary_15='#05aaff'
 
+# TODO: Expand range to 16 colors.
+# try: python generate-color-gradient-palette.py --samples=16 --start='#051030' --middle='#4f6474' --end='#effbff' --midpoint='0.5'
 # Text
-text_0='#0E3150'
-text_1='#2E4E69'
-text_2='#4E6B82'
-text_3='#6E889B'
-text_4='#8FA4B4'
-text_5='#AFC1CD'
-text_6='#CFDEE6'
-text_7='#EFFBFF'
-
+# text_0='#0e3150'
+# text_1='#2e4e69'
+# text_2='#4e6b82'
+# text_3='#6e889b'
+# text_4='#8fa4b4'
+# text_5='#afc1cd'
+# text_6='#cfdee6'
+# text_7='#effbff'
+text_0='#051030'
+text_1='#172440'
+text_2='#293951'
+text_3='#3b4d61'
+text_4='#788b98'
+text_5='#a0b0ba'
+text_6='#c7d5dc'
+text_7='#effbff'
 # Secondary
  secondary_0='#000e14'
- secondary_1='#061a22'
- secondary_2='#0c2730'
- secondary_3='#12343f'
- secondary_4='#18404d'
- secondary_5='#1e4d5c'
- secondary_6='#245a6a'
- secondary_7='#2a6779'
- secondary_8='#307387'
- secondary_9='#368096'
-secondary_10='#3c8da4'
-secondary_11='#429ab3'
-secondary_12='#48a6c1'
-secondary_13='#4eb3d0'
-secondary_14='#54c0de'
-secondary_15='#5acded'
+ secondary_1='#02151d'
+ secondary_2='#041d27'
+ secondary_3='#062431'
+ secondary_4='#082c3b'
+ secondary_5='#0a3344'
+ secondary_6='#0c3b4e'
+ secondary_7='#0e4e65'
+ secondary_8='#0d5d74'
+ secondary_9='#0c6c84'
+secondary_10='#0b7b93'
+secondary_11='#0a8aa2'
+secondary_12='#0999b1'
+secondary_13='#08a8c0'
+secondary_14='#07b7cf'
+secondary_15='#06c6df'
 
+# Gray
+ gray_0='#0b0b0e'
+ gray_1='#191a20'
+ gray_2='#282932'
+ gray_3='#363844'
+ gray_4='#454757'
+ gray_5='#535669'
+ gray_6='#62657b'
+ gray_7='#71758e'
+ gray_8='#71758e'
+ gray_9='#83869c'
+gray_10='#9598ab'
+gray_11='#a7aab9'
+gray_12='#babbc8'
+gray_13='#cccdd6'
+gray_14='#dedfe5'
+gray_15='#f1f1f4'
+
+# Legacy theme
+#-------------------------------------------------------------------------------
 # Grayscale
 black='#000000'
 d5_gray='#0b0b0e'
@@ -185,8 +217,6 @@ l4_magenta='#ffcce0'
 
 # Special
 terminal_bg=$d5_gray
-editor_bg=$primary_0
-browser_bg=$d5_purple
 debug='#ff00ff'
 
 # 256 indexed colors
