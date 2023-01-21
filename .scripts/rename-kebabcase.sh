@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-. $HOME/scripts/name-formatting.sh
+. $HOME/.scripts/name-formatting.sh
 
 if [[ -f "$1" ]]; then
     SRC_FILENAME="${1%.*}"
