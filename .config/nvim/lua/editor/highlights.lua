@@ -93,6 +93,8 @@ hi('SpecialKey',           'debug',        'NONE',         'NONE',    'ansi_brma
 hi('Directory',            'primary_8',    'NONE',         'NONE',    'ansi_cyan',       'ansi_black',      'NONE')
 hi('Folded',               'l3_purple',    'purple',       'NONE',    'ansi_cyan',       'ansi_black',      'bold')
 
+hi('SpellBad',             'red',          'NONE',         'NONE',    'ansi_red',        'NONE',            'NONE')
+
 -- group             | target
 ln('CursorColumn',   'CursorLine')
 ln('Question',       'MoreMsg')

@@ -69,3 +69,7 @@ opt.foldenable = false
 -- Current mode is already visible in status line (lualine)
 opt.showmode = false
 
+-- Enable spell checking
+opt.spell = false
+opt.spelllang = { 'en_us' }
+

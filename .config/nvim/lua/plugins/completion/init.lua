@@ -80,6 +80,15 @@ cmp.setup({
         { name = 'nvim_lua', keyword_length = 3 },
         { name = 'nvim_lsp', keyword_length = 3 },
         { name = 'luasnip', keyword_length = 2 },
+        {
+            name = 'spell',
+            option = {
+                keep_all_entries = false,
+                enable_in_context = function()
+                    return true
+                end,
+            },
+        },
     },
 
     window = {
