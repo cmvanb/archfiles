@@ -266,7 +266,7 @@ return {
         background = theme.color_hash('terminal_bg'),
         foreground = theme.color_hash('white'),
 
-        cursor_bg = theme.color_hash('text_7'),
+        cursor_bg = theme.color_hash('text_15'),
         cursor_fg = theme.color_hash('text_0'),
 
         selection_bg = theme.color_hash('magenta'),

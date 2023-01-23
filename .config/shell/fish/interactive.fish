@@ -87,12 +87,12 @@ bind . 'expand-dot-to-double-dot'
 # Import and parse system colors.
 source $XDG_CONFIG_HOME/theme/theme.fish
 
-set -U fish_color_autosuggestion (color_named 'text_2')
+set -U fish_color_autosuggestion (color_named 'text_8')
 set -U fish_color_command (color_named 'ansi_cyan')
 set -U fish_color_comment (color_named 'secondary_5')
 set -U fish_color_end (color_named 'd1_green') # pipe
 set -U fish_color_error (color_named 'ansi_red')
-set -U fish_color_normal (color_named 'text_7') # search: text
+set -U fish_color_normal (color_named 'text_12') # search: text
 set -U fish_color_operator (color_named 'd1_green')
 set -U fish_color_option (color_named 'ansi_bryellow')
 set -U fish_color_param (color_named 'secondary_12')
@@ -101,13 +101,13 @@ set -U fish_color_redirection (color_named 'ansi_brmagenta')
 set -U fish_color_search_match --background=(color_named 'l1_magenta')
 set -U fish_color_valid_path (color_named 'ansi_brcyan') --bold #--underline
 
-set -U fish_pager_color_completion (color_named 'text_4')
-set -U fish_pager_color_description (color_named 'text_2')
+set -U fish_pager_color_completion (color_named 'text_8')
+set -U fish_pager_color_description (color_named 'text_12')
 set -U fish_pager_color_prefix (color_named 'yellow')
 set -U fish_pager_color_progress (color_named 'd1_green')
 set -U fish_pager_color_selected_background --background=(color_named 'primary_7')
-set -U fish_pager_color_selected_completion (color_named 'text_7')
-set -U fish_pager_color_selected_description (color_named 'text_7')
+set -U fish_pager_color_selected_completion (color_named 'text_15')
+set -U fish_pager_color_selected_description (color_named 'text_15')
 
 # TODO: Find where these colors are used by fish.
 set -U fish_color_escape (color_named 'debug')
@@ -131,14 +131,14 @@ set -U tide_right_prompt_items
 # Context (user@hostname)
 set -U tide_context_always_display false
 set -U tide_context_bg_color (color_named 'd4_gray')
-set -U tide_context_color_default (color_named 'text_7')
+set -U tide_context_color_default (color_named 'text_15')
 set -U tide_context_color_root (color_named 'l2_red')
 set -U tide_context_color_ssh (color_named 'l2_yellow')
 
 # Time
 set -U tide_time_format '%H:%M:%S'
 set -U tide_time_bg_color (color_named 'primary_6')
-set -U tide_time_color (color_named 'text_6')
+set -U tide_time_color (color_named 'text_12')
 
 # Background jobs
 set -U tide_jobs_icon ''
@@ -170,9 +170,9 @@ set -U tide_pwd_icon ''
 set -U tide_pwd_icon_home ''
 set -U tide_pwd_icon_unwritable ''
 set -U tide_pwd_bg_color (color_named 'primary_6')
-set -U tide_pwd_color_anchors (color_named 'text_7')
-set -U tide_pwd_color_dirs (color_named 'text_6')
-set -U tide_pwd_color_truncated_dirs (color_named 'text_6')
+set -U tide_pwd_color_anchors (color_named 'text_15')
+set -U tide_pwd_color_dirs (color_named 'text_12')
+set -U tide_pwd_color_truncated_dirs (color_named 'text_12')
 
 # Python environment
 #-------------------------------------------------------------------------------

@@ -10,7 +10,7 @@
     border-radius: 5px;
 
     background-color: #${primary_2};
-    color: #${text_6};
+    color: #${text_12};
 
     padding: 4px;
 }
@@ -24,11 +24,11 @@
 }
 
 #text {
-    color: #${text_5};
+    color: #${text_12};
 }
 
 #text:selected {
-    color: #${text_7};
+    color: #${text_15};
 }
 
 #entry:selected {

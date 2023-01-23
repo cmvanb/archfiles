@@ -6,16 +6,16 @@ local theme = require('system.theme')
 
 local colors = {
     theme_1_bg  = theme.color_hash('primary_6'),
-    theme_1_fg  = theme.color_hash('text_7'),
+    theme_1_fg  = theme.color_hash('text_15'),
     theme_2_bg  = theme.color_hash('primary_4'),
-    theme_2_fg  = theme.color_hash('text_2'),
+    theme_2_fg  = theme.color_hash('text_8'),
     theme_3_bg  = theme.color_hash('primary_2'),
-    theme_3_fg  = theme.color_hash('text_1'),
+    theme_3_fg  = theme.color_hash('text_6'),
     inactive_bg = theme.color_hash('primary_1'),
-    inactive_fg = theme.color_hash('text_1'),
+    inactive_fg = theme.color_hash('text_4'),
 
     normal_bg   = theme.color_hash('primary_6'),
-    normal_fg   = theme.color_hash('text_7'),
+    normal_fg   = theme.color_hash('text_15'),
     insert_bg   = theme.color_hash('d3_green'),
     insert_fg   = theme.color_hash('green'),
     visual_bg   = theme.color_hash('d1_magenta'),

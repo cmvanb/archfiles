@@ -86,7 +86,7 @@ construct_prompt() {
     fi
 
     local cwd="$(colors_ansi_fg $primary_12) \w$(colors_ansi_reset) "
-    local prompt="$(colors_ansi_fg $text_7)\$$(colors_ansi_reset) "
+    local prompt="$(colors_ansi_fg $text_15)\$$(colors_ansi_reset) "
 
     PS1="$time$user$hostname$git_branch$cwd$prompt"
 }

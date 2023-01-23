@@ -164,15 +164,33 @@ function theme.color_index_to_name(index)
 end
 
 function theme.color_named(name)
-    return colors[name]
+    local result = colors[name]
+
+    if result == nil then
+        error('theme.color_named did not find `' .. name .. '`.', 2)
+    end
+
+    return result
 end
 
 function theme.color_hash(name)
-    return '#' .. colors[name]
+    local result = colors[name]
+
+    if result == nil then
+        error('theme.color_hash did not find `' .. name .. '`.', 2)
+    end
+
+    return '#' .. result
 end
 
 function theme.color_zerox(name)
-    return '0x' .. colors[name]
+    local result = colors[name]
+
+    if result == nil then
+        error('theme.color_zerox did not find `' .. name .. '`.', 2)
+    end
+
+    return '0x' .. result
 end
 
 function theme.font(name)
