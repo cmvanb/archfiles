@@ -51,6 +51,7 @@ fatal_error() {
 
 # Where to save screenshots.
 screenshotDir="${XDG_PICTURES_DIR:-$HOME/Media/Images}/screenshots"
+mkdir -p $screenshotDir
 
 # Screenshot file name.
 currentDateTime=`date +"%Y-%m-%d--%H-%M-%S"`
