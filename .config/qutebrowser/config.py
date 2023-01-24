@@ -368,7 +368,7 @@ config.unbind('.')
 
 # General
 #-- Window management
-config.bind('<Ctrl-w>', 'close')
+config.bind('<Space>q', 'close')
 
 #-- Config management
 config.bind('<Space>r', 'config-source ;; message-info \"Configuration reloaded.\"')
