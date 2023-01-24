@@ -5,7 +5,7 @@ bar:
   left-margin: 0
   right-margin: 8
 
-  foreground: ${text_7}ff
+  foreground: ${text_15}ff
   background: ${d5_gray}ff
 
   font: ${font_mono}:pixelsize=11:style=bold

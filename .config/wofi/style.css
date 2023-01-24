@@ -10,7 +10,7 @@
     border-radius: 5px;
 
     background-color: #00152d;
-    color: #b3c2cb;
+    color: #aabaca;
 
     padding: 4px;
 }
@@ -24,11 +24,11 @@
 }
 
 #text {
-    color: #b3c2cb;
+    color: #aabaca;
 }
 
 #text:selected {
-    color: #effbff;
+    color: #dfefff;
 }
 
 #entry:selected {

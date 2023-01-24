@@ -5,7 +5,7 @@ bar:
   left-margin: 0
   right-margin: 8
 
-  foreground: 45586aff
+  foreground: dfefffff
   background: 0b0b0eff
 
   font: Iosevka Nerd Font Mono:pixelsize=11:style=bold
