@@ -1,7 +1,7 @@
 {
 	"aururl": "https://aur.archlinux.org",
 	"aurrpcurl": "",
-	"buildDir": "build",
+	"buildDir": ".arch/build",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",
