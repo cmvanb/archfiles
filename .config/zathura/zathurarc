@@ -2,6 +2,9 @@
 # Zathura PDF viewer configuration
 #-------------------------------------------------------------------------------
 
+# Enable clipboard.
+set selection-clipboard clipboard
+
 # Don't recolor (invert) by default. Ctrl+r to invert.
 set recolor "false"
 
