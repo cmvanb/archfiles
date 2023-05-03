@@ -6,6 +6,9 @@ return {
     -- Packer can manage itself.
     { 'wbthomason/packer.nvim' },
 
+    -- Sugar for UNIX shell commands.
+    { 'tpope/vim-eunuch' },
+
     -- Mini plugins collection.
     {
         'echasnovski/mini.nvim',
