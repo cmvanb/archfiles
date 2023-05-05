@@ -47,6 +47,10 @@ abbr -a ip ip -c
 # Bindings
 #-------------------------------------------------------------------------------
 
+# Unbindings
+bind \cb ''
+bind \cf ''
+
 # Clear screen
 bind \cl 'clear; commandline -f repaint'
 
