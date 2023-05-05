@@ -1,0 +1,12 @@
+#!/bin/bash
+#-------------------------------------------------------------------------------
+# Preview a file
+#-------------------------------------------------------------------------------
+
+set -o nounset
+set -o pipefail
+
+case "$1" in
+    *) bat --force-colorization --paging=never --style=changes,numbers \
+            --wrap never -f "$1" && false ;;
+esac

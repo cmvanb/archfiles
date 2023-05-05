@@ -27,6 +27,9 @@ set scrolloff 10
 # Enable icons
 set icons
 
+# Custom previews
+set previewer ~/.config/lf/pv.sh
+
 # Clear default mappings
 #-------------------------------------------------------------------------------
 map <c-y>
@@ -84,7 +87,7 @@ map . set hidden!
 #         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
 #     esac
 # }}
-cmd open $xdg-open $f
+cmd open $mimeo $f
 
 # define a custom 'rename' command without prompt for overwrite
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
