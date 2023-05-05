@@ -49,7 +49,7 @@ abbr -a ip ip -c
 
 # Unbindings
 bind \cb ''
-bind \cf ''
+bind \cf 'lfcd; commandline -f repaint'
 
 # Clear screen
 bind \cl 'clear; commandline -f repaint'
