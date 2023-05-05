@@ -37,6 +37,7 @@ abbr -a e edit
 abbr -a ed edit
 abbr -a edi edit
 abbr -a ex exa
+abbr -a lf lfcd
 abbr -a ls exa -l
 abbr -a lsa exa -al
 abbr -a lsi exa -l --git-ignore
