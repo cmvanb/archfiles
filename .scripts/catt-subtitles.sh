@@ -46,20 +46,20 @@ fi
 
 which ffmpeg > /dev/null
 if [[ $? -ne 0 ]]; then
-    echo "Missing requirement ffmpeg (https://ffmpeg.org/download.html)."
+    echo "Missing requirement ffmpeg: https://ffmpeg.org/download.html"
     exit -1
 fi
 ffmpeg_cmd="ffmpeg -loglevel warning"
 
 which catt > /dev/null
 if [[ $? -ne 0 ]]; then
-    echo "Missing requirement catt (https://github.com/skorokithakis/catt)."
+    echo "Missing requirement catt: https://github.com/skorokithakis/catt"
     exit -1
 fi
 
 if [[ -z "$map" ]]; then
     subtitles_count=$($ffmpeg_cmd -i "$1" 2>&1 | rg "Subtitle:" | wc -l)
-    if [[ "$subtitles_count" -ne 1 ]]; then
+    if [[ "$subtitles_count" -gt 1 ]]; then
         echo "There are multiple subtitle tracks in the video file. Pass --map argument to specify." >&2
         echo "To list the embedded subtitle tracks:" >&2
         echo "ffmpeg -i \"$1\" 2>&1 | rg \"Subtitle: \"" >&2
