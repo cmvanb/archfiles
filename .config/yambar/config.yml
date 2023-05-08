@@ -16,38 +16,33 @@ bar:
           - base: &river_base
               left-margin: 10
               right-margin: 10
-              tag: id
               default: {string: {text: "{id}"}}
-              values:
-                0: {string: {text: "0"}}
+              conditions:
+                id == 0: {string: {text: ""}}
 
         content:
           map:
             on-click:
               left: sh -c "riverctl set-focused-tags $((1 << ({id} - 1)))"
-            tag: state
-            values:
-              urgent:
+            conditions:
+              state == urgent:
                 map:
                   <<: *river_base
                   deco: {background: {color: cc0e00ff}}
-              focused:
+              state == focused:
                 map:
                   <<: *river_base
                   deco: {background: {color: 023469ff}}
-              unfocused:
+              state == unfocused:
                 map:
                   <<: *river_base
                   deco: {background: {color: 00152dff}}
-              invisible:
+              state == invisible:
                 map:
-                  tag: occupied
-                  values:
-                    # the tag is not visible and not occupied, so hide it
-                    false:
+                  conditions:
+                    ~occupied:
                       empty: {}
-                    # the tag is not visible but it is occupied
-                    true:
+                    occupied:
                       map:
                         <<: *river_base
 
