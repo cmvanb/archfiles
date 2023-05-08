@@ -101,9 +101,25 @@ riverctl map normal Alt+Shift L spawn "$XDG_CONFIG_HOME/river/send-and-focus-out
 riverctl map normal Alt+Shift H spawn "$XDG_CONFIG_HOME/river/send-and-focus-output.sh previous"
 
 # Cycle focused tags
-# see: https://gitlab.com/SillyPill/river-shifttags/-/tree/master/
+# see: https://gitlab.com/akumar-xyz/river-shifttags/-/tree/master
 riverctl map normal Alt Tab spawn "river-shifttags"
 riverctl map normal Alt Backspace spawn "river-shifttags --shift -1"
+
+# Manage specific tags
+for i in $(seq 1 9); do
+    # NOTE: Unconventional formatting here is to avoid a bug in tree-sitter-bash when parsing `<<`.
+    # see: https://github.com/tree-sitter/tree-sitter-bash
+    tags=$((1<<($i - 1)))
+
+    # Focus tag
+    riverctl map normal Alt $i set-focused-tags $tags
+
+    # Tag focused view
+    riverctl map normal Alt+Shift $i set-view-tags $tags
+
+    # Toggle focus of tag
+    riverctl map normal Alt+Control $i toggle-focused-tags $tags
+done
 
 # Bump the focused view to the top of the layout stack
 riverctl map normal Alt Z zoom
@@ -125,19 +141,14 @@ riverctl map normal Alt Page_Up send-layout-cmd rivercarro "main-ratio -0.05"
 riverctl map normal Alt P spawn "$HOME/.scripts/screenshot-rectangle.sh"
 riverctl map normal Alt+Shift P spawn "$HOME/.scripts/screenshot-rectangle.sh --upload"
 
-for i in $(seq 1 9)
-do
-    tags=$((1 << ($i - 1)))
+# Toggle window floating
+riverctl map normal Alt Space toggle-float
 
-    # Focus tag
-    riverctl map normal Alt $i set-focused-tags $tags
+# Move views with mouse
+riverctl map-pointer normal Shift BTN_LEFT move-view
 
-    # Tag focused view
-    riverctl map normal Alt+Shift $i set-view-tags $tags
-
-    # Toggle focus of tag
-    riverctl map normal Alt+Control $i toggle-focused-tags $tags
-done
+# Resize views with mouse
+riverctl map-pointer normal Shift BTN_RIGHT resize-view
 
 # Status bar
 #-------------------------------------------------------------------------------
@@ -181,14 +192,6 @@ done
 
 # Toggle float
 # riverctl map normal Alt Space toggle-float
-
-# NOTE: This automatically switches the view to floating mode...
-# Move views with mouse
-# riverctl map-pointer normal Shift BTN_LEFT move-view
-
-# NOTE: This automatically switches the view to floating mode...
-# Resize views with mouse
-# riverctl map-pointer normal Shift BTN_RIGHT resize-view
 
 # # Super+0 to focus all tags
 # # Super+Shift+0 to tag focused view with all tags
