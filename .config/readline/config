@@ -7,6 +7,10 @@
 set show-all-if-ambiguous on
 set completion-ignore-case on
 
+# Unbindings
+"\C-b": nop
+"\C-f": nop
+
 # Delete key
 "\e[3~": delete-char
 
