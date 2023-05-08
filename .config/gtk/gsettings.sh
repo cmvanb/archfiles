@@ -6,6 +6,8 @@ source $XDG_CONFIG_HOME/theme/fonts
 # TODO: Find a better theme.
 # GTK theme: https://www.gnome-look.org/p/1441725
 # gsettings set org.gnome.desktop.interface gtk-theme 'Skeuos-Blue-Dark'
+# GTK theme: https://github.com/vinceliuice/Qogir-theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Qogir-Dark'
 
 # TODO: Replace default icons.
 # For icons: Download and install to `.local/share/icons`
