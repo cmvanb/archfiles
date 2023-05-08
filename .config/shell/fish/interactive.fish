@@ -120,6 +120,11 @@ set -U fish_color_cancel (color_named 'debug') # -r
 set -U fish_color_history_current (color_named 'debug') # --bold
 set -U fish_color_selection (color_named 'debug') # --bold --background=brblack
 
+# LF CD integration
+#-------------------------------------------------------------------------------
+
+source $HOME/.scripts/lfcd.fish
+
 # Prompt
 #   see: https://github.com/IlanCosman/tide
 #-------------------------------------------------------------------------------

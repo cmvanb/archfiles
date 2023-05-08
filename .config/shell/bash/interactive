@@ -49,11 +49,23 @@ alias lsi="exa -l --git-ignore"
 alias lst="exa -lT --git-ignore"
 alias ip="ip -c"
 
+# Bindings
+#-------------------------------------------------------------------------------
+bind '"\C-f":"lfcd\C-m"'
+
 # Colors
 #-------------------------------------------------------------------------------
 
 # Import and parse system colors.
 source $XDG_CONFIG_HOME/theme/theme.sh
+
+# LF CD integration
+#-------------------------------------------------------------------------------
+
+LFCD="$HOME/.scripts/lfcd.sh"
+if [[ -f "$LFCD" ]]; then
+    source "$LFCD"
+fi
 
 # Prompt
 #-------------------------------------------------------------------------------
