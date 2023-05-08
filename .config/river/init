@@ -43,6 +43,8 @@ riverctl set-repeat 50 300
 riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard accel-profile adaptive
 riverctl input 1133:49295:Logitech_G403_HERO_Gaming_Mouse_Keyboard pointer-accel 1.0
 
+riverctl hide-cursor timeout 3000
+
 # Styling
 #-------------------------------------------------------------------------------
 
