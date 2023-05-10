@@ -85,7 +85,7 @@ return {
         },
         -- STTY interrupt passthrough
         {
-            key = 'e',
+            key = '.',
             mods = 'CTRL',
             action = wezterm.action.SendKey { key = 'd', mods = 'CTRL' },
         },
