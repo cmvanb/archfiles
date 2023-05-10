@@ -49,7 +49,12 @@ abbr -a ip ip -c
 
 # Unbindings
 bind \cb ''
+
+# lfcd
 bind \cf 'lfcd; commandline -f repaint'
+
+# nvim
+bind \ce 'edit .; commandline -f repaint'
 
 # Clear screen
 bind \cl 'clear; commandline -f repaint'
