@@ -114,9 +114,10 @@ if [[ "$arg" =~ ^([a-zA-Z-]+): ]]; then
     # use protocol to guess mime ext
     protocol="${BASH_REMATCH[1]}"
     case "$protocol" in
-        http|https)
-            mime=text/html
-            ext=html ;;
+        http)
+            mime=x-scheme-handler/http ;;
+        https)
+            mime=x-scheme-handler/https ;;
         magnet)
             mime=application/x-bittorrent
             ext=torrent ;;
