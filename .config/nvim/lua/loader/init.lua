@@ -13,7 +13,6 @@
 --------------------------------------------------------------------------------
 
 local packer_data_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-local plugins_config_path = vim.fn.stdpath('config') .. '/lua/plugins'
 
 -- Private functions
 --------------------------------------------------------------------------------
