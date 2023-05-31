@@ -367,7 +367,7 @@
         <insecureAllowOldTLSVersions>false</insecureAllowOldTLSVersions>
     </options>
     <defaults>
-        <folder id="" label="" path="~" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+        <folder id="" label="" path="/home/surfer" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
             <filesystemType>basic</filesystemType>
             <device id="A6U4DXU-ZT4W6FZ-JGS3AG4-FCQTXXU-LBP56TX-6KQXDCG-UQ3YSGI-ZFHL5AN" introducedBy="">
                 <encryptionPassword></encryptionPassword>
@@ -421,6 +421,8 @@
             <untrusted>false</untrusted>
             <remoteGUIPort>0</remoteGUIPort>
         </device>
-        <ignores></ignores>
+        <ignores>
+            <line>#include .stignore_synced</line>
+        </ignores>
     </defaults>
 </configuration>
