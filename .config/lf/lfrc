@@ -61,14 +61,31 @@ map t
 # Custom mappings
 #-------------------------------------------------------------------------------
 
+# defaults
+map h updir
+map j down
+map k up
+map l open
+
 # enter shell commands
 map <enter> shell
 
 # quit
 map <esc> quit
+map q quit
 
 # toggle hidden files
 map . set hidden!
+
+# open in editor
+map e $edit $f
+
+cmd change_dir ${{
+    set -f
+    echo "$pwd"
+    cd "$f"
+}}
+map c change_dir
 
 # execute current file (must be executable)
 # map x $$f
