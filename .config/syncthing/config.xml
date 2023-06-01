@@ -10,6 +10,9 @@
         <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
+        <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
             <cleanupIntervalS>3600</cleanupIntervalS>
@@ -55,6 +58,9 @@
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
+        <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <minDiskFree unit="%">1</minDiskFree>
@@ -104,6 +110,9 @@
         <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
+        <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
             <cleanupIntervalS>3600</cleanupIntervalS>
@@ -149,6 +158,9 @@
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
+        <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <minDiskFree unit="%">1</minDiskFree>
@@ -198,6 +210,9 @@
         <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
+        <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
         <minDiskFree unit="%">1</minDiskFree>
         <versioning>
             <cleanupIntervalS>3600</cleanupIntervalS>
@@ -243,6 +258,9 @@
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
+        <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <minDiskFree unit="%">1</minDiskFree>
@@ -291,7 +309,7 @@
         <untrusted>false</untrusted>
         <remoteGUIPort>0</remoteGUIPort>
     </device>
-    <device id="ENHZPZJ-2IS7LUS-WFLKYD2-KB3FR23-U4RAUJD-I6QVIST-XKT2PBX-KRAEZQZ" name="portal-gun" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+    <device id="ENHZPZJ-2IS7LUS-WFLKYD2-KB3FR23-U4RAUJD-I6QVIST-XKT2PBX-KRAEZQZ" name="portal-gun" compression="metadata" introducer="true" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
         <autoAcceptFolders>false</autoAcceptFolders>
@@ -302,6 +320,16 @@
         <remoteGUIPort>0</remoteGUIPort>
     </device>
     <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" name="supertubes" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+        <address>dynamic</address>
+        <paused>false</paused>
+        <autoAcceptFolders>false</autoAcceptFolders>
+        <maxSendKbps>0</maxSendKbps>
+        <maxRecvKbps>0</maxRecvKbps>
+        <maxRequestKiB>0</maxRequestKiB>
+        <untrusted>false</untrusted>
+        <remoteGUIPort>0</remoteGUIPort>
+    </device>
+    <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" name="qutedell" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
         <autoAcceptFolders>false</autoAcceptFolders>
