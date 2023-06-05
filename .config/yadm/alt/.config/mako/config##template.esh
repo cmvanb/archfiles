@@ -1,3 +1,4 @@
+<% source $XDG_CONFIG_HOME/theme/theme.sh %>
 #-------------------------------------------------------------------------------
 # Mako notification daemon configuration
 #-------------------------------------------------------------------------------
@@ -24,18 +25,15 @@ icon-location=left
 width=500
 height=250
 margin=16,14
-# NOTE: mako's padding/text positioning is not working properly.
-# https://github.com/emersion/mako/issues/329
 # top,right,bottom,left
-padding=0,0,24,16
+padding=8,8
 
 font=Iosevka Nerd Font Mono 12
 
-# TODO: Get these system colors programatically.
-background-color=#0d0d0dff
-text-color=#ebebebff
+background-color=<% color_hash $primary_0 %>ff
+text-color=<% color_hash $text_15 %>ff
 
 border-size=2
-border-color=#57afffff
+border-color=<% color_hash $primary_6 %>ff
 border-radius=0
 
