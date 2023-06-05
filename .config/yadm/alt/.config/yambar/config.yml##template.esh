@@ -1,14 +1,14 @@
-bar:
+<% source $XDG_CONFIG_HOME/theme/theme.sh %>bar:
   height: 20
   location: top
 
   left-margin: 0
   right-margin: 8
 
-  foreground: dfefffff
-  background: 0b0b0eff
+  foreground: <% color_named $text_15 %>ff
+  background: <% color_named $d5_gray %>ff
 
-  font: Iosevka Nerd Font Mono:pixelsize=11:style=bold
+  font: <%= $font_mono %>:pixelsize=11:style=bold
 
   left:
     - river:
@@ -28,15 +28,15 @@ bar:
               state == urgent:
                 map:
                   <<: *river_base
-                  deco: {background: {color: cc0e00ff}}
+                  deco: {background: {color: <% color_named $d1_red %>ff}}
               state == focused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: 023469ff}}
+                  deco: {background: {color: <% color_named $primary_6 %>ff}}
               state == unfocused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: 00152dff}}
+                  deco: {background: {color: <% color_named $primary_2 %>ff}}
               state == invisible:
                 map:
                   conditions:
@@ -57,5 +57,5 @@ bar:
         date-format: "%Y-%m-%d"
         time-format: "%H:%M:%S"
         content:
-          - string: {text: "{date}", right-margin: 10}
-          - string: {text: "{time}"}
+          - string: {text: "{date}"}
+          - string: {text: "{time}", left-margin: 10}
