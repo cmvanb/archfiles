@@ -14,10 +14,8 @@ color_named () {
     echo -n ${1:1}
 }
 
-# Usage: `$(colors_zerox $colorname)`
-# TODO: Rename to singular (`color_` instead of `colors_`) to be consistent with
-# other language bindings.
-colors_hash () {
+# Usage: `$(color_hash $colorname)`
+color_hash () {
     echo -n \#${1:1}
 }
 
