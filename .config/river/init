@@ -86,6 +86,9 @@ riverctl map normal Alt Q close
 # Exit river
 riverctl map normal Alt+Shift Q exit
 
+# Lock system
+riverctl map normal Alt+Shift Z spawn "$XDG_CONFIG_HOME/river/lock.sh"
+
 # Focus the next/previous view in the layout stack
 riverctl map normal Alt J focus-view next
 riverctl map normal Alt K focus-view previous
