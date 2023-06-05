@@ -114,7 +114,7 @@ function color_named --argument-names key
 end
 
 function color_hash --argument-names key
-    eval echo -n '#'(dict_get $key)
+    eval echo -n '\#'(dict_get $key)
 end
 
 function color_zerox --argument-names key
