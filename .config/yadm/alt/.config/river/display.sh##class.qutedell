@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#-------------------------------------------------------------------------------
+# QuTech display configuration
+#-------------------------------------------------------------------------------
+
+# Left external, vertical
+#-------------------------------------------------------------------------------
+wlr-randr --output DP-2 --transform 270
+wlr-randr --output DP-2 --pos 0,0
+
+# Right external, horizontal
+#-------------------------------------------------------------------------------
+wlr-randr --output HDMI-A-1 --transform normal
+wlr-randr --output HDMI-A-1 --pos 1080,320
+
+# Laptop
+#-------------------------------------------------------------------------------
+wlr-randr --output eDP-1 --transform normal
+wlr-randr --output eDP-1 --pos 1080,1400
