@@ -74,34 +74,34 @@ fi
 
 # TODO: Handle differences in terminal capabilities. see: `TERM=`
 construct_prompt() {
-    local time="\[$(colors_ansi_fg $primary_12)\]\t\[$(colors_ansi_reset)\] "
+    local time="\[$(color_ansi_fg $primary_12)\]\t\[$(color_ansi_reset)\] "
     local user=""
     local hostname=""
 
     if [[ $(whoami) == "root" ]]; then
-        user="\[$(colors_ansi_fg $l2_red)\]\u\[$(colors_ansi_reset)\]"
+        user="\[$(color_ansi_fg $l2_red)\]\u\[$(color_ansi_reset)\]"
         hostname="@\h "
     fi
 
-    local git_modified_color="\[$(colors_ansi_fg $d1_green)\]"
+    local git_modified_color="\[$(color_ansi_fg $d1_green)\]"
 
     local git_status=$(git status 2>/dev/null | grep "Your branch is ahead" 2>/dev/null)
     if [[ "$git_status" != "" ]]; then
-        git_modified_color="\[$(colors_ansi_fg $l1_orange)\]"
+        git_modified_color="\[$(color_ansi_fg $l1_orange)\]"
     fi
 
     local git_status=$(git status --porcelain 2>/dev/null)
     if [[ "$git_status" != "" ]]; then
-        git_modified_color="\[$(colors_ansi_fg $l1_orange)\]"
+        git_modified_color="\[$(color_ansi_fg $l1_orange)\]"
     fi
 
     local git_branch=$(git branch --show-current 2>/dev/null)
     if [[ "$git_branch" != "" ]]; then
-        git_branch="$git_modified_color $git_branch\[$(colors_ansi_reset)\] "
+        git_branch="$git_modified_color $git_branch\[$(color_ansi_reset)\] "
     fi
 
-    local cwd="\[$(colors_ansi_fg $primary_12)\] \w\[$(colors_ansi_reset)\] "
-    local prompt="\[$(colors_ansi_fg $text_15)\]\$\[$(colors_ansi_reset)\] "
+    local cwd="\[$(color_ansi_fg $primary_12)\] \w\[$(color_ansi_reset)\] "
+    local prompt="\[$(color_ansi_fg $text_15)\]\$\[$(color_ansi_reset)\] "
 
     PS1="$time$user$hostname$git_branch$cwd$prompt"
 }

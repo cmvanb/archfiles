@@ -19,31 +19,23 @@ color_hash () {
     echo -n \#${1:1}
 }
 
-# Usage: `$(colors_zerox $colorname)`
-# TODO: Rename to singular (`color_` instead of `colors_`) to be consistent with
-# other language bindings.
-colors_zerox () {
+# Usage: `$(color_zerox $colorname)`
+color_zerox () {
     echo -n 0x${1:1}
 }
 
-# Usage: `$(colors_ansi $colorfg $colorbg)`
-# TODO: Rename to singular (`color_` instead of `colors_`) to be consistent with
-# other language bindings.
-colors_ansi () {
+# Usage: `$(color_ansi $colorfg $colorbg)`
+color_ansi () {
     $HOME/.scripts/color-hex-to-ansi.sh --fg=${1:1} --bg=${2:1}
 }
 
-# Usage: `$(colors_ansi_fg $colorfg)`
-# TODO: Rename to singular (`color_` instead of `colors_`) to be consistent with
-# other language bindings.
-colors_ansi_fg () {
+# Usage: `$(color_ansi_fg $colorfg)`
+color_ansi_fg () {
     $HOME/.scripts/color-hex-to-ansi.sh --fg=${1:1}
 }
 
-# Usage: `$(colors_ansi_reset)`
-# TODO: Rename to singular (`color_` instead of `colors_`) to be consistent with
-# other language bindings.
-colors_ansi_reset () {
+# Usage: `$(color_ansi_reset)`
+color_ansi_reset () {
     $HOME/.scripts/color-hex-to-ansi.sh --reset
 }
 

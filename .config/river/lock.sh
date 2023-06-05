@@ -6,5 +6,5 @@
 
 source "$XDG_CONFIG_HOME/theme/theme.sh"
 
-waylock -init-color $(colors_zerox $black) -input-color $(colors_zerox $primary_6) -fail-color $(colors_zerox $d1_red)
+waylock -init-color $(color_zerox $black) -input-color $(color_zerox $primary_6) -fail-color $(color_zerox $d1_red)
 
