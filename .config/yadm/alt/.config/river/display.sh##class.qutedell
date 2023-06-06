@@ -12,9 +12,9 @@ wlr-randr --output DP-2 --pos 0,0
 # Right external, horizontal
 #-------------------------------------------------------------------------------
 wlr-randr --output HDMI-A-1 --transform normal
-wlr-randr --output HDMI-A-1 --pos 1080,320
+wlr-randr --output HDMI-A-1 --pos 1080,0
 
 # Laptop
 #-------------------------------------------------------------------------------
 wlr-randr --output eDP-1 --transform normal
-wlr-randr --output eDP-1 --pos 1080,1400
+wlr-randr --output eDP-1 --pos 1080,1080
