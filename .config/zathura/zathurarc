@@ -1,3 +1,4 @@
+
 #-------------------------------------------------------------------------------
 # Zathura PDF viewer configuration
 #-------------------------------------------------------------------------------
@@ -20,17 +21,17 @@ set font "Iosevka Nerd Font Mono 12"
 set default-bg "#0b0b0e"
 set default-fg "#f1f1f4"
 
-set statusbar-bg "#031230"
-set statusbar-fg "#f1f1f4"
+set statusbar-bg "#00152d"
+set statusbar-fg "#dfefff"
 
 set inputbar-bg "#0b0b0e"
-set inputbar-fg "#00bbff"
+set inputbar-fg "#637383"
 
 set n-completion-items 10
-set completion-bg "#000000"
-set completion-fg "#f1f1f4"
-set completion-group-bg "#031230"
-set completion-group-fg "#f1f1f4"
+set completion-bg "#0b0b0e"
+set completion-fg "#dfefff"
+set completion-group-bg "#00152d"
+set completion-group-fg ""#dfefff""
 set completion-highlight-bg "#ff3399"
 set completion-highlight-fg "#000000"
 
