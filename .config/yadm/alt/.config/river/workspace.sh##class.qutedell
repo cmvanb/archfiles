@@ -7,21 +7,28 @@
 # Kill any running instances of Yambar.
 source ./kill-yambar.sh
 
-# Primary output
+# Laptop
 #-------------------------------------------------------------------------------
 riverctl spawn "yambar"
 riverctl spawn "wezterm"
-
-sleep 1.0
-riverctl focus-output next
-
-# Secondary output
-#-------------------------------------------------------------------------------
-
-riverctl spawn "yambar"
-riverctl spawn "wezterm"
-# riverctl spawn "wezterm start -- fish -i -C \"nvim $HOME/Documents/TODO.md\""
 
 # NOTE: Magic number.
-sleep 1.0
+sleep 0.35
 riverctl focus-output previous
+
+# Left external, vertical
+#-------------------------------------------------------------------------------
+
+riverctl spawn "yambar"
+riverctl spawn "wezterm"
+
+# NOTE: Magic number.
+sleep 0.35
+riverctl focus-output previous
+
+# Right external, horizontal
+#-------------------------------------------------------------------------------
+
+riverctl spawn "yambar"
+riverctl spawn "wezterm"
+

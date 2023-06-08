@@ -4,6 +4,9 @@
 # Workspace configuration
 #-------------------------------------------------------------------------------
 
+# Kill any running instances of Yambar.
+source ./kill-yambar.sh
+
 # Primary output
 #-------------------------------------------------------------------------------
 riverctl spawn "yambar"
