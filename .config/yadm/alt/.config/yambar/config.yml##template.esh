@@ -7,9 +7,11 @@
 
   foreground: <% color_named $text_15 %>ff
   background: <% color_named $d5_gray %>ff
-
+<% if [ $YADM_CLASS = "qutedell" ]; then %>
+  font: <%= $font_mono %>:pixelsize=13:style=bold
+<% else %>
   font: <%= $font_mono %>:pixelsize=11:style=bold
-
+<% fi %>
   left:
     - river:
         anchors:
@@ -59,3 +61,55 @@
         content:
           - string: {text: "{date}"}
           - string: {text: "{time}", left-margin: 10}
+
+<% if [ $YADM_CLASS = "qutedell" ]; then %>
+    - battery:
+        name: BAT0
+        poll-interval: 30
+        anchors:
+          discharging: &discharging
+            list:
+              items:
+                - string: {text: "", left-margin: 10}
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text: "󰁺"}
+                      - string: {text: "󰁻"}
+                      - string: {text: "󰁼"}
+                      - string: {text: "󰁽"}
+                      - string: {text: "󰁾"}
+                      - string: {text: "󰁿"}
+                      - string: {text: "󰂀"}
+                      - string: {text: "󰂀"}
+                      - string: {text: "󰂂"}
+                - string: {text: "{capacity}%", left-margin: 10}
+        content:
+          map:
+            conditions:
+              state == unknown:
+                <<: *discharging
+              state == discharging:
+                <<: *discharging
+              state == charging:
+                list:
+                  items:
+                    - string: {text: "", left-margin: 10}
+                    - ramp:
+                        tag: capacity
+                        items:
+                          - string: {text: "󰁺"}
+                          - string: {text: "󰁻"}
+                          - string: {text: "󰁼"}
+                          - string: {text: "󰁽"}
+                          - string: {text: "󰁾"}
+                          - string: {text: "󰁿"}
+                          - string: {text: "󰂀"}
+                          - string: {text: "󰂀"}
+                          - string: {text: "󰂂"}
+                    - string: {text: "{capacity}%", left-margin: 10}
+              state == full:
+                string: {text: "󰁹 {capacity}%", left-margin: 10}
+              state == "not charging":
+                string: {text: " 󰁹 {capacity}%", left-margin: 10}
+<% fi %>
