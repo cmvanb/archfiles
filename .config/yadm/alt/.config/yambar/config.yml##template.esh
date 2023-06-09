@@ -8,7 +8,7 @@
   foreground: <% color_named $text_15 %>ff
   background: <% color_named $d5_gray %>ff
 <% if [ $YADM_CLASS = "qutedell" ]; then %>
-  font: <%= $font_mono %>:pixelsize=13:style=bold
+  font: <%= $font_mono %>:pixelsize=14:style=bold
 <% else %>
   font: <%= $font_mono %>:pixelsize=11:style=bold
 <% fi %>
@@ -70,7 +70,7 @@
           discharging: &discharging
             list:
               items:
-                - string: {text: "", left-margin: 10}
+                - string: {text: "", left-margin: 10}
                 - ramp:
                     tag: capacity
                     items:
@@ -94,7 +94,7 @@
               state == charging:
                 list:
                   items:
-                    - string: {text: "", left-margin: 10}
+                    - string: {text: "", left-margin: 10}
                     - ramp:
                         tag: capacity
                         items:
@@ -111,5 +111,5 @@
               state == full:
                 string: {text: "󰁹 {capacity}%", left-margin: 10}
               state == "not charging":
-                string: {text: " 󰁹 {capacity}%", left-margin: 10}
+                string: {text: "󰁹 {capacity}%", left-margin: 10}
 <% fi %>
