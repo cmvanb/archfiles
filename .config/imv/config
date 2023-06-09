@@ -14,7 +14,6 @@ suppress_default_binds = true
 [binds]
 # Define some key bindings
 q = quit
-y = exec echo working!
 
 # Image navigation
 k = prev
@@ -29,8 +28,8 @@ gg = goto 1
 <Right> = pan -50 0
 
 # Zooming
-h = zoom 1
-l = zoom -1
+<Shift+plus> = zoom 1
+<minus> = zoom -1
 
 # Rotate Clockwise by 90 degrees
 <Ctrl+r> = rotate by 90
