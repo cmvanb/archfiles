@@ -395,7 +395,7 @@ config.bind('<Ctrl-8>', 'tab-focus 8')
 config.bind('<Ctrl-9>', 'tab-focus 9')
 
 #-- Downloads
-config.bind('<Space>l', 'download-clear')
+config.bind('<Space>l', 'download-clear ;; clear-messages ;; search')
 
 #-- History navigation
 config.bind('J', 'forward')
