@@ -18,3 +18,6 @@ gsettings set org.gnome.desktop.interface document-font-name "$font_sans 11"
 gsettings set org.gnome.desktop.interface monospace-font-name "$font_mono 12"
 gsettings set org.gnome.desktop.interface cursor-theme "Simp1e"
 
+# Show hidden files in file dialog.
+gsettings set org.gtk.Settings.FileChooser show-hidden true
+
