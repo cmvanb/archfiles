@@ -157,7 +157,7 @@ ln('TelescopePreviewNormal',  'Normal')
 -- group          | guifg         | guibg        | guiprops         | termfg           | termbg | termprops
 hi('Identifier',  'secondary_10', 'NONE',        'NONE',            'ansi_cyan',       'NONE',  'NONE')
 hi('Statement',   'd1_green',     'NONE',        'bold',            'ansi_brgreen',    'NONE',  'bold')
-hi('Comment',     'secondary_7',  'NONE',        'italic',          'ansi_brblack',    'NONE',  'NONE')
+hi('Comment',     'text_9',       'NONE',        'italic',          'ansi_brblack',    'NONE',  'NONE')
 hi('Type',        'secondary_15', 'NONE',        'NONE',            'ansi_magenta',    'NONE',  'NONE')
 hi('PreProc',     'l1_yellow',    'NONE',        'NONE',            'ansi_bryellow',   'NONE',  'NONE')
 hi('Constant',    'l1_magenta',   'NONE',        'NONE',            'ansi_brmagenta',  'NONE',  'NONE')
