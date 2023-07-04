@@ -393,6 +393,12 @@
         <connectionLimitEnough>0</connectionLimitEnough>
         <connectionLimitMax>0</connectionLimitMax>
         <insecureAllowOldTLSVersions>false</insecureAllowOldTLSVersions>
+        <connectionPriorityTcpLan>10</connectionPriorityTcpLan>
+        <connectionPriorityQuicLan>20</connectionPriorityQuicLan>
+        <connectionPriorityTcpWan>30</connectionPriorityTcpWan>
+        <connectionPriorityQuicWan>40</connectionPriorityQuicWan>
+        <connectionPriorityRelay>50</connectionPriorityRelay>
+        <connectionPriorityUpgradeThreshold>0</connectionPriorityUpgradeThreshold>
     </options>
     <defaults>
         <folder id="" label="" path="/home/surfer" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
@@ -401,6 +407,9 @@
                 <encryptionPassword></encryptionPassword>
             </device>
             <device id="IEWMFFZ-HBZJLMN-6XKJIVN-I6HSJUD-Y7Y37SU-4TX5PO6-2E5XCAS-O7HIXA6" introducedBy="">
+                <encryptionPassword></encryptionPassword>
+            </device>
+            <device id="MF4DD3Z-TGAAED5-7JXDJLM-HJNTLVY-CDXD6CH-QLOFTIW-I767E4W-JMV4SQP" introducedBy="">
                 <encryptionPassword></encryptionPassword>
             </device>
             <minDiskFree unit="%">1</minDiskFree>
