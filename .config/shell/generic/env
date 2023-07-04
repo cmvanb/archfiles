@@ -21,7 +21,7 @@ export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
 # Configure pagers.
-export PAGER="ov -F"
+export PAGER="ov -F -X"
 export SYSTEMD_PAGERSECURE=true
 export GIT_PAGER="ov -F -X"
 export BAT_PAGER="ov -F -X"

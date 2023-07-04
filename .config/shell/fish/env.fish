@@ -28,7 +28,7 @@ set -x EDITOR "nvim"
 set -x VISUAL "$EDITOR"
 
 # Configure pager.
-set -x PAGER "ov -F"
+set -x PAGER "ov -F -X"
 set -x SYSTEMD_PAGERSECURE true
 set -x GIT_PAGER "ov -F -X"
 set -x BAT_PAGER "ov -F -X"
