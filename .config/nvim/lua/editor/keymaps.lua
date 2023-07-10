@@ -131,7 +131,6 @@ noremap('<C-z>', 'u')
 
 -- Selection
 --------------------------------------------------------------------------------
-
 -- Visual selection expansion powered by nvim-treesitter.
 nmap('+', 'gnn')
 nmap('-', '<nop>')

@@ -42,13 +42,24 @@ function contrast_color {
         return
     fi
 
-    # Customized color bands
-    if (( color >= 16 )) && (( color < 106 )); then
-        band_base=$(( (color - 5) / 10 ))
-        band_max=$(( (band_base * 10) + 15 ))
-        band_index=$(( (color - 6) % 10 ))
+    # Theme 16-color bands
+    if (( color >= 16 )) && (( color < 80 )); then
+        band_base=$(( (color / 16 ) * 16 ))
+        band_max=$(( band_base + 15 ))
+        band_index=$(( (color - 16) % 16 ))
 
-        (( band_index < 4 )) && printf "$band_max" || printf "0"
+        (( band_index < 8 )) && printf "$band_max" || printf "$band_base"
+        return
+    fi
+
+    # Theme 10-color bands
+    if (( color >= 80 )) && (( color < 160 )); then
+        band_base=$(( (color / 10 ) * 10 ))
+        band_min=$(( band_base + 1 ))
+        band_max=$(( band_base + 9 ))
+        band_index=$(( (color - 10) % 10 ))
+
+        (( band_index < 5 )) && printf "$band_max" || printf "$band_min"
         return
     fi
 
@@ -65,7 +76,7 @@ function print_color {
     printf "\e[48;5;%sm" "$color"
 
     # Contrasted index text
-    printf "\e[38;5;%sm%3d" "$index" "$color"
+    printf "\e[38;5;%sm%4d" "$index" "$color"
 
     # Reset
     printf "\e[0m"
@@ -88,25 +99,52 @@ printf "\n"
 
 printf "\n"
 
-# Print customized color bands.
-print_band 16 10
+# Print theme colors.
+print_band 16 16
 printf "\n"
-print_band 26 10
+print_band 32 16
 printf "\n"
-print_band 36 10
+print_band 48 16
 printf "\n"
-print_band 46 10
+print_band 64 16
 printf "\n"
-print_band 56 10
+
 printf "\n"
-print_band 66 10
+
+print_band 80 10
 printf "\n"
-print_band 76 10
+
+print_band 90 10
 printf "\n"
-print_band 86 10
+
+print_band 100 10
 printf "\n"
-print_band 96 10
+
+print_band 110 10
 printf "\n"
+
+print_band 120 10
+printf "\n"
+
+print_band 130 10
+printf "\n"
+
+print_band 140 10
+printf "\n"
+
+print_band 150 10
+printf "\n"
+
+# print_band 56 10
+# printf "\n"
+# print_band 66 10
+# printf "\n"
+# print_band 76 10
+# printf "\n"
+# print_band 86 10
+# printf "\n"
+# print_band 96 10
+# printf "\n"
 
 # Print unused colors.
 # print_band 106 255

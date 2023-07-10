@@ -164,7 +164,7 @@ hi('PreProc',     'l1_yellow',    'NONE',        'NONE',            'ansi_bryell
 hi('Constant',    'l1_magenta',   'NONE',        'NONE',            'ansi_brmagenta',  'NONE',  'NONE')
 hi('Special',     'yellow',       'NONE',        'bold',            'ansi_yellow',     'NONE',  'NONE')
 hi('Underlined',  'blue',         'NONE',        'underline',       'ansi_blue',       'NONE',  'underline')
-hi('Delimiter',   'ds_green_4',   'NONE',        'NONE',            'ansi_green',      'NONE',  'NONE')
+hi('Delimiter',   'green_4',      'NONE',        'NONE',            'ansi_green',      'NONE',  'NONE')
 hi('String',      'l1_orange',    'NONE',        'NONE',            'ansi_yellow',     'NONE',  'NONE')
 hi('Keyword',     'd1_green',     'NONE',        'bold',            'ansi_brgreen',    'NONE',  'bold')
 hi('Function',    'secondary_15', 'NONE',        'bold',            'ansi_brcyan',     'NONE',  'bold')
