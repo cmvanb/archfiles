@@ -264,10 +264,10 @@ return {
         },
 
         background = theme.color_hash('terminal_bg'),
-        foreground = theme.color_hash('white'),
+        foreground = theme.color_hash('terminal_text'),
 
-        cursor_bg = theme.color_hash('text_15'),
-        cursor_fg = theme.color_hash('text_0'),
+        cursor_bg = theme.color_hash('terminal_text'),
+        cursor_fg = theme.color_hash('terminal_bg'),
 
         selection_bg = theme.color_hash('magenta'),
         selection_fg = theme.color_hash('black'),

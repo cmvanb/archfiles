@@ -155,7 +155,7 @@ set -U tide_context_color_ssh (color_named 'l2_yellow')
 
 # Time
 set -U tide_time_format '%H:%M:%S'
-set -U tide_time_bg_color (color_named 'primary_6')
+set -U tide_time_bg_color (color_named 'terminal_prompt')
 set -U tide_time_color (color_named 'text_12')
 
 # Background jobs
@@ -187,7 +187,7 @@ set -U tide_virtual_env_color (color_named 'ansi_bryellow')
 set -U tide_pwd_icon ''
 set -U tide_pwd_icon_home ''
 set -U tide_pwd_icon_unwritable ''
-set -U tide_pwd_bg_color (color_named 'primary_6')
+set -U tide_pwd_bg_color (color_named 'terminal_prompt')
 set -U tide_pwd_color_anchors (color_named 'text_15')
 set -U tide_pwd_color_dirs (color_named 'text_12')
 set -U tide_pwd_color_truncated_dirs (color_named 'text_12')
