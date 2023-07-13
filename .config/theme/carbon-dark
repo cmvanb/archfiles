@@ -214,6 +214,7 @@ ansi_brwhite=$i15
 
 # Themed
 system_bg=$gray_0
+system_text=$text_15
 
 terminal_bg=$gray_0
 terminal_prompt=$ansi_blue

@@ -5,8 +5,8 @@
   left-margin: 0
   right-margin: 8
 
-  foreground: <% color_named $text_15 %>ff
-  background: <% color_named $gray_0 %>ff
+  foreground: <% color_named $system_text %>ff
+  background: <% color_named $system_bg %>ff
 <% if [ $YADM_CLASS = "qutedell" ]; then %>
   font: <%= $font_mono %>:pixelsize=14:style=bold
 <% else %>

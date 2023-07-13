@@ -213,12 +213,13 @@ ansi_brcyan=$i14
 ansi_brwhite=$i15
 
 # Themed
-system_bg=$gray_0
+system_bg=$text_15
+system_text=$text_0
 
-terminal_bg=$gray_15
+terminal_bg=$text_15
 terminal_prompt=$ansi_blue
 terminal_text=$text_0
 
-editor_bg=$gray_15
+editor_bg=$text_15
 editor_text_normal=$secondary_2
 
