@@ -103,10 +103,10 @@ source $XDG_CONFIG_HOME/theme/theme.fish
 set -U fish_color_autosuggestion (color_named 'text_8')
 set -U fish_color_command (color_named 'ansi_cyan')
 set -U fish_color_comment (color_named 'secondary_5')
-set -U fish_color_end (color_named 'd1_green') # pipe
+set -U fish_color_end (color_named 'green_4') # pipe
 set -U fish_color_error (color_named 'ansi_red')
 set -U fish_color_normal (color_named 'text_12') # search: text
-set -U fish_color_operator (color_named 'd1_green')
+set -U fish_color_operator (color_named 'green_4')
 set -U fish_color_option (color_named 'ansi_bryellow')
 set -U fish_color_param (color_named 'secondary_12')
 set -U fish_color_quote (color_named 'ansi_yellow')
@@ -116,8 +116,8 @@ set -U fish_color_valid_path (color_named 'ansi_brcyan') --bold #--underline
 
 set -U fish_pager_color_completion (color_named 'text_8')
 set -U fish_pager_color_description (color_named 'text_12')
-set -U fish_pager_color_prefix (color_named 'yellow')
-set -U fish_pager_color_progress (color_named 'd1_green')
+set -U fish_pager_color_prefix (color_named 'yellow_5')
+set -U fish_pager_color_progress (color_named 'green_4')
 set -U fish_pager_color_selected_background --background=(color_named 'primary_7')
 set -U fish_pager_color_selected_completion (color_named 'text_15')
 set -U fish_pager_color_selected_description (color_named 'text_15')
@@ -148,10 +148,10 @@ set -U tide_right_prompt_items
 
 # Context (user@hostname)
 set -U tide_context_always_display false
-set -U tide_context_bg_color (color_named 'd4_gray')
+set -U tide_context_bg_color (color_named 'gray_1')
 set -U tide_context_color_default (color_named 'text_15')
-set -U tide_context_color_root (color_named 'l2_red')
-set -U tide_context_color_ssh (color_named 'l2_yellow')
+set -U tide_context_color_root (color_named 'red_7')
+set -U tide_context_color_ssh (color_named 'yellow_7')
 
 # Time
 set -U tide_time_format '%H:%M:%S'
@@ -165,18 +165,18 @@ set -U tide_jobs_color (color_named 'ansi_black')
 
 # Git
 set -U tide_git_icon ''
-set -U tide_git_bg_color (color_named 'd1_green')
-set -U tide_git_bg_color_unstable (color_named 'l1_orange')
+set -U tide_git_bg_color (color_named 'green_4')
+set -U tide_git_bg_color_unstable (color_named 'orange_6')
 set -U tide_git_bg_color_urgent (color_named 'ansi_red')
 # NOTE: Listed in tide documentation, but has no effect.
 # set -U tide_git_color_branch (color_named 'debug')
-set -U tide_git_color_operation (color_named 'black')
-set -U tide_git_color_upstream (color_named 'black')
-set -U tide_git_color_stash (color_named 'black')
-set -U tide_git_color_conflicted (color_named 'black')
-set -U tide_git_color_staged (color_named 'black')
-set -U tide_git_color_dirty (color_named 'black')
-set -U tide_git_color_untracked (color_named 'black')
+set -U tide_git_color_operation (color_named 'gray_0')
+set -U tide_git_color_upstream (color_named 'gray_0')
+set -U tide_git_color_stash (color_named 'gray_0')
+set -U tide_git_color_conflicted (color_named 'gray_0')
+set -U tide_git_color_staged (color_named 'gray_0')
+set -U tide_git_color_dirty (color_named 'gray_0')
+set -U tide_git_color_untracked (color_named 'gray_0')
 
 # Python virtual environment
 set -U tide_virtual_env_icon ''

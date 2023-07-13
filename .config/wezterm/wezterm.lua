@@ -228,38 +228,38 @@ return {
 
     -- Color scheme mapping
     colors = {
-        visual_bell = theme.color_hash('l1_blue'),
+        visual_bell = theme.color_hash('blue_6'),
 
         tab_bar = {
-            background = theme.color_hash('black'),
+            background = theme.color_hash('gray_0'),
 
             active_tab = {
-                bg_color = theme.color_hash('black'),
-                fg_color = theme.color_hash('white'),
+                bg_color = theme.color_hash('gray_0'),
+                fg_color = theme.color_hash('gray_15'),
 
                 intensity = 'Bold',
             },
 
             inactive_tab = {
-                bg_color = theme.color_hash('black'),
-                fg_color = theme.color_hash('gray'),
+                bg_color = theme.color_hash('gray_0'),
+                fg_color = theme.color_hash('gray_5'),
 
                 intensity = 'Normal',
             },
 
             inactive_tab_hover = {
-                bg_color = theme.color_hash('d3_gray'),
-                fg_color = theme.color_hash('l1_gray'),
+                bg_color = theme.color_hash('gray_2'),
+                fg_color = theme.color_hash('gray_4'),
             },
 
             new_tab = {
-                bg_color = theme.color_hash('black'),
-                fg_color = theme.color_hash('gray'),
+                bg_color = theme.color_hash('gray_0'),
+                fg_color = theme.color_hash('gray_5'),
             },
 
             new_tab_hover = {
-                bg_color = theme.color_hash('d3_gray'),
-                fg_color = theme.color_hash('l1_gray'),
+                bg_color = theme.color_hash('gray_2'),
+                fg_color = theme.color_hash('gray_4'),
             },
         },
 
@@ -269,8 +269,8 @@ return {
         cursor_bg = theme.color_hash('terminal_text'),
         cursor_fg = theme.color_hash('terminal_bg'),
 
-        selection_bg = theme.color_hash('magenta'),
-        selection_fg = theme.color_hash('black'),
+        selection_bg = theme.color_hash('magenta_5'),
+        selection_fg = theme.color_hash('gray_0'),
 
         ansi = {
             theme.color_hash('ansi_black'),

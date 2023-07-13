@@ -176,120 +176,6 @@ magenta_7='#ff66a3'
 magenta_8='#ff99c2'
 magenta_9='#ffcce0'
 
-# Legacy theme
-# NOTE: Should be removed once transition to new theme is complete.
-#-------------------------------------------------------------------------------
-# Grayscale
-black='#000000'
-d5_gray='#0b0b0e'
-d4_gray='#17171c'
-d3_gray='#2d2f39'
-d2_gray='#444655'
-d1_gray='#5b5e71'
-gray='#71758e'
-l1_gray='#8e91a4'
-l2_gray='#aaacbb'
-l3_gray='#c6c8d2'
-l4_gray='#e3e3e8'
-l5_gray='#f1f1f4'
-white='#ffffff'
-
-# Red
-d5_red=$red_0
-d4_red=$red_1
-d3_red=$red_2
-d2_red=$red_3
-d1_red=$red_4
-red=$red_5
-l1_red=$red_6
-l2_red=$red_7
-l3_red=$red_8
-l4_red=$red_9
-
-# Orange
-d5_orange=$orange_0
-d4_orange=$orange_1
-d3_orange=$orange_2
-d2_orange=$orange_3
-d1_orange=$orange_4
-orange=$orange_5
-l1_orange=$orange_6
-l2_orange=$orange_7
-l3_orange=$orange_8
-l4_orange=$orange_9
-
-# Yellow
-d5_yellow=$yellow_0
-d4_yellow=$yellow_1
-d3_yellow=$yellow_2
-d2_yellow=$yellow_3
-d1_yellow=$yellow_4
-yellow=$yellow_5
-l1_yellow=$yellow_6
-l2_yellow=$yellow_7
-l3_yellow=$yellow_8
-l4_yellow=$yellow_9
-
-# Green
-d5_green=$green_0
-d4_green=$green_1
-d3_green=$green_2
-d2_green=$green_3
-d1_green=$green_4
-green=$green_5
-l1_green=$green_6
-l2_green=$green_7
-l3_green=$green_8
-l4_green=$green_9
-
-# Cyan
-d5_cyan=$cyan_0
-d4_cyan=$cyan_1
-d3_cyan=$cyan_2
-d2_cyan=$cyan_3
-d1_cyan=$cyan_4
-cyan=$cyan_5
-l1_cyan=$cyan_6
-l2_cyan=$cyan_7
-l3_cyan=$cyan_8
-l4_cyan=$cyan_9
-
-# Blue
-d5_blue=$blue_0
-d4_blue=$blue_1
-d3_blue=$blue_2
-d2_blue=$blue_3
-d1_blue=$blue_4
-blue=$blue_5
-l1_blue=$blue_6
-l2_blue=$blue_7
-l3_blue=$blue_8
-l4_blue=$blue_9
-
-# Purple
-d5_purple=$purple_0
-d4_purple=$purple_1
-d3_purple=$purple_2
-d2_purple=$purple_3
-d1_purple=$purple_4
-purple=$purple_5
-l1_purple=$purple_6
-l2_purple=$purple_7
-l3_purple=$purple_8
-l4_purple=$purple_9
-
-# Magenta
-d5_magenta=$magenta_0
-d4_magenta=$magenta_1
-d3_magenta=$magenta_2
-d2_magenta=$magenta_3
-d1_magenta=$magenta_4
-magenta=$magenta_5
-l1_magenta=$magenta_6
-l2_magenta=$magenta_7
-l3_magenta=$magenta_8
-l4_magenta=$magenta_9
-
 # 16 indexed colors
 i0=$gray_0
 i1=$red_4
@@ -327,6 +213,8 @@ ansi_brcyan=$i14
 ansi_brwhite=$i15
 
 # Themed
+system_bg=$gray_0
+
 terminal_bg=$gray_15
 terminal_prompt=$ansi_blue
 terminal_text=$text_0

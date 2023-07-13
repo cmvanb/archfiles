@@ -15,8 +15,8 @@ local colors = {
     selected_fg     =  theme.color_hash('l4_blue'),
     selected_d1_fg  =  theme.color_hash('ds_blue_9'),
     modified        =  theme.color_hash('l1_orange'),
-    pick_bg         =  theme.color_hash('white'),
-    pick_fg         =  theme.color_hash('black'),
+    pick_bg         =  theme.color_hash('gray_15'),
+    pick_fg         =  theme.color_hash('gray_0'),
 }
 
 -- Construct theme
@@ -227,7 +227,7 @@ return {
 
     offset_separator = {
         -- bg = theme.color_hash('debug'),
-        -- fg = theme.color_hash('white'),
+        -- fg = theme.color_hash('gray_15'),
     },
 }
 

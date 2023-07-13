@@ -16,14 +16,14 @@ local colors = {
 
     normal_bg   = theme.color_hash('primary_6'),
     normal_fg   = theme.color_hash('text_15'),
-    insert_bg   = theme.color_hash('d3_green'),
-    insert_fg   = theme.color_hash('green'),
-    visual_bg   = theme.color_hash('d1_magenta'),
-    visual_fg   = theme.color_hash('l4_magenta'),
-    command_bg  = theme.color_hash('d2_orange'),
-    command_fg  = theme.color_hash('l1_yellow'),
-    replace_bg  = theme.color_hash('d2_purple'),
-    replace_fg  = theme.color_hash('l3_purple'),
+    insert_bg   = theme.color_hash('green_2'),
+    insert_fg   = theme.color_hash('green_5'),
+    visual_bg   = theme.color_hash('magenta_4'),
+    visual_fg   = theme.color_hash('magenta_9'),
+    command_bg  = theme.color_hash('orange_3'),
+    command_fg  = theme.color_hash('yellow_6'),
+    replace_bg  = theme.color_hash('purple_3'),
+    replace_fg  = theme.color_hash('purple_8'),
 }
 
 -- Construct theme
