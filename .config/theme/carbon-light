@@ -9,22 +9,22 @@
 debug='#ff00ff'
 
 # Primary
- primary_0='#000610'
- primary_1='#000d1e'
- primary_2='#00152d'
- primary_3='#011d3c'
- primary_4='#01244b'
- primary_5='#022c5a'
- primary_6='#023469'
- primary_7='#023b78'
- primary_8='#034387'
- primary_9='#034b96'
-primary_10='#055eb5'
-primary_11='#056dc4'
-primary_12='#057cd3'
-primary_13='#058be1'
-primary_14='#059af0'
-primary_15='#05aaff'
+ primary_0='#034b96'
+ primary_1='#0356a3'
+ primary_2='#0362b0'
+ primary_3='#036ebd'
+ primary_4='#0379ca'
+ primary_5='#0385d7'
+ primary_6='#0391e4'
+ primary_7='#039df1'
+ primary_8='#17b0fe'
+ primary_9='#29b6fe'
+primary_10='#3cbcfe'
+primary_11='#4ec2fe'
+primary_12='#61c8fe'
+primary_13='#73cefe'
+primary_14='#86d4fe'
+primary_15='#99dbfe'
 
 # Text
  text_0='#001030'
@@ -45,22 +45,22 @@ text_14='#cddded'
 text_15='#dfefff'
 
 # Secondary
- secondary_0='#000e14'
- secondary_1='#02151d'
- secondary_2='#041d27'
- secondary_3='#062431'
- secondary_4='#082c3b'
- secondary_5='#0a3344'
- secondary_6='#0c3b4e'
- secondary_7='#0e4e65'
- secondary_8='#0d5d74'
- secondary_9='#0c6c84'
-secondary_10='#0b7b93'
-secondary_11='#0a8aa2'
-secondary_12='#0999b1'
-secondary_13='#08a8c0'
-secondary_14='#07b7cf'
-secondary_15='#06c6df'
+ secondary_0='#0d5d74'
+ secondary_1='#0c6a81'
+ secondary_2='#0b778e'
+ secondary_3='#0a849b'
+ secondary_4='#0991a8'
+ secondary_5='#089eb6'
+ secondary_6='#07abc3'
+ secondary_7='#06b8d0'
+ secondary_8='#16c9e1'
+ secondary_9='#26cde3'
+secondary_10='#37d1e5'
+secondary_11='#47d5e7'
+secondary_12='#58d8e9'
+secondary_13='#68dceb'
+secondary_14='#79e0ed'
+secondary_15='#8ae4f0'
 
 # Gray
  gray_0='#0b0b0e'
@@ -213,11 +213,10 @@ ansi_brcyan=$i14
 ansi_brwhite=$i15
 
 # Themed
-system_bg=$text_15
+system_bg=$text_14
 system_text=$text_0
 
 terminal_bg=$text_15
-terminal_prompt=$ansi_blue
 terminal_text=$text_0
 
 editor_bg=$text_15

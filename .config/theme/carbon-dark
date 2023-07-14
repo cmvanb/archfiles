@@ -217,7 +217,6 @@ system_bg=$gray_0
 system_text=$text_15
 
 terminal_bg=$gray_0
-terminal_prompt=$ansi_blue
 terminal_text=$text_15
 
 editor_bg=$primary_0
