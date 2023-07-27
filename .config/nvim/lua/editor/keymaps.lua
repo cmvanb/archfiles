@@ -131,11 +131,17 @@ noremap('<C-z>', 'u')
 
 -- Selection
 --------------------------------------------------------------------------------
--- Visual selection expansion powered by nvim-treesitter.
-nmap('+', 'gnn')
+nmap('+', '<nop>')
+xmap('+', '<nop>')
 nmap('-', '<nop>')
-xmap('+', 'grn')
-xmap('-', 'grm')
+xmap('-', '<nop>')
+
+-- Visual selection expansion powered by nvim-treesitter.
+-- NOTE: These mappings don't work nicely.
+-- nnoremap('+', '<cmd>lua require"nvim-treesitter.incremental_selection".init_selection()<cr>')
+-- xnoremap('+', '<cmd>lua require"nvim-treesitter.incremental_selection".node_incremental()<cr>')
+-- nnoremap('-', '<cmd>lua require"nvim-treesitter.incremental_selection".node_decremental()<cr>')
+-- xnoremap('-', '<cmd>lua require"nvim-treesitter.incremental_selection".node_decremental()<cr>')
 
 -- Visual block select
 noremap('<leader>v', '<C-v>')
@@ -180,8 +186,8 @@ noremap('<leader>b', function() require('telescope.builtin').buffers({}) end)
 noremap('<leader>g', function() require('telescope.builtin').live_grep({}) end)
 noremap('<leader>i', function() require('telescope.builtin').symbols({}) end)
 
--- Clear search buffer, clear command line and go to start of line
-noremap('<leader>l', '<cmd>noh<cr>:echo ""<cr>')
+-- Clear search highlight, clear command line and clear search pattern.
+noremap('<leader>l', ':noh<cr>:let @/=""<cr>:echo ""<cr>')
 
 -- Windows
 --------------------------------------------------------------------------------
