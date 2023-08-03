@@ -223,7 +223,7 @@ inoremap('<C-s>', '<esc>:wa!<cr>')
 nnoremap('<C-q>', ':Bdelete<cr>', true)
 
 -- Close NVIM without saving
-noremap('<Leader>q', ':qa!<cr>')
+noremap('<leader>q', ':qa!<cr>')
 
 -- Sessions
 --------------------------------------------------------------------------------
