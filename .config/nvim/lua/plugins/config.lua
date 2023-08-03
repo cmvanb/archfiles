@@ -42,6 +42,14 @@ return {
     -- Redirect output to scratch buffer.
     { 'sbulav/nredir.nvim' },
 
+    -- Auto formatting.
+    {
+        'nvimdev/guard.nvim',
+        config = function()
+            do_load('plugins/guard')
+        end
+    },
+
     -- Mason is a package manager for LSP tooling such as language servers,
     -- debug servers, linters and formatters.
     {
@@ -174,6 +182,9 @@ return {
 
     -- Fish syntax highlighting.
     { 'khaveesh/vim-fish-syntax' },
+
+    -- Nix syntax highlighting.
+    { 'LnL7/vim-nix' },
 
     -- Zig syntax highlighting.
     { 'ziglang/zig.vim' },
