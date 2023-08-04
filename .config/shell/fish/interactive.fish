@@ -20,7 +20,7 @@ alias sysyadm "sudo yadm --yadm-dir /etc/yadm --yadm-data /etc/yadm/data"
 alias yaya "yay -S --removemake --answerclean All --answerdiff None --noconfirm"
 
 alias edit "$EDITOR"
-alias exa "exa --group-directories-first"
+alias exa "exa -l --group-directories-first"
 
 abbr -a gs git status
 abbr -a gsu git status -u
@@ -42,10 +42,10 @@ abbr -a ed edit
 abbr -a edi edit
 abbr -a ex exa
 abbr -a lf lfcd
-abbr -a ls exa -l
-abbr -a lsa exa -al
-abbr -a lsi exa -l --git-ignore
-abbr -a lst exa -lT --git-ignore
+abbr -a ls exa
+abbr -a lsa exa -a
+abbr -a lst exa -T --git-ignore
+abbr -a lsat exa -aT --git-ignore
 abbr -a ip ip -c
 
 # Bindings
@@ -58,7 +58,7 @@ bind \cb ''
 bind \cf 'lfcd; commandline -f repaint'
 
 # nvim
-bind \ce 'edit .; commandline -f repaint'
+bind \ce 'edit; commandline -f repaint'
 
 # Clear screen
 bind \cl 'clear; commandline -f repaint'
