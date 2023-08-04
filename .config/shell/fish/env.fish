@@ -27,12 +27,6 @@ set -x BROWSER "qutebrowser"
 set -x EDITOR "nvim"
 set -x VISUAL "$EDITOR"
 
-# Configure pager.
-set -x PAGER "ov -F -X"
-set -x SYSTEMD_PAGERSECURE true
-set -x GIT_PAGER "ov -F -X"
-set -x BAT_PAGER "ov -F -X"
-
 # Configure ls/exa.
 set -x LS_COLORS "no=37:fi=37:di=34;1:ln=33:or=31:mi=31:ex=32;1:*.pdf=37:*.zip=37"
 
