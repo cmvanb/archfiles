@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Load river environment.
 source $XDG_CONFIG_HOME/river/environment.sh

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Retrieve system theme vars
 source $XDG_CONFIG_HOME/theme/fonts

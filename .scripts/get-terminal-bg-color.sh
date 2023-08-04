@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Source:
 # https://stackoverflow.com/questions/2507337/how-to-determine-a-terminals-background-color

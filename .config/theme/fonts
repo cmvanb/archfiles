@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 font_mono='Iosevka Nerd Font Mono'
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # TODO: Save active tag on source output, restore it on destination output.
 

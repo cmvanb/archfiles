@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #-------------------------------------------------------------------------------
 # Cast a video file with embedded subtitle tracks.

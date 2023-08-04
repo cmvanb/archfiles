@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 packer_compiled=$XDG_DATA_HOME/nvim/plugin/packer_compiled.lua
 packer_data_dir=$XDG_DATA_HOME/nvim/site/pack/packer

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 exec $HOME/.local/bin/river-run
 

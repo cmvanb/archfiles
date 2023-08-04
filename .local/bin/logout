@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # NOTE: The path variable is not overriding the shell builtin in bash, so it
 # can't be invoked with `logout` in bash.

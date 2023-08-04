@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set_terminal_bg_color() {
     local COLOR="$1"
