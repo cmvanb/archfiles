@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #-------------------------------------------------------------------------------
 # Kill any running Yambar instances

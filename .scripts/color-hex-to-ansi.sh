@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #-------------------------------------------------------------------------------
 # Convert a hexadecimal color code (000000 -> ffffff) to an ANSI terminal escape

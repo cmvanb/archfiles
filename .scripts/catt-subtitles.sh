@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #-------------------------------------------------------------------------------
 # Cast a video file with embedded subtitle tracks.

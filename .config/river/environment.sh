@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Tells libseat what login daemon we're using so it doesn't have to cry about it.
 export LIBSEAT_BACKEND=logind

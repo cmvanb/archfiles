@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if [[ "${TRACE-0}" == "1" ]]; then set -o xtrace; fi
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #-------------------------------------------------------------------------------
 # Print terminal colors and indices.
