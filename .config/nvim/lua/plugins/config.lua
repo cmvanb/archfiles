@@ -54,6 +54,13 @@ return {
     -- debug servers, linters and formatters.
     {
         'williamboman/mason.nvim',
+        config = function()
+            require('mason').setup({
+                ui = {
+                    border = 'rounded',
+                },
+            })
+        end,
     },
     {
         'williamboman/mason-lspconfig.nvim',
@@ -62,7 +69,7 @@ return {
         },
     },
 
-    -- Default language server configurations
+    -- LSP configuration. Includes configuration for mason-lspconfig.
     {
         'neovim/nvim-lspconfig',
         after = {
@@ -121,6 +128,7 @@ return {
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-nvim-lua' },
     { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-nvim-lsp-signature-help' },
     { 'saadparwaiz1/cmp_luasnip' },
     { 'f3fora/cmp-spell' },
 

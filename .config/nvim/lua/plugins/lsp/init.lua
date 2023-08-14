@@ -4,6 +4,53 @@
 -- Based on: https://github.com/VonHeikemen/lsp-zero.nvim/wiki/Under-the-hood
 --------------------------------------------------------------------------------
 
+-- LSP configuration
+local lspconfig = require('lspconfig')
+
+local sign = function(opts)
+    vim.fn.sign_define(opts.name, {
+        texthl = opts.name,
+        text = opts.text,
+        numhl = ''
+    })
+end
+
+sign({ name = 'DiagnosticSignError', text = '✘' })
+sign({ name = 'DiagnosticSignWarn', text = '' })
+sign({ name = 'DiagnosticSignHint', text = '󰌵' })
+sign({ name = 'DiagnosticSignInfo', text = 'ℹ' })
+
+vim.diagnostic.config({
+    virtual_text = false,
+    signs = true,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+        focusable = false,
+        style = 'minimal',
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+    },
+})
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+    vim.lsp.handlers.hover,
+    {
+        border = 'rounded',
+    }
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+    vim.lsp.handlers.signature_help,
+    {
+        border = 'rounded',
+    }
+)
+
+-- LSP functions
 local function lsp_keymaps(bufnr)
     -- TODO: Extract
     local map = function(m, lhs, rhs)
@@ -13,68 +60,18 @@ local function lsp_keymaps(bufnr)
 
     -- LSP actions
     map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<cr>')
-    map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-    map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-    map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-    map('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-    map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-    map('n', 'gH', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    map('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     map('n', 'gc', '<cmd>lua vim.lsp.buf.rename()<cr>')
     map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>')
     map('x', 'ga', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
 
     -- Diagnostics
-    map('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<cr>')
-    map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-    map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+    map('n', 'gp', '<cmd>lua vim.diagnostic.open_float()<cr>')
+    map('n', 'gj', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+    map('n', 'gk', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 end
 
-local function lsp_settings()
-    local sign = function(opts)
-        vim.fn.sign_define(opts.name, {
-            texthl = opts.name,
-            text = opts.text,
-            numhl = ''
-        })
-    end
-
-    sign({ name = 'DiagnosticSignError', text = '✘' })
-    sign({ name = 'DiagnosticSignWarn', text = '⚠' })
-    sign({ name = 'DiagnosticSignHint', text = '' })
-    sign({ name = 'DiagnosticSignInfo', text = 'ℹ' })
-
-    vim.diagnostic.config({
-        virtual_text = false,
-        signs = true,
-        update_in_insert = false,
-        underline = true,
-        severity_sort = true,
-        float = {
-            focusable = false,
-            style = 'minimal',
-            border = 'rounded',
-            source = 'always',
-            header = '',
-            prefix = '',
-        },
-    })
-
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        {
-            border = 'rounded',
-        }
-    )
-
-    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        {
-            border = 'rounded',
-        }
-    )
-end
-
-local function lsp_attach(client, bufnr)
+local function lsp_attach(_, bufnr)
     local buf_command = vim.api.nvim_buf_create_user_command
 
     lsp_keymaps(bufnr)
@@ -84,24 +81,39 @@ local function lsp_attach(client, bufnr)
     end, { desc = 'Format buffer with language server' })
 end
 
--- Setup
-lsp_settings()
-
-require('mason').setup({
-    ui = {
-        border = 'rounded',
+-- Mason/LSP integration
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup({
+    -- A list of servers to automatically install if they're not already installed.
+    ensure_installed = {
+        "bashls",
+        "clangd",
+        "cssls",
+        "dockerls",
+        "html",
+        "jsonls",
+        "lua_ls",
+        "pyright",
+        "terraformls",
+        "tsserver",
+        "yamlls",
     },
 })
 
-local mason_lspconfig = require('mason-lspconfig')
-mason_lspconfig.setup({})
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+lsp_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 mason_lspconfig.setup_handlers({
+    -- The first entry (without a key) will be the default handler and will be
+    -- called for each installed server that doesn't have a dedicated handler.
     function(server_name)
-        require('lspconfig')[server_name].setup({
+        lspconfig[server_name].setup({
             on_attach = lsp_attach,
-            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            capabilities = lsp_capabilities,
         })
     end
+
+    -- Here you can provide targeted overrides for specific servers.
+    --  see: https://github.com/williamboman/mason.nvim/discussions/92
 })
 
