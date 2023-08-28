@@ -4,7 +4,7 @@ Requires=basic.target
 After=basic.target
 
 [Service]
-ExecStart=/usr/bin/udiskie
+ExecStart=udiskie
 Restart=always
 RestartSec=3
 
